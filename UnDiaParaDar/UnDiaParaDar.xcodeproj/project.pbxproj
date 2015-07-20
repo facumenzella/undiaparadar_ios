@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11A0940B1B5D61B100E4FB06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0940A1B5D61B100E4FB06 /* main.m */; };
+		11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0940D1B5D61B100E4FB06 /* AppDelegate.m */; };
+		11A094161B5D61B100E4FB06 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A094151B5D61B100E4FB06 /* Images.xcassets */; };
+		11A094251B5D61B100E4FB06 /* UnDiaParaDarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A094241B5D61B100E4FB06 /* UnDiaParaDarTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		11A0941F1B5D61B100E4FB06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11A093FD1B5D61B100E4FB06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11A094041B5D61B100E4FB06;
+			remoteInfo = UnDiaParaDar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		11A094051B5D61B100E4FB06 /* UnDiaParaDar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnDiaParaDar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		11A094091B5D61B100E4FB06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11A0940A1B5D61B100E4FB06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		11A0940C1B5D61B100E4FB06 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		11A0940D1B5D61B100E4FB06 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		11A094151B5D61B100E4FB06 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		11A0941E1B5D61B100E4FB06 /* UnDiaParaDarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnDiaParaDarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		11A094231B5D61B100E4FB06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11A094241B5D61B100E4FB06 /* UnDiaParaDarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnDiaParaDarTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		11A094021B5D61B100E4FB06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11A0941B1B5D61B100E4FB06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11A093FC1B5D61B100E4FB06 = {
+			isa = PBXGroup;
+			children = (
+				11A094071B5D61B100E4FB06 /* UnDiaParaDar */,
+				11A094211B5D61B100E4FB06 /* UnDiaParaDarTests */,
+				11A094061B5D61B100E4FB06 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		11A094061B5D61B100E4FB06 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				11A094051B5D61B100E4FB06 /* UnDiaParaDar.app */,
+				11A0941E1B5D61B100E4FB06 /* UnDiaParaDarTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
+			isa = PBXGroup;
+			children = (
+				11A0940C1B5D61B100E4FB06 /* AppDelegate.h */,
+				11A0940D1B5D61B100E4FB06 /* AppDelegate.m */,
+				11A094151B5D61B100E4FB06 /* Images.xcassets */,
+				11A094081B5D61B100E4FB06 /* Supporting Files */,
+			);
+			path = UnDiaParaDar;
+			sourceTree = "<group>";
+		};
+		11A094081B5D61B100E4FB06 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				11A094091B5D61B100E4FB06 /* Info.plist */,
+				11A0940A1B5D61B100E4FB06 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		11A094211B5D61B100E4FB06 /* UnDiaParaDarTests */ = {
+			isa = PBXGroup;
+			children = (
+				11A094241B5D61B100E4FB06 /* UnDiaParaDarTests.m */,
+				11A094221B5D61B100E4FB06 /* Supporting Files */,
+			);
+			path = UnDiaParaDarTests;
+			sourceTree = "<group>";
+		};
+		11A094221B5D61B100E4FB06 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				11A094231B5D61B100E4FB06 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		11A094041B5D61B100E4FB06 /* UnDiaParaDar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11A094281B5D61B100E4FB06 /* Build configuration list for PBXNativeTarget "UnDiaParaDar" */;
+			buildPhases = (
+				11A094011B5D61B100E4FB06 /* Sources */,
+				11A094021B5D61B100E4FB06 /* Frameworks */,
+				11A094031B5D61B100E4FB06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UnDiaParaDar;
+			productName = UnDiaParaDar;
+			productReference = 11A094051B5D61B100E4FB06 /* UnDiaParaDar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		11A0941D1B5D61B100E4FB06 /* UnDiaParaDarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11A0942B1B5D61B100E4FB06 /* Build configuration list for PBXNativeTarget "UnDiaParaDarTests" */;
+			buildPhases = (
+				11A0941A1B5D61B100E4FB06 /* Sources */,
+				11A0941B1B5D61B100E4FB06 /* Frameworks */,
+				11A0941C1B5D61B100E4FB06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11A094201B5D61B100E4FB06 /* PBXTargetDependency */,
+			);
+			name = UnDiaParaDarTests;
+			productName = UnDiaParaDarTests;
+			productReference = 11A0941E1B5D61B100E4FB06 /* UnDiaParaDarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		11A093FD1B5D61B100E4FB06 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = ITBA;
+				TargetAttributes = {
+					11A094041B5D61B100E4FB06 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					11A0941D1B5D61B100E4FB06 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 11A094041B5D61B100E4FB06;
+					};
+				};
+			};
+			buildConfigurationList = 11A094001B5D61B100E4FB06 /* Build configuration list for PBXProject "UnDiaParaDar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 11A093FC1B5D61B100E4FB06;
+			productRefGroup = 11A094061B5D61B100E4FB06 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				11A094041B5D61B100E4FB06 /* UnDiaParaDar */,
+				11A0941D1B5D61B100E4FB06 /* UnDiaParaDarTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		11A094031B5D61B100E4FB06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11A094161B5D61B100E4FB06 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11A0941C1B5D61B100E4FB06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		11A094011B5D61B100E4FB06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */,
+				11A0940B1B5D61B100E4FB06 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11A0941A1B5D61B100E4FB06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11A094251B5D61B100E4FB06 /* UnDiaParaDarTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		11A094201B5D61B100E4FB06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11A094041B5D61B100E4FB06 /* UnDiaParaDar */;
+			targetProxy = 11A0941F1B5D61B100E4FB06 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		11A094261B5D61B100E4FB06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		11A094271B5D61B100E4FB06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		11A094291B5D61B100E4FB06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = UnDiaParaDar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		11A0942A1B5D61B100E4FB06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = UnDiaParaDar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		11A0942C1B5D61B100E4FB06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = UnDiaParaDarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UnDiaParaDar.app/UnDiaParaDar";
+			};
+			name = Debug;
+		};
+		11A0942D1B5D61B100E4FB06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = UnDiaParaDarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UnDiaParaDar.app/UnDiaParaDar";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		11A094001B5D61B100E4FB06 /* Build configuration list for PBXProject "UnDiaParaDar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11A094261B5D61B100E4FB06 /* Debug */,
+				11A094271B5D61B100E4FB06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11A094281B5D61B100E4FB06 /* Build configuration list for PBXNativeTarget "UnDiaParaDar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11A094291B5D61B100E4FB06 /* Debug */,
+				11A0942A1B5D61B100E4FB06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		11A0942B1B5D61B100E4FB06 /* Build configuration list for PBXNativeTarget "UnDiaParaDarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11A0942C1B5D61B100E4FB06 /* Debug */,
+				11A0942D1B5D61B100E4FB06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 11A093FD1B5D61B100E4FB06 /* Project object */;
+}
