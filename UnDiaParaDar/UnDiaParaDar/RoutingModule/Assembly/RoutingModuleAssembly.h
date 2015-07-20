@@ -8,9 +8,11 @@
 
 #import "TyphoonAssembly.h"
 #import "Director.h"
+#import "Routing.h"
 
 @interface RoutingModuleAssembly : TyphoonAssembly
 
 - (id<Director>) iphoneDirector;
+- (id<Routing>) routing;
 
 @end

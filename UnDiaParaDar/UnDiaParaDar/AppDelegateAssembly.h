@@ -1,17 +1,17 @@
 //
-//  TyphoonInitializer.h
+//  AppDelegateAssembly.h
 //  UnDiaParaDar
 //
 //  Created by Facundo Menzella on 7/20/15.
 //  Copyright (c) 2015 ITBA. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "TyphoonAssembly.h"
 
 @class AppDelegate;
 
-@interface TyphoonInitializer : NSObject
+@interface AppDelegateAssembly : TyphoonAssembly
 
-+ (void)setup;
+- (AppDelegate*)appDelegate;
 
 @end

@@ -8,8 +8,20 @@
 
 #import "RoutingModuleAssembly.h"
 #import "SWRevealDirector.h"
+#import "UDPDRouting.h"
 
 @implementation RoutingModuleAssembly
+
+- (id<Routing>) routing
+{
+    SEL selector = @selector(init);
+    return [TyphoonDefinition withClass:[UDPDRouting class]
+                          configuration:^(TyphoonDefinition* definition) {
+                              [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
+                                  // parameters soon to be added
+                              }];
+                          }];
+}
 
 - (id<Director>) iphoneDirector
 {

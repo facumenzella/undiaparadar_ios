@@ -10,4 +10,6 @@
 
 @protocol Routing <NSObject>
 
+- (void)showLoginPage;
+
 @end

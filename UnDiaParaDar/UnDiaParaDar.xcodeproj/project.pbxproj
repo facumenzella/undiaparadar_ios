@@ -18,6 +18,7 @@
 		11DEE6A91B5D774900DCDE3E /* SWRevealDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6A61B5D774900DCDE3E /* SWRevealDirector.m */; };
 		11DEE6AA1B5D774900DCDE3E /* UDPDRouting.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6A81B5D774900DCDE3E /* UDPDRouting.m */; };
 		11DEE6AD1B5D778F00DCDE3E /* RoutingModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6AC1B5D778F00DCDE3E /* RoutingModuleAssembly.m */; };
+		11DEE6B01B5D7D9300DCDE3E /* AppDelegateAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6AF1B5D7D9300DCDE3E /* AppDelegateAssembly.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		11DEE6A81B5D774900DCDE3E /* UDPDRouting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPDRouting.m; sourceTree = "<group>"; };
 		11DEE6AB1B5D778F00DCDE3E /* RoutingModuleAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoutingModuleAssembly.h; path = UnDiaParaDar/RoutingModule/Assembly/RoutingModuleAssembly.h; sourceTree = SOURCE_ROOT; };
 		11DEE6AC1B5D778F00DCDE3E /* RoutingModuleAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoutingModuleAssembly.m; path = UnDiaParaDar/RoutingModule/Assembly/RoutingModuleAssembly.m; sourceTree = SOURCE_ROOT; };
+		11DEE6AE1B5D7D9300DCDE3E /* AppDelegateAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegateAssembly.h; sourceTree = "<group>"; };
+		11DEE6AF1B5D7D9300DCDE3E /* AppDelegateAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegateAssembly.m; sourceTree = "<group>"; };
 		359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnDiaParaDar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A108957507AEF20E1CD92D55 /* Pods-UnDiaParaDar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnDiaParaDar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +121,8 @@
 				11A094081B5D61B100E4FB06 /* Supporting Files */,
 				11DEE6951B5D6F6D00DCDE3E /* TyphoonInitializer.h */,
 				11DEE6961B5D6F6D00DCDE3E /* TyphoonInitializer.m */,
+				11DEE6AE1B5D7D9300DCDE3E /* AppDelegateAssembly.h */,
+				11DEE6AF1B5D7D9300DCDE3E /* AppDelegateAssembly.m */,
 			);
 			path = UnDiaParaDar;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 				11DEE6AA1B5D774900DCDE3E /* UDPDRouting.m in Sources */,
 				11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */,
 				11A0940B1B5D61B100E4FB06 /* main.m in Sources */,
+				11DEE6B01B5D7D9300DCDE3E /* AppDelegateAssembly.m in Sources */,
 				11DEE6911B5D6DF900DCDE3E /* LoginViewController.m in Sources */,
 				11DEE6A91B5D774900DCDE3E /* SWRevealDirector.m in Sources */,
 				11DEE6941B5D6E7F00DCDE3E /* LoginModuleAssembly.m in Sources */,

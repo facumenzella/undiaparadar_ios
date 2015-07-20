@@ -9,9 +9,11 @@
 #import "AppDelegate.h"
 
 #import "TyphoonInitializer.h"
+#import "Routing.h"
 
 @interface AppDelegate ()
 
+@property (nonatomic, strong) id<Routing> routing;
 
 @end
 
@@ -24,6 +26,8 @@
     [self.window makeKeyAndVisible];
     
     [TyphoonInitializer setup];
+    
+    [self.routing showLoginPage];
     
     return YES;
 }
