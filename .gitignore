@@ -1,0 +1,77 @@
+# OS X Finder
+.DS_Store
+
+# Xcode per-user config
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+xcuserdata
+*.xccheckout
+
+# Build products
+build/
+*.o
+*.LinkFileList
+*.hmap
+
+# Automatic backup files
+*~.nib/
+*.sw[a-z]
+*~
+*.dat
+*.dep
+
+# Cocoapods
+Pods
+
+# AppCode specific files
+.idea/
+*.iml
+
+# Others
+compile_commands.json
+
+# Original .gitignore contents
+# OS X Finder
+.DS_Store
+
+# Xcode per-user config
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+xcuserdata
+*.xccheckout
+
+# Build products
+build/
+*.o
+*.LinkFileList
+*.hmap
+
+# Automatic backup files
+*~.nib/
+*.sw[a-z]
+*~
+*.dat
+*.dep
+
+# Cocoapods
+Pods
+
+# AppCode specific files
+.idea/
+*.iml
+
+# Others
+compile_commands.json
+content_hash.h
+
+fastlane/build/*
+*.mobileprovision
+fastlane/report.xml
