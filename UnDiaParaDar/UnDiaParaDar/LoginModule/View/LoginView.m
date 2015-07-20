@@ -11,14 +11,21 @@
 #import <UIView+AutoLayout.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
+@interface LoginView ()
+
+@property (nonatomic, assign) id<FBSDKLoginButtonDelegate> loginDelegate;
+
+@end
+
 @implementation LoginView
 
 #pragma mark - LoginView
 
-- (instancetype) init
+- (instancetype) initWithFacebookLoginDelegate:(id<FBSDKLoginButtonDelegate>)loginDelegate
 {
     self = [super init];
     if (self) {
+        self.loginDelegate = loginDelegate;
         [self buildSubviews];
     }
     return self;
@@ -35,6 +42,7 @@
 - (void)buildLoginButton
 {
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    loginButton.delegate = self.loginDelegate;
     loginButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview:loginButton];
     [loginButton autoAlignAxisToSuperviewAxis:ALAxisVertical];

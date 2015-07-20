@@ -20,6 +20,7 @@
 		11DEE6AD1B5D778F00DCDE3E /* RoutingModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6AC1B5D778F00DCDE3E /* RoutingModuleAssembly.m */; };
 		11DEE6B01B5D7D9300DCDE3E /* AppDelegateAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6AF1B5D7D9300DCDE3E /* AppDelegateAssembly.m */; };
 		11DEE6B31B5D818500DCDE3E /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6B21B5D818500DCDE3E /* LoginView.m */; };
+		11DEE6B61B5D937F00DCDE3E /* FacebookLoginFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6B51B5D937F00DCDE3E /* FacebookLoginFlow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		11DEE6AF1B5D7D9300DCDE3E /* AppDelegateAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegateAssembly.m; sourceTree = "<group>"; };
 		11DEE6B11B5D818500DCDE3E /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		11DEE6B21B5D818500DCDE3E /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
+		11DEE6B41B5D937F00DCDE3E /* FacebookLoginFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookLoginFlow.h; sourceTree = "<group>"; };
+		11DEE6B51B5D937F00DCDE3E /* FacebookLoginFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookLoginFlow.m; sourceTree = "<group>"; };
 		359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnDiaParaDar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A108957507AEF20E1CD92D55 /* Pods-UnDiaParaDar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnDiaParaDar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,6 +200,8 @@
 			children = (
 				11DEE68F1B5D6DF900DCDE3E /* LoginViewController.h */,
 				11DEE6901B5D6DF900DCDE3E /* LoginViewController.m */,
+				11DEE6B41B5D937F00DCDE3E /* FacebookLoginFlow.h */,
+				11DEE6B51B5D937F00DCDE3E /* FacebookLoginFlow.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11DEE6B61B5D937F00DCDE3E /* FacebookLoginFlow.m in Sources */,
 				11DEE6AD1B5D778F00DCDE3E /* RoutingModuleAssembly.m in Sources */,
 				11DEE6971B5D6F6D00DCDE3E /* TyphoonInitializer.m in Sources */,
 				11DEE6AA1B5D774900DCDE3E /* UDPDRouting.m in Sources */,

@@ -9,10 +9,12 @@
 #import "LoginViewController.h"
 #import "LoginView.h"
 #import "Routing.h"
+#import "FacebookLoginFlow.h"
 
-@interface LoginViewController ()
+@interface LoginViewController ()<LoginDelegate>
 
 @property (nonatomic, strong) id<Routing> routing;
+@property (nonatomic, strong) FacebookLoginFlow *loginFlow;
 
 @end
 
@@ -25,13 +27,25 @@
     self = [super init];
     if (self) {
         self.routing = routing;
+        self.loginFlow = [[FacebookLoginFlow alloc] initWithLoginDelegate:self];
     }
     return self;
 }
 
 - (void)loadView
 {
-    self.view = [[LoginView alloc] init];
+    self.view = [[LoginView alloc] initWithFacebookLoginDelegate:self.loginFlow];
 }
 
+#pragma mark - LoginDelegate
+
+- (void)loginSucceded
+{
+    NSLog(@"Go to main screen");
+}
+
+- (void)loginDidFail
+{
+    NSLog(@"Holy shit");
+}
 @end

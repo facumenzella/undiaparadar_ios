@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol FBSDKLoginButtonDelegate;
+
 @interface LoginView : UIView
+
+- (instancetype) initWithFacebookLoginDelegate:(id<FBSDKLoginButtonDelegate>)loginDelegate;
 
 @end
