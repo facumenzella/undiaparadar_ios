@@ -10,13 +10,15 @@
 
 #import "TyphoonInitializer.h"
 #import "LoginModuleAssembly.h"
+#import "RoutingModuleAssembly.h"
 
 @implementation TyphoonInitializer
 
 + (void)setup
 {
     TyphoonComponentFactory* factory = [[TyphoonBlockComponentFactory alloc]
-                                        initWithAssemblies:@[[LoginModuleAssembly assembly],
+                                        initWithAssemblies:@[[RoutingModuleAssembly assembly],
+                                                             [LoginModuleAssembly assembly],
                                                              ]];
     
     TyphoonConfigPostProcessor* configurer = [TyphoonConfigPostProcessor postProcessor];
