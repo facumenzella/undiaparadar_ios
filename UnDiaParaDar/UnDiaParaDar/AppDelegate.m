@@ -8,7 +8,10 @@
 
 #import "AppDelegate.h"
 
+#import "TyphoonInitializer.h"
+
 @interface AppDelegate ()
+
 
 @end
 
@@ -16,7 +19,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [TyphoonInitializer setup];
+    
     return YES;
 }
 
