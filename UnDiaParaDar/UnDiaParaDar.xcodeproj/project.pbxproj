@@ -13,6 +13,7 @@
 		11A094161B5D61B100E4FB06 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A094151B5D61B100E4FB06 /* Images.xcassets */; };
 		11A094251B5D61B100E4FB06 /* UnDiaParaDarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A094241B5D61B100E4FB06 /* UnDiaParaDarTests.m */; };
 		11DEE6911B5D6DF900DCDE3E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6901B5D6DF900DCDE3E /* LoginViewController.m */; };
+		11DEE6941B5D6E7F00DCDE3E /* LoginModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6931B5D6E7F00DCDE3E /* LoginModuleAssembly.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		11A094241B5D61B100E4FB06 /* UnDiaParaDarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnDiaParaDarTests.m; sourceTree = "<group>"; };
 		11DEE68F1B5D6DF900DCDE3E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		11DEE6901B5D6DF900DCDE3E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		11DEE6921B5D6E7F00DCDE3E /* LoginModuleAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginModuleAssembly.h; sourceTree = "<group>"; };
+		11DEE6931B5D6E7F00DCDE3E /* LoginModuleAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginModuleAssembly.m; sourceTree = "<group>"; };
 		359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnDiaParaDar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A108957507AEF20E1CD92D55 /* Pods-UnDiaParaDar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnDiaParaDar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +145,8 @@
 		11DEE68B1B5D6DE000DCDE3E /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
+				11DEE6921B5D6E7F00DCDE3E /* LoginModuleAssembly.h */,
+				11DEE6931B5D6E7F00DCDE3E /* LoginModuleAssembly.m */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */,
 				11A0940B1B5D61B100E4FB06 /* main.m in Sources */,
 				11DEE6911B5D6DF900DCDE3E /* LoginViewController.m in Sources */,
+				11DEE6941B5D6E7F00DCDE3E /* LoginModuleAssembly.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
