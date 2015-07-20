@@ -7,7 +7,15 @@
 //
 
 #import "LoginModuleAssembly.h"
+#import "RoutingModuleAssembly.h"
+
 #import "LoginViewController.h"
+
+@interface LoginModuleAssembly ()
+
+@property (nonatomic, strong) RoutingModuleAssembly *routingModuleAssembly;
+
+@end
 
 @implementation LoginModuleAssembly
 
@@ -15,13 +23,12 @@
 
 - (LoginViewController*)loginViewController
 {
-    SEL selector = @selector(init);
-    
+    SEL selector = @selector(initWithRouting:);
+    id<Routing> routing = [self.routingModuleAssembly routing];
     return [TyphoonDefinition withClass:[LoginViewController class] configuration:^(TyphoonDefinition* definition) {
         definition.scope = TyphoonScopeSingleton;
-        
         [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
-            // parameters soon to be added
+            [initializer injectParameterWith: routing];
         }];
     }];
 }

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol Routing;
+
 @interface LoginViewController : UIViewController
+
+- (instancetype)initWithRouting:(id<Routing>)routing;
+
 
 @end

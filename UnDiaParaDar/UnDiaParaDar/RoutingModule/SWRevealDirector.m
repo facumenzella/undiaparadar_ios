@@ -29,6 +29,7 @@
 
 - (void)setRoot:(UIViewController *)vc
 {
+    assert(vc);
     self.window.rootViewController = vc;
 }
 

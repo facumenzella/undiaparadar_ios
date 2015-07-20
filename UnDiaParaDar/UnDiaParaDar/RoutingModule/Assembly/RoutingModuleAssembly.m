@@ -10,15 +10,26 @@
 #import "SWRevealDirector.h"
 #import "UDPDRouting.h"
 
+// Ignore no selector in translation unit
+#pragma clang diagnostic ignored "-Wselector"
+#pragma GCC diagnostic ignored "-Wundeclared-selector"
+
+@interface RoutingModuleAssembly ()
+
+@property (nonatomic, strong) LoginModuleAssembly *loginModuleAssembly;
+
+@end
+
 @implementation RoutingModuleAssembly
 
 - (id<Routing>) routing
 {
-    SEL selector = @selector(init);
+    SEL selector = @selector(initWithDirector:withLoginModuleAssembly:);
     return [TyphoonDefinition withClass:[UDPDRouting class]
                           configuration:^(TyphoonDefinition* definition) {
                               [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
-                                  // parameters soon to be added
+                                  [initializer injectParameterWith:[self iphoneDirector]];
+                                  [initializer injectParameterWith:self.loginModuleAssembly];
                               }];
                           }];
 }

@@ -9,6 +9,7 @@
 #import "LoginView.h"
 
 #import <UIView+AutoLayout.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @implementation LoginView
 
@@ -27,7 +28,17 @@
 
 - (void)buildSubviews
 {
-    
+    [self setBackgroundColor:[UIColor whiteColor]];
+    [self buildLoginButton];
+}
+
+- (void)buildLoginButton
+{
+    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    loginButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview:loginButton];
+    [loginButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [loginButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self withOffset:-24];
 }
 
 @end

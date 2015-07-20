@@ -9,7 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "Routing.h"
 
+@protocol Director;
+@class LoginModuleAssembly;
+
 @interface UDPDRouting : NSObject<Routing>
+
+- (instancetype)initWithDirector:(id<Director>)director
+         withLoginModuleAssembly:(LoginModuleAssembly*)loginModuleAssembly;
 
 - (void)showLoginPage;
 
