@@ -20,18 +20,5 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>FacebookAppID</key>
-	<string>877005669054245</string>
-	<key>FacebookDisplayName</key>
-	<string>UnDiaParaDar</string>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>URL schemes</key>
-			<array>
-				<string>fb877005669054245</string>
-			</array>
-		</dict>
-	</array>
 </dict>
 </plist>
