@@ -8,6 +8,10 @@
 
 #import "TyphoonAssembly.h"
 
+@class LoginViewController;
+
 @interface LoginModuleAssembly : TyphoonAssembly
+
+- (LoginViewController*)loginViewController;
 
 @end

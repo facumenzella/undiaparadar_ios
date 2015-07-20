@@ -7,7 +7,24 @@
 //
 
 #import "LoginModuleAssembly.h"
+#import "LoginViewController.h"
 
 @implementation LoginModuleAssembly
+
+#pragma mark - LoginModuleAssembly
+
+- (LoginViewController*)loginViewController
+{
+    SEL selector = @selector(init);
+    
+    return [TyphoonDefinition withClass:[LoginViewController class] configuration:^(TyphoonDefinition* definition) {
+        definition.scope = TyphoonScopeSingleton;
+        
+        [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
+            // parameters soon to be added
+        }];
+    }];
+}
+
 
 @end
