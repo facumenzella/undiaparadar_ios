@@ -10,6 +10,7 @@
 		0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */; };
 		1113AA101B5F00E20066E7BB /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1113AA0F1B5F00E20066E7BB /* MenuViewController.m */; };
 		1113AA161B5F044F0066E7BB /* ProfileOptionPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1113AA151B5F044F0066E7BB /* ProfileOptionPresenter.m */; };
+		1113AA191B5F04B80066E7BB /* MenuOptionPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1113AA181B5F04B80066E7BB /* MenuOptionPresenter.m */; };
 		11A0940B1B5D61B100E4FB06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0940A1B5D61B100E4FB06 /* main.m */; };
 		11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0940D1B5D61B100E4FB06 /* AppDelegate.m */; };
 		11A094161B5D61B100E4FB06 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A094151B5D61B100E4FB06 /* Images.xcassets */; };
@@ -41,6 +42,8 @@
 		1113AA0F1B5F00E20066E7BB /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = ../MenuViewController.m; sourceTree = "<group>"; };
 		1113AA141B5F044F0066E7BB /* ProfileOptionPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileOptionPresenter.h; sourceTree = "<group>"; };
 		1113AA151B5F044F0066E7BB /* ProfileOptionPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileOptionPresenter.m; sourceTree = "<group>"; };
+		1113AA171B5F04B80066E7BB /* MenuOptionPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuOptionPresenter.h; sourceTree = "<group>"; };
+		1113AA181B5F04B80066E7BB /* MenuOptionPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuOptionPresenter.m; sourceTree = "<group>"; };
 		11A094051B5D61B100E4FB06 /* UnDiaParaDar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnDiaParaDar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A094091B5D61B100E4FB06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11A0940A1B5D61B100E4FB06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 			children = (
 				1113AA141B5F044F0066E7BB /* ProfileOptionPresenter.h */,
 				1113AA151B5F044F0066E7BB /* ProfileOptionPresenter.m */,
+				1113AA171B5F04B80066E7BB /* MenuOptionPresenter.h */,
+				1113AA181B5F04B80066E7BB /* MenuOptionPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -419,6 +424,7 @@
 				11DEE6AA1B5D774900DCDE3E /* UDPDRouting.m in Sources */,
 				11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */,
 				11A0940B1B5D61B100E4FB06 /* main.m in Sources */,
+				1113AA191B5F04B80066E7BB /* MenuOptionPresenter.m in Sources */,
 				11DEE6B01B5D7D9300DCDE3E /* AppDelegateAssembly.m in Sources */,
 				1113AA101B5F00E20066E7BB /* MenuViewController.m in Sources */,
 				11DEE6911B5D6DF900DCDE3E /* LoginViewController.m in Sources */,
