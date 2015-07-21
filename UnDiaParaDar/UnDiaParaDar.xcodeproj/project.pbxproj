@@ -36,8 +36,8 @@
 
 /* Begin PBXFileReference section */
 		06C0FA932F79B7DB4ECAB673 /* Pods-UnDiaParaDar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnDiaParaDar.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar.release.xcconfig"; sourceTree = "<group>"; };
-		1113AA0E1B5F00E20066E7BB /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
-		1113AA0F1B5F00E20066E7BB /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		1113AA0E1B5F00E20066E7BB /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = ../MenuViewController.h; sourceTree = "<group>"; };
+		1113AA0F1B5F00E20066E7BB /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = ../MenuViewController.m; sourceTree = "<group>"; };
 		11A094051B5D61B100E4FB06 /* UnDiaParaDar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnDiaParaDar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A094091B5D61B100E4FB06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11A0940A1B5D61B100E4FB06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -102,10 +102,26 @@
 		1113AA0D1B5F00C80066E7BB /* MenuModule */ = {
 			isa = PBXGroup;
 			children = (
+				1113AA111B5F02F80066E7BB /* View */,
+				1113AA121B5F02F80066E7BB /* ViewController */,
+			);
+			path = MenuModule;
+			sourceTree = "<group>";
+		};
+		1113AA111B5F02F80066E7BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1113AA121B5F02F80066E7BB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
 				1113AA0E1B5F00E20066E7BB /* MenuViewController.h */,
 				1113AA0F1B5F00E20066E7BB /* MenuViewController.m */,
 			);
-			path = MenuModule;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		11A093FC1B5D61B100E4FB06 = {
