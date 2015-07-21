@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */; };
 		1113AA101B5F00E20066E7BB /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1113AA0F1B5F00E20066E7BB /* MenuViewController.m */; };
-		1113AA161B5F044F0066E7BB /* ProfileOptionPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1113AA151B5F044F0066E7BB /* ProfileOptionPresenter.m */; };
+		1113AA161B5F044F0066E7BB /* MenuProfilePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1113AA151B5F044F0066E7BB /* MenuProfilePresenter.m */; };
 		1113AA191B5F04B80066E7BB /* MenuOptionPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1113AA181B5F04B80066E7BB /* MenuOptionPresenter.m */; };
+		1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1113AA1B1B5F05020066E7BB /* MenuProfileViewCell.m */; };
 		11A0940B1B5D61B100E4FB06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0940A1B5D61B100E4FB06 /* main.m */; };
 		11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0940D1B5D61B100E4FB06 /* AppDelegate.m */; };
 		11A094161B5D61B100E4FB06 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A094151B5D61B100E4FB06 /* Images.xcassets */; };
@@ -40,10 +41,12 @@
 		06C0FA932F79B7DB4ECAB673 /* Pods-UnDiaParaDar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnDiaParaDar.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar.release.xcconfig"; sourceTree = "<group>"; };
 		1113AA0E1B5F00E20066E7BB /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = ../MenuViewController.h; sourceTree = "<group>"; };
 		1113AA0F1B5F00E20066E7BB /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = ../MenuViewController.m; sourceTree = "<group>"; };
-		1113AA141B5F044F0066E7BB /* ProfileOptionPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileOptionPresenter.h; sourceTree = "<group>"; };
-		1113AA151B5F044F0066E7BB /* ProfileOptionPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileOptionPresenter.m; sourceTree = "<group>"; };
+		1113AA141B5F044F0066E7BB /* MenuProfilePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuProfilePresenter.h; sourceTree = "<group>"; };
+		1113AA151B5F044F0066E7BB /* MenuProfilePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuProfilePresenter.m; sourceTree = "<group>"; };
 		1113AA171B5F04B80066E7BB /* MenuOptionPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuOptionPresenter.h; sourceTree = "<group>"; };
 		1113AA181B5F04B80066E7BB /* MenuOptionPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuOptionPresenter.m; sourceTree = "<group>"; };
+		1113AA1A1B5F05020066E7BB /* MenuProfileViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuProfileViewCell.h; sourceTree = "<group>"; };
+		1113AA1B1B5F05020066E7BB /* MenuProfileViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuProfileViewCell.m; sourceTree = "<group>"; };
 		11A094051B5D61B100E4FB06 /* UnDiaParaDar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnDiaParaDar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A094091B5D61B100E4FB06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11A0940A1B5D61B100E4FB06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -118,6 +121,8 @@
 		1113AA111B5F02F80066E7BB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1113AA1A1B5F05020066E7BB /* MenuProfileViewCell.h */,
+				1113AA1B1B5F05020066E7BB /* MenuProfileViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -134,8 +139,8 @@
 		1113AA131B5F03FE0066E7BB /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				1113AA141B5F044F0066E7BB /* ProfileOptionPresenter.h */,
-				1113AA151B5F044F0066E7BB /* ProfileOptionPresenter.m */,
+				1113AA141B5F044F0066E7BB /* MenuProfilePresenter.h */,
+				1113AA151B5F044F0066E7BB /* MenuProfilePresenter.m */,
 				1113AA171B5F04B80066E7BB /* MenuOptionPresenter.h */,
 				1113AA181B5F04B80066E7BB /* MenuOptionPresenter.m */,
 			);
@@ -422,6 +427,7 @@
 				11DEE6AD1B5D778F00DCDE3E /* RoutingModuleAssembly.m in Sources */,
 				11DEE6971B5D6F6D00DCDE3E /* TyphoonInitializer.m in Sources */,
 				11DEE6AA1B5D774900DCDE3E /* UDPDRouting.m in Sources */,
+				1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */,
 				11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */,
 				11A0940B1B5D61B100E4FB06 /* main.m in Sources */,
 				1113AA191B5F04B80066E7BB /* MenuOptionPresenter.m in Sources */,
@@ -429,7 +435,7 @@
 				1113AA101B5F00E20066E7BB /* MenuViewController.m in Sources */,
 				11DEE6911B5D6DF900DCDE3E /* LoginViewController.m in Sources */,
 				11DEE6A91B5D774900DCDE3E /* SWRevealDirector.m in Sources */,
-				1113AA161B5F044F0066E7BB /* ProfileOptionPresenter.m in Sources */,
+				1113AA161B5F044F0066E7BB /* MenuProfilePresenter.m in Sources */,
 				11DEE6B31B5D818500DCDE3E /* LoginView.m in Sources */,
 				11DEE6941B5D6E7F00DCDE3E /* LoginModuleAssembly.m in Sources */,
 			);
