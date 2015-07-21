@@ -35,6 +35,7 @@
 - (void)loadView
 {
     self.tableView = [[UITableView alloc] init];
+    // we do not like this, but we do not have a better method yet
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
 
@@ -42,8 +43,26 @@
 
 - (void)viewDidLoad
 {
+    [self initTableViewManager];
+}
+
+#pragma mark - RETableViewManager
+
+- (void)initTableViewManager
+{
     self.tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
-    
+    // we do not like this, but we do not have a better method yet
+    self.manager.style.defaultCellSelectionStyle = UITableViewCellSelectionStyleNone;
+}
+
+- (void)registerAndBuildProfileSection
+{
+    // not done yet
+}
+
+- (void)registerAndBuildMenuOptions
+{
+    // not done yet
 }
 
 @end
