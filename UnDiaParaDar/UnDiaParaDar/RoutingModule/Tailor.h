@@ -6,10 +6,12 @@
 //  Copyright (c) 2015 ITBA. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+#import "SWRevealDirector.h"
 
 @protocol Tailor <NSObject>
 
-- (void)prepareViewController:(UIViewController*)viewController;
+- (void)prepareViewController:(UIViewController*)viewController forEvent:(DirectorEvent)event;
 
 @end
