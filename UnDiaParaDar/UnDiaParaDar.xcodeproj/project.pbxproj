@@ -14,6 +14,7 @@
 		1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1113AA1B1B5F05020066E7BB /* MenuProfileViewCell.m */; };
 		113E469E1B62C07E00ADF8AC /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 113E469D1B62C07E00ADF8AC /* ProfileViewController.m */; };
 		113E46A21B62C74D00ADF8AC /* SWRevealTailor.m in Sources */ = {isa = PBXBuildFile; fileRef = 113E46A11B62C74D00ADF8AC /* SWRevealTailor.m */; };
+		113E46A61B62CD4B00ADF8AC /* ProfileModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 113E46A51B62CD4B00ADF8AC /* ProfileModuleAssembly.m */; };
 		11A0940B1B5D61B100E4FB06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0940A1B5D61B100E4FB06 /* main.m */; };
 		11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0940D1B5D61B100E4FB06 /* AppDelegate.m */; };
 		11A094161B5D61B100E4FB06 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A094151B5D61B100E4FB06 /* Images.xcassets */; };
@@ -54,6 +55,8 @@
 		113E469F1B62C61800ADF8AC /* Tailor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tailor.h; sourceTree = "<group>"; };
 		113E46A01B62C74D00ADF8AC /* SWRevealTailor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealTailor.h; sourceTree = "<group>"; };
 		113E46A11B62C74D00ADF8AC /* SWRevealTailor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealTailor.m; sourceTree = "<group>"; };
+		113E46A41B62CD4B00ADF8AC /* ProfileModuleAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileModuleAssembly.h; sourceTree = "<group>"; };
+		113E46A51B62CD4B00ADF8AC /* ProfileModuleAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileModuleAssembly.m; sourceTree = "<group>"; };
 		11A094051B5D61B100E4FB06 /* UnDiaParaDar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnDiaParaDar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A094091B5D61B100E4FB06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11A0940A1B5D61B100E4FB06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 		113E46981B62C00E00ADF8AC /* ProfileModule */ = {
 			isa = PBXGroup;
 			children = (
+				113E46A31B62CD3200ADF8AC /* Assembly */,
 				113E46991B62C00E00ADF8AC /* Presenter */,
 				113E469A1B62C00E00ADF8AC /* View */,
 				113E469B1B62C00E00ADF8AC /* ViewController */,
@@ -185,6 +189,15 @@
 				113E469D1B62C07E00ADF8AC /* ProfileViewController.m */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		113E46A31B62CD3200ADF8AC /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				113E46A41B62CD4B00ADF8AC /* ProfileModuleAssembly.h */,
+				113E46A51B62CD4B00ADF8AC /* ProfileModuleAssembly.m */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		11A093FC1B5D61B100E4FB06 = {
@@ -478,6 +491,7 @@
 				11A0940B1B5D61B100E4FB06 /* main.m in Sources */,
 				1113AA191B5F04B80066E7BB /* MenuOptionPresenter.m in Sources */,
 				11DEE6B01B5D7D9300DCDE3E /* AppDelegateAssembly.m in Sources */,
+				113E46A61B62CD4B00ADF8AC /* ProfileModuleAssembly.m in Sources */,
 				1113AA101B5F00E20066E7BB /* MenuViewController.m in Sources */,
 				11DEE6911B5D6DF900DCDE3E /* LoginViewController.m in Sources */,
 				11DEE6A91B5D774900DCDE3E /* SWRevealDirector.m in Sources */,
