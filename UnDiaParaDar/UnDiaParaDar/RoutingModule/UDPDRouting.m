@@ -39,4 +39,9 @@
     [self.director setRoot:[self.loginModuleAssembly loginViewController]];
 }
 
+- (void)showMainPage
+{
+    // TODO not done yet
+}
+
 @end

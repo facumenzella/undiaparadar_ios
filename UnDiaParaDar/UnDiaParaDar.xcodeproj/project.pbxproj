@@ -12,6 +12,7 @@
 		1113AA161B5F044F0066E7BB /* MenuProfilePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1113AA151B5F044F0066E7BB /* MenuProfilePresenter.m */; };
 		1113AA191B5F04B80066E7BB /* MenuOptionPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1113AA181B5F04B80066E7BB /* MenuOptionPresenter.m */; };
 		1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1113AA1B1B5F05020066E7BB /* MenuProfileViewCell.m */; };
+		113E469E1B62C07E00ADF8AC /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 113E469D1B62C07E00ADF8AC /* ProfileViewController.m */; };
 		11A0940B1B5D61B100E4FB06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0940A1B5D61B100E4FB06 /* main.m */; };
 		11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0940D1B5D61B100E4FB06 /* AppDelegate.m */; };
 		11A094161B5D61B100E4FB06 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A094151B5D61B100E4FB06 /* Images.xcassets */; };
@@ -47,6 +48,8 @@
 		1113AA181B5F04B80066E7BB /* MenuOptionPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuOptionPresenter.m; sourceTree = "<group>"; };
 		1113AA1A1B5F05020066E7BB /* MenuProfileViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuProfileViewCell.h; sourceTree = "<group>"; };
 		1113AA1B1B5F05020066E7BB /* MenuProfileViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuProfileViewCell.m; sourceTree = "<group>"; };
+		113E469C1B62C07E00ADF8AC /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		113E469D1B62C07E00ADF8AC /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		11A094051B5D61B100E4FB06 /* UnDiaParaDar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnDiaParaDar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A094091B5D61B100E4FB06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11A0940A1B5D61B100E4FB06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -147,6 +150,39 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		113E46981B62C00E00ADF8AC /* ProfileModule */ = {
+			isa = PBXGroup;
+			children = (
+				113E46991B62C00E00ADF8AC /* Presenter */,
+				113E469A1B62C00E00ADF8AC /* View */,
+				113E469B1B62C00E00ADF8AC /* ViewController */,
+			);
+			path = ProfileModule;
+			sourceTree = "<group>";
+		};
+		113E46991B62C00E00ADF8AC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		113E469A1B62C00E00ADF8AC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		113E469B1B62C00E00ADF8AC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				113E469C1B62C07E00ADF8AC /* ProfileViewController.h */,
+				113E469D1B62C07E00ADF8AC /* ProfileViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		11A093FC1B5D61B100E4FB06 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +206,7 @@
 		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
 			isa = PBXGroup;
 			children = (
+				113E46981B62C00E00ADF8AC /* ProfileModule */,
 				1113AA0D1B5F00C80066E7BB /* MenuModule */,
 				11DEE6A11B5D774900DCDE3E /* RoutingModule */,
 				11DEE68A1B5D6DA100DCDE3E /* LoginModule */,
@@ -425,6 +462,7 @@
 			files = (
 				11DEE6B61B5D937F00DCDE3E /* FacebookLoginFlow.m in Sources */,
 				11DEE6AD1B5D778F00DCDE3E /* RoutingModuleAssembly.m in Sources */,
+				113E469E1B62C07E00ADF8AC /* ProfileViewController.m in Sources */,
 				11DEE6971B5D6F6D00DCDE3E /* TyphoonInitializer.m in Sources */,
 				11DEE6AA1B5D774900DCDE3E /* UDPDRouting.m in Sources */,
 				1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */,
