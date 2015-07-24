@@ -6,8 +6,12 @@
 //  Copyright (c) 2015 ITBA. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RETableViewCell.h"
 
-@interface MenuProfileViewCell : UITableViewCell
+@class MenuProfilePresenter;
+
+@interface MenuProfileViewCell : RETableViewCell
+
+@property (nonatomic, strong) MenuProfilePresenter *presenter;
 
 @end

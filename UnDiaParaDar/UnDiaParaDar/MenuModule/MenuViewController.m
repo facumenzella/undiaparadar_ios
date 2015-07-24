@@ -9,12 +9,13 @@
 #import "MenuViewController.h"
 #import "Routing.h"
 #import "RETableViewManager.h"
+#import "MenuProfilePresenter.h"
 
 @interface MenuViewController ()
 
 @property (nonatomic, strong) id<Routing> routing;
 
-@property (nonatomic, strong) UITableview *tableView;
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) RETableViewManager *tableViewManager;
 
 @end
@@ -44,6 +45,7 @@
 - (void)viewDidLoad
 {
     [self initTableViewManager];
+    [self registerAndBuildProfileSection];
 }
 
 #pragma mark - RETableViewManager
@@ -52,12 +54,17 @@
 {
     self.tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
     // we do not like this, but we do not have a better method yet
-    self.manager.style.defaultCellSelectionStyle = UITableViewCellSelectionStyleNone;
+    self.tableViewManager.style.defaultCellSelectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)registerAndBuildProfileSection
 {
-    // not done yet
+    RETableViewSection *profileSection = [RETableViewSection section];
+    [self.tableViewManager addSection:profileSection];
+    self.tableViewManager[@"MenuProfilePresenter"] = @"MenuProfileViewCell";
+    
+    MenuProfilePresenter *profilePresenter = [[MenuProfilePresenter alloc] init];
+    [profileSection addItem:profilePresenter];
 }
 
 - (void)registerAndBuildMenuOptions
