@@ -13,6 +13,7 @@
 		1113AA191B5F04B80066E7BB /* MenuOptionPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1113AA181B5F04B80066E7BB /* MenuOptionPresenter.m */; };
 		1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1113AA1B1B5F05020066E7BB /* MenuProfileViewCell.m */; };
 		113E469E1B62C07E00ADF8AC /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 113E469D1B62C07E00ADF8AC /* ProfileViewController.m */; };
+		113E46A21B62C74D00ADF8AC /* SWRevealTailor.m in Sources */ = {isa = PBXBuildFile; fileRef = 113E46A11B62C74D00ADF8AC /* SWRevealTailor.m */; };
 		11A0940B1B5D61B100E4FB06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0940A1B5D61B100E4FB06 /* main.m */; };
 		11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A0940D1B5D61B100E4FB06 /* AppDelegate.m */; };
 		11A094161B5D61B100E4FB06 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A094151B5D61B100E4FB06 /* Images.xcassets */; };
@@ -50,6 +51,9 @@
 		1113AA1B1B5F05020066E7BB /* MenuProfileViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuProfileViewCell.m; sourceTree = "<group>"; };
 		113E469C1B62C07E00ADF8AC /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		113E469D1B62C07E00ADF8AC /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		113E469F1B62C61800ADF8AC /* Tailor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tailor.h; sourceTree = "<group>"; };
+		113E46A01B62C74D00ADF8AC /* SWRevealTailor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealTailor.h; sourceTree = "<group>"; };
+		113E46A11B62C74D00ADF8AC /* SWRevealTailor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealTailor.m; sourceTree = "<group>"; };
 		11A094051B5D61B100E4FB06 /* UnDiaParaDar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnDiaParaDar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A094091B5D61B100E4FB06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11A0940A1B5D61B100E4FB06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -305,6 +309,9 @@
 				11DEE6A61B5D774900DCDE3E /* SWRevealDirector.m */,
 				11DEE6A71B5D774900DCDE3E /* UDPDRouting.h */,
 				11DEE6A81B5D774900DCDE3E /* UDPDRouting.m */,
+				113E469F1B62C61800ADF8AC /* Tailor.h */,
+				113E46A01B62C74D00ADF8AC /* SWRevealTailor.h */,
+				113E46A11B62C74D00ADF8AC /* SWRevealTailor.m */,
 			);
 			path = RoutingModule;
 			sourceTree = "<group>";
@@ -467,6 +474,7 @@
 				11DEE6AA1B5D774900DCDE3E /* UDPDRouting.m in Sources */,
 				1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */,
 				11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */,
+				113E46A21B62C74D00ADF8AC /* SWRevealTailor.m in Sources */,
 				11A0940B1B5D61B100E4FB06 /* main.m in Sources */,
 				1113AA191B5F04B80066E7BB /* MenuOptionPresenter.m in Sources */,
 				11DEE6B01B5D7D9300DCDE3E /* AppDelegateAssembly.m in Sources */,
