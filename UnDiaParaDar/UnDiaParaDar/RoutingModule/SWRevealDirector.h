@@ -11,11 +11,6 @@
 
 #import "Director.h"
 
-typedef NS_ENUM(NSInteger, DirectorEvent) {
-    DirectorEventPrimary,
-    DirectorEventSecondary
-};
-
 @interface SWRevealDirector : NSObject<Director>
 
 - (instancetype) initWithWindow:(UIWindow*)window;

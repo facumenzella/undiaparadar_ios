@@ -10,6 +10,6 @@
 
 @interface SWRevealArchitect : NSObject<Architect>
 
-- (UIViewController*)buildMainScreenForFlow:(id<Director>)flow withRootViewController:(UIViewController*)vc;
+- (UIViewController*)buildMainScreenWithRootViewController:(UIViewController*)vc;
 
 @end

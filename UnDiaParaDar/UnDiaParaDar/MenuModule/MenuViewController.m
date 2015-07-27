@@ -33,17 +33,12 @@
     return self;
 }
 
-- (void)loadView
-{
-    self.tableView = [[UITableView alloc] init];
-    // we do not like this, but we do not have a better method yet
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-}
-
 #pragma mark - UIViewController
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     [self initTableViewManager];
     [self registerAndBuildProfileSection];
 }
@@ -52,6 +47,10 @@
 
 - (void)initTableViewManager
 {
+    // we do not like this, but we do not have a better method yet
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.tableView setBounces:NO];
+    
     self.tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
     // we do not like this, but we do not have a better method yet
     self.tableViewManager.style.defaultCellSelectionStyle = UITableViewCellSelectionStyleNone;
@@ -63,7 +62,9 @@
     [self.tableViewManager addSection:profileSection];
     self.tableViewManager[@"MenuProfilePresenter"] = @"MenuProfileViewCell";
     
-    MenuProfilePresenter *profilePresenter = [[MenuProfilePresenter alloc] init];
+    MenuProfilePresenter *profilePresenter = [[MenuProfilePresenter alloc]
+                                              initWithUserImage:@"avatar128x128"
+                                              withUserName:@"Jon Snow"];
     [profileSection addItem:profilePresenter];
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "MenuProfileViewCell.h"
+#import "MenuProfilePresenter.h"
 #import <UIView+Autolayout.h>
 
 @interface MenuProfileViewCell ()
@@ -23,6 +24,7 @@
 - (void)cellDidLoad
 {
     [super cellDidLoad];
+    [self setBackgroundColor:[UIColor grayColor]];
     [self buildAvatar];
     [self buildUsername];
 }
@@ -32,8 +34,8 @@
     self.avatar = [[UIImageView alloc] initForAutoLayout];
     [self.contentView addSubview:self.avatar];
     
-    [self.avatar autoSetDimension:ALAxisVertical toSize:64];
-    [self.avatar autoSetDimension:ALAxisHorizontal toSize:64];
+    [self.avatar autoSetDimension:ALDimensionHeight toSize:64];
+    [self.avatar autoSetDimension:ALDimensionWidth toSize:64];
     [self.avatar autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     [self.avatar autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:16];
     
@@ -48,7 +50,7 @@
     
     [self.username autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.avatar];
     [self.username autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.avatar withOffset:16];
-    [self autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:32];
+    [self.username autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:32];
     [self.username autoSetDimension:ALDimensionHeight
                          toSize:64
                        relation:NSLayoutRelationLessThanOrEqual];
@@ -58,8 +60,9 @@
 {
     [super cellWillAppear];
     
-    [self.avatar setImage:[UIImage imageNamed:@"avatar_128x128.png"]];
-    [self.username setText:@"Jon Snow"];
+    MenuProfilePresenter *presenter = (MenuProfilePresenter*)self.item;
+    [self.avatar setImage: presenter.userImage];
+    [self.username setText: presenter.userName];
     
     [self.contentView layoutIfNeeded];
 }

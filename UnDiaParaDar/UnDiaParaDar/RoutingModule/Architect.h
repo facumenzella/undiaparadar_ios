@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@protocol Director;
+@protocol Tailor;
 
 @protocol Architect <NSObject>
 
-- (UIViewController*)buildMainScreenForFlow:(id<Director>)flow withRootViewController:(UIViewController*)vc;
+- (UIViewController*)buildMainScreenWithRootViewController:(UIViewController*)vc;
 
 @end

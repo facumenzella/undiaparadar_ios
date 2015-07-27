@@ -7,23 +7,9 @@
 //
 
 #import "SWRevealTailor.h"
+#import "SWRevealViewController.h"
 
 @implementation SWRevealTailor
-
-- (void)prepareViewController:(id)viewController forEvent:(DirectorEvent)event
-{
-    switch (event) {
-        case DirectorEventPrimary:
-            [self suitViewControllerUpForPrimaryEvent:viewController];
-            break;
-        case DirectorEventSecondary:
-            // You are fine. Just need some confidence VC
-            break;
-        default:
-            NSLog(@"Holy shit the impossible happened");
-            break;
-    }
-}
 
 - (void)suitViewControllerUpForPrimaryEvent:(UIViewController*)viewController
 {
@@ -32,8 +18,9 @@
     [button setBackgroundImage:[UIImage imageNamed:sandwichButton] forState:UIControlStateNormal];
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
-//    [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
+    SWRevealViewController* reveal = (SWRevealViewController*) viewController.revealViewController;
     
+    [button addTarget:reveal action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     viewController.navigationItem.leftBarButtonItem = barButtonItem;
 }
 

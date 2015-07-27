@@ -8,6 +8,7 @@
 
 #import "SWRevealDirector.h"
 #import "SWRevealViewController.h"
+#import "Tailor.h"
 
 @interface SWRevealDirector ()
 

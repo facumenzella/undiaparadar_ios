@@ -12,6 +12,6 @@
 
 @protocol Tailor <NSObject>
 
-- (void)prepareViewController:(UIViewController*)viewController forEvent:(DirectorEvent)event;
+- (void)suitViewControllerUpForPrimaryEvent:(UIViewController*)viewController;
 
 @end

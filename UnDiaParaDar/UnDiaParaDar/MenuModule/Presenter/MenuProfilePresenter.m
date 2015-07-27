@@ -10,4 +10,15 @@
 
 @implementation MenuProfilePresenter
 
+- (instancetype)initWithUserImage:(NSString*)userImage withUserName:(NSString*)userName
+{
+    self = [super init];
+    if (self) {
+        self.userImage = [UIImage imageNamed:userImage];
+        self.userName = userName;
+    }
+    return self;
+}
+
+
 @end

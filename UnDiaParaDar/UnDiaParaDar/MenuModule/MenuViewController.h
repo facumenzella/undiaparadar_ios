@@ -10,7 +10,7 @@
 
 @protocol Routing;
 
-@interface MenuViewController : UIViewController
+@interface MenuViewController : UITableViewController
 
 - (instancetype)initWithRouting:(id<Routing>)routing;
 

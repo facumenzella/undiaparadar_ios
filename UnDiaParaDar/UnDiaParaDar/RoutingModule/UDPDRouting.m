@@ -9,7 +9,6 @@
 #import "UDPDRouting.h"
 #import "Director.h"
 #import "Architect.h"
-#import "Tailor.h"
 
 #import "LoginModuleAssembly.h"
 #import "LoginViewController.h"
@@ -21,7 +20,6 @@
 
 @property (nonatomic, strong) id<Director> director;
 @property (nonatomic, strong) id<Architect> architect;
-@property (nonatomic, strong) id<Tailor> tailor;
 
 @property (nonatomic, strong) LoginModuleAssembly *loginModuleAssembly;
 @property (nonatomic, strong) ProfileModuleAssembly *profileModuleAssembly;
@@ -34,7 +32,6 @@
          withLoginModuleAssembly:(LoginModuleAssembly*)loginModuleAssembly
        withProfileModuleAssembly:(ProfileModuleAssembly*)profileModuleAssembly
                    withArchitect:(id<Architect>)architect
-                      withTailor:(id<Tailor>)tailor
 {
     self = [super init];
     if (self) {
@@ -42,7 +39,6 @@
         self.loginModuleAssembly = loginModuleAssembly;
         self.profileModuleAssembly = profileModuleAssembly;
         self.architect = architect;
-        self.tailor = tailor;
     }
     return self;
 }
@@ -55,9 +51,7 @@
 - (void)showMainPage
 {
     ProfileViewController *profileViewController = [self.profileModuleAssembly profileViewController];
-    [self.tailor prepareViewController:profileViewController forEvent:DirectorEventPrimary];
-    [self.director setRoot:[self.architect buildMainScreenForFlow:self.director
-                                                   withRootViewController: profileViewController]];
+    [self.director setRoot:[self.architect buildMainScreenWithRootViewController: profileViewController]];
 }
 
 @end

@@ -29,7 +29,7 @@
 
 - (id<Routing>) routing
 {
-    SEL selector = @selector(initWithDirector:withLoginModuleAssembly:withProfileModuleAssembly:withArchitect:withTailor:);
+    SEL selector = @selector(initWithDirector:withLoginModuleAssembly:withProfileModuleAssembly:withArchitect:);
     return [TyphoonDefinition withClass:[UDPDRouting class]
                           configuration:^(TyphoonDefinition* definition) {
                               [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
@@ -37,7 +37,6 @@
                                   [initializer injectParameterWith:self.loginModuleAssembly];
                                   [initializer injectParameterWith:self.profileModuleAssembly];
                                   [initializer injectParameterWith:[self iphoneArchitect]];
-                                  [initializer injectParameterWith:[self iphoneTailor]];
                               }];
                           }];
 }
@@ -55,11 +54,12 @@
 
 - (id<Architect>) iphoneArchitect
 {
-    SEL selector = @selector(initWithMenuModuleAssembly:);
+    SEL selector = @selector(initWithMenuModuleAssembly:withTailor:);
     return [TyphoonDefinition withClass:[SWRevealArchitect class]
                           configuration:^(TyphoonDefinition* definition) {
                               [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
                                   [initializer injectParameterWith:self.menuModuleAssembly];
+                                  [initializer injectParameterWith:[self iphoneTailor]];
                               }];
                           }];
 
