@@ -8,15 +8,21 @@
 
 #import "UDPDRouting.h"
 #import "Director.h"
+#import "Architect.h"
 
 #import "LoginModuleAssembly.h"
 #import "LoginViewController.h"
 
+#import "ProfileModuleAssembly.h"
+#import "ProfileViewController.h"
+
 @interface UDPDRouting ()
 
 @property (nonatomic, strong) id<Director> director;
+@property (nonatomic, strong) id<Architect> architect;
 
 @property (nonatomic, strong) LoginModuleAssembly *loginModuleAssembly;
+@property (nonatomic, strong) ProfileModuleAssembly *profileModuleAssembly;
 
 @end
 
@@ -24,24 +30,29 @@
 
 - (instancetype)initWithDirector:(id<Director>)director
          withLoginModuleAssembly:(LoginModuleAssembly*)loginModuleAssembly
+       withProfileModuleAssembly:(ProfileModuleAssembly*)profileModuleAssembly
+                   withArchitect:(id<Architect>)architect
 {
     self = [super init];
     if (self) {
         self.director = director;
         self.loginModuleAssembly = loginModuleAssembly;
+        self.profileModuleAssembly = profileModuleAssembly;
+        self.architect = architect;
     }
     return self;
 }
 
 - (void)showLoginPage
 {
-    // This warning occurs because of foward declaration, we will take care of it later
     [self.director setRoot:[self.loginModuleAssembly loginViewController]];
 }
 
 - (void)showMainPage
 {
-    // TODO not done yet
+    ProfileViewController *profileViewController = [self.profileModuleAssembly profileViewController];
+    [self.director setRoot:[self.architect buildMainScreenForFlow:self.director
+                                                   withRootViewController: profileViewController]];
 }
 
 @end

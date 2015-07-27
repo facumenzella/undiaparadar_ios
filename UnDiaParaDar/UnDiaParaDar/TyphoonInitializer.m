@@ -11,7 +11,9 @@
 #import "TyphoonInitializer.h"
 #import "LoginModuleAssembly.h"
 #import "RoutingModuleAssembly.h"
+#import "ProfileModuleAssembly.h"
 #import "AppDelegateAssembly.h"
+#import "MenuModuleAssembly.h"
 
 @implementation TyphoonInitializer
 
@@ -22,6 +24,8 @@
                                         initWithAssemblies:@[[RoutingModuleAssembly assembly],
                                                              [AppDelegateAssembly assembly],
                                                              [LoginModuleAssembly assembly],
+                                                             [ProfileModuleAssembly assembly],
+                                                             [MenuModuleAssembly assembly]
                                                              ]];
     
     TyphoonConfigPostProcessor* configurer = [TyphoonConfigPostProcessor postProcessor];

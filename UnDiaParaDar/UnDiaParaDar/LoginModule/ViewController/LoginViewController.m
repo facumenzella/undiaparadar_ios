@@ -42,6 +42,7 @@
 - (void)loginSucceded
 {
     NSLog(@"Go to main screen");
+    [self.routing showMainPage];
 }
 
 - (void)loginDidFail

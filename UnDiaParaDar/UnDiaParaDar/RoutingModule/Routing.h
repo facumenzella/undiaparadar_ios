@@ -11,5 +11,6 @@
 @protocol Routing <NSObject>
 
 - (void)showLoginPage;
+- (void)showMainPage;
 
 @end

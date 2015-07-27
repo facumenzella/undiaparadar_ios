@@ -8,6 +8,10 @@
 
 #import "TyphoonAssembly.h"
 
+@class ProfileViewController;
+
 @interface ProfileModuleAssembly : TyphoonAssembly
+
+- (ProfileViewController*)profileViewController;
 
 @end

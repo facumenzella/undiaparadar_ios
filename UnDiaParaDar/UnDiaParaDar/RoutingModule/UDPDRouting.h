@@ -10,13 +10,18 @@
 #import "Routing.h"
 
 @protocol Director;
+@protocol Architect;
 @class LoginModuleAssembly;
+@class ProfileModuleAssembly;
 
 @interface UDPDRouting : NSObject<Routing>
 
 - (instancetype)initWithDirector:(id<Director>)director
-         withLoginModuleAssembly:(LoginModuleAssembly*)loginModuleAssembly;
+         withLoginModuleAssembly:(LoginModuleAssembly*)loginModuleAssembly
+       withProfileModuleAssembly:(ProfileModuleAssembly*)profileModuleAssembly
+                   withArchitect:(id<Architect>)architect;
 
 - (void)showLoginPage;
+- (void)showMainPage;
 
 @end
