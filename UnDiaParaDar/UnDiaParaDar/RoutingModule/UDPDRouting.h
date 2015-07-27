@@ -21,7 +21,4 @@
        withProfileModuleAssembly:(ProfileModuleAssembly*)profileModuleAssembly
                    withArchitect:(id<Architect>)architect;
 
-- (void)showLoginPage;
-- (void)showMainPage;
-
 @end

@@ -65,6 +65,11 @@
     MenuProfilePresenter *profilePresenter = [[MenuProfilePresenter alloc]
                                               initWithUserImage:@"avatar128x128"
                                               withUserName:@"Jon Snow"];
+    profilePresenter.selectionHandler = ^(MenuProfilePresenter* presenter) {
+        
+        [presenter deselectRowAnimated:NO];
+        [self.routing showProfile];
+    };
     [profileSection addItem:profilePresenter];
 }
 

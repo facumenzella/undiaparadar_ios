@@ -54,4 +54,9 @@
     [self.director setRoot:[self.architect buildMainScreenWithRootViewController: profileViewController]];
 }
 
+- (void)showProfile
+{
+    [self showMainPage];
+}
+
 @end

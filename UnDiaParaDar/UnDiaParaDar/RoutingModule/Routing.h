@@ -12,5 +12,6 @@
 
 - (void)showLoginPage;
 - (void)showMainPage;
+- (void)showProfile;
 
 @end
