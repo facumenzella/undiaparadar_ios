@@ -7,12 +7,16 @@
 //
 
 #import "TyphoonAssembly.h"
-#import "Director.h"
-#import "Routing.h"
+@protocol Director;
+@protocol Routing;
+@protocol Tailor;
+@protocol Architect;
 
 @interface RoutingModuleAssembly : TyphoonAssembly
 
 - (id<Director>) iphoneDirector;
 - (id<Routing>) routing;
+- (id<Tailor>) iphoneTailor;
+- (id<Architect>) iphoneArchitect;
 
 @end

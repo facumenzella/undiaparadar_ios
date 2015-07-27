@@ -7,6 +7,8 @@
 //
 
 #import "ProfileViewController.h"
+#import "SpotifyLikeView.h"
+#import "SpotifyLikeViewPresenter.h"
 #import "Routing.h"
 
 @interface ProfileViewController ()
@@ -30,7 +32,9 @@
 
 - (void)loadView
 {
-    // TODO not done yet
+    SpotifyLikeViewPresenter *presenter = [[SpotifyLikeViewPresenter alloc] initWithProfilePicture:@"avatar128x128"
+                                                                               withTimelinePicture:@"timeline"];
+    self.view = [[SpotifyLikeView alloc] initWithPresenter:presenter];
 }
 
 

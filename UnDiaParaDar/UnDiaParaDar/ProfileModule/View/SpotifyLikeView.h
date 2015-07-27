@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class SpotifyLikeViewPresenter;
+
 @interface SpotifyLikeView : UIView
+
+-(instancetype)initWithPresenter:(SpotifyLikeViewPresenter*)presenter;
 
 @end

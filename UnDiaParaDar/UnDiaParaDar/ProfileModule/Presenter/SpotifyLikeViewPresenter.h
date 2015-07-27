@@ -10,7 +10,9 @@
 
 @interface SpotifyLikeViewPresenter : NSObject
 
-@property (nonatomic, strong) UIImage *userProfilePicture;
-@property (nonatomic, strong) UIImage *timelineProfilePicture;
+@property (nonatomic, strong) UIImage *profileUserImage;
+@property (nonatomic, strong) UIImage *profileTimelineImage;
+
+-(instancetype)initWithProfilePicture:(NSString*)userProfilePicture withTimelinePicture:(NSString*)timelinePicture;
 
 @end

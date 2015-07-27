@@ -10,6 +10,7 @@
 #import "MenuModuleAssembly.h"
 #import "SWRevealDirector.h"
 #import "SWRevealArchitect.h"
+#import "SWRevealTailor.h"
 #import "UDPDRouting.h"
 
 // Ignore no selector in translation unit
@@ -28,7 +29,7 @@
 
 - (id<Routing>) routing
 {
-    SEL selector = @selector(initWithDirector:withLoginModuleAssembly:withProfileModuleAssembly:withArchitect:);
+    SEL selector = @selector(initWithDirector:withLoginModuleAssembly:withProfileModuleAssembly:withArchitect:withTailor:);
     return [TyphoonDefinition withClass:[UDPDRouting class]
                           configuration:^(TyphoonDefinition* definition) {
                               [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
@@ -36,8 +37,20 @@
                                   [initializer injectParameterWith:self.loginModuleAssembly];
                                   [initializer injectParameterWith:self.profileModuleAssembly];
                                   [initializer injectParameterWith:[self iphoneArchitect]];
+                                  [initializer injectParameterWith:[self iphoneTailor]];
                               }];
                           }];
+}
+
+- (id<Tailor>) iphoneTailor
+{
+    SEL selector = @selector(init);
+    return [TyphoonDefinition withClass:[SWRevealTailor class]
+                          configuration:^(TyphoonDefinition* definition) {
+                              [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
+                              }];
+                          }];
+    
 }
 
 - (id<Architect>) iphoneArchitect

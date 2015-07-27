@@ -10,13 +10,13 @@
 #import "SpotifyLikeViewPresenter.h"
 #import <UIView+AutoLayout.h>
 
-
 @interface SpotifyLikeView ()
 
 @property (nonatomic, strong) UIView *overview;
-@property (nonatomic, strong) UIImageView *userProfilePicture;
-@property (nonatomic, strong) UIImageView *profileTimelinePicture;
-@property (nonatomic, strong) UIView *userInformationView;
+@property (nonatomic, strong) UIImageView *profileUserImageView;
+@property (nonatomic, strong) UIImageView *profileTimelineImageView;
+@property (nonatomic, strong) UIView *profileUserInformationView;
+
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) SpotifyLikeViewPresenter *presenter;
@@ -29,10 +29,9 @@
 
 -(instancetype)initWithPresenter:(SpotifyLikeViewPresenter*)presenter
 {
-    self = [super initForAutoLayout];
+    self = [super init];
     if (self) {
         self.presenter = presenter;
-        [self setBackgroundColor:[UIColor whiteColor]];
         [self buildSubviews];
     }
     return self;
@@ -42,30 +41,46 @@
 
 - (void)buildSubviews
 {
+    [self setBackgroundColor:[UIColor whiteColor]];
     [self buildUserInformationView];
-    
 }
 
 - (void)buildUserInformationView
 {
-    self.userInformationView = [[UIView alloc] initForAutoLayout];
-    [self addSubview:self.userInformationView];
-    [self.userInformationView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
-    [self.userInformationView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
-    [self.userInformationView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
-
-    self.userProfilePicture = [[UIImageView alloc] initForAutoLayout];
-    [self.userProfilePicture setContentMode:UIViewContentModeScaleAspectFill];
-    [self.userProfilePicture setClipsToBounds:YES];
-    [self.userProfilePicture.layer setBorderColor:[UIColor whiteColor].CGColor];
-    [self.userProfilePicture.layer setBorderWidth:2.0];
-    [self.userProfilePicture.layer setCornerRadius:10];
+    self.profileUserInformationView = [[UIView alloc] initForAutoLayout];
+    [self addSubview:self.profileUserInformationView];
+    [self.profileUserInformationView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
+    [self.profileUserInformationView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+    [self.profileUserInformationView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
     
-    [self.userInformationView addSubview:self.userProfilePicture];
-    [self.userInformationView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:10];
-    [self.userInformationView autoSetDimension:ALAxisHorizontal toSize:10];
-    [self.userInformationView autoSetDimension:ALAxisVertical toSize:10];
-    [self.userInformationView autoAlignAxis:ALAxisVertical toSameAxisOfView:self.userInformationView];
+    self.profileTimelineImageView = [[UIImageView alloc] initForAutoLayout];
+    [self.profileUserInformationView addSubview: self.profileTimelineImageView];
+    [self.profileTimelineImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
+    [self.profileTimelineImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+    [self.profileTimelineImageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
+    [self.profileTimelineImageView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    [NSLayoutConstraint constraintWithItem:self.profileTimelineImageView
+                                 attribute:NSLayoutAttributeHeight
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem: self.profileTimelineImageView
+                                 attribute:NSLayoutAttributeWidth
+                                multiplier:1.0f
+                                  constant:0];
+    [self.profileTimelineImageView setImage: self.presenter.profileTimelineImage];
+    
+    self.profileUserImageView = [[UIImageView alloc] initForAutoLayout];
+    [self.profileUserInformationView addSubview:self.profileUserImageView];
+    [self.profileUserImageView setContentMode:UIViewContentModeScaleAspectFill];
+    [self.profileUserImageView setClipsToBounds:YES];
+    [self.profileUserImageView.layer setBorderColor:[UIColor whiteColor].CGColor];
+    [self.profileUserImageView.layer setBorderWidth:2.0];
+    [self.profileUserImageView.layer setCornerRadius:20];
+    
+    [self.profileUserImageView autoSetDimension:ALDimensionWidth toSize:104];
+    [self.profileUserImageView autoSetDimension:ALDimensionHeight toSize:104];
+    [self.profileUserImageView autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [self.profileUserImageView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:20];
+    [self.profileUserImageView setImage: self.presenter.profileUserImage];
 }
 
 #pragma mark - UIViewGeometry

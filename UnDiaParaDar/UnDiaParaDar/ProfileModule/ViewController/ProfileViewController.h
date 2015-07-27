@@ -14,5 +14,4 @@
 
 - (instancetype)initWithRouting:(id<Routing>)routing;
 
-
 @end

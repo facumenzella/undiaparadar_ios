@@ -14,8 +14,8 @@
 {
     self = [super init];
     if (self) {
-        self.userProfilePicture = [UIImage imageNamed:userProfilePicture];
-        self.timelineProfilePicture = [UIImage imageNamed:timelinePicture];
+        self.profileUserImage = [UIImage imageNamed:userProfilePicture];
+        self.profileTimelineImage = [UIImage imageNamed:timelinePicture];
     }
     return self;
 }

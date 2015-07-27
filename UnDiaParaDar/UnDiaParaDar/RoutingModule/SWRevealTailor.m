@@ -14,7 +14,7 @@
 {
     switch (event) {
         case DirectorEventPrimary:
-            
+            [self suitViewControllerUpForPrimaryEvent:viewController];
             break;
         case DirectorEventSecondary:
             // You are fine. Just need some confidence VC

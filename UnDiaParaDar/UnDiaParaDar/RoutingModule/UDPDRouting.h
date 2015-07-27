@@ -11,6 +11,7 @@
 
 @protocol Director;
 @protocol Architect;
+@protocol Tailor;
 @class LoginModuleAssembly;
 @class ProfileModuleAssembly;
 
@@ -19,7 +20,8 @@
 - (instancetype)initWithDirector:(id<Director>)director
          withLoginModuleAssembly:(LoginModuleAssembly*)loginModuleAssembly
        withProfileModuleAssembly:(ProfileModuleAssembly*)profileModuleAssembly
-                   withArchitect:(id<Architect>)architect;
+                   withArchitect:(id<Architect>)architect
+                      withTailor:(id<Tailor>)tailor;
 
 - (void)showLoginPage;
 - (void)showMainPage;
