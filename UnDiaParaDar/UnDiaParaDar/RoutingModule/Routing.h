@@ -13,5 +13,6 @@
 - (void)showLoginPage;
 - (void)showMainPage;
 - (void)showProfile;
+- (void)showSplash;
 
 @end

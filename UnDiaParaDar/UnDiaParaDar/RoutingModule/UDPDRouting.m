@@ -16,6 +16,9 @@
 #import "ProfileModuleAssembly.h"
 #import "ProfileViewController.h"
 
+#import "SplashModuleAssembly.h"
+#import "SplashViewController.h"
+
 @interface UDPDRouting ()
 
 @property (nonatomic, strong) id<Director> director;
@@ -23,6 +26,7 @@
 
 @property (nonatomic, strong) LoginModuleAssembly *loginModuleAssembly;
 @property (nonatomic, strong) ProfileModuleAssembly *profileModuleAssembly;
+@property (nonatomic, strong) SplashModuleAssembly *splashModuleAssembly;
 
 @end
 
@@ -31,6 +35,7 @@
 - (instancetype)initWithDirector:(id<Director>)director
          withLoginModuleAssembly:(LoginModuleAssembly*)loginModuleAssembly
        withProfileModuleAssembly:(ProfileModuleAssembly*)profileModuleAssembly
+        withSplashModuleAssembly:(SplashModuleAssembly*)splashModuleAssemlby
                    withArchitect:(id<Architect>)architect
 {
     self = [super init];
@@ -38,6 +43,7 @@
         self.director = director;
         self.loginModuleAssembly = loginModuleAssembly;
         self.profileModuleAssembly = profileModuleAssembly;
+        self.splashModuleAssembly = splashModuleAssemlby;
         self.architect = architect;
     }
     return self;
@@ -58,5 +64,12 @@
 {
     [self showMainPage];
 }
+
+- (void)showSplash
+{
+    SplashViewController *splashViewController = [self.splashModuleAssembly splashViewController];
+    [self.director setRoot:splashViewController];
+}
+
 
 @end

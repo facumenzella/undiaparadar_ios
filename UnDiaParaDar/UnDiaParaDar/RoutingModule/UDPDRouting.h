@@ -13,12 +13,14 @@
 @protocol Architect;
 @class LoginModuleAssembly;
 @class ProfileModuleAssembly;
+@class SplashModuleAssembly;
 
 @interface UDPDRouting : NSObject<Routing>
 
 - (instancetype)initWithDirector:(id<Director>)director
          withLoginModuleAssembly:(LoginModuleAssembly*)loginModuleAssembly
        withProfileModuleAssembly:(ProfileModuleAssembly*)profileModuleAssembly
+        withSplashModuleAssembly:(SplashModuleAssembly*)splashModuleAssemlby
                    withArchitect:(id<Architect>)architect;
 
 @end

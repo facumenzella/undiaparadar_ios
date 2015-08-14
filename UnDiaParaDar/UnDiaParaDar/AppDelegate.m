@@ -27,7 +27,7 @@
     
     [TyphoonInitializer setup];
     
-    [self.routing showLoginPage];
+    [self.routing showSplash];
     
     return YES;
 }
