@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol Routing;
+@class TopicService;
+
 @interface TopicsCollectionViewController : UICollectionViewController
+
+- (instancetype)initWithRouting:(id<Routing>)routing withTopicsService:(TopicService*)topicService;
 
 @end
