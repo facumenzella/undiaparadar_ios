@@ -14,6 +14,7 @@
 
 @implementation TopicsCollectionViewController
 
+static const NSInteger SECTIONS = 1;
 static NSString * const reuseIdentifier = @"TopicCell";
 
 - (void)viewDidLoad {
@@ -31,8 +32,7 @@ static NSString * const reuseIdentifier = @"TopicCell";
 #pragma mark UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete method implementation -- Return the number of sections
-    return 0;
+    return SECTIONS;
 }
 
 
