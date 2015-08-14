@@ -66,7 +66,7 @@ static NSString *UNDIAPARADAR_KEY = @"undiaparadar";
 
 - (void)animate
 {
-    [UIView animateWithDuration:3 animations:^{
+    [UIView animateWithDuration:2 animations:^{
         [self.undiaparadarLogoImageView setAlpha:1];
     }];
 }
