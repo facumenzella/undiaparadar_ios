@@ -28,9 +28,18 @@
     [TyphoonInitializer setup];
     
     [self.routing showSplash];
-    
+    [self homePage];
     return YES;
 }
 
+
+- (void)homePage
+{
+    [NSTimer scheduledTimerWithTimeInterval:2.0
+                                     target:self.routing
+                                   selector:@selector(showMainPage)
+                                   userInfo:nil
+                                    repeats:NO];
+}
 
 @end

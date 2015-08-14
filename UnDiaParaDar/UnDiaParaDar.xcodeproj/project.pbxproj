@@ -12,6 +12,7 @@
 		0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E0C1B7E5AA50049D08B /* SplashViewController.m */; };
 		0D9E1E101B7E5B8F0049D08B /* SplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E0F1B7E5B8F0049D08B /* SplashView.m */; };
 		0D9E1E141B7E610B0049D08B /* SplashModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E131B7E610B0049D08B /* SplashModuleAssembly.m */; };
+		0DAF2FAD1B7E8EED0045CE08 /* TopicsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF2FAC1B7E8EED0045CE08 /* TopicsCollectionViewController.m */; };
 		110FE8A51B66AC1C002A2273 /* SpotifyLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 110FE8A41B66AC1C002A2273 /* SpotifyLikeView.m */; };
 		110FE8A81B66AEF4002A2273 /* SpotifyLikeViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 110FE8A71B66AEF4002A2273 /* SpotifyLikeViewPresenter.m */; };
 		110FE8AB1B66B8C0002A2273 /* SWRevealArchitect.m in Sources */ = {isa = PBXBuildFile; fileRef = 110FE8AA1B66B8C0002A2273 /* SWRevealArchitect.m */; };
@@ -57,6 +58,8 @@
 		0D9E1E0F1B7E5B8F0049D08B /* SplashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashView.m; sourceTree = "<group>"; };
 		0D9E1E121B7E610B0049D08B /* SplashModuleAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashModuleAssembly.h; sourceTree = "<group>"; };
 		0D9E1E131B7E610B0049D08B /* SplashModuleAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashModuleAssembly.m; sourceTree = "<group>"; };
+		0DAF2FAB1B7E8EED0045CE08 /* TopicsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicsCollectionViewController.h; sourceTree = "<group>"; };
+		0DAF2FAC1B7E8EED0045CE08 /* TopicsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicsCollectionViewController.m; sourceTree = "<group>"; };
 		110FE8A31B66AC1C002A2273 /* SpotifyLikeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyLikeView.h; sourceTree = "<group>"; };
 		110FE8A41B66AC1C002A2273 /* SpotifyLikeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyLikeView.m; sourceTree = "<group>"; };
 		110FE8A61B66AEF4002A2273 /* SpotifyLikeViewPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyLikeViewPresenter.h; sourceTree = "<group>"; };
@@ -186,6 +189,47 @@
 			path = Assembly;
 			sourceTree = "<group>";
 		};
+		0DAF2FA71B7E8EE20045CE08 /* TopicsModule */ = {
+			isa = PBXGroup;
+			children = (
+				0DAF2FA81B7E8EE20045CE08 /* Assembly */,
+				0DAF2FA91B7E8EE20045CE08 /* View */,
+				0DAF2FAA1B7E8EE20045CE08 /* ViewController */,
+			);
+			path = TopicsModule;
+			sourceTree = "<group>";
+		};
+		0DAF2FA81B7E8EE20045CE08 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		0DAF2FA91B7E8EE20045CE08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0DAF2FAE1B7E8F080045CE08 /* Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0DAF2FAA1B7E8EE20045CE08 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0DAF2FAB1B7E8EED0045CE08 /* TopicsCollectionViewController.h */,
+				0DAF2FAC1B7E8EED0045CE08 /* TopicsCollectionViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0DAF2FAE1B7E8F080045CE08 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		110FE8AC1B66B95F002A2273 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,11 +340,12 @@
 		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
 			isa = PBXGroup;
 			children = (
+				0DAF2FA71B7E8EE20045CE08 /* TopicsModule */,
+				11DEE68A1B5D6DA100DCDE3E /* LoginModule */,
 				0D9E1E081B7E5A910049D08B /* SplashModule */,
 				113E46981B62C00E00ADF8AC /* ProfileModule */,
 				1113AA0D1B5F00C80066E7BB /* MenuModule */,
 				11DEE6A11B5D774900DCDE3E /* RoutingModule */,
-				11DEE68A1B5D6DA100DCDE3E /* LoginModule */,
 				11A0940C1B5D61B100E4FB06 /* AppDelegate.h */,
 				11A0940D1B5D61B100E4FB06 /* AppDelegate.m */,
 				11A094151B5D61B100E4FB06 /* Images.xcassets */,
@@ -563,6 +608,7 @@
 				0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */,
 				0D9E1E141B7E610B0049D08B /* SplashModuleAssembly.m in Sources */,
 				11DEE6971B5D6F6D00DCDE3E /* TyphoonInitializer.m in Sources */,
+				0DAF2FAD1B7E8EED0045CE08 /* TopicsCollectionViewController.m in Sources */,
 				11DEE6AA1B5D774900DCDE3E /* UDPDRouting.m in Sources */,
 				1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */,
 				110FE8AB1B66B8C0002A2273 /* SWRevealArchitect.m in Sources */,
