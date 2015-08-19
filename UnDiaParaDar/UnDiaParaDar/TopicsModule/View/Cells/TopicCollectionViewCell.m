@@ -50,9 +50,9 @@
     [self.contentView addSubview:self.topicImageView];
     [self.topicImageView autoSetDimension:ALDimensionWidth toSize:123 / 2];
     [self.topicImageView autoSetDimension:ALDimensionHeight toSize:128 / 2];
-    [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
-    [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
-    [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
+    [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:8];
+    [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:8];
+    [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
 }
 
 - (void)buildTopicLabel

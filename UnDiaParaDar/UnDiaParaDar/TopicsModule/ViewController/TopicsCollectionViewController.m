@@ -45,7 +45,8 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
     // TODO change this, put it inside a view
     UIImageView *background = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"Splash"]];
     [self.collectionView setBackgroundView:background];
-    self.collectionView.contentInset = UIEdgeInsetsMake(8, 32, 8, 32);
+    self.collectionView.contentInset = UIEdgeInsetsMake(8, 24, 8, 24);
+    self.collectionView.allowsMultipleSelection = YES;
     [self.collectionView registerClass:[TopicCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView reloadData];
 }

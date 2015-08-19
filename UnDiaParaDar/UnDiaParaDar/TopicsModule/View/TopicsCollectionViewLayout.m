@@ -11,7 +11,7 @@
 
 static TopicCollectionViewCell *cell;
 static CGFloat MINIMUM_LINE_SPACING = 24;
-static CGFloat MINIMUM_INTERITEM_SPACING = 24;
+static CGFloat MINIMUM_INTERITEM_SPACING = 12;
 
 @implementation TopicsCollectionViewLayout
 
