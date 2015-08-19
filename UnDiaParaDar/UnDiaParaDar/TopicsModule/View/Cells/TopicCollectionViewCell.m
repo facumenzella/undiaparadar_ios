@@ -78,9 +78,6 @@
 - (void)populateCellWithTopic:(Topic *)topic
 {
     UIImage *topicImage = [UIImage imageNamed: topic.img];
-    if (!topicImage) {
-        NSLog(topic.img);
-    }
     [self.topicImageView setImage:topicImage];
     
     [self.topicLabel setText:topic.name];

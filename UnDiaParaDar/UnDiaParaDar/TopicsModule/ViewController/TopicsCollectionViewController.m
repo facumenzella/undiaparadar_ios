@@ -42,6 +42,7 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
     [super viewDidLoad];
     
     [self loadTopics];
+    // TODO change this, put it inside a view
     self.collectionView.contentInset = UIEdgeInsetsMake(8, 32, 8, 32);
     [self.collectionView registerClass:[TopicCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView reloadData];
