@@ -21,7 +21,7 @@ static NSMutableArray *topics;
 
 - (NSMutableArray*)topics
 {
-    dispatch_once_t token;
+    static dispatch_once_t token;
     dispatch_once(&token, ^{
         topics = [[NSMutableArray alloc]init];
         NSString *filePath = [[NSBundle mainBundle] pathForResource:TOPICS ofType:@"plist"];

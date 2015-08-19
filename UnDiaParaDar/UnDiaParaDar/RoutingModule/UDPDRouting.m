@@ -19,6 +19,9 @@
 #import "SplashModuleAssembly.h"
 #import "SplashViewController.h"
 
+#import "TopicsModuleAssembly.h"
+#import "TopicsCollectionViewController.h"
+
 @interface UDPDRouting ()
 
 @property (nonatomic, strong) id<Director> director;
@@ -27,6 +30,7 @@
 @property (nonatomic, strong) LoginModuleAssembly *loginModuleAssembly;
 @property (nonatomic, strong) ProfileModuleAssembly *profileModuleAssembly;
 @property (nonatomic, strong) SplashModuleAssembly *splashModuleAssembly;
+@property (nonatomic, strong) TopicsModuleAssembly *topicsModuleAssembly;
 
 @end
 
@@ -35,7 +39,8 @@
 - (instancetype)initWithDirector:(id<Director>)director
          withLoginModuleAssembly:(LoginModuleAssembly*)loginModuleAssembly
        withProfileModuleAssembly:(ProfileModuleAssembly*)profileModuleAssembly
-        withSplashModuleAssembly:(SplashModuleAssembly*)splashModuleAssemlby
+        withSplashModuleAssembly:(SplashModuleAssembly*)splashModuleAssembly
+        withTopicsModuleAssembly:(TopicsModuleAssembly*)topicsModuleAssembly
                    withArchitect:(id<Architect>)architect
 {
     self = [super init];
@@ -43,7 +48,8 @@
         self.director = director;
         self.loginModuleAssembly = loginModuleAssembly;
         self.profileModuleAssembly = profileModuleAssembly;
-        self.splashModuleAssembly = splashModuleAssemlby;
+        self.splashModuleAssembly = splashModuleAssembly;
+        self.topicsModuleAssembly = topicsModuleAssembly;
         self.architect = architect;
     }
     return self;
@@ -56,8 +62,8 @@
 
 - (void)showMainPage
 {
-    ProfileViewController *profileViewController = [self.profileModuleAssembly profileViewController];
-    [self.director setRoot:[self.architect buildMainScreenWithRootViewController: profileViewController]];
+    TopicsCollectionViewController *topicsViewController = [self.topicsModuleAssembly topicsCollectionViewController];
+    [self.director setRoot:[self.architect buildMainScreenWithRootViewController: topicsViewController]];
 }
 
 - (void)showProfile

@@ -9,6 +9,7 @@
 #import "RoutingModuleAssembly.h"
 #import "MenuModuleAssembly.h"
 #import "SplashModuleAssembly.h"
+#import "TopicsModuleAssembly.h"
 #import "SWRevealDirector.h"
 #import "SWRevealArchitect.h"
 #import "SWRevealTailor.h"
@@ -24,6 +25,7 @@
 @property (nonatomic, strong) MenuModuleAssembly *menuModuleAssembly;
 @property (nonatomic, strong) ProfileModuleAssembly *profileModuleAssembly;
 @property (nonatomic, strong) SplashModuleAssembly *splashModuleAssembly;
+@property (nonatomic, strong) TopicsModuleAssembly *topicsModuleAssembly;
 
 @end
 
@@ -31,7 +33,7 @@
 
 - (id<Routing>) routing
 {
-    SEL selector = @selector(initWithDirector:withLoginModuleAssembly:withProfileModuleAssembly:withSplashModuleAssembly:withArchitect:);
+    SEL selector = @selector(initWithDirector:withLoginModuleAssembly:withProfileModuleAssembly:withSplashModuleAssembly:withTopicsModuleAssembly:withArchitect:);
     return [TyphoonDefinition withClass:[UDPDRouting class]
                           configuration:^(TyphoonDefinition* definition) {
                               [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
@@ -39,6 +41,7 @@
                                   [initializer injectParameterWith:self.loginModuleAssembly];
                                   [initializer injectParameterWith:self.profileModuleAssembly];
                                   [initializer injectParameterWith:self.splashModuleAssembly];
+                                  [initializer injectParameterWith:self.topicsModuleAssembly];
                                   [initializer injectParameterWith:[self iphoneArchitect]];
                               }];
                           }];

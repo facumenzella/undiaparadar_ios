@@ -18,6 +18,8 @@
 		0DAF2FDC1B7E94C40045CE08 /* TopicService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF2FDB1B7E94C40045CE08 /* TopicService.m */; };
 		0DAF2FDF1B7E9AEC0045CE08 /* TopicsModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF2FDE1B7E9AEC0045CE08 /* TopicsModuleAssembly.m */; };
 		0DAF2FE21B7E9D290045CE08 /* ServiceModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF2FE11B7E9D290045CE08 /* ServiceModuleAssembly.m */; };
+		0DAF2FE51B7E9FF30045CE08 /* TopicCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF2FE41B7E9FF30045CE08 /* TopicCollectionViewCell.m */; };
+		0DFF0A881B850B52004D1EB9 /* TopicsCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF0A871B850B52004D1EB9 /* TopicsCollectionViewLayout.m */; };
 		110FE8A51B66AC1C002A2273 /* SpotifyLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 110FE8A41B66AC1C002A2273 /* SpotifyLikeView.m */; };
 		110FE8A81B66AEF4002A2273 /* SpotifyLikeViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 110FE8A71B66AEF4002A2273 /* SpotifyLikeViewPresenter.m */; };
 		110FE8AB1B66B8C0002A2273 /* SWRevealArchitect.m in Sources */ = {isa = PBXBuildFile; fileRef = 110FE8AA1B66B8C0002A2273 /* SWRevealArchitect.m */; };
@@ -74,6 +76,10 @@
 		0DAF2FDE1B7E9AEC0045CE08 /* TopicsModuleAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicsModuleAssembly.m; sourceTree = "<group>"; };
 		0DAF2FE01B7E9D290045CE08 /* ServiceModuleAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceModuleAssembly.h; sourceTree = "<group>"; };
 		0DAF2FE11B7E9D290045CE08 /* ServiceModuleAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceModuleAssembly.m; sourceTree = "<group>"; };
+		0DAF2FE31B7E9FF30045CE08 /* TopicCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicCollectionViewCell.h; sourceTree = "<group>"; };
+		0DAF2FE41B7E9FF30045CE08 /* TopicCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicCollectionViewCell.m; sourceTree = "<group>"; };
+		0DFF0A861B850B52004D1EB9 /* TopicsCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicsCollectionViewLayout.h; path = UnDiaParaDar/TopicsModule/View/TopicsCollectionViewLayout.h; sourceTree = SOURCE_ROOT; };
+		0DFF0A871B850B52004D1EB9 /* TopicsCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicsCollectionViewLayout.m; path = UnDiaParaDar/TopicsModule/View/TopicsCollectionViewLayout.m; sourceTree = SOURCE_ROOT; };
 		110FE8A31B66AC1C002A2273 /* SpotifyLikeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyLikeView.h; sourceTree = "<group>"; };
 		110FE8A41B66AC1C002A2273 /* SpotifyLikeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyLikeView.m; sourceTree = "<group>"; };
 		110FE8A61B66AEF4002A2273 /* SpotifyLikeViewPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyLikeViewPresenter.h; sourceTree = "<group>"; };
@@ -206,6 +212,7 @@
 		0DAF2FA71B7E8EE20045CE08 /* TopicsModule */ = {
 			isa = PBXGroup;
 			children = (
+				0DD63F781B7EAD7D00766361 /* Presenter */,
 				0DAF2FA81B7E8EE20045CE08 /* Assembly */,
 				0DAF2FA91B7E8EE20045CE08 /* View */,
 				0DAF2FAA1B7E8EE20045CE08 /* ViewController */,
@@ -242,6 +249,8 @@
 		0DAF2FAE1B7E8F080045CE08 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				0DAF2FE31B7E9FF30045CE08 /* TopicCollectionViewCell.h */,
+				0DAF2FE41B7E9FF30045CE08 /* TopicCollectionViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -272,6 +281,16 @@
 				0DAF2FE11B7E9D290045CE08 /* ServiceModuleAssembly.m */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		0DD63F781B7EAD7D00766361 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0DFF0A861B850B52004D1EB9 /* TopicsCollectionViewLayout.h */,
+				0DFF0A871B850B52004D1EB9 /* TopicsCollectionViewLayout.m */,
+			);
+			name = Presenter;
+			path = View/Presenter;
 			sourceTree = "<group>";
 		};
 		110FE8AC1B66B95F002A2273 /* Assembly */ = {
@@ -660,9 +679,11 @@
 				0DAF2FAD1B7E8EED0045CE08 /* TopicsCollectionViewController.m in Sources */,
 				11DEE6AA1B5D774900DCDE3E /* UDPDRouting.m in Sources */,
 				1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */,
+				0DAF2FE51B7E9FF30045CE08 /* TopicCollectionViewCell.m in Sources */,
 				110FE8AB1B66B8C0002A2273 /* SWRevealArchitect.m in Sources */,
 				11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */,
 				110FE8AF1B66B9B0002A2273 /* MenuModuleAssembly.m in Sources */,
+				0DFF0A881B850B52004D1EB9 /* TopicsCollectionViewLayout.m in Sources */,
 				0DAF2FD81B7E94420045CE08 /* Topic.m in Sources */,
 				0DAF2FDC1B7E94C40045CE08 /* TopicService.m in Sources */,
 				0D3DB3C31B7546D90052F46B /* MenuViewController.m in Sources */,

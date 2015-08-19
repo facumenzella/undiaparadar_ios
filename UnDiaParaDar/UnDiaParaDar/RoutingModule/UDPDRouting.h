@@ -14,13 +14,15 @@
 @class LoginModuleAssembly;
 @class ProfileModuleAssembly;
 @class SplashModuleAssembly;
+@class TopicsModuleAssembly;
 
 @interface UDPDRouting : NSObject<Routing>
 
 - (instancetype)initWithDirector:(id<Director>)director
          withLoginModuleAssembly:(LoginModuleAssembly*)loginModuleAssembly
        withProfileModuleAssembly:(ProfileModuleAssembly*)profileModuleAssembly
-        withSplashModuleAssembly:(SplashModuleAssembly*)splashModuleAssemlby
+        withSplashModuleAssembly:(SplashModuleAssembly*)splashModuleAssembly
+        withTopicsModuleAssembly:(TopicsModuleAssembly*)topicsModuleAssembly
                    withArchitect:(id<Architect>)architect;
 
 @end

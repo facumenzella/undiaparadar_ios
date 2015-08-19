@@ -7,6 +7,9 @@
 //
 
 #import "TopicsCollectionViewController.h"
+#import "TopicCollectionViewCell.h"
+#import "TopicsCollectionViewLayout.h"
+
 #import "TopicService.h"
 #import "Routing.h"
 
@@ -14,7 +17,6 @@
 
 @property (nonatomic, strong) id<Routing> routing;
 @property (nonatomic, strong) TopicService *topicService;
-
 @property (nonatomic, strong) NSMutableArray *topics;
 
 @end
@@ -22,25 +24,27 @@
 @implementation TopicsCollectionViewController
 
 static const NSInteger SECTIONS = 1;
-static NSString * const reuseIdentifier = @"TopicCell";
+static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
 
 #pragma mark - TopicsCollectionViewController
 
 - (instancetype)initWithRouting:(id<Routing>)routing withTopicsService:(TopicService*)topicService
 {
-    if (self = [super init]) {
+    if (self = [super initWithCollectionViewLayout:[[TopicsCollectionViewLayout alloc] init]]) {
         self.routing = routing;
         self.topicService = topicService;
     }
     return self;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self loadTopics];
-    
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    self.collectionView.contentInset = UIEdgeInsetsMake(8, 32, 8, 32);
+    [self.collectionView registerClass:[TopicCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView reloadData];
 }
 
 - (void)loadTopics
@@ -60,10 +64,13 @@ static NSString * const reuseIdentifier = @"TopicCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell
-    
+    TopicCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
+                                                                              forIndexPath:indexPath];
+    if (!cell) {
+        cell = [[TopicCollectionViewCell alloc] init];
+    }
+    Topic *t = [self.topics objectAtIndex: [indexPath row]];
+    [cell populateCellWithTopic:t];
     return cell;
 }
 
