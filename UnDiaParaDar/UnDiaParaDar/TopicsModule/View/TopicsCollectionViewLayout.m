@@ -12,9 +12,6 @@
 static TopicCollectionViewCell *cell;
 static CGFloat MINIMUM_LINE_SPACING = 24;
 static CGFloat MINIMUM_INTERITEM_SPACING = 24;
-static CGFloat TOP_INSET = 16;
-static CGFloat HORIZONTAL_INSET = 48;
-static CGFloat BOTTOM_INSET = 16;
 
 @implementation TopicsCollectionViewLayout
 
@@ -29,7 +26,7 @@ static CGFloat BOTTOM_INSET = 16;
 
 - (CGSize)itemSize
 {
-    return [cell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return [cell systemLayoutSizeFittingSize:UILayoutFittingExpandedSize];
 }
 
 - (CGFloat)minimumInteritemSpacing

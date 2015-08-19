@@ -59,6 +59,7 @@
 {
     self.topicLabel = [[UILabel alloc] initForAutoLayout];
     [self.contentView addSubview:self.topicLabel];
+    [self.topicLabel setText:@"Default"];
     [self.topicLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.topicImageView];
     [self.topicLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [self.topicLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
@@ -73,6 +74,7 @@
  - (void)styleTopicLabel
 {
     self.topicLabel.textAlignment = NSTextAlignmentCenter;
+    [self.topicLabel setFont:[UIFont systemFontOfSize:8]];
 }
 
 - (void)populateCellWithTopic:(Topic *)topic
@@ -81,6 +83,7 @@
     [self.topicImageView setImage:topicImage];
     
     [self.topicLabel setText:topic.name];
+    [self.topicLabel setTextColor: [UIColor blackColor]];
 }
 
 @end
