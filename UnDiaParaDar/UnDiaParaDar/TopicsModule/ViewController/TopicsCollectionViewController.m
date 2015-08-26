@@ -41,6 +41,8 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Encuentra que hacer";
+    
     [self loadTopics];
     // TODO change this, put it inside a view
     UIImageView *background = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"Splash"]];
