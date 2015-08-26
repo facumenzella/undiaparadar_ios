@@ -28,9 +28,11 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
 
 #pragma mark - TopicsCollectionViewController
 
-- (instancetype)initWithRouting:(id<Routing>)routing withTopicsService:(TopicService*)topicService
+- (instancetype)initWithRouting:(id<Routing>)routing
+              withTopicsService:(TopicService*)topicService
 {
-    if (self = [super initWithCollectionViewLayout:[[TopicsCollectionViewLayout alloc] init]]) {
+    TopicsCollectionViewLayout *layout = [[TopicsCollectionViewLayout alloc] init];
+    if (self = [super initWithCollectionViewLayout:layout]) {
         self.routing = routing;
         self.topicService = topicService;
     }
