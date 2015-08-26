@@ -1,12 +1,12 @@
 //
-//  UDPDRouting.m
+//  SWRevealRouting.m
 //  UnDiaParaDar
 //
 //  Created by Facundo Menzella on 7/20/15.
 //  Copyright (c) 2015 ITBA. All rights reserved.
 //
 
-#import "UDPDRouting.h"
+#import "SWRevealRouting.h"
 #import "Director.h"
 #import "Architect.h"
 
@@ -22,7 +22,7 @@
 #import "TopicsModuleAssembly.h"
 #import "TopicsCollectionViewController.h"
 
-@interface UDPDRouting ()
+@interface SWRevealRouting ()
 
 @property (nonatomic, strong) id<Director> director;
 @property (nonatomic, strong) id<Architect> architect;
@@ -34,7 +34,7 @@
 
 @end
 
-@implementation UDPDRouting
+@implementation SWRevealRouting
 
 - (instancetype)initWithDirector:(id<Director>)director
          withLoginModuleAssembly:(LoginModuleAssembly*)loginModuleAssembly

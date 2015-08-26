@@ -13,7 +13,7 @@
 #import "SWRevealDirector.h"
 #import "SWRevealArchitect.h"
 #import "SWRevealTailor.h"
-#import "UDPDRouting.h"
+#import "SWRevealRouting.h"
 
 // Ignore no selector in translation unit
 #pragma clang diagnostic ignored "-Wselector"
@@ -34,7 +34,7 @@
 - (id<Routing>) routing
 {
     SEL selector = @selector(initWithDirector:withLoginModuleAssembly:withProfileModuleAssembly:withSplashModuleAssembly:withTopicsModuleAssembly:withArchitect:);
-    return [TyphoonDefinition withClass:[UDPDRouting class]
+    return [TyphoonDefinition withClass:[SWRevealRouting class]
                           configuration:^(TyphoonDefinition* definition) {
                               [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
                                   [initializer injectParameterWith:[self iphoneDirector]];

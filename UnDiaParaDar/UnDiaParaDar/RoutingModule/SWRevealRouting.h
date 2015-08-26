@@ -1,5 +1,5 @@
 //
-//  UDPDRouting.h
+//  SWRevealRouting.h
 //  UnDiaParaDar
 //
 //  Created by Facundo Menzella on 7/20/15.
@@ -16,7 +16,7 @@
 @class SplashModuleAssembly;
 @class TopicsModuleAssembly;
 
-@interface UDPDRouting : NSObject<Routing>
+@interface SWRevealRouting : NSObject<Routing>
 
 - (instancetype)initWithDirector:(id<Director>)director
          withLoginModuleAssembly:(LoginModuleAssembly*)loginModuleAssembly

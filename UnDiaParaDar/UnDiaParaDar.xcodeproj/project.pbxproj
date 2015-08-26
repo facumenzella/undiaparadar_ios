@@ -38,7 +38,7 @@
 		11DEE6941B5D6E7F00DCDE3E /* LoginModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6931B5D6E7F00DCDE3E /* LoginModuleAssembly.m */; };
 		11DEE6971B5D6F6D00DCDE3E /* TyphoonInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6961B5D6F6D00DCDE3E /* TyphoonInitializer.m */; };
 		11DEE6A91B5D774900DCDE3E /* SWRevealDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6A61B5D774900DCDE3E /* SWRevealDirector.m */; };
-		11DEE6AA1B5D774900DCDE3E /* UDPDRouting.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6A81B5D774900DCDE3E /* UDPDRouting.m */; };
+		11DEE6AA1B5D774900DCDE3E /* SWRevealRouting.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6A81B5D774900DCDE3E /* SWRevealRouting.m */; };
 		11DEE6AD1B5D778F00DCDE3E /* RoutingModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6AC1B5D778F00DCDE3E /* RoutingModuleAssembly.m */; };
 		11DEE6B01B5D7D9300DCDE3E /* AppDelegateAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6AF1B5D7D9300DCDE3E /* AppDelegateAssembly.m */; };
 		11DEE6B31B5D818500DCDE3E /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6B21B5D818500DCDE3E /* LoginView.m */; };
@@ -121,8 +121,8 @@
 		11DEE6A31B5D774900DCDE3E /* Routing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Routing.h; sourceTree = "<group>"; };
 		11DEE6A51B5D774900DCDE3E /* SWRevealDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealDirector.h; sourceTree = "<group>"; };
 		11DEE6A61B5D774900DCDE3E /* SWRevealDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealDirector.m; sourceTree = "<group>"; };
-		11DEE6A71B5D774900DCDE3E /* UDPDRouting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPDRouting.h; sourceTree = "<group>"; };
-		11DEE6A81B5D774900DCDE3E /* UDPDRouting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPDRouting.m; sourceTree = "<group>"; };
+		11DEE6A71B5D774900DCDE3E /* SWRevealRouting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealRouting.h; sourceTree = "<group>"; };
+		11DEE6A81B5D774900DCDE3E /* SWRevealRouting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealRouting.m; sourceTree = "<group>"; };
 		11DEE6AB1B5D778F00DCDE3E /* RoutingModuleAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoutingModuleAssembly.h; path = UnDiaParaDar/RoutingModule/Assembly/RoutingModuleAssembly.h; sourceTree = SOURCE_ROOT; };
 		11DEE6AC1B5D778F00DCDE3E /* RoutingModuleAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoutingModuleAssembly.m; path = UnDiaParaDar/RoutingModule/Assembly/RoutingModuleAssembly.m; sourceTree = SOURCE_ROOT; };
 		11DEE6AE1B5D7D9300DCDE3E /* AppDelegateAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegateAssembly.h; sourceTree = "<group>"; };
@@ -505,8 +505,8 @@
 				11DEE6A31B5D774900DCDE3E /* Routing.h */,
 				11DEE6A51B5D774900DCDE3E /* SWRevealDirector.h */,
 				11DEE6A61B5D774900DCDE3E /* SWRevealDirector.m */,
-				11DEE6A71B5D774900DCDE3E /* UDPDRouting.h */,
-				11DEE6A81B5D774900DCDE3E /* UDPDRouting.m */,
+				11DEE6A71B5D774900DCDE3E /* SWRevealRouting.h */,
+				11DEE6A81B5D774900DCDE3E /* SWRevealRouting.m */,
 				113E469F1B62C61800ADF8AC /* Tailor.h */,
 				113E46A01B62C74D00ADF8AC /* SWRevealTailor.h */,
 				113E46A11B62C74D00ADF8AC /* SWRevealTailor.m */,
@@ -677,7 +677,7 @@
 				11DEE6971B5D6F6D00DCDE3E /* TyphoonInitializer.m in Sources */,
 				0DAF2FDF1B7E9AEC0045CE08 /* TopicsModuleAssembly.m in Sources */,
 				0DAF2FAD1B7E8EED0045CE08 /* TopicsCollectionViewController.m in Sources */,
-				11DEE6AA1B5D774900DCDE3E /* UDPDRouting.m in Sources */,
+				11DEE6AA1B5D774900DCDE3E /* SWRevealRouting.m in Sources */,
 				1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */,
 				0DAF2FE51B7E9FF30045CE08 /* TopicCollectionViewCell.m in Sources */,
 				110FE8AB1B66B8C0002A2273 /* SWRevealArchitect.m in Sources */,
