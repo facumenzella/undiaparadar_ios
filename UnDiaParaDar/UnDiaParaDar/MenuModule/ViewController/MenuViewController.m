@@ -15,7 +15,6 @@
 
 @property (nonatomic, strong) id<Routing> routing;
 
-@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) RETableViewManager *tableViewManager;
 
 @end
