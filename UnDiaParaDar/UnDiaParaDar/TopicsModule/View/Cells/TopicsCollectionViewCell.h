@@ -10,7 +10,7 @@
 
 @class Topic;
 
-@interface TopicCollectionViewCell : UICollectionViewCell
+@interface TopicsCollectionViewCell : UICollectionViewCell
 
 - (void)populateCellWithTopic: (Topic*)topic;
 

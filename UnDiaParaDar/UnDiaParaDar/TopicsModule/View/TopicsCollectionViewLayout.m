@@ -7,9 +7,9 @@
 //
 
 #import "TopicsCollectionViewLayout.h"
-#import "TopicCollectionViewCell.h"
+#import "TopicsCollectionViewCell.h"
 
-static TopicCollectionViewCell *cell;
+static TopicsCollectionViewCell *cell;
 static CGFloat MINIMUM_LINE_SPACING = 24;
 static CGFloat MINIMUM_INTERITEM_SPACING = 12;
 
@@ -19,7 +19,7 @@ static CGFloat MINIMUM_INTERITEM_SPACING = 12;
 {
     self = [super init];
     if (self) {
-        cell = [[TopicCollectionViewCell alloc] init];
+        cell = [[TopicsCollectionViewCell alloc] init];
     }
     return self;
 }

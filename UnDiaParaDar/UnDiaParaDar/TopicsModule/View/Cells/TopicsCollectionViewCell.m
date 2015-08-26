@@ -6,18 +6,18 @@
 //  Copyright (c) 2015 ITBA. All rights reserved.
 //
 
-#import "TopicCollectionViewCell.h"
+#import "TopicsCollectionViewCell.h"
 #import "Topic.h"
 #import <UIView+AutoLayout.h>
 
-@interface TopicCollectionViewCell ()
+@interface TopicsCollectionViewCell ()
 
 @property (nonatomic, strong) UIImageView *topicImageView;
 @property (nonatomic, strong) UILabel *topicLabel;
 
 @end
 
-@implementation TopicCollectionViewCell
+@implementation TopicsCollectionViewCell
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

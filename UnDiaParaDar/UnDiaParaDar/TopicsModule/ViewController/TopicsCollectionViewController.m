@@ -7,7 +7,7 @@
 //
 
 #import "TopicsCollectionViewController.h"
-#import "TopicCollectionViewCell.h"
+#import "TopicsCollectionViewCell.h"
 #import "TopicsCollectionViewLayout.h"
 
 #import "TopicService.h"
@@ -47,7 +47,7 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
     [self.collectionView setBackgroundView:background];
     self.collectionView.contentInset = UIEdgeInsetsMake(8, 24, 8, 24);
     self.collectionView.allowsMultipleSelection = YES;
-    [self.collectionView registerClass:[TopicCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[TopicsCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView reloadData];
 }
 
@@ -68,10 +68,10 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    TopicCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
+    TopicsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                                                               forIndexPath:indexPath];
     if (!cell) {
-        cell = [[TopicCollectionViewCell alloc] init];
+        cell = [[TopicsCollectionViewCell alloc] init];
     }
     Topic *t = [self.topics objectAtIndex: [indexPath row]];
     [cell populateCellWithTopic:t];
