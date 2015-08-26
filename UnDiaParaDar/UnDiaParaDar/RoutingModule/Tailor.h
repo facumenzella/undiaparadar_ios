@@ -12,6 +12,6 @@
 
 @protocol Tailor <NSObject>
 
-- (void)suitViewControllerUpForPrimaryEvent:(UIViewController*)viewController;
+- (void)suitViewControllerUpForMenuEvent:(UIViewController*)viewController;
 
 @end

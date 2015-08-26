@@ -45,7 +45,7 @@
     
     UIViewController *rootViewController = vc;
     [navigation pushViewController:rootViewController animated:NO];
-    [self.tailor suitViewControllerUpForPrimaryEvent:rootViewController];
+    [self.tailor suitViewControllerUpForMenuEvent:rootViewController];
     
     return revealVC;
 }

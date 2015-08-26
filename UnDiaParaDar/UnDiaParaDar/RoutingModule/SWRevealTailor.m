@@ -11,7 +11,7 @@
 
 @implementation SWRevealTailor
 
-- (void)suitViewControllerUpForPrimaryEvent:(UIViewController*)viewController
+- (void)suitViewControllerUpForMenuEvent:(UIViewController*)viewController
 {
     static NSString *sandwichButton = @"nav_bar_icon_menu.png";
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 18, 13.5)];
