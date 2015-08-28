@@ -10,6 +10,7 @@
 #import "Routing.h"
 #import "RETableViewManager.h"
 #import "MenuProfilePresenter.h"
+#import "MenuOptionPresenter.h"
 
 @interface MenuViewController ()
 
@@ -40,6 +41,7 @@
     
     [self initTableViewManager];
     [self registerAndBuildProfileSection];
+    [self registerAndBuildMenuOptions];
 }
 
 #pragma mark - RETableViewManager
@@ -74,7 +76,17 @@
 
 - (void)registerAndBuildMenuOptions
 {
-    // not done yet
+    RETableViewSection *itemsSection = [RETableViewSection section];
+    [self.tableViewManager addSection:itemsSection];
+    self.tableViewManager[@"MenuOptionPresenter"] = @"MenuOptionViewCell";
+    
+    MenuOptionPresenter *topicsPresenter = [[MenuOptionPresenter alloc] initWithOptionImage:@"topic_section"
+                                                                            withOptionTitle:@"Topics"];
+    topicsPresenter.selectionHandler = ^(MenuOptionPresenter* presenter) {
+        [presenter deselectRowAnimated:NO];
+        [self.routing showProfile];
+    };
+    [itemsSection addItem:topicsPresenter];
 }
 
 @end

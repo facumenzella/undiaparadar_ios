@@ -62,7 +62,7 @@
 
 - (void)showMainPage
 {
-    [self showLoginPage];
+    [self showTopicsSelection];
 }
 
 - (void)showTopicsSelection

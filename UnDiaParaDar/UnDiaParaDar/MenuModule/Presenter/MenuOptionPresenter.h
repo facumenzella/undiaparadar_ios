@@ -10,4 +10,9 @@
 
 @interface MenuOptionPresenter : RETableViewItem
 
+- (instancetype)initWithOptionImage:(NSString*)image withOptionTitle:(NSString*)title;
+
+@property (nonatomic, strong) UIImage *optionImage;
+@property (nonatomic, strong) NSString *option;
+
 @end

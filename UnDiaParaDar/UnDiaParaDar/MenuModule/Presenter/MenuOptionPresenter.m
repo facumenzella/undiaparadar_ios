@@ -10,4 +10,15 @@
 
 @implementation MenuOptionPresenter
 
+- (instancetype)initWithOptionImage:(NSString*)image withOptionTitle:(NSString*)title
+{
+    self = [super init];
+    if (self) {
+        self.optionImage = [UIImage imageNamed:image];
+        self.option = title;
+    }
+    return self;
+}
+
+
 @end

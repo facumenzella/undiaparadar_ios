@@ -37,7 +37,7 @@
 {
     [NSTimer scheduledTimerWithTimeInterval:2.0
                                      target:self.routing
-                                   selector:@selector(showMainPage)
+                                   selector:@selector(showLoginPage)
                                    userInfo:nil
                                     repeats:NO];
 }

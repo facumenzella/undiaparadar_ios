@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */; };
 		0D3DB3C31B7546D90052F46B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3DB3C21B7546D90052F46B /* MenuViewController.m */; };
+		0D44DADA1B90E62600A274BD /* MenuOptionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D44DAD91B90E62600A274BD /* MenuOptionViewCell.m */; };
 		0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E0C1B7E5AA50049D08B /* SplashViewController.m */; };
 		0D9E1E101B7E5B8F0049D08B /* SplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E0F1B7E5B8F0049D08B /* SplashView.m */; };
 		0D9E1E141B7E610B0049D08B /* SplashModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E131B7E610B0049D08B /* SplashModuleAssembly.m */; };
@@ -60,6 +61,8 @@
 		06C0FA932F79B7DB4ECAB673 /* Pods-UnDiaParaDar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnDiaParaDar.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar.release.xcconfig"; sourceTree = "<group>"; };
 		0D3DB3C11B7546D90052F46B /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		0D3DB3C21B7546D90052F46B /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		0D44DAD81B90E62600A274BD /* MenuOptionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuOptionViewCell.h; sourceTree = "<group>"; };
+		0D44DAD91B90E62600A274BD /* MenuOptionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuOptionViewCell.m; sourceTree = "<group>"; };
 		0D9E1E0B1B7E5AA50049D08B /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		0D9E1E0C1B7E5AA50049D08B /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		0D9E1E0E1B7E5B8F0049D08B /* SplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashView.h; sourceTree = "<group>"; };
@@ -286,12 +289,13 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		0DCD99D21B8F7FBE00FF738E /* Extension */ = {
+		0DCD99D21B8F7FBE00FF738E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				0DCD99D31B8F7FD500FF738E /* UIImage+Color.h */,
 				0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */,
 			);
+			name = Extensions;
 			path = Extension;
 			sourceTree = "<group>";
 		};
@@ -330,6 +334,8 @@
 			children = (
 				1113AA1A1B5F05020066E7BB /* MenuProfileViewCell.h */,
 				1113AA1B1B5F05020066E7BB /* MenuProfileViewCell.m */,
+				0D44DAD81B90E62600A274BD /* MenuOptionViewCell.h */,
+				0D44DAD91B90E62600A274BD /* MenuOptionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -415,7 +421,7 @@
 		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
 			isa = PBXGroup;
 			children = (
-				0DCD99D21B8F7FBE00FF738E /* Extension */,
+				0DCD99D21B8F7FBE00FF738E /* Extensions */,
 				0DAF2FD91B7E947B0045CE08 /* Services */,
 				0DAF2FD51B7E94360045CE08 /* Model */,
 				0DAF2FA71B7E8EE20045CE08 /* TopicsModule */,
@@ -688,6 +694,7 @@
 				0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */,
 				0D9E1E141B7E610B0049D08B /* SplashModuleAssembly.m in Sources */,
 				11DEE6971B5D6F6D00DCDE3E /* TyphoonInitializer.m in Sources */,
+				0D44DADA1B90E62600A274BD /* MenuOptionViewCell.m in Sources */,
 				0DAF2FDF1B7E9AEC0045CE08 /* TopicsModuleAssembly.m in Sources */,
 				0DAF2FAD1B7E8EED0045CE08 /* TopicsCollectionViewController.m in Sources */,
 				11DEE6AA1B5D774900DCDE3E /* SWRevealRouting.m in Sources */,
