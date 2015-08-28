@@ -14,6 +14,7 @@
 @interface LoginViewController ()<LoginDelegate>
 
 @property (nonatomic, strong) id<Routing> routing;
+@property (nonatomic, strong) LoginView *loginView;
 @property (nonatomic, strong) FacebookLoginFlow *loginFlow;
 
 @end
@@ -34,7 +35,13 @@
 
 - (void)loadView
 {
-    self.view = [[LoginView alloc] initWithFacebookLoginDelegate:self.loginFlow];
+    self.loginView = [[LoginView alloc] initWithFacebookLoginDelegate:self.loginFlow];
+    self.view = self.loginView;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.loginView animate];
 }
 
 #pragma mark - LoginDelegate

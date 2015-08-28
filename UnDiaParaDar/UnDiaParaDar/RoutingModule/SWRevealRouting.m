@@ -62,6 +62,11 @@
 
 - (void)showMainPage
 {
+    [self showLoginPage];
+}
+
+- (void)showTopicsSelection
+{
     TopicsCollectionViewController *topicsViewController = [self.topicsModuleAssembly topicsCollectionViewController];
     [self.director setRoot:[self.architect buildMainScreenWithRootViewController: topicsViewController]];
 }

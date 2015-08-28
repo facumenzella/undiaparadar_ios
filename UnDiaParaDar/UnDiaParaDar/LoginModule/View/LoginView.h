@@ -14,4 +14,6 @@
 
 - (instancetype) initWithFacebookLoginDelegate:(id<FBSDKLoginButtonDelegate>)loginDelegate;
 
+- (void)animate;
+
 @end
