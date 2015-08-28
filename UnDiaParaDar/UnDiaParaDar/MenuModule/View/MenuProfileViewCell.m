@@ -24,7 +24,10 @@
 - (void)cellDidLoad
 {
     [super cellDidLoad];
-    [self setBackgroundColor:[UIColor grayColor]];
+    [self setBackgroundColor:[UIColor colorWithRed:187/255.0
+                                             green:42/255.0
+                                              blue:48/255.0
+                                             alpha:1]];
     [self buildAvatar];
     [self buildUsername];
 }
