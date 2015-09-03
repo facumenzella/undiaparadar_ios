@@ -49,8 +49,12 @@ static NSString *UNDIAPARADAR_KEY = @"undiaparadar";
 
 - (void)buildBackground
 {
-    self.backgroundImageView = [[UIImageView alloc] initWithImage: [UIImage imageNamed:BACKGROUND_KEY]];
+    UIImage *background = [UIImage imageNamed:BACKGROUND_KEY];
+    self.backgroundImageView = [[UIImageView alloc] initForAutoLayout];
+    [self.backgroundImageView setImage:background];
+    
     [self addSubview:self.backgroundImageView];
+    [self.backgroundImageView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero];
 }
 
 - (void)buildUnDiaParaDarLogo
