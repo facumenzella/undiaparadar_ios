@@ -8,6 +8,7 @@
 
 #import "SWRevealTailor.h"
 #import "UIImage+Color.h"
+#import "ButtonFactory.h"
 #import "SWRevealViewController.h"
 
 static UIImage *TAILOR_NAV_BAR_IMAGE;
@@ -37,9 +38,7 @@ static UIImage *TAILOR_NAV_BAR_IMAGE;
 
 - (void)suitViewControllerUpForMenuEvent:(UIViewController*)viewController
 {
-    static NSString *sandwichButton = @"nav_bar_icon_menu.png";
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 18, 13.5)];
-    [button setBackgroundImage:[UIImage imageNamed:sandwichButton] forState:UIControlStateNormal];
+    UIButton *button = [ButtonFactory menuButton];
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
     SWRevealViewController* reveal = (SWRevealViewController*) viewController.revealViewController;
