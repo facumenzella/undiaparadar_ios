@@ -10,6 +10,7 @@
 		0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */; };
 		0D3DB3C31B7546D90052F46B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3DB3C21B7546D90052F46B /* MenuViewController.m */; };
 		0D44DADA1B90E62600A274BD /* MenuOptionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D44DAD91B90E62600A274BD /* MenuOptionViewCell.m */; };
+		0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6612C81B98C69C006C272F /* ButtonFactory.m */; };
 		0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E0C1B7E5AA50049D08B /* SplashViewController.m */; };
 		0D9E1E101B7E5B8F0049D08B /* SplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E0F1B7E5B8F0049D08B /* SplashView.m */; };
 		0D9E1E141B7E610B0049D08B /* SplashModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E131B7E610B0049D08B /* SplashModuleAssembly.m */; };
@@ -63,6 +64,8 @@
 		0D3DB3C21B7546D90052F46B /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		0D44DAD81B90E62600A274BD /* MenuOptionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuOptionViewCell.h; sourceTree = "<group>"; };
 		0D44DAD91B90E62600A274BD /* MenuOptionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuOptionViewCell.m; sourceTree = "<group>"; };
+		0D6612C71B98C69C006C272F /* ButtonFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonFactory.h; sourceTree = "<group>"; };
+		0D6612C81B98C69C006C272F /* ButtonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonFactory.m; sourceTree = "<group>"; };
 		0D9E1E0B1B7E5AA50049D08B /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		0D9E1E0C1B7E5AA50049D08B /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		0D9E1E0E1B7E5B8F0049D08B /* SplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashView.h; sourceTree = "<group>"; };
@@ -176,6 +179,15 @@
 				0D3DB3C21B7546D90052F46B /* MenuViewController.m */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0D6612C61B98C686006C272F /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				0D6612C71B98C69C006C272F /* ButtonFactory.h */,
+				0D6612C81B98C69C006C272F /* ButtonFactory.m */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 		0D9E1E081B7E5A910049D08B /* SplashModule */ = {
@@ -421,6 +433,7 @@
 		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
 			isa = PBXGroup;
 			children = (
+				0D6612C61B98C686006C272F /* Factories */,
 				0DCD99D21B8F7FBE00FF738E /* Extensions */,
 				0DAF2FD91B7E947B0045CE08 /* Services */,
 				0DAF2FD51B7E94360045CE08 /* Model */,
@@ -697,6 +710,7 @@
 				0D44DADA1B90E62600A274BD /* MenuOptionViewCell.m in Sources */,
 				0DAF2FDF1B7E9AEC0045CE08 /* TopicsModuleAssembly.m in Sources */,
 				0DAF2FAD1B7E8EED0045CE08 /* TopicsCollectionViewController.m in Sources */,
+				0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */,
 				11DEE6AA1B5D774900DCDE3E /* SWRevealRouting.m in Sources */,
 				1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */,
 				0DAF2FE51B7E9FF30045CE08 /* TopicsCollectionViewCell.m in Sources */,
