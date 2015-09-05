@@ -22,7 +22,7 @@
 		0DAF2FDF1B7E9AEC0045CE08 /* TopicsModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF2FDE1B7E9AEC0045CE08 /* TopicsModuleAssembly.m */; };
 		0DAF2FE21B7E9D290045CE08 /* ServiceModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF2FE11B7E9D290045CE08 /* ServiceModuleAssembly.m */; };
 		0DAF2FE51B7E9FF30045CE08 /* TopicsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF2FE41B7E9FF30045CE08 /* TopicsCollectionViewCell.m */; };
-		0DB25A021B9A9029002F6E30 /* TopicCellPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB25A011B9A9029002F6E30 /* TopicCellPresenter.m */; };
+		0DB25A051B9A9688002F6E30 /* TopicCellPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB25A041B9A9688002F6E30 /* TopicCellPresenter.m */; };
 		0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */; };
 		0DFF0A881B850B52004D1EB9 /* TopicsCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF0A871B850B52004D1EB9 /* TopicsCollectionViewLayout.m */; };
 		110FE8A51B66AC1C002A2273 /* SpotifyLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 110FE8A41B66AC1C002A2273 /* SpotifyLikeView.m */; };
@@ -89,8 +89,8 @@
 		0DAF2FE11B7E9D290045CE08 /* ServiceModuleAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceModuleAssembly.m; sourceTree = "<group>"; };
 		0DAF2FE31B7E9FF30045CE08 /* TopicsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicsCollectionViewCell.h; sourceTree = "<group>"; };
 		0DAF2FE41B7E9FF30045CE08 /* TopicsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicsCollectionViewCell.m; sourceTree = "<group>"; };
-		0DB25A001B9A9029002F6E30 /* TopicCellPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicCellPresenter.h; path = UnDiaParaDar/TopicCellPresenter.h; sourceTree = SOURCE_ROOT; };
-		0DB25A011B9A9029002F6E30 /* TopicCellPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicCellPresenter.m; path = UnDiaParaDar/TopicCellPresenter.m; sourceTree = SOURCE_ROOT; };
+		0DB25A031B9A9688002F6E30 /* TopicCellPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicCellPresenter.h; path = UnDiaParaDar/TopicsModule/Presenter/TopicCellPresenter.h; sourceTree = SOURCE_ROOT; };
+		0DB25A041B9A9688002F6E30 /* TopicCellPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicCellPresenter.m; path = UnDiaParaDar/TopicsModule/Presenter/TopicCellPresenter.m; sourceTree = SOURCE_ROOT; };
 		0DCD99D31B8F7FD500FF738E /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		0DFF0A861B850B52004D1EB9 /* TopicsCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicsCollectionViewLayout.h; path = UnDiaParaDar/TopicsModule/View/TopicsCollectionViewLayout.h; sourceTree = SOURCE_ROOT; };
@@ -322,8 +322,8 @@
 		0DD63F781B7EAD7D00766361 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				0DB25A001B9A9029002F6E30 /* TopicCellPresenter.h */,
-				0DB25A011B9A9029002F6E30 /* TopicCellPresenter.m */,
+				0DB25A031B9A9688002F6E30 /* TopicCellPresenter.h */,
+				0DB25A041B9A9688002F6E30 /* TopicCellPresenter.m */,
 			);
 			name = Presenter;
 			path = View/Presenter;
@@ -721,7 +721,6 @@
 				0DAF2FDF1B7E9AEC0045CE08 /* TopicsModuleAssembly.m in Sources */,
 				0DAF2FAD1B7E8EED0045CE08 /* TopicsCollectionViewController.m in Sources */,
 				0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */,
-				0DB25A021B9A9029002F6E30 /* TopicCellPresenter.m in Sources */,
 				11DEE6AA1B5D774900DCDE3E /* SWRevealRouting.m in Sources */,
 				1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */,
 				0DAF2FE51B7E9FF30045CE08 /* TopicsCollectionViewCell.m in Sources */,
@@ -738,6 +737,7 @@
 				1113AA191B5F04B80066E7BB /* MenuOptionPresenter.m in Sources */,
 				11DEE6B01B5D7D9300DCDE3E /* AppDelegateAssembly.m in Sources */,
 				0DAF2FE21B7E9D290045CE08 /* ServiceModuleAssembly.m in Sources */,
+				0DB25A051B9A9688002F6E30 /* TopicCellPresenter.m in Sources */,
 				113E46A61B62CD4B00ADF8AC /* ProfileModuleAssembly.m in Sources */,
 				11DEE6911B5D6DF900DCDE3E /* LoginViewController.m in Sources */,
 				11DEE6A91B5D774900DCDE3E /* SWRevealDirector.m in Sources */,

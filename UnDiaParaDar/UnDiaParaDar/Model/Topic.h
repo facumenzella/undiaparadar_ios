@@ -11,6 +11,7 @@
 @interface Topic : NSObject
 
 @property (nonatomic, strong) NSString *img;
+@property (nonatomic, strong) NSString *selectedImg;
 @property (nonatomic, strong) NSString *name;
 
 @end

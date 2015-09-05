@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class Topic;
+@class TopicCellPresenter;
 
 @interface TopicsCollectionViewCell : UICollectionViewCell
 
-- (void)populateCellWithTopic: (Topic*)topic;
+- (void)populateCellWithTopic: (TopicCellPresenter*)topic;
 
 @end

@@ -11,13 +11,16 @@
 #import "TopicsCollectionViewLayout.h"
 
 #import "TopicService.h"
+#import "TopicCellPresenter.h"
 #import "Routing.h"
 
 @interface TopicsCollectionViewController ()
 
 @property (nonatomic, strong) id<Routing> routing;
 @property (nonatomic, strong) TopicService *topicService;
-@property (nonatomic, strong) NSMutableArray *topics;
+@property (nonatomic, strong) NSArray *topics;
+@property (nonatomic, strong) NSMutableArray *presenters;
+@property (nonatomic, strong) NSMutableArray *selected;
 
 @end
 
@@ -58,7 +61,14 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
 - (void)loadTopics
 {
     self.topics = [self.topicService topics];
+    self.presenters = [[NSMutableArray alloc] init];
+    self.selected = [[NSMutableArray alloc] init];
+    for (Topic *t in self.topics) {
+        TopicCellPresenter *p = [[TopicCellPresenter alloc] initWithTopic:t];
+        [self.presenters addObject:p];
+    }
 }
+
 
 #pragma mark UICollectionViewDataSource
 
@@ -77,9 +87,27 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
     if (!cell) {
         cell = [[TopicsCollectionViewCell alloc] init];
     }
-    Topic *t = [self.topics objectAtIndex: [indexPath row]];
+    TopicCellPresenter *t = [self.presenters objectAtIndex: [indexPath row]];
     [cell populateCellWithTopic:t];
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TopicsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
+                                                                               forIndexPath:indexPath];
+    
+    TopicCellPresenter *t = [self.presenters objectAtIndex: [indexPath row]];
+    t.selected = !t.selected;
+    
+    [cell populateCellWithTopic:t]; 
+    
+    if (t.selected) {
+        [self.selected addObject:t];
+    } else {
+        [self.selected removeObject:t];
+    }
+    [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
 }
 
 @end

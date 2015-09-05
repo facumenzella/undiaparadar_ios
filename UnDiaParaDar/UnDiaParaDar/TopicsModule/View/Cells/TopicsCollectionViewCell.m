@@ -8,6 +8,7 @@
 
 #import "TopicsCollectionViewCell.h"
 #import "Topic.h"
+#import "TopicCellPresenter.h"
 #import <UIView+AutoLayout.h>
 
 @interface TopicsCollectionViewCell ()
@@ -77,12 +78,16 @@
     [self.topicLabel setFont:[UIFont systemFontOfSize:8]];
 }
 
-- (void)populateCellWithTopic:(Topic *)topic
+- (void)populateCellWithTopic:(TopicCellPresenter *)presenter
 {
-    UIImage *topicImage = [UIImage imageNamed: topic.img];
+    NSString *img = presenter.image;
+    if (presenter.selected) {
+        img = presenter.selectedImage;
+    }
+    UIImage *topicImage = [UIImage imageNamed: img];
     [self.topicImageView setImage:topicImage];
     
-    [self.topicLabel setText:topic.name];
+    [self.topicLabel setText:presenter.name];
     [self.topicLabel setTextColor: [UIColor blackColor]];
 }
 
