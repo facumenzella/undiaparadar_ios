@@ -18,4 +18,16 @@
     return button;
 }
 
++ (UIButton*)nextButton
+{
+    static NSString *nextOnButton = @"next_heart_on.png";
+    static NSString *nextButton = @"next_heart.png";
+
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 25.5)];
+    [button setBackgroundImage:[UIImage imageNamed:nextButton] forState:UIControlStateDisabled];
+    [button setBackgroundImage:[UIImage imageNamed:nextOnButton] forState:UIControlStateNormal];
+
+    return button;
+}
+
 @end

@@ -33,7 +33,7 @@
 
 - (id<Routing>) routing
 {
-    SEL selector = @selector(initWithDirector:withLoginModuleAssembly:withProfileModuleAssembly:withSplashModuleAssembly:withTopicsModuleAssembly:withArchitect:);
+    SEL selector = @selector(initWithDirector:withLoginModuleAssembly:withProfileModuleAssembly:withSplashModuleAssembly:withTopicsModuleAssembly:withArchitect:withTailor:);
     return [TyphoonDefinition withClass:[SWRevealRouting class]
                           configuration:^(TyphoonDefinition* definition) {
                               [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
@@ -43,6 +43,7 @@
                                   [initializer injectParameterWith:self.splashModuleAssembly];
                                   [initializer injectParameterWith:self.topicsModuleAssembly];
                                   [initializer injectParameterWith:[self iphoneArchitect]];
+                                  [initializer injectParameterWith:[self iphoneTailor]];
                               }];
                           }];
 }

@@ -11,6 +11,7 @@
 
 @protocol Director;
 @protocol Architect;
+@protocol Tailor;
 @class LoginModuleAssembly;
 @class ProfileModuleAssembly;
 @class SplashModuleAssembly;
@@ -23,6 +24,7 @@
        withProfileModuleAssembly:(ProfileModuleAssembly*)profileModuleAssembly
         withSplashModuleAssembly:(SplashModuleAssembly*)splashModuleAssembly
         withTopicsModuleAssembly:(TopicsModuleAssembly*)topicsModuleAssembly
-                   withArchitect:(id<Architect>)architect;
+                   withArchitect:(id<Architect>)architect
+                      withTailor:(id<Tailor>)tailor;
 
 @end

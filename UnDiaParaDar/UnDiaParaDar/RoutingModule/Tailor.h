@@ -13,5 +13,6 @@
 @protocol Tailor <NSObject>
 
 - (void)suitViewControllerUpForMenuEvent:(UIViewController*)viewController;
+- (void)suitViewControllerUpForNextEvent:(UIViewController*)viewController;
 
 @end

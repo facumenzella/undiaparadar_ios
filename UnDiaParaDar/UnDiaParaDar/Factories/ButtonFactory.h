@@ -11,5 +11,6 @@
 @interface ButtonFactory : NSObject
 
 + (UIButton*)menuButton;
++ (UIButton*)nextButton;
 
 @end

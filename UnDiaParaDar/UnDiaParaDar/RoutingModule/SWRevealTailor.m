@@ -47,4 +47,12 @@ static UIImage *TAILOR_NAV_BAR_IMAGE;
     viewController.navigationItem.leftBarButtonItem = barButtonItem;
 }
 
+- (void)suitViewControllerUpForNextEvent:(UIViewController*)viewController
+{
+    UIButton *button = [ButtonFactory nextButton];
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    viewController.navigationItem.rightBarButtonItem = barButtonItem;
+}
+
+
 @end

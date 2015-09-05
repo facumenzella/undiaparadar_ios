@@ -9,6 +9,7 @@
 #import "SWRevealRouting.h"
 #import "Director.h"
 #import "Architect.h"
+#import "Tailor.h"
 
 #import "LoginModuleAssembly.h"
 #import "LoginViewController.h"
@@ -26,6 +27,7 @@
 
 @property (nonatomic, strong) id<Director> director;
 @property (nonatomic, strong) id<Architect> architect;
+@property (nonatomic, strong) id<Tailor> tailor;
 
 @property (nonatomic, strong) LoginModuleAssembly *loginModuleAssembly;
 @property (nonatomic, strong) ProfileModuleAssembly *profileModuleAssembly;
@@ -42,6 +44,7 @@
         withSplashModuleAssembly:(SplashModuleAssembly*)splashModuleAssembly
         withTopicsModuleAssembly:(TopicsModuleAssembly*)topicsModuleAssembly
                    withArchitect:(id<Architect>)architect
+                      withTailor:(id<Tailor>)tailor
 {
     self = [super init];
     if (self) {
@@ -51,6 +54,7 @@
         self.splashModuleAssembly = splashModuleAssembly;
         self.topicsModuleAssembly = topicsModuleAssembly;
         self.architect = architect;
+        self.tailor = tailor;
     }
     return self;
 }
@@ -68,6 +72,7 @@
 - (void)showTopicsSelection
 {
     TopicsCollectionViewController *topicsViewController = [self.topicsModuleAssembly topicsCollectionViewController];
+    [self.tailor suitViewControllerUpForNextEvent:topicsViewController];
     [self.director setRoot:[self.architect buildMainScreenWithRootViewController: topicsViewController]];
 }
 
