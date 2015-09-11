@@ -11,8 +11,22 @@
 @protocol Routing;
 @class TopicService;
 
+typedef void (^SelectedTopicsCallback)(BOOL enabled);
+
+@protocol TopicsSelectionDelegate <NSObject>
+
+- (void)viewController:(UIViewController*)viewController
+       didSelectTopics:(NSArray*)topics
+          withCallback:(SelectedTopicsCallback)callback;
+
+@end
+
 @interface TopicsCollectionViewController : UICollectionViewController
 
-- (instancetype)initWithRouting:(id<Routing>)routing withTopicsService:(TopicService*)topicService;
+@property (nonatomic, assign) id<TopicsSelectionDelegate> selectionDelegate; 
+
+- (instancetype)initWithRouting:(id<Routing>)routing
+              withTopicsService:(TopicService*)topicService
+    withTopicsSelectionDelegate:(id<TopicsSelectionDelegate>)selectionDelegate;
 
 @end

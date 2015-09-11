@@ -23,14 +23,13 @@
 
 - (TopicsCollectionViewController*)topicsCollectionViewController
 {
-    SEL selector = @selector(initWithRouting:withTopicsService:);
-    id<Routing> routing = [self.routingModuleAssembly routing];
-    TopicService *topicService = [self.serviceModuleAssembly topicService];
+    SEL selector = @selector(initWithRouting:withTopicsService:withTopicsSelectionDelegate:);
     return [TyphoonDefinition withClass:[TopicsCollectionViewController class] configuration:^(TyphoonDefinition* definition) {
         definition.scope = TyphoonScopeSingleton;
         [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith: routing];
-            [initializer injectParameterWith: topicService];
+            [initializer injectParameterWith: [self.routingModuleAssembly routing]];
+            [initializer injectParameterWith: [self.serviceModuleAssembly topicService]];
+            [initializer injectParameterWith: [self.routingModuleAssembly iphoneTailor]];
         }];
     }];
 

@@ -22,6 +22,8 @@
 @property (nonatomic, strong) NSMutableArray *presenters;
 @property (nonatomic, strong) NSMutableArray *selected;
 
+@property (nonatomic, copy) SelectedTopicsCallback callback;
+
 @end
 
 @implementation TopicsCollectionViewController
@@ -33,11 +35,17 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
 
 - (instancetype)initWithRouting:(id<Routing>)routing
               withTopicsService:(TopicService*)topicService
+    withTopicsSelectionDelegate:(id<TopicsSelectionDelegate>)selectionDelegate
 {
     TopicsCollectionViewLayout *layout = [[TopicsCollectionViewLayout alloc] init];
     if (self = [super initWithCollectionViewLayout:layout]) {
         self.routing = routing;
         self.topicService = topicService;
+        self.selectionDelegate = selectionDelegate;
+        
+        self.callback = ^(BOOL enabled) {
+            NSLog(@"holy shit");
+        };
     }
     return self;
 }
@@ -56,6 +64,10 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
     self.collectionView.allowsMultipleSelection = YES;
     [self.collectionView registerClass:[TopicsCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView reloadData];
+    
+    [self.selectionDelegate viewController:self
+                           didSelectTopics:self.selected
+                              withCallback:self.callback];
 }
 
 - (void)loadTopics
@@ -108,6 +120,9 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
         [self.selected removeObject:t];
     }
     [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+    [self.selectionDelegate viewController:self
+                           didSelectTopics:self.selected
+                              withCallback:self.callback];
 }
 
 @end

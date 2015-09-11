@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Tailor.h"
+#import "TopicsCollectionViewController.h"
 
-@interface SWRevealTailor : NSObject <Tailor>
+@interface SWRevealTailor : NSObject <Tailor, TopicsSelectionDelegate>
 
 @end

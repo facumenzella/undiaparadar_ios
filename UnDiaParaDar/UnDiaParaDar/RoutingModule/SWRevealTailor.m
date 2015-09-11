@@ -33,7 +33,7 @@ static UIImage *TAILOR_NAV_BAR_IMAGE;
     static dispatch_once_t token;
     dispatch_once(&token, ^{
         TAILOR_NAV_BAR_IMAGE = [UIImage imageWithColor:[UIColor whiteColor]];
-        });
+    });
 }
 
 - (void)suitViewControllerUpForMenuEvent:(UIViewController*)viewController
@@ -54,5 +54,15 @@ static UIImage *TAILOR_NAV_BAR_IMAGE;
     viewController.navigationItem.rightBarButtonItem = barButtonItem;
 }
 
+#pragma mark - TopicsSelectionDelegate
+
+- (void)viewController:(UIViewController*)viewController
+       didSelectTopics:(NSArray *)topics
+          withCallback:(SelectedTopicsCallback)callback
+{
+    BOOL enabled = [topics count] != 0;
+    viewController.navigationItem.rightBarButtonItem.enabled = enabled;
+    callback(enabled);
+}
 
 @end
