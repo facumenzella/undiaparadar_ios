@@ -6,8 +6,14 @@
 //  Copyright (c) 2015 ITBA. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface UserService : NSObject
+
+- (void)userWithCallback:(void (^)(User*))callback;
+
+- (void)userProfilePictureWithCGSize:(CGSize)size withCallback:(void (^)(NSString*))callback;
+
 
 @end

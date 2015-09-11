@@ -26,6 +26,7 @@
 		0DBD219D1BA372DA002AC53C /* FacebookInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD219C1BA372DA002AC53C /* FacebookInitializer.m */; };
 		0DBD21A01BA3780B002AC53C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD219F1BA3780B002AC53C /* User.m */; };
 		0DBD21A31BA37865002AC53C /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD21A21BA37865002AC53C /* UserService.m */; };
+		0DBD21A61BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD21A51BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m */; };
 		0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */; };
 		0DFF0A881B850B52004D1EB9 /* TopicsCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF0A871B850B52004D1EB9 /* TopicsCollectionViewLayout.m */; };
 		110FE8A51B66AC1C002A2273 /* SpotifyLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 110FE8A41B66AC1C002A2273 /* SpotifyLikeView.m */; };
@@ -100,6 +101,8 @@
 		0DBD219F1BA3780B002AC53C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		0DBD21A11BA37865002AC53C /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
 		0DBD21A21BA37865002AC53C /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
+		0DBD21A41BA37CCB002AC53C /* RETableViewManager+ReplaceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RETableViewManager+ReplaceItem.h"; sourceTree = "<group>"; };
+		0DBD21A51BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RETableViewManager+ReplaceItem.m"; sourceTree = "<group>"; };
 		0DCD99D31B8F7FD500FF738E /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		0DFF0A861B850B52004D1EB9 /* TopicsCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicsCollectionViewLayout.h; path = UnDiaParaDar/TopicsModule/View/TopicsCollectionViewLayout.h; sourceTree = SOURCE_ROOT; };
@@ -325,6 +328,8 @@
 		0DCD99D21B8F7FBE00FF738E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0DBD21A41BA37CCB002AC53C /* RETableViewManager+ReplaceItem.h */,
+				0DBD21A51BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m */,
 				0DCD99D31B8F7FD500FF738E /* UIImage+Color.h */,
 				0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */,
 			);
@@ -746,6 +751,7 @@
 				0DFF0A881B850B52004D1EB9 /* TopicsCollectionViewLayout.m in Sources */,
 				0DAF2FD81B7E94420045CE08 /* Topic.m in Sources */,
 				0DBD21A31BA37865002AC53C /* UserService.m in Sources */,
+				0DBD21A61BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m in Sources */,
 				0DAF2FDC1B7E94C40045CE08 /* TopicService.m in Sources */,
 				0D3DB3C31B7546D90052F46B /* MenuViewController.m in Sources */,
 				113E46A21B62C74D00ADF8AC /* SWRevealTailor.m in Sources */,

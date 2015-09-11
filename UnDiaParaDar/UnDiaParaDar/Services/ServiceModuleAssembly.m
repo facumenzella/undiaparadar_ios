@@ -9,6 +9,7 @@
 #import "ServiceModuleAssembly.h"
 
 #import "TopicService.h"
+#import "UserService.h"
 
 @implementation ServiceModuleAssembly
 
@@ -17,5 +18,9 @@
     return [TyphoonDefinition withClass:[TopicService class]];
 }
 
+- (UserService*)userService
+{
+    return [TyphoonDefinition withClass:[UserService class]];
+}
 
 @end

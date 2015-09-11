@@ -34,6 +34,7 @@
     if ([FBSDKAccessToken currentAccessToken]) {
         NSLog(@"User already logged in");
         [self landingPage];
+        return fbSetup;
     }
     [self loginPage];
     return fbSetup;

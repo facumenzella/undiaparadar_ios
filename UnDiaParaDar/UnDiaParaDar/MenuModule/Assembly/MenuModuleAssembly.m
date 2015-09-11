@@ -9,11 +9,13 @@
 
 #import "MenuModuleAssembly.h"
 #import "RoutingModuleAssembly.h"
+#import "ServiceModuleAssembly.h"
 #import "MenuViewController.h"
 
 @interface MenuModuleAssembly ()
 
 @property (nonatomic, strong) RoutingModuleAssembly *routingModuleAssembly;
+@property (nonatomic, strong) ServiceModuleAssembly *serviceModuleAssembly;
 
 @end
 
@@ -22,12 +24,12 @@
 - (MenuViewController*) menuViewController
 {
     
-    SEL selector = @selector(initWithRouting:);
-    id<Routing> routing = [self.routingModuleAssembly routing];
+    SEL selector = @selector(initWithRouting:withUserService:);
     return [TyphoonDefinition withClass:[MenuViewController class] configuration:^(TyphoonDefinition* definition) {
         definition.scope = TyphoonScopeSingleton;
         [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith: routing];
+            [initializer injectParameterWith: [self.routingModuleAssembly routing]];
+            [initializer injectParameterWith: [self.serviceModuleAssembly userService]];
         }];
     }];
 

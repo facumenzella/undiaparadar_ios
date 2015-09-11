@@ -8,10 +8,11 @@
 
 #import "TyphoonAssembly.h"
 
-@class TopicService;
+@class TopicService, UserService;
 
 @interface ServiceModuleAssembly : TyphoonAssembly
 
 - (TopicService*)topicService;
+- (UserService*)userService;
 
 @end

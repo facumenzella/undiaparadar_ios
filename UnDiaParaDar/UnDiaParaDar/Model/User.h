@@ -11,5 +11,6 @@
 @interface User : NSObject
 
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *image50x50;
 
 @end

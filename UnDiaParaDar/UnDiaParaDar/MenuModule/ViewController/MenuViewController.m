@@ -9,14 +9,19 @@
 #import "MenuViewController.h"
 #import "Routing.h"
 #import "RETableViewManager.h"
+#import "RETableViewManager+ReplaceItem.h"
 #import "MenuProfilePresenter.h"
 #import "MenuOptionPresenter.h"
+#import "UserService.h"
 
 @interface MenuViewController ()
 
 @property (nonatomic, strong) id<Routing> routing;
+@property (nonatomic, strong) UserService *userService;
 
 @property (nonatomic, strong) RETableViewManager *tableViewManager;
+// Update User
+@property (nonatomic, strong) RETableViewItem *profileMenuPresenter;
 
 @end
 
@@ -24,11 +29,12 @@
 
 #pragma mark - MenuViewController
 
-- (instancetype)initWithRouting:(id<Routing>)routing
+- (instancetype)initWithRouting:(id<Routing>)routing withUserService:(UserService*)userService
 {
     self = [super init];
     if (self) {
         self.routing = routing;
+        self.userService = userService;
     }
     return self;
 }
@@ -42,6 +48,24 @@
     [self initTableViewManager];
     [self registerAndBuildProfileSection];
     [self registerAndBuildMenuOptions];
+    [self loadUser];
+}
+
+#pragma mark - User
+
+- (void)loadUser
+{
+    [self.userService userWithCallback:^(User* u) {
+        [self updateUser:u withImage:nil];
+        [self.tableView reloadData];
+    }];
+}
+
+- (void)updateUser:(User*)user withImage:(NSString*)image
+{
+    MenuProfilePresenter *presenter = [self menuProfilePresenterWithUserImage:image withUserName:user.name];
+    [self.tableViewManager replaceItem:self.profileMenuPresenter withItem:presenter];
+    self.profileMenuPresenter = presenter;
 }
 
 #pragma mark - RETableViewManager
@@ -63,15 +87,9 @@
     [self.tableViewManager addSection:profileSection];
     self.tableViewManager[@"MenuProfilePresenter"] = @"MenuProfileViewCell";
     
-    MenuProfilePresenter *profilePresenter = [[MenuProfilePresenter alloc]
-                                              initWithUserImage:@"avatar128x128"
-                                              withUserName:@"Jon Snow"];
-    profilePresenter.selectionHandler = ^(MenuProfilePresenter* presenter) {
-        
-        [presenter deselectRowAnimated:NO];
-        [self.routing showProfile];
-    };
-    [profileSection addItem:profilePresenter];
+    self.profileMenuPresenter = [self menuProfilePresenterWithUserImage:@"avatar128x128"
+                                                           withUserName:@""];
+    [profileSection addItem:self.profileMenuPresenter];
 }
 
 - (void)registerAndBuildMenuOptions
@@ -87,6 +105,19 @@
         [self.routing showProfile];
     };
     [itemsSection addItem:topicsPresenter];
+}
+
+- (MenuProfilePresenter*)menuProfilePresenterWithUserImage:(NSString*)userImage withUserName:(NSString*)userName
+{
+    MenuProfilePresenter *profilePresenter = [[MenuProfilePresenter alloc]
+                                              initWithUserImage:userImage
+                                              withUserName:userName];
+    profilePresenter.selectionHandler = ^(MenuProfilePresenter* presenter) {
+        
+        [presenter deselectRowAnimated:NO];
+        [self.routing showProfile];
+    };
+    return profilePresenter;
 }
 
 @end
