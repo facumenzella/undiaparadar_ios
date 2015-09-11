@@ -32,14 +32,19 @@
     [TyphoonInitializer setup];
     [self.routing showSplash];
     if ([FBSDKAccessToken currentAccessToken]) {
-        NSLog(@"holy shit");
+        NSLog(@"User already logged in");
+        [self landingPage];
     }
-    [self homePage];
+    [self loginPage];
     return fbSetup;
 }
 
+- (void) landingPage
+{
+    [self.routing showMainPage];
+}
 
-- (void)homePage
+- (void) loginPage
 {
     [NSTimer scheduledTimerWithTimeInterval:2.0
                                      target:self.routing
