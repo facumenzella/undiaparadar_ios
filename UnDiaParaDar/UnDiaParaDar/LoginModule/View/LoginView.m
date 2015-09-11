@@ -7,6 +7,7 @@
 //
 
 #import "LoginView.h"
+#import "FacebookLoginFlow.h"
 
 #import <UIView+AutoLayout.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
@@ -72,6 +73,7 @@ static NSString *UNDIAPARADAR_KEY = @"undiaparadar";
 - (void)buildLoginButton
 {
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    loginButton.readPermissions = [FacebookLoginFlow readPermissions];
     loginButton.delegate = self.loginDelegate;
     loginButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview:loginButton];

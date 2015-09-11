@@ -9,7 +9,10 @@
 #import "AppDelegate.h"
 
 #import "TyphoonInitializer.h"
+#import "FacebookInitializer.h"
 #import "Routing.h"
+
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface AppDelegate ()
 
@@ -25,11 +28,14 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
     
+    BOOL fbSetup = [FacebookInitializer setup:application withOptions:launchOptions];
     [TyphoonInitializer setup];
-    
     [self.routing showSplash];
+    if ([FBSDKAccessToken currentAccessToken]) {
+        NSLog(@"holy shit");
+    }
     [self homePage];
-    return YES;
+    return fbSetup;
 }
 
 
@@ -40,6 +46,14 @@
                                    selector:@selector(showLoginPage)
                                    userInfo:nil
                                     repeats:NO];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation
+            ];
 }
 
 @end

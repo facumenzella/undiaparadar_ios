@@ -23,6 +23,7 @@
 		0DAF2FE21B7E9D290045CE08 /* ServiceModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF2FE11B7E9D290045CE08 /* ServiceModuleAssembly.m */; };
 		0DAF2FE51B7E9FF30045CE08 /* TopicsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF2FE41B7E9FF30045CE08 /* TopicsCollectionViewCell.m */; };
 		0DB25A051B9A9688002F6E30 /* TopicCellPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB25A041B9A9688002F6E30 /* TopicCellPresenter.m */; };
+		0DBD219D1BA372DA002AC53C /* FacebookInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD219C1BA372DA002AC53C /* FacebookInitializer.m */; };
 		0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */; };
 		0DFF0A881B850B52004D1EB9 /* TopicsCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF0A871B850B52004D1EB9 /* TopicsCollectionViewLayout.m */; };
 		110FE8A51B66AC1C002A2273 /* SpotifyLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 110FE8A41B66AC1C002A2273 /* SpotifyLikeView.m */; };
@@ -91,6 +92,8 @@
 		0DAF2FE41B7E9FF30045CE08 /* TopicsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicsCollectionViewCell.m; sourceTree = "<group>"; };
 		0DB25A031B9A9688002F6E30 /* TopicCellPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicCellPresenter.h; path = UnDiaParaDar/TopicsModule/Presenter/TopicCellPresenter.h; sourceTree = SOURCE_ROOT; };
 		0DB25A041B9A9688002F6E30 /* TopicCellPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicCellPresenter.m; path = UnDiaParaDar/TopicsModule/Presenter/TopicCellPresenter.m; sourceTree = SOURCE_ROOT; };
+		0DBD219B1BA372DA002AC53C /* FacebookInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookInitializer.h; sourceTree = "<group>"; };
+		0DBD219C1BA372DA002AC53C /* FacebookInitializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookInitializer.m; sourceTree = "<group>"; };
 		0DCD99D31B8F7FD500FF738E /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		0DFF0A861B850B52004D1EB9 /* TopicsCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicsCollectionViewLayout.h; path = UnDiaParaDar/TopicsModule/View/TopicsCollectionViewLayout.h; sourceTree = SOURCE_ROOT; };
@@ -460,6 +463,8 @@
 				11DEE6961B5D6F6D00DCDE3E /* TyphoonInitializer.m */,
 				11DEE6AE1B5D7D9300DCDE3E /* AppDelegateAssembly.h */,
 				11DEE6AF1B5D7D9300DCDE3E /* AppDelegateAssembly.m */,
+				0DBD219B1BA372DA002AC53C /* FacebookInitializer.h */,
+				0DBD219C1BA372DA002AC53C /* FacebookInitializer.m */,
 				0DAF2FAF1B7E8FBE0045CE08 /* Resources */,
 			);
 			path = UnDiaParaDar;
@@ -711,6 +716,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DBD219D1BA372DA002AC53C /* FacebookInitializer.m in Sources */,
 				11DEE6B61B5D937F00DCDE3E /* FacebookLoginFlow.m in Sources */,
 				11DEE6AD1B5D778F00DCDE3E /* RoutingModuleAssembly.m in Sources */,
 				113E469E1B62C07E00ADF8AC /* ProfileViewController.m in Sources */,
@@ -798,6 +804,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -841,6 +848,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Facundo Menzella (P77MZ4ASME)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

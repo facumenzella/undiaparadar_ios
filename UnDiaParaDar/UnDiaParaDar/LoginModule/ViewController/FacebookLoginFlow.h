@@ -18,6 +18,8 @@
 
 @interface FacebookLoginFlow : NSObject<FBSDKLoginButtonDelegate>
 
++ (NSArray*)readPermissions;
+
 - (instancetype)initWithLoginDelegate:(id<LoginDelegate>)loginDelegate;
 
 @end

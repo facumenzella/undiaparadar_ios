@@ -25,6 +25,12 @@
     return self;
 }
 
++ (NSArray*)readPermissions
+{
+    return @[@"public_profile"];
+}
+
+
 - (void) loginButton:(FBSDKLoginButton *)loginButton
 didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                 error:(NSError *)error
