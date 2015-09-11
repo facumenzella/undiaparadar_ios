@@ -24,6 +24,8 @@
 		0DAF2FE51B7E9FF30045CE08 /* TopicsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF2FE41B7E9FF30045CE08 /* TopicsCollectionViewCell.m */; };
 		0DB25A051B9A9688002F6E30 /* TopicCellPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB25A041B9A9688002F6E30 /* TopicCellPresenter.m */; };
 		0DBD219D1BA372DA002AC53C /* FacebookInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD219C1BA372DA002AC53C /* FacebookInitializer.m */; };
+		0DBD21A01BA3780B002AC53C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD219F1BA3780B002AC53C /* User.m */; };
+		0DBD21A31BA37865002AC53C /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD21A21BA37865002AC53C /* UserService.m */; };
 		0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */; };
 		0DFF0A881B850B52004D1EB9 /* TopicsCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF0A871B850B52004D1EB9 /* TopicsCollectionViewLayout.m */; };
 		110FE8A51B66AC1C002A2273 /* SpotifyLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 110FE8A41B66AC1C002A2273 /* SpotifyLikeView.m */; };
@@ -94,6 +96,10 @@
 		0DB25A041B9A9688002F6E30 /* TopicCellPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicCellPresenter.m; path = UnDiaParaDar/TopicsModule/Presenter/TopicCellPresenter.m; sourceTree = SOURCE_ROOT; };
 		0DBD219B1BA372DA002AC53C /* FacebookInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookInitializer.h; sourceTree = "<group>"; };
 		0DBD219C1BA372DA002AC53C /* FacebookInitializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookInitializer.m; sourceTree = "<group>"; };
+		0DBD219E1BA3780B002AC53C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		0DBD219F1BA3780B002AC53C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		0DBD21A11BA37865002AC53C /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
+		0DBD21A21BA37865002AC53C /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
 		0DCD99D31B8F7FD500FF738E /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		0DFF0A861B850B52004D1EB9 /* TopicsCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicsCollectionViewLayout.h; path = UnDiaParaDar/TopicsModule/View/TopicsCollectionViewLayout.h; sourceTree = SOURCE_ROOT; };
@@ -297,6 +303,8 @@
 			children = (
 				0DAF2FD61B7E94420045CE08 /* Topic.h */,
 				0DAF2FD71B7E94420045CE08 /* Topic.m */,
+				0DBD219E1BA3780B002AC53C /* User.h */,
+				0DBD219F1BA3780B002AC53C /* User.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -308,6 +316,8 @@
 				0DAF2FDB1B7E94C40045CE08 /* TopicService.m */,
 				0DAF2FE01B7E9D290045CE08 /* ServiceModuleAssembly.h */,
 				0DAF2FE11B7E9D290045CE08 /* ServiceModuleAssembly.m */,
+				0DBD21A11BA37865002AC53C /* UserService.h */,
+				0DBD21A21BA37865002AC53C /* UserService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -735,6 +745,7 @@
 				110FE8AF1B66B9B0002A2273 /* MenuModuleAssembly.m in Sources */,
 				0DFF0A881B850B52004D1EB9 /* TopicsCollectionViewLayout.m in Sources */,
 				0DAF2FD81B7E94420045CE08 /* Topic.m in Sources */,
+				0DBD21A31BA37865002AC53C /* UserService.m in Sources */,
 				0DAF2FDC1B7E94C40045CE08 /* TopicService.m in Sources */,
 				0D3DB3C31B7546D90052F46B /* MenuViewController.m in Sources */,
 				113E46A21B62C74D00ADF8AC /* SWRevealTailor.m in Sources */,
@@ -750,6 +761,7 @@
 				110FE8A81B66AEF4002A2273 /* SpotifyLikeViewPresenter.m in Sources */,
 				1113AA161B5F044F0066E7BB /* MenuProfilePresenter.m in Sources */,
 				110FE8A51B66AC1C002A2273 /* SpotifyLikeView.m in Sources */,
+				0DBD21A01BA3780B002AC53C /* User.m in Sources */,
 				0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */,
 				11DEE6B31B5D818500DCDE3E /* LoginView.m in Sources */,
 				11DEE6941B5D6E7F00DCDE3E /* LoginModuleAssembly.m in Sources */,

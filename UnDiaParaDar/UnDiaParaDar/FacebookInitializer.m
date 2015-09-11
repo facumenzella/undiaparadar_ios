@@ -13,6 +13,7 @@
 
 + (BOOL)setup:(UIApplication *)application withOptions:(NSDictionary *)launchOptions
 {
+    [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
 }
