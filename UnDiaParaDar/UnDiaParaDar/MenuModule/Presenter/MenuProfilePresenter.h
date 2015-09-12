@@ -12,7 +12,7 @@
 
 - (instancetype)initWithUserImage:(NSString*)userImage withUserName:(NSString*)userName;
 
-@property (nonatomic, strong) UIImage *userImage;
+@property (nonatomic, strong) NSString *userImage;
 @property (nonatomic, strong) NSString *userName;
 
 @end

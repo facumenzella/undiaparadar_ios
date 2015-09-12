@@ -13,7 +13,4 @@
 
 - (void)userWithCallback:(void (^)(User*))callback;
 
-- (void)userProfilePictureWithCGSize:(CGSize)size withCallback:(void (^)(NSString*))callback;
-
-
 @end

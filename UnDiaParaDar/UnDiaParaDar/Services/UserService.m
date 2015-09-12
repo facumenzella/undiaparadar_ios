@@ -9,6 +9,7 @@
 #import "UserService.h"
 #import "User.h"
 #import <FBSDKProfile.h>
+#import <FBSDKGraphRequest.h>
 
 @implementation UserService
 
@@ -18,14 +19,26 @@
     User *u = [[User alloc] init];
     u.name = profile.name;
     
-    callback(u);
+    NSString *image = [self userProfilePictureWithCGSize:CGSizeMake(200, 200)];
+    [[[FBSDKGraphRequest alloc]
+      initWithGraphPath:image parameters:nil]
+     startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+         if (!error) {
+             NSLog(@"Holy shit no profile picture");
+         }
+         NSDictionary *data = result[@"data"];
+         u.image200x200 = data[@"url"];
+         callback(u);
+     }];
+    
 }
 
-- (void)userProfilePictureWithCGSize:(CGSize)size withCallback:(void (^)(NSString*))callback
+- (NSString*)userProfilePictureWithCGSize:(CGSize)size
 {
     FBSDKProfile *profile = [FBSDKProfile currentProfile];
-    NSString *image = [profile imagePathForPictureMode:FBSDKProfilePictureModeNormal size:size];
-    callback(image);
+    NSString *image = [[profile imagePathForPictureMode:FBSDKProfilePictureModeNormal size:size]
+                       stringByAppendingString:@"&redirect=false"];
+    return image;
 }
 
 

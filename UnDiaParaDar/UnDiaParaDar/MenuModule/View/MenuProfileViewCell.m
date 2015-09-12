@@ -8,11 +8,12 @@
 
 #import "MenuProfileViewCell.h"
 #import "MenuProfilePresenter.h"
+#import "RemoteImageView.h"
 #import <UIView+Autolayout.h>
 
 @interface MenuProfileViewCell ()
 
-@property (nonatomic, strong) UIImageView *avatar;
+@property (nonatomic, strong) RemoteImageView *avatar;
 @property (nonatomic, strong) UILabel *username;
 
 @end
@@ -34,7 +35,7 @@
 
 - (void)buildAvatar
 {
-    self.avatar = [[UIImageView alloc] initForAutoLayout];
+    self.avatar = [[RemoteImageView alloc] initForAutoLayout];
     [self.contentView addSubview:self.avatar];
     
     [self.avatar autoSetDimension:ALDimensionHeight toSize:64];
@@ -44,6 +45,8 @@
     
     self.avatar.layer.cornerRadius = 1;
     self.avatar.clipsToBounds = YES;
+    
+    [self.avatar setPlaceHolderImage:[UIImage imageNamed:@"avatar128x128"]];
 }
 
 - (void)buildUsername
@@ -64,7 +67,7 @@
     [super cellWillAppear];
     
     MenuProfilePresenter *presenter = (MenuProfilePresenter*)self.item;
-    [self.avatar setImage: presenter.userImage];
+    [self.avatar setRemoteURL: presenter.userImage];
     [self.username setText: presenter.userName];
     
     [self.contentView layoutIfNeeded];

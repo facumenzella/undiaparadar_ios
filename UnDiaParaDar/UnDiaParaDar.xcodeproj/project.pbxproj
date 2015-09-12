@@ -10,6 +10,7 @@
 		0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */; };
 		0D3DB3C31B7546D90052F46B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3DB3C21B7546D90052F46B /* MenuViewController.m */; };
 		0D44DADA1B90E62600A274BD /* MenuOptionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D44DAD91B90E62600A274BD /* MenuOptionViewCell.m */; };
+		0D4B13BA1BA4BB5D00961764 /* RemoteImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B13B91BA4BB5D00961764 /* RemoteImageView.m */; };
 		0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6612C81B98C69C006C272F /* ButtonFactory.m */; };
 		0D6612CC1B98CA76006C272F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D6612CE1B98CA76006C272F /* Localizable.strings */; };
 		0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E0C1B7E5AA50049D08B /* SplashViewController.m */; };
@@ -70,6 +71,8 @@
 		0D3DB3C21B7546D90052F46B /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		0D44DAD81B90E62600A274BD /* MenuOptionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuOptionViewCell.h; sourceTree = "<group>"; };
 		0D44DAD91B90E62600A274BD /* MenuOptionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuOptionViewCell.m; sourceTree = "<group>"; };
+		0D4B13B81BA4BB5D00961764 /* RemoteImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteImageView.h; sourceTree = "<group>"; };
+		0D4B13B91BA4BB5D00961764 /* RemoteImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteImageView.m; sourceTree = "<group>"; };
 		0D6612C71B98C69C006C272F /* ButtonFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonFactory.h; sourceTree = "<group>"; };
 		0D6612C81B98C69C006C272F /* ButtonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonFactory.m; sourceTree = "<group>"; };
 		0D6612CD1B98CA76006C272F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -328,6 +331,8 @@
 		0DCD99D21B8F7FBE00FF738E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0D4B13B81BA4BB5D00961764 /* RemoteImageView.h */,
+				0D4B13B91BA4BB5D00961764 /* RemoteImageView.m */,
 				0DBD21A41BA37CCB002AC53C /* RETableViewManager+ReplaceItem.h */,
 				0DBD21A51BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m */,
 				0DCD99D31B8F7FD500FF738E /* UIImage+Color.h */,
@@ -732,6 +737,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DBD219D1BA372DA002AC53C /* FacebookInitializer.m in Sources */,
+				0D4B13BA1BA4BB5D00961764 /* RemoteImageView.m in Sources */,
 				11DEE6B61B5D937F00DCDE3E /* FacebookLoginFlow.m in Sources */,
 				11DEE6AD1B5D778F00DCDE3E /* RoutingModuleAssembly.m in Sources */,
 				113E469E1B62C07E00ADF8AC /* ProfileViewController.m in Sources */,

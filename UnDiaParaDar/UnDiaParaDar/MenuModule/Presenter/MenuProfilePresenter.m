@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        self.userImage = [UIImage imageNamed:userImage];
+        self.userImage = userImage;
         self.userName = userName;
     }
     return self;

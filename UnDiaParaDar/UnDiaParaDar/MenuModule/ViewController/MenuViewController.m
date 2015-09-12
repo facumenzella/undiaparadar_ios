@@ -56,14 +56,14 @@
 - (void)loadUser
 {
     [self.userService userWithCallback:^(User* u) {
-        [self updateUser:u withImage:nil];
+        [self updateUser:u];
         [self.tableView reloadData];
     }];
 }
 
-- (void)updateUser:(User*)user withImage:(NSString*)image
+- (void)updateUser:(User*)user
 {
-    MenuProfilePresenter *presenter = [self menuProfilePresenterWithUserImage:image withUserName:user.name];
+    MenuProfilePresenter *presenter = [self menuProfilePresenterWithUserImage:user.image200x200 withUserName:user.name];
     [self.tableViewManager replaceItem:self.profileMenuPresenter withItem:presenter];
     self.profileMenuPresenter = presenter;
 }
@@ -87,7 +87,7 @@
     [self.tableViewManager addSection:profileSection];
     self.tableViewManager[@"MenuProfilePresenter"] = @"MenuProfileViewCell";
     
-    self.profileMenuPresenter = [self menuProfilePresenterWithUserImage:@"avatar128x128"
+    self.profileMenuPresenter = [self menuProfilePresenterWithUserImage:nil
                                                            withUserName:@""];
     [profileSection addItem:self.profileMenuPresenter];
 }
