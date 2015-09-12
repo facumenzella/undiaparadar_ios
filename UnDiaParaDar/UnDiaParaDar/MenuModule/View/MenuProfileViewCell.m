@@ -38,13 +38,16 @@
     self.avatar = [[RemoteImageView alloc] initForAutoLayout];
     [self.contentView addSubview:self.avatar];
     
-    [self.avatar autoSetDimension:ALDimensionHeight toSize:64];
-    [self.avatar autoSetDimension:ALDimensionWidth toSize:64];
+    [self.avatar autoSetDimension:ALDimensionHeight toSize:70];
+    [self.avatar autoSetDimension:ALDimensionWidth toSize:70];
     [self.avatar autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     [self.avatar autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:16];
     
-    self.avatar.layer.cornerRadius = 1;
+    self.avatar.layer.cornerRadius = 35;
     self.avatar.clipsToBounds = YES;
+    self.avatar.layer.borderWidth = 3.0f;
+    self.avatar.layer.borderColor = [UIColor whiteColor].CGColor;
+
     
     [self.avatar setPlaceHolderImage:[UIImage imageNamed:@"avatar128x128"]];
 }
