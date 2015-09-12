@@ -1,7 +1,18 @@
-/* 
-  Localizable.strings
-  UnDiaParaDar
+"VOLUNTARIADO" = "Voluntariado";
+"REUTILIZAR" = "Reutilizar";
+"PUBLICACION_CALLE" = "Publicaciones de la calle";
+"PLANTAR_ARBOLES" = "Plantar árboles";
+"FORMARSE_PARA_AYUDAR" = "Formarse para ayudar";
+"DONAR_PELO" = "Donar pelo";
+"DONAR_MILLAS" = "Donar millas aéereas";
+"DONAR_LECHE" = "Donar leche materna";
+"DONAR_DINERO" = "Donar dinero";
+"DONAR_ARTICULOS" = "Donar artículos usados";
+"DONAR_ALIMENTOS" = "Donar alimentos";
+"DONAR_TELEFONOS" = "Donar teléfonos móviles";
+"DONAR_SANGRE" = "Donar sangre";
+"DONAR_PLAQUETAS" = "Donar plaquetas";
+"DONAR_MEDULA" = "Donante de médula osea";
+"ASESOR_DIRECTORIO" = "Asesor / Directorio";
+"ADOPCION_MASCOTAS" = "Adopción de mascotas";
 
-  Created by Facundo Menzella on 9/3/15.
-  Copyright (c) 2015 ITBA. All rights reserved.
-*/

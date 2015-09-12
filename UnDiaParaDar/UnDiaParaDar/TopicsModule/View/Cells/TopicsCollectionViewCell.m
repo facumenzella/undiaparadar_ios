@@ -76,6 +76,8 @@
 {
     self.topicLabel.textAlignment = NSTextAlignmentCenter;
     [self.topicLabel setFont:[UIFont systemFontOfSize:8]];
+    self.topicLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.topicLabel.numberOfLines = 0;
 }
 
 - (void)populateCellWithTopic:(TopicCellPresenter *)presenter
@@ -87,7 +89,7 @@
     UIImage *topicImage = [UIImage imageNamed: img];
     [self.topicImageView setImage:topicImage];
     
-    [self.topicLabel setText:presenter.name];
+    [self.topicLabel setText:NSLocalizedString(presenter.name, "topic")];
     [self.topicLabel setTextColor: [UIColor blackColor]];
 }
 
