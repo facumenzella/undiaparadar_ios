@@ -9,6 +9,8 @@
 		<string>voluntariado</string>
 		<key>selected</key>
 		<string>voluntariado_on</string>
+		<key>code</key>
+		<string>24</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -17,6 +19,8 @@
 		<string>reutilizar</string>
 		<key>selected</key>
 		<string>reutilizar_on</string>
+		<key>code</key>
+		<string>18</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -25,6 +29,8 @@
 		<string>publicacion_de_calle</string>
 		<key>selected</key>
 		<string>publicacion_de_calle_on</string>
+		<key>code</key>
+		<string>20</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -33,6 +39,8 @@
 		<string>plantar_arboles</string>
 		<key>selected</key>
 		<string>plantar_arboles_on</string>
+		<key>code</key>
+		<string>22</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -41,6 +49,8 @@
 		<string>formarse_para_ayudar</string>
 		<key>selected</key>
 		<string>formarse_para_ayudar_on</string>
+		<key>code</key>
+		<string>21</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -49,6 +59,8 @@
 		<string>donar_pelo</string>
 		<key>selected</key>
 		<string>donar_pelo_on</string>
+		<key>code</key>
+		<string>10</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -57,6 +69,8 @@
 		<string>donar_millas_aereas</string>
 		<key>selected</key>
 		<string>donar_millas_aereas_on</string>
+		<key>code</key>
+		<string>2</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -65,6 +79,8 @@
 		<string>donar_leche_materna</string>
 		<key>selected</key>
 		<string>donar_leche_materna_on</string>
+		<key>code</key>
+		<string>13</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -73,6 +89,8 @@
 		<string>donar_dinero</string>
 		<key>selected</key>
 		<string>donar_dinero_on</string>
+		<key>code</key>
+		<string>7</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -81,6 +99,8 @@
 		<string>donar_articulos_usados</string>
 		<key>selected</key>
 		<string>donar_articulos_usados_on</string>
+		<key>code</key>
+		<string>9</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -89,6 +109,8 @@
 		<string>donar_alimentos</string>
 		<key>selected</key>
 		<string>donar_alimentos_on</string>
+		<key>code</key>
+		<string>8</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -97,6 +119,8 @@
 		<string>donar_telefonos_moviles</string>
 		<key>selected</key>
 		<string>donar_telefonos_moviles_on</string>
+		<key>code</key>
+		<string>15</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -105,6 +129,8 @@
 		<string>donar_sangre</string>
 		<key>selected</key>
 		<string>donar_sangre_on</string>
+		<key>code</key>
+		<string>5</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -113,6 +139,8 @@
 		<string>donar_plaquetas</string>
 		<key>selected</key>
 		<string>donar_plaquetas_on</string>
+		<key>code</key>
+		<string>16</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -121,6 +149,8 @@
 		<string>donante_de_medula osea</string>
 		<key>selected</key>
 		<string>donante_de_medula osea_on</string>
+		<key>code</key>
+		<string>6</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -129,6 +159,8 @@
 		<string>asesor_directorio</string>
 		<key>selected</key>
 		<string>asesor_directorio_on</string>
+		<key>code</key>
+		<string>1</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -137,6 +169,8 @@
 		<string>adopcion_de_mascotas</string>
 		<key>selected</key>
 		<string>adopcion_de_mascotas_on</string>
+		<key>code</key>
+		<string>14</string>
 	</dict>
 </array>
 </plist>

@@ -13,6 +13,7 @@ static NSString * const TOPICS = @"topics";
 static NSString * const NAME = @"name";
 static NSString * const IMG = @"img";
 static NSString * const SELECTED = @"selected";
+static NSString * const CODE = @"code";
 
 static NSMutableArray *topics;
 
@@ -32,6 +33,7 @@ static NSMutableArray *topics;
             t.name = d[NAME];
             t.img = d[IMG];
             t.selectedImg = d[SELECTED];
+            t.code = d[CODE];
             [topics addObject:t];
         }
     });

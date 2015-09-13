@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSString *img;
 @property (nonatomic, strong) NSString *selectedImg;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *code;
 
 @end
