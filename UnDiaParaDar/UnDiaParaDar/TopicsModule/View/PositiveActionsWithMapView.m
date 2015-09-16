@@ -45,6 +45,7 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
         [self initializeHeights];
         [self buildSubviews];
         [self styleSubviews];
+        [self updateTapGestureRecognizers];
     }
     return self;
 }
@@ -74,6 +75,9 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeRight];
     self.mapHeightConstraint = [self.mapView autoSetDimension:ALDimensionHeight
                                                                       toSize:self.mapActiveHeight];
+    
+    self.mapTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(switchToMapActiveState)];
+    [self.mapView addGestureRecognizer:self.mapTap];
 }
 
 - (void)buildOverTittle
@@ -169,7 +173,7 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
 - (void)updateTapGestureRecognizers
 {
     BOOL mapActive = self.state == PositiveActionsWithMapViewStateMap;
-    
+    self.mapView.scrollEnabled = mapActive;
     // enable / disable taps to activate each section
     self.mapTap.enabled = !mapActive;
     self.detailTap.enabled = mapActive;
