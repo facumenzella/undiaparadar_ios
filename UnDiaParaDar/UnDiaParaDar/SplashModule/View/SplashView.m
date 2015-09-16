@@ -8,7 +8,7 @@
 
 #import "SplashView.h"
 
-#import <UIView+AutoLayout.h>
+#import <PureLayout/PureLayout.h>
 
 static NSString *BACKGROUND_KEY = @"Splash";
 static NSString *UNDIAPARADAR_KEY = @"undiaparadar";

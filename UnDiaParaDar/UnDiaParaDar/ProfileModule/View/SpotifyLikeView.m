@@ -8,7 +8,7 @@
 
 #import "SpotifyLikeView.h"
 #import "SpotifyLikeViewPresenter.h"
-#import <UIView+AutoLayout.h>
+#import <PureLayout/PureLayout.h>
 
 @interface SpotifyLikeView ()
 

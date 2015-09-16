@@ -9,7 +9,7 @@
 #import "TopicsCollectionViewCell.h"
 #import "Topic.h"
 #import "TopicCellPresenter.h"
-#import <UIView+AutoLayout.h>
+#import <PureLayout/PureLayout.h>
 
 @interface TopicsCollectionViewCell ()
 

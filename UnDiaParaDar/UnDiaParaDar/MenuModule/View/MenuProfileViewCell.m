@@ -9,7 +9,7 @@
 #import "MenuProfileViewCell.h"
 #import "MenuProfilePresenter.h"
 #import "RemoteImageView.h"
-#import <UIView+Autolayout.h>
+#import <PureLayout/PureLayout.h>
 
 @interface MenuProfileViewCell ()
 

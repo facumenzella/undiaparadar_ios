@@ -9,7 +9,7 @@
 #import "LoginView.h"
 #import "FacebookLoginFlow.h"
 
-#import <UIView+AutoLayout.h>
+#import <PureLayout/PureLayout.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 static NSString *BACKGROUND_KEY = @"Splash";

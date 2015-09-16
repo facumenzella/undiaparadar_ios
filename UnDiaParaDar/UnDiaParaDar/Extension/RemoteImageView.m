@@ -10,7 +10,7 @@
 #import "UIImageView+AFNetworking.h"
 #import <libkern/OSAtomic.h>
 
-#import <UIView+AutoLayout.h>
+#import <PureLayout/PureLayout.h>
 
 @interface RemoteImageView ()
 

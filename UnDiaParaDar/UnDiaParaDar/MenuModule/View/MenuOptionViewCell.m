@@ -8,7 +8,7 @@
 
 #import "MenuOptionViewCell.h"
 #import "MenuOptionPresenter.h"
-#import <UIView+Autolayout.h>
+#import <PureLayout/PureLayout.h>
 
 @interface MenuOptionViewCell ()
 
