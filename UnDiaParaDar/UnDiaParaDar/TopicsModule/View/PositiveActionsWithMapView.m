@@ -7,6 +7,13 @@
 //
 
 #import "PositiveActionsWithMapView.h"
+#import <MapKit/MapKit.h>
+
+@interface PositiveActionsWithMapView ()
+
+@property (nonatomic, strong) MKMapView *mapView;
+
+@end
 
 @implementation PositiveActionsWithMapView
 
@@ -17,6 +24,11 @@
         
     }
     return self;
+}
+
+- (void)buildMapView
+{
+    
 }
 
 @end
