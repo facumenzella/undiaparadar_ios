@@ -14,6 +14,7 @@
 @interface PositiveActionsWithMapView ()
 
 @property (nonatomic, strong) MKMapView *mapView;
+@property (nonatomic, strong) UIView *overTitleView;
 @property (nonatomic, strong) UIView *detailView;
 
 @property (nonatomic) CGFloat mapActiveHeight;
@@ -57,6 +58,12 @@
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeRight];
     self.mapHeightConstraint = [self.mapView autoSetDimension:ALDimensionHeight
                                                                       toSize:self.mapActiveHeight];
+}
+
+- (void)buildOverTittle
+{
+    self.overTitleView = [[UIView alloc] initForAutoLayout];
+    
 }
 
 - (void)buildDetailView
