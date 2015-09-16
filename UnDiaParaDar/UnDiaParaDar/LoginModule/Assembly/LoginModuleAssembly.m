@@ -26,7 +26,6 @@
     SEL selector = @selector(initWithRouting:);
     id<Routing> routing = [self.routingModuleAssembly routing];
     return [TyphoonDefinition withClass:[LoginViewController class] configuration:^(TyphoonDefinition* definition) {
-        definition.scope = TyphoonScopeSingleton;
         [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith: routing];
         }];

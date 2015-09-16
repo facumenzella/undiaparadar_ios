@@ -26,7 +26,6 @@
 {
     SEL selector = @selector(initWithRouting:withTopicsService:withTopicsSelectionDelegate:);
     return [TyphoonDefinition withClass:[TopicsCollectionViewController class] configuration:^(TyphoonDefinition* definition) {
-        definition.scope = TyphoonScopeSingleton;
         [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith: [self.routingModuleAssembly routing]];
             [initializer injectParameterWith: [self.serviceModuleAssembly topicService]];
@@ -40,7 +39,6 @@
 {
     SEL selector = @selector(initWithRouting:);
     return [TyphoonDefinition withClass:[PositiveActionsWithMapViewController class] configuration:^(TyphoonDefinition* definition) {
-        definition.scope = TyphoonScopeSingleton;
         [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith: [self.routingModuleAssembly routing]];
         }];
