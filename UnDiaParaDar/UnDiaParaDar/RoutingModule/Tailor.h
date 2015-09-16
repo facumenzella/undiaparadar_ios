@@ -10,9 +10,13 @@
 
 #import "SWRevealDirector.h"
 
+@protocol RightNextButtonProtocol <NSObject>
+- (void)next;
+@end
+
 @protocol Tailor <NSObject>
 
 - (void)suitViewControllerUpForMenuEvent:(UIViewController*)viewController;
-- (void)suitViewControllerUpForNextEvent:(UIViewController*)viewController;
+- (void)suitViewControllerUpForNextEvent:(id<RightNextButtonProtocol>)viewController;
 
 @end

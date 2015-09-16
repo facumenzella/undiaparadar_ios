@@ -43,9 +43,7 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
         self.topicService = topicService;
         self.selectionDelegate = selectionDelegate;
         
-        self.callback = ^(BOOL enabled) {
-            NSLog(@"holy shit");
-        };
+        self.callback = nil;
     }
     return self;
 }
@@ -123,6 +121,13 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
     [self.selectionDelegate viewController:self
                            didSelectTopics:self.selected
                               withCallback:self.callback];
+}
+
+#pragma mark - RightNextButtonProtocol
+
+- (void)next
+{
+    NSLog(@"holy shit");
 }
 
 @end

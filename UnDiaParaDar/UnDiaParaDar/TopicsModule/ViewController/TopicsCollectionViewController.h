@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tailor.h"
 
 @protocol Routing;
 @class TopicService;
@@ -21,7 +22,7 @@ typedef void (^SelectedTopicsCallback)(BOOL enabled);
 
 @end
 
-@interface TopicsCollectionViewController : UICollectionViewController
+@interface TopicsCollectionViewController : UICollectionViewController <RightNextButtonProtocol>
 
 @property (nonatomic, assign) id<TopicsSelectionDelegate> selectionDelegate; 
 

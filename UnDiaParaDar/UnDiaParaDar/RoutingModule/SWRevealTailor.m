@@ -47,11 +47,18 @@ static UIImage *TAILOR_NAV_BAR_IMAGE;
     viewController.navigationItem.leftBarButtonItem = barButtonItem;
 }
 
-- (void)suitViewControllerUpForNextEvent:(UIViewController*)viewController
+- (void)suitViewControllerUpForNextEvent:(id<RightNextButtonProtocol>)viewController
 {
-    UIButton *button = [ButtonFactory nextButton];
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    viewController.navigationItem.rightBarButtonItem = barButtonItem;
+    UIViewController *vc;
+    if (![viewController isKindOfClass:[UIViewController class]]) {
+        return;
+    } else {
+        vc = (UIViewController*)viewController;
+        UIButton *button = [ButtonFactory nextButton];
+        UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        vc.navigationItem.rightBarButtonItem = barButtonItem;
+        [button addTarget:vc action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
+    }
 }
 
 #pragma mark - TopicsSelectionDelegate
@@ -62,7 +69,7 @@ static UIImage *TAILOR_NAV_BAR_IMAGE;
 {
     BOOL enabled = [topics count] != 0;
     viewController.navigationItem.rightBarButtonItem.enabled = enabled;
-    callback(enabled);
+    if (callback){ callback(enabled);}
 }
 
 @end
