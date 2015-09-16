@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 ITBA. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @protocol Routing <NSObject>
 
@@ -14,5 +14,6 @@
 - (void)showMainPage;
 - (void)showProfile;
 - (void)showSplash;
-
+- (void)showPositiveActionsWithMapViewControllerWithPresenter:(UIViewController*)vc
+                                           withSelectedTopics:(NSArray*)topics;
 @end

@@ -11,6 +11,7 @@
 #import "ServiceModuleAssembly.h"
 
 #import "TopicsCollectionViewController.h"
+#import "PositiveActionsWithMapViewController.h"   
 
 @interface TopicsModuleAssembly ()
 
@@ -30,6 +31,18 @@
             [initializer injectParameterWith: [self.routingModuleAssembly routing]];
             [initializer injectParameterWith: [self.serviceModuleAssembly topicService]];
             [initializer injectParameterWith: [self.routingModuleAssembly iphoneTailor]];
+        }];
+    }];
+
+}
+
+- (PositiveActionsWithMapViewController*)positiveActionsWithMapViewController
+{
+    SEL selector = @selector(initWithRouting:);
+    return [TyphoonDefinition withClass:[PositiveActionsWithMapViewController class] configuration:^(TyphoonDefinition* definition) {
+        definition.scope = TyphoonScopeSingleton;
+        [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith: [self.routingModuleAssembly routing]];
         }];
     }];
 

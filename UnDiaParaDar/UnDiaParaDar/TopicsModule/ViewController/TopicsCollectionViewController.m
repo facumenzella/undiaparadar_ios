@@ -20,7 +20,7 @@
 @property (nonatomic, strong) TopicService *topicService;
 @property (nonatomic, strong) NSArray *topics;
 @property (nonatomic, strong) NSMutableArray *presenters;
-@property (nonatomic, strong) NSMutableArray *selected;
+@property (nonatomic, strong) NSMutableArray *selectedTopics;
 
 @property (nonatomic, copy) SelectedTopicsCallback callback;
 
@@ -42,7 +42,6 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
         self.routing = routing;
         self.topicService = topicService;
         self.selectionDelegate = selectionDelegate;
-        
         self.callback = nil;
     }
     return self;
@@ -64,7 +63,7 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
     [self.collectionView reloadData];
     
     [self.selectionDelegate viewController:self
-                           didSelectTopics:self.selected
+                           didSelectTopics:self.selectedTopics
                               withCallback:self.callback];
 }
 
@@ -72,7 +71,7 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
 {
     self.topics = [self.topicService topics];
     self.presenters = [[NSMutableArray alloc] init];
-    self.selected = [[NSMutableArray alloc] init];
+    self.selectedTopics = [[NSMutableArray alloc] init];
     for (Topic *t in self.topics) {
         TopicCellPresenter *p = [[TopicCellPresenter alloc] initWithTopic:t];
         [self.presenters addObject:p];
@@ -113,13 +112,13 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
     [cell populateCellWithTopic:t]; 
     
     if (t.selected) {
-        [self.selected addObject:t];
+        [self.selectedTopics addObject:t];
     } else {
-        [self.selected removeObject:t];
+        [self.selectedTopics removeObject:t];
     }
     [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
     [self.selectionDelegate viewController:self
-                           didSelectTopics:self.selected
+                           didSelectTopics:self.selectedTopics
                               withCallback:self.callback];
 }
 
@@ -127,7 +126,7 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
 
 - (void)next
 {
-    NSLog(@"holy shit");
+    [self.routing showPositiveActionsWithMapViewControllerWithPresenter:self withSelectedTopics: self.selectedTopics];
 }
 
 @end

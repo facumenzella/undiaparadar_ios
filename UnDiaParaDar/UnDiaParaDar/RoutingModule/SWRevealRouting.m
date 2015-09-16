@@ -22,6 +22,7 @@
 
 #import "TopicsModuleAssembly.h"
 #import "TopicsCollectionViewController.h"
+#import "PositiveActionsWithMapViewController.h"   
 
 @interface SWRevealRouting ()
 
@@ -87,5 +88,12 @@
     [self.director setRoot:splashViewController];
 }
 
+- (void)showPositiveActionsWithMapViewControllerWithPresenter:(UIViewController*)vc
+                                           withSelectedTopics:(NSArray*)topics
+{
+    PositiveActionsWithMapViewController *mapViewController = [self.topicsModuleAssembly
+                                                               positiveActionsWithMapViewController];
+    [self.director present:mapViewController from:vc animated:YES];
+}
 
 @end
