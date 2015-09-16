@@ -14,6 +14,7 @@
 		0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6612C81B98C69C006C272F /* ButtonFactory.m */; };
 		0D6612CC1B98CA76006C272F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D6612CE1B98CA76006C272F /* Localizable.strings */; };
 		0D9059301BA641650008BF75 /* PositiveActionsWithMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D90592F1BA641650008BF75 /* PositiveActionsWithMapViewController.m */; };
+		0D94F83E1BA9FCE100945F81 /* PositiveActionsWithMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D94F83D1BA9FCE100945F81 /* PositiveActionsWithMapView.m */; };
 		0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E0C1B7E5AA50049D08B /* SplashViewController.m */; };
 		0D9E1E101B7E5B8F0049D08B /* SplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E0F1B7E5B8F0049D08B /* SplashView.m */; };
 		0D9E1E141B7E610B0049D08B /* SplashModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E131B7E610B0049D08B /* SplashModuleAssembly.m */; };
@@ -80,6 +81,8 @@
 		0D6612CF1B98CA96006C272F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0D90592E1BA641650008BF75 /* PositiveActionsWithMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionsWithMapViewController.h; sourceTree = "<group>"; };
 		0D90592F1BA641650008BF75 /* PositiveActionsWithMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionsWithMapViewController.m; sourceTree = "<group>"; };
+		0D94F83C1BA9FCE100945F81 /* PositiveActionsWithMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionsWithMapView.h; sourceTree = "<group>"; };
+		0D94F83D1BA9FCE100945F81 /* PositiveActionsWithMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionsWithMapView.m; sourceTree = "<group>"; };
 		0D9E1E0B1B7E5AA50049D08B /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		0D9E1E0C1B7E5AA50049D08B /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		0D9E1E0E1B7E5B8F0049D08B /* SplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashView.h; sourceTree = "<group>"; };
@@ -277,6 +280,8 @@
 				0DFF0A861B850B52004D1EB9 /* TopicsCollectionViewLayout.h */,
 				0DFF0A871B850B52004D1EB9 /* TopicsCollectionViewLayout.m */,
 				0DAF2FAE1B7E8F080045CE08 /* Cells */,
+				0D94F83C1BA9FCE100945F81 /* PositiveActionsWithMapView.h */,
+				0D94F83D1BA9FCE100945F81 /* PositiveActionsWithMapView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -759,6 +764,7 @@
 				110FE8AB1B66B8C0002A2273 /* SWRevealArchitect.m in Sources */,
 				11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */,
 				110FE8AF1B66B9B0002A2273 /* MenuModuleAssembly.m in Sources */,
+				0D94F83E1BA9FCE100945F81 /* PositiveActionsWithMapView.m in Sources */,
 				0DFF0A881B850B52004D1EB9 /* TopicsCollectionViewLayout.m in Sources */,
 				0DAF2FD81B7E94420045CE08 /* Topic.m in Sources */,
 				0DBD21A31BA37865002AC53C /* UserService.m in Sources */,
