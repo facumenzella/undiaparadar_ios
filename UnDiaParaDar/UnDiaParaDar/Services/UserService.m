@@ -23,7 +23,7 @@
     [[[FBSDKGraphRequest alloc]
       initWithGraphPath:image parameters:nil]
      startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-         if (!error) {
+         if (error) {
              NSLog(@"Holy shit no profile picture");
          }
          NSDictionary *data = result[@"data"];
