@@ -7,11 +7,15 @@
 //
 
 #import "PositiveActionsWithMapViewController.h"
+#import "PositiveActionsWithMapView.h"
+
 #import "Routing.h"
 
 @interface PositiveActionsWithMapViewController ()
 
 @property (strong, nonatomic) id<Routing> routing;
+
+@property (nonatomic, strong) PositiveActionsWithMapView *positiveActionsView;
 
 @end
 
@@ -24,6 +28,12 @@
         self.routing = routing;
     }
     return self;
+}
+
+-(void)loadView
+{
+    self.positiveActionsView = [[PositiveActionsWithMapView alloc] init];
+    self.view = self.positiveActionsView;
 }
 
 @end
