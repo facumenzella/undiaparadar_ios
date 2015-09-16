@@ -36,4 +36,9 @@
     self.view = self.positiveActionsView;
 }
 
+- (void)viewDidLoad
+{
+
+}
+
 @end
