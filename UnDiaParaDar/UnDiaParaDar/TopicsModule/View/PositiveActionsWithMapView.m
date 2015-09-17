@@ -87,21 +87,24 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
     [self.overTitleView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:40];
     [self.overTitleView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
     static CGFloat height = 32;
-    [self.overTitleView autoSetDimension:ALDimensionHeight toSize:32];
+    [self.overTitleView autoSetDimension:ALDimensionHeight toSize:height];
     [self.overTitleView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mapView withOffset:height/2];
     self.overTitleView.layer.cornerRadius = 10;
     self.overTitleView.clipsToBounds = YES;
     
-//    [self buildOverTitleLabel];
+    [self buildOverTitleLabel];
 }
 
 - (void)buildOverTitleLabel
 {
     self.overTitleLabel = [[UILabel alloc] initForAutoLayout];
-    [self.overTitleView addSubview: self.overTitleLabel];
-    [self.overTitleLabel autoPinEdgesToSuperviewEdges];
+    [self addSubview: self.overTitleLabel];
+    [self.overTitleLabel autoSetDimension:ALDimensionHeight toSize:32];
+    [self.overTitleLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:40];
+    [self.overTitleLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
+    [self.overTitleLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mapView withOffset:16];
     // TODO mock text
-    self.overTitleLabel.text = @"Fundación Hernocentro Mar del Plata";
+    self.overTitleLabel.text = @"Fuck iOS";
 }
 
 - (void)buildDetailView
