@@ -7,6 +7,7 @@
 //
 
 #import "PositiveActionsWithMapView.h"
+#import "PositiveActionDetailView.h"
 #import <MapKit/MapKit.h>
 
 #import <PureLayout/PureLayout.h>
@@ -23,7 +24,7 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
 @property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) UIView *overTitleView;
 @property (nonatomic, strong) UILabel *overTitleLabel;
-@property (nonatomic, strong) UIView *detailView;
+@property (nonatomic, strong) PositiveActionDetailView *detailView;
 
 @property (nonatomic) CGFloat mapActiveHeight;
 @property (nonatomic) CGFloat mapInactiveHeight;
@@ -109,7 +110,7 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
 
 - (void)buildDetailView
 {
-    self.detailView = [[UIView alloc] initForAutoLayout];
+    self.detailView = [[PositiveActionDetailView alloc] initForAutoLayout];
     self.detailView.userInteractionEnabled = YES;
     [self addSubview: self.detailView];
     [self addSubview: self.mapView];
@@ -120,6 +121,7 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
     self.detailTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                              action:@selector(switchToDescriptionActiveState)];
     [self.detailView addGestureRecognizer:self.detailTap];
+    [self.detailView setState:PositiveActionDetailViewStateOff];
 }
 
 - (void)styleSubviews
@@ -139,19 +141,19 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
 
 #pragma mark - Style
 
-- (void)styleSubviewsViewStateMap
-{
-    [self.overTitleView setBackgroundColor: [UIColor colorWithRed:211/255.0 green:0 blue:11/255.0 alpha:1]];
-   
-    [self.overTitleLabel setTextColor: [UIColor whiteColor]];
-    [self.overTitleLabel setTextAlignment: NSTextAlignmentCenter];
-}
-
 - (void)styleSubviewsViewStateDescription
 {
     [self.overTitleView setBackgroundColor: [UIColor whiteColor]];
-    
+   
     [self.overTitleLabel setTextColor: [UIColor blackColor]];
+    [self.overTitleLabel setTextAlignment: NSTextAlignmentCenter];
+}
+
+- (void)styleSubviewsViewStateMap
+{
+    [self.overTitleView setBackgroundColor: [UIColor colorWithRed:211/255.0 green:0 blue:11/255.0 alpha:1]];
+    
+    [self.overTitleLabel setTextColor: [UIColor whiteColor]];
     [self.overTitleLabel setTextAlignment: NSTextAlignmentCenter];
 }
 
@@ -161,6 +163,8 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
 {
     self.state = PositiveActionsWithMapViewStateMap;
     self.mapHeightConstraint.constant = self.mapActiveHeight;
+    [self.detailView setState:PositiveActionDetailViewStateOff];
+    [self styleSubviews];
     [self updateTapGestureRecognizers];
     [self animateSwitchingStates];
 }
@@ -169,6 +173,8 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
 {
     self.state = PositiveActionsWithMapViewStateDescription;
     self.mapHeightConstraint.constant = self.mapInactiveHeight;
+    [self.detailView setState:PositiveActionDetailViewStateOn];
+    [self styleSubviews];
     [self updateTapGestureRecognizers];
     [self animateSwitchingStates];
 }
