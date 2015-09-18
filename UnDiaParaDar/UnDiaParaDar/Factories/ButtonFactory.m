@@ -7,6 +7,7 @@
 //
 
 #import "ButtonFactory.h"
+#import "UIImage+Color.h"
 
 @implementation ButtonFactory
 
@@ -22,11 +23,19 @@
 {
     static NSString *nextOnButton = @"next_heart_on.png";
     static NSString *nextButton = @"next_heart.png";
-
+    
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 25.5)];
     [button setBackgroundImage:[UIImage imageNamed:nextButton] forState:UIControlStateDisabled];
     [button setBackgroundImage:[UIImage imageNamed:nextOnButton] forState:UIControlStateNormal];
+    
+    return button;
+}
 
++ (UIButton*)roundedButtonWithImage:(NSString*)img
+{
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [button setBackgroundImage:[UIImage imageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:img] forState:UIControlStateNormal];
     return button;
 }
 

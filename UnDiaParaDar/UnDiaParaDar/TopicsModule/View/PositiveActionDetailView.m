@@ -25,7 +25,7 @@
 {
     self = [super init];
     if (self) {
-        _state = PositiveActionDetailViewStateOff;
+        _state = PositiveActionsWithMapViewStateMap;
         [self buildSubviews];
         [self styleSubviews];
     }
@@ -89,7 +89,6 @@
     self.positiveActionDescription.editable = NO;
     // TODO MOCK TEXT
     self.positiveActionDescription.text = @"Te invitamos a que cuando dones sangre te saques una foto como esta y que despues compartas la foto en tus redes sociales usando el hashtag \'#NOSelfie\'";
-    
 }
 
 - (void)styleSubviews
@@ -121,14 +120,14 @@
     [self.positiveActionDescription setBackgroundColor: [UIColor clearColor]];
 }
 
-- (void)setState:(PositiveActionDetailViewState)state
+- (void)setState:(PositiveActionsWithMapViewState)state
 {
     _state = state;
     switch (_state) {
-        case PositiveActionDetailViewStateOn:
+        case PositiveActionsWithMapViewStateDescription:
             [self styleSubviewsOn];
             break;
-        case PositiveActionDetailViewStateOff:
+        case PositiveActionsWithMapViewStateMap:
             [self styleSubviewsOff];
             break;
         default:

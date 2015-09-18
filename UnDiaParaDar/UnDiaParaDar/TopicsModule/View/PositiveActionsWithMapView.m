@@ -8,14 +8,10 @@
 
 #import "PositiveActionsWithMapView.h"
 #import "PositiveActionDetailView.h"
+#import "ButtonFactory.h"
+
 #import <MapKit/MapKit.h>
-
 #import <PureLayout/PureLayout.h>
-
-typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
-    PositiveActionsWithMapViewStateMap,
-    PositiveActionsWithMapViewStateDescription
-};
 
 @interface PositiveActionsWithMapView ()
 
@@ -33,6 +29,9 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
 @property (nonatomic, strong) UITapGestureRecognizer *mapTap;
 @property (nonatomic, strong) UITapGestureRecognizer *detailTap;
 
+@property (nonatomic, strong) NSArray *mapActiveConstraints;
+@property (nonatomic, strong) NSArray *detailActiveConstraints;
+
 @end
 
 @implementation PositiveActionsWithMapView
@@ -42,11 +41,11 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
     self = [super init];
     if (self) {
         [self setBackgroundColor: [UIColor whiteColor]];
-        self.state = PositiveActionsWithMapViewStateMap;
+        self.state = PositiveActionsWithMapViewStateDescription;
         [self initializeHeights];
         [self buildSubviews];
-        [self styleSubviews];
-        [self updateTapGestureRecognizers];
+        [self buildButtons];
+        [self updateUIState];
     }
     return self;
 }
@@ -74,8 +73,9 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeRight];
+    CGFloat height = (self.state == PositiveActionsWithMapViewStateMap) ? self.mapActiveHeight : self.mapInactiveHeight;
     self.mapHeightConstraint = [self.mapView autoSetDimension:ALDimensionHeight
-                                                                      toSize:self.mapActiveHeight];
+                                                       toSize:height];
     
     self.mapTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(switchToMapActiveState)];
     [self.mapView addGestureRecognizer:self.mapTap];
@@ -108,6 +108,29 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
     self.overTitleLabel.text = @"Fuck iOS";
 }
 
+- (void)buildButtons
+{
+    UIButton *shareButton = [ButtonFactory roundedButtonWithImage:@"next_heart"];
+    UIButton *pledgeButton = [ButtonFactory roundedButtonWithImage:@"next_heart_on"];
+    
+    [self addSubview:shareButton];
+    [self addSubview:pledgeButton];
+    self.mapActiveConstraints = [NSLayoutConstraint autoCreateConstraintsWithoutInstalling:^{
+        [shareButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.mapView withOffset:32];
+        [pledgeButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.mapView withOffset:-32];
+
+        [shareButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.overTitleView withOffset:-16];
+        [pledgeButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.overTitleView withOffset:-16];
+    }];
+    self.detailActiveConstraints = [NSLayoutConstraint autoCreateConstraintsWithoutInstalling:^{
+        [pledgeButton autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:24];
+        [shareButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pledgeButton withOffset:16];
+        
+        [shareButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.overTitleView withOffset:-8];
+        [shareButton autoAlignAxis:ALAxisVertical toSameAxisOfView:pledgeButton];
+    }];
+}
+
 - (void)buildDetailView
 {
     self.detailView = [[PositiveActionDetailView alloc] initForAutoLayout];
@@ -121,7 +144,7 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
     self.detailTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                              action:@selector(switchToDescriptionActiveState)];
     [self.detailView addGestureRecognizer:self.detailTap];
-    [self.detailView setState:PositiveActionDetailViewStateOff];
+    [self.detailView setState:self.state];
 }
 
 - (void)styleSubviews
@@ -137,6 +160,7 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
             NSLog(@"Holy shit, weird state in POSITIVEACTIONSVIEW");
             break;
     }
+    [self.detailView setState:self.state];
 }
 
 #pragma mark - Style
@@ -144,7 +168,7 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
 - (void)styleSubviewsViewStateDescription
 {
     [self.overTitleView setBackgroundColor: [UIColor whiteColor]];
-   
+    
     [self.overTitleLabel setTextColor: [UIColor blackColor]];
     [self.overTitleLabel setTextAlignment: NSTextAlignmentCenter];
 }
@@ -163,9 +187,6 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
 {
     self.state = PositiveActionsWithMapViewStateMap;
     self.mapHeightConstraint.constant = self.mapActiveHeight;
-    [self.detailView setState:PositiveActionDetailViewStateOff];
-    [self styleSubviews];
-    [self updateTapGestureRecognizers];
     [self animateSwitchingStates];
 }
 
@@ -173,19 +194,33 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
 {
     self.state = PositiveActionsWithMapViewStateDescription;
     self.mapHeightConstraint.constant = self.mapInactiveHeight;
-    [self.detailView setState:PositiveActionDetailViewStateOn];
-    [self styleSubviews];
-    [self updateTapGestureRecognizers];
     [self animateSwitchingStates];
+}
+
+- (void)updateUIState
+{
+    [self styleSubviews];
+    [self updateButtons];
+    [self updateTapGestureRecognizers];
+}
+
+- (void)updateButtons
+{
+    if (self.state == PositiveActionsWithMapViewStateMap) {
+        [self.mapActiveConstraints autoInstallConstraints];
+        [self.detailActiveConstraints autoRemoveConstraints];
+    } else {
+        [self.mapActiveConstraints autoRemoveConstraints];
+        [self.detailActiveConstraints autoInstallConstraints];
+    }
 }
 
 - (void)updateTapGestureRecognizers
 {
-    BOOL mapActive = self.state == PositiveActionsWithMapViewStateMap;
-    self.mapView.scrollEnabled = mapActive;
+    self.mapView.scrollEnabled = self.state == PositiveActionsWithMapViewStateMap;
     // enable / disable taps to activate each section
-    self.mapTap.enabled = !mapActive;
-    self.detailTap.enabled = mapActive;
+    self.mapTap.enabled = self.state == PositiveActionsWithMapViewStateDescription;
+    self.detailTap.enabled = !self.mapTap.enabled;
 }
 
 #pragma mark - Animations
@@ -193,6 +228,7 @@ typedef NS_ENUM(NSUInteger, PositiveActionsWithMapViewState) {
 - (void)animateSwitchingStates
 {
     [UIView animateWithDuration:1 animations:^{
+        [self updateUIState];
         [self layoutIfNeeded];
     }];
 }

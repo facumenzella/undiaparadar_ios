@@ -7,15 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef NS_ENUM(NSUInteger, PositiveActionDetailViewState){
-    PositiveActionDetailViewStateOn,
-    PositiveActionDetailViewStateOff
-};
+#import "PositiveActionsWithMapView.h"
 
 @interface PositiveActionDetailView : UIView
 
-@property (nonatomic) PositiveActionDetailViewState state;
-
+@property (nonatomic) PositiveActionsWithMapViewState state;
 
 @end
