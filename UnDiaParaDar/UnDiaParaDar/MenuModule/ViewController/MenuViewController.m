@@ -41,6 +41,13 @@
 
 #pragma mark - UIViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    if (self.tableViewManager) {
+        [self loadUser];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

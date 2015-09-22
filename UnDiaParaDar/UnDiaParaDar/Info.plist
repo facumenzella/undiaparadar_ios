@@ -15,7 +15,7 @@
 	<key>CFBundleIcons~ipad</key>
 	<dict/>
 	<key>CFBundleIdentifier</key>
-	<string>com.it.itba.$(PRODUCT_NAME:rfc1034identifier)</string>
+	<string>com.it.itba.UnDiaParaDar</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -40,7 +40,7 @@
 	<key>FacebookAppID</key>
 	<string>877005669054245</string>
 	<key>FacebookDisplayName</key>
-	<string>UnDi­a­P­a­r­aDar</string>
+	<string>UnDiaParaDar</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -50,6 +50,10 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbauth2</string>
 	</array>
 </dict>
 </plist>

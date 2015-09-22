@@ -11,6 +11,8 @@
 #import "RemoteImageView.h"
 #import <PureLayout/PureLayout.h>
 
+static NSString * const PLACEHOLDER = @"placeholder";
+
 @interface MenuProfileViewCell ()
 
 @property (nonatomic, strong) RemoteImageView *avatar;
@@ -49,7 +51,7 @@
     self.avatar.layer.borderColor = [UIColor whiteColor].CGColor;
 
     
-    [self.avatar setPlaceHolderImage:[UIImage imageNamed:@"avatar128x128"]];
+    [self.avatar setPlaceHolderImage:[UIImage imageNamed:PLACEHOLDER]];
 }
 
 - (void)buildUsername
