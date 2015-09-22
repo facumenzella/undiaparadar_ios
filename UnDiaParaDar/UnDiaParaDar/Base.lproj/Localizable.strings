@@ -1,7 +1,6 @@
 // MENU MODULE
 "TOPICS_SECTION" = "Encuentra qué hacer";
 
-
 // TOPICS MODULE
 "TOPICS_VC_TITLE" = "Encuentra qué hacer";
 
@@ -11,7 +10,7 @@
 "PLANTAR_ARBOLES" = "Plantar árboles";
 "FORMARSE_PARA_AYUDAR" = "Formarse para ayudar";
 "DONAR_PELO" = "Donar pelo";
-"DONAR_MILLAS" = "Donar millas aéereas";
+"DONAR_MILLAS" = "Donar millas aéreas";
 "DONAR_LECHE" = "Donar leche materna";
 "DONAR_DINERO" = "Donar dinero";
 "DONAR_ARTICULOS" = "Donar artículos usados";

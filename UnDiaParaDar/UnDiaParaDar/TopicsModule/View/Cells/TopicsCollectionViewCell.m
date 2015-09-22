@@ -49,8 +49,8 @@
 {
     self.topicImageView = [[UIImageView alloc] initForAutoLayout];
     [self.contentView addSubview:self.topicImageView];
-    [self.topicImageView autoSetDimension:ALDimensionWidth toSize:70];
-    [self.topicImageView autoSetDimension:ALDimensionHeight toSize:69];
+    [self.topicImageView autoSetDimension:ALDimensionWidth toSize:75];
+    [self.topicImageView autoSetDimension:ALDimensionHeight toSize:74];
     [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:8];
     [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:8];
     [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
@@ -61,7 +61,8 @@
     self.topicTextView = [[UITextView alloc] initForAutoLayout];
     self.topicTextView.scrollEnabled = NO;
     [self.contentView addSubview:self.topicTextView];
-    [self.topicTextView setText:@"Default"];
+    // we do this to force two lines in autolayout
+    [self.topicTextView setText:@"DefaultDefaultDefault"];
     [self.topicTextView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.topicImageView];
     [self.topicTextView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [self.topicTextView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
