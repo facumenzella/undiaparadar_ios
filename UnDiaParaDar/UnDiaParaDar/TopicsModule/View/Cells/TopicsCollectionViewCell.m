@@ -14,7 +14,7 @@
 @interface TopicsCollectionViewCell ()
 
 @property (nonatomic, strong) UIImageView *topicImageView;
-@property (nonatomic, strong) UILabel *topicLabel;
+@property (nonatomic, strong) UITextView *topicTextView;
 
 @end
 
@@ -41,7 +41,7 @@
 - (void)buildSubviews
 {
     [self buildTopicImageView];
-    [self buildTopicLabel];
+    [self buildTopicTextView];
     [self styleCellSubviews];
 }
 
@@ -49,35 +49,35 @@
 {
     self.topicImageView = [[UIImageView alloc] initForAutoLayout];
     [self.contentView addSubview:self.topicImageView];
-    [self.topicImageView autoSetDimension:ALDimensionWidth toSize:123 / 2];
-    [self.topicImageView autoSetDimension:ALDimensionHeight toSize:123 / 2];
+    [self.topicImageView autoSetDimension:ALDimensionWidth toSize:70];
+    [self.topicImageView autoSetDimension:ALDimensionHeight toSize:69];
     [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:8];
     [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:8];
     [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
 }
 
-- (void)buildTopicLabel
+- (void)buildTopicTextView
 {
-    self.topicLabel = [[UILabel alloc] initForAutoLayout];
-    [self.contentView addSubview:self.topicLabel];
-    [self.topicLabel setText:@"Default"];
-    [self.topicLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.topicImageView];
-    [self.topicLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
-    [self.topicLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
-    [self.topicLabel autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    self.topicTextView = [[UITextView alloc] initForAutoLayout];
+    self.topicTextView.scrollEnabled = NO;
+    [self.contentView addSubview:self.topicTextView];
+    [self.topicTextView setText:@"Default"];
+    [self.topicTextView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.topicImageView];
+    [self.topicTextView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+    [self.topicTextView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
+    [self.topicTextView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
 }
 
  - (void)styleCellSubviews
 {
-    [self styleTopicLabel];
+    [self styleTopicTextView];
 }
 
- - (void)styleTopicLabel
+ - (void)styleTopicTextView
 {
-    self.topicLabel.textAlignment = NSTextAlignmentCenter;
-    [self.topicLabel setFont:[UIFont systemFontOfSize:8]];
-    self.topicLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.topicLabel.numberOfLines = 0;
+    self.topicTextView.textAlignment = NSTextAlignmentCenter;
+    [self.topicTextView setFont:[UIFont systemFontOfSize:14]];
+    [self.topicTextView setBackgroundColor:[UIColor clearColor]];
 }
 
 - (void)populateCellWithTopic:(TopicCellPresenter *)presenter
@@ -89,8 +89,8 @@
     UIImage *topicImage = [UIImage imageNamed: img];
     [self.topicImageView setImage:topicImage];
     
-    [self.topicLabel setText:NSLocalizedString(presenter.name, "topic")];
-    [self.topicLabel setTextColor: [UIColor blackColor]];
+    [self.topicTextView setText:NSLocalizedString(presenter.name, "topic")];
+    [self.topicTextView setTextColor: [UIColor blackColor]];
 }
 
 @end

@@ -10,8 +10,8 @@
 #import "TopicsCollectionViewCell.h"
 
 static TopicsCollectionViewCell *cell;
-static CGFloat MINIMUM_LINE_SPACING = 24;
-static CGFloat MINIMUM_INTERITEM_SPACING = 12;
+static CGFloat MINIMUM_LINE_SPACING = 12;
+static CGFloat MINIMUM_INTERITEM_SPACING = 6;
 
 @implementation TopicsCollectionViewLayout
 
