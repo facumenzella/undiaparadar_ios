@@ -105,8 +105,9 @@
     [self.tableViewManager addSection:itemsSection];
     self.tableViewManager[@"MenuOptionPresenter"] = @"MenuOptionViewCell";
     
+    NSString *const title = NSLocalizedString(@"TOPICS_SECTION", @"Encuentra que hacer");
     MenuOptionPresenter *topicsPresenter = [[MenuOptionPresenter alloc] initWithOptionImage:@"topic_section"
-                                                                            withOptionTitle:@"Topics"];
+                                                                            withOptionTitle:title];
     topicsPresenter.selectionHandler = ^(MenuOptionPresenter* presenter) {
         [presenter deselectRowAnimated:NO];
         [self.routing showProfile];

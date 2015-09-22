@@ -1,3 +1,8 @@
+// MENU MODULE
+"TOPICS_SECTION" = "Encuentra qué hacer";
+
+
+// TOPICS MODULE
 "VOLUNTARIADO" = "Voluntariado";
 "REUTILIZAR" = "Reutilizar";
 "PUBLICACION_CALLE" = "Publicaciones de la calle";
@@ -15,4 +20,6 @@
 "DONAR_MEDULA" = "Donante de médula osea";
 "ASESOR_DIRECTORIO" = "Asesor / Directorio";
 "ADOPCION_MASCOTAS" = "Adopción de mascotas";
+
+
 
