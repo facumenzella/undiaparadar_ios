@@ -16,7 +16,7 @@ static NSString * const PLACEHOLDER = @"placeholder";
 @interface MenuProfileViewCell ()
 
 @property (nonatomic, strong) RemoteImageView *avatar;
-@property (nonatomic, strong) UILabel *username;
+@property (nonatomic, strong) UITextView *usernameTextView;
 
 @end
 
@@ -56,31 +56,34 @@ static NSString * const PLACEHOLDER = @"placeholder";
 
 - (void)buildUsername
 {
-    self.username = [[UILabel alloc] initForAutoLayout];
-    [self.contentView addSubview:self.username];
+    self.usernameTextView = [[UITextView alloc] initForAutoLayout];
+    self.usernameTextView.scrollEnabled = NO;
+    [self.contentView addSubview:self.usernameTextView];
     
-    [self.username autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.avatar];
-    [self.username autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.avatar withOffset:16];
-    [self.username autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:32];
-    [self.username autoSetDimension:ALDimensionHeight
-                         toSize:64
-                       relation:NSLayoutRelationLessThanOrEqual];
+    [self.usernameTextView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.avatar];
+    [self.usernameTextView autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.avatar withOffset:16];
+    [self.usernameTextView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:32];
+//    [self.username autoSetDimension:ALDimensionHeight
+//                         toSize:64
+//                       relation:NSLayoutRelationLessThanOrEqual];
 }
 
 - (void) cellWillAppear
 {
     [super cellWillAppear];
     
+    [self styleUsername];
+    
     MenuProfilePresenter *presenter = (MenuProfilePresenter*)self.item;
     [self.avatar setRemoteURL: presenter.userImage];
-    [self.username setText: presenter.userName];
+    [self.usernameTextView setText: presenter.userName];
     
     [self.contentView layoutIfNeeded];
 }
 
 + (CGFloat)heightWithItem:(RETableViewItem *)item tableViewManager:(RETableViewManager *)tableViewManager
 {
-    return 104;
+    return 140;
 }
 
 
@@ -88,7 +91,8 @@ static NSString * const PLACEHOLDER = @"placeholder";
 
 - (void)styleUsername
 {
-    [self.username setBackgroundColor:[UIColor clearColor]];
+    [self.usernameTextView setBackgroundColor:[UIColor clearColor]];
+    [self.usernameTextView setFont:[UIFont systemFontOfSize:25]];
 }
 
 @end
