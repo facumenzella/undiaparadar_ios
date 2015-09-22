@@ -92,6 +92,7 @@
     
     [self.topicTextView setText:NSLocalizedString(presenter.name, "topic")];
     [self.topicTextView setTextColor: [UIColor blackColor]];
+    self.topicTextView.editable = NO;
 }
 
 @end
