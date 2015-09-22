@@ -63,9 +63,6 @@ static NSString * const PLACEHOLDER = @"placeholder";
     [self.usernameTextView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.avatar];
     [self.usernameTextView autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.avatar withOffset:16];
     [self.usernameTextView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:32];
-//    [self.username autoSetDimension:ALDimensionHeight
-//                         toSize:64
-//                       relation:NSLayoutRelationLessThanOrEqual];
 }
 
 - (void) cellWillAppear
@@ -93,6 +90,7 @@ static NSString * const PLACEHOLDER = @"placeholder";
 {
     [self.usernameTextView setBackgroundColor:[UIColor clearColor]];
     [self.usernameTextView setFont:[UIFont systemFontOfSize:25]];
+    self.usernameTextView.editable = NO;
 }
 
 @end
