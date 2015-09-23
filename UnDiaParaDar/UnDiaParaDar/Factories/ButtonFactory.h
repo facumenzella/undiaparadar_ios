@@ -12,6 +12,6 @@
 
 + (UIButton*)menuButton;
 + (UIButton*)nextButton;
-+ (UIButton*)roundedButtonWithImage:(NSString*)img;
++ (UIButton*)buttonWithImage:(NSString*)img;
 
 @end

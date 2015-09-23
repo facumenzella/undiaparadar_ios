@@ -31,10 +31,9 @@
     return button;
 }
 
-+ (UIButton*)roundedButtonWithImage:(NSString*)img
++ (UIButton*)buttonWithImage:(NSString*)img
 {
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [button setBackgroundImage:[UIImage imageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:img] forState:UIControlStateNormal];
     return button;
 }

@@ -110,8 +110,8 @@
 
 - (void)buildButtons
 {
-    UIButton *shareButton = [ButtonFactory roundedButtonWithImage:@"next_heart"];
-    UIButton *pledgeButton = [ButtonFactory roundedButtonWithImage:@"next_heart_on"];
+    UIButton *shareButton = [ButtonFactory buttonWithImage:@"share"];
+    UIButton *pledgeButton = [ButtonFactory buttonWithImage:@"pledge"];
     
     [self addSubview:shareButton];
     [self addSubview:pledgeButton];
