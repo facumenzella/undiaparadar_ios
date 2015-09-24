@@ -126,7 +126,7 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
 
 - (void)next
 {
-    [self.routing showPositiveActionsWithMapViewControllerWithPresenter:self withSelectedTopics: self.selectedTopics];
+    [self.routing showPositiveActionsMapViewControllerWithPresenter:self withSelectedTopics: self.selectedTopics];
 }
 
 @end

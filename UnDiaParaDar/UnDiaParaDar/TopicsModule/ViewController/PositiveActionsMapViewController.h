@@ -10,7 +10,7 @@
 
 @protocol Routing;
 
-@interface PositiveActionsWithMapViewController : UIViewController
+@interface PositiveActionsMapViewController : UIViewController
 
 - (instancetype)initWithRouting:(id<Routing>)routing;
 

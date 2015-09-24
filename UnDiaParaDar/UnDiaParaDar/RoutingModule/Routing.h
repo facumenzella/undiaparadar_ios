@@ -14,7 +14,7 @@
 - (void)showMainPage;
 - (void)showProfile;
 - (void)showSplash;
-- (void)showPositiveActionsWithMapViewControllerWithPresenter:(UIViewController*)vc
+- (void)showPositiveActionsMapViewControllerWithPresenter:(UIViewController*)vc
                                            withSelectedTopics:(NSArray*)topics;
 - (void)showTermsAndConditions;
 - (void)showQueEsUDPD;

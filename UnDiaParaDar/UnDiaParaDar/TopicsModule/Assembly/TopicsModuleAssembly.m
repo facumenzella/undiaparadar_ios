@@ -11,7 +11,7 @@
 #import "ServiceModuleAssembly.h"
 
 #import "TopicsCollectionViewController.h"
-#import "PositiveActionsWithMapViewController.h"   
+#import "PositiveActionsMapViewController.h"
 
 @interface TopicsModuleAssembly ()
 
@@ -35,10 +35,10 @@
 
 }
 
-- (PositiveActionsWithMapViewController*)positiveActionsWithMapViewController
+- (PositiveActionsMapViewController*)positiveActionsMapViewController
 {
     SEL selector = @selector(initWithRouting:);
-    return [TyphoonDefinition withClass:[PositiveActionsWithMapViewController class] configuration:^(TyphoonDefinition* definition) {
+    return [TyphoonDefinition withClass:[PositiveActionsMapViewController class] configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith: [self.routingModuleAssembly routing]];
         }];

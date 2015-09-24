@@ -24,7 +24,7 @@
 		0D4B13BA1BA4BB5D00961764 /* RemoteImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B13B91BA4BB5D00961764 /* RemoteImageView.m */; };
 		0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6612C81B98C69C006C272F /* ButtonFactory.m */; };
 		0D6612CC1B98CA76006C272F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D6612CE1B98CA76006C272F /* Localizable.strings */; };
-		0D9059301BA641650008BF75 /* PositiveActionsWithMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D90592F1BA641650008BF75 /* PositiveActionsWithMapViewController.m */; };
+		0D9059301BA641650008BF75 /* PositiveActionsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D90592F1BA641650008BF75 /* PositiveActionsMapViewController.m */; };
 		0D94F83E1BA9FCE100945F81 /* PositiveActionsWithMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D94F83D1BA9FCE100945F81 /* PositiveActionsWithMapView.m */; };
 		0D94F8441BAA2A9500945F81 /* PositiveActionDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D94F8431BAA2A9500945F81 /* PositiveActionDetailView.m */; };
 		0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E0C1B7E5AA50049D08B /* SplashViewController.m */; };
@@ -110,8 +110,8 @@
 		0D6612C81B98C69C006C272F /* ButtonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonFactory.m; sourceTree = "<group>"; };
 		0D6612CD1B98CA76006C272F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0D6612CF1B98CA96006C272F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		0D90592E1BA641650008BF75 /* PositiveActionsWithMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionsWithMapViewController.h; sourceTree = "<group>"; };
-		0D90592F1BA641650008BF75 /* PositiveActionsWithMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionsWithMapViewController.m; sourceTree = "<group>"; };
+		0D90592E1BA641650008BF75 /* PositiveActionsMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionsMapViewController.h; sourceTree = "<group>"; };
+		0D90592F1BA641650008BF75 /* PositiveActionsMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionsMapViewController.m; sourceTree = "<group>"; };
 		0D94F83C1BA9FCE100945F81 /* PositiveActionsWithMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionsWithMapView.h; sourceTree = "<group>"; };
 		0D94F83D1BA9FCE100945F81 /* PositiveActionsWithMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionsWithMapView.m; sourceTree = "<group>"; };
 		0D94F8421BAA2A9500945F81 /* PositiveActionDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionDetailView.h; sourceTree = "<group>"; };
@@ -421,8 +421,8 @@
 			children = (
 				0DAF2FAB1B7E8EED0045CE08 /* TopicsCollectionViewController.h */,
 				0DAF2FAC1B7E8EED0045CE08 /* TopicsCollectionViewController.m */,
-				0D90592E1BA641650008BF75 /* PositiveActionsWithMapViewController.h */,
-				0D90592F1BA641650008BF75 /* PositiveActionsWithMapViewController.m */,
+				0D90592E1BA641650008BF75 /* PositiveActionsMapViewController.h */,
+				0D90592F1BA641650008BF75 /* PositiveActionsMapViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -607,12 +607,12 @@
 		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
 			isa = PBXGroup;
 			children = (
+				0DAF2FD51B7E94360045CE08 /* Model */,
+				0DAF2FD91B7E947B0045CE08 /* Services */,
+				0DCD99D21B8F7FBE00FF738E /* Extensions */,
+				0D6612C61B98C686006C272F /* Factories */,
 				0D1763781BB4644700C6E664 /* QueEsModule */,
 				0D11F4811BB37D0D00AFE46D /* T&CModule */,
-				0D6612C61B98C686006C272F /* Factories */,
-				0DCD99D21B8F7FBE00FF738E /* Extensions */,
-				0DAF2FD91B7E947B0045CE08 /* Services */,
-				0DAF2FD51B7E94360045CE08 /* Model */,
 				0DAF2FA71B7E8EE20045CE08 /* TopicsModule */,
 				11DEE68A1B5D6DA100DCDE3E /* LoginModule */,
 				0D9E1E081B7E5A910049D08B /* SplashModule */,
@@ -917,7 +917,7 @@
 				0D9E1E101B7E5B8F0049D08B /* SplashView.m in Sources */,
 				0D94F8441BAA2A9500945F81 /* PositiveActionDetailView.m in Sources */,
 				0D1763821BB4647F00C6E664 /* QueEsViewController.m in Sources */,
-				0D9059301BA641650008BF75 /* PositiveActionsWithMapViewController.m in Sources */,
+				0D9059301BA641650008BF75 /* PositiveActionsMapViewController.m in Sources */,
 				1113AA191B5F04B80066E7BB /* MenuOptionPresenter.m in Sources */,
 				11DEE6B01B5D7D9300DCDE3E /* AppDelegateAssembly.m in Sources */,
 				0D1763881BB464CE00C6E664 /* QueEsView.m in Sources */,

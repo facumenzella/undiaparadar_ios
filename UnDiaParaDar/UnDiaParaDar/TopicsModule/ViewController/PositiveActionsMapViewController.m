@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 ITBA. All rights reserved.
 //
 
-#import "PositiveActionsWithMapViewController.h"
+#import "PositiveActionsMapViewController.h"
 #import "PositiveActionsWithMapView.h"
 
 #import "Routing.h"
 
-@interface PositiveActionsWithMapViewController ()
+@interface PositiveActionsMapViewController ()
 
 @property (strong, nonatomic) id<Routing> routing;
 
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation PositiveActionsWithMapViewController
+@implementation PositiveActionsMapViewController
 
 - (instancetype)initWithRouting:(id<Routing>)routing
 {
