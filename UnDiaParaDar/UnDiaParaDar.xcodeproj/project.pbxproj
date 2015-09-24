@@ -26,7 +26,6 @@
 		0D6612CC1B98CA76006C272F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D6612CE1B98CA76006C272F /* Localizable.strings */; };
 		0D9059301BA641650008BF75 /* PositiveActionsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D90592F1BA641650008BF75 /* PositiveActionsMapViewController.m */; };
 		0D94F83E1BA9FCE100945F81 /* PositiveActionsMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D94F83D1BA9FCE100945F81 /* PositiveActionsMapView.m */; };
-		0D94F8441BAA2A9500945F81 /* PositiveActionDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D94F8431BAA2A9500945F81 /* PositiveActionDetailView.m */; };
 		0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E0C1B7E5AA50049D08B /* SplashViewController.m */; };
 		0D9E1E101B7E5B8F0049D08B /* SplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E0F1B7E5B8F0049D08B /* SplashView.m */; };
 		0D9E1E141B7E610B0049D08B /* SplashModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E131B7E610B0049D08B /* SplashModuleAssembly.m */; };
@@ -114,8 +113,6 @@
 		0D90592F1BA641650008BF75 /* PositiveActionsMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionsMapViewController.m; sourceTree = "<group>"; };
 		0D94F83C1BA9FCE100945F81 /* PositiveActionsMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionsMapView.h; sourceTree = "<group>"; };
 		0D94F83D1BA9FCE100945F81 /* PositiveActionsMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionsMapView.m; sourceTree = "<group>"; };
-		0D94F8421BAA2A9500945F81 /* PositiveActionDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionDetailView.h; sourceTree = "<group>"; };
-		0D94F8431BAA2A9500945F81 /* PositiveActionDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionDetailView.m; sourceTree = "<group>"; };
 		0D9E1E0B1B7E5AA50049D08B /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		0D9E1E0C1B7E5AA50049D08B /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		0D9E1E0E1B7E5B8F0049D08B /* SplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashView.h; sourceTree = "<group>"; };
@@ -410,8 +407,6 @@
 				0DAF2FAE1B7E8F080045CE08 /* Cells */,
 				0D94F83C1BA9FCE100945F81 /* PositiveActionsMapView.h */,
 				0D94F83D1BA9FCE100945F81 /* PositiveActionsMapView.m */,
-				0D94F8421BAA2A9500945F81 /* PositiveActionDetailView.h */,
-				0D94F8431BAA2A9500945F81 /* PositiveActionDetailView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -915,7 +910,6 @@
 				0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */,
 				11A0940B1B5D61B100E4FB06 /* main.m in Sources */,
 				0D9E1E101B7E5B8F0049D08B /* SplashView.m in Sources */,
-				0D94F8441BAA2A9500945F81 /* PositiveActionDetailView.m in Sources */,
 				0D1763821BB4647F00C6E664 /* QueEsViewController.m in Sources */,
 				0D9059301BA641650008BF75 /* PositiveActionsMapViewController.m in Sources */,
 				1113AA191B5F04B80066E7BB /* MenuOptionPresenter.m in Sources */,

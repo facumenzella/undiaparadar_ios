@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, PositiveActionsMapViewState) {
-    PositiveActionsMapViewStateMap,
-    PositiveActionsMapViewStateDescription
-};
-
 @interface PositiveActionsMapView : UIView
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "PositiveActionsMapView.h"
-#import "PositiveActionDetailView.h"
 #import "ButtonFactory.h"
 
 #import <MapKit/MapKit.h>
@@ -15,14 +14,15 @@
 
 @interface PositiveActionsMapView ()
 
-@property (nonatomic) PositiveActionsMapViewState state;
-
 @property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) UIView *overTitleView;
 @property (nonatomic, strong) UILabel *overTitleLabel;
-@property (nonatomic, strong) PositiveActionDetailView *detailView;
 
 @property (nonatomic) CGFloat mapHeight;
+
+@property (nonatomic, strong) UIView *footerView;
+@property (nonatomic, strong) UITextView *positiveActionTitle;
+@property (nonatomic, strong) UIImageView *colorBandImageView;
 
 @end
 
@@ -33,7 +33,6 @@
     self = [super init];
     if (self) {
         [self setBackgroundColor: [UIColor whiteColor]];
-        self.state = PositiveActionsMapViewStateDescription;
         [self setupHeight];
         [self buildSubviews];
         [self styleSubviews];
@@ -52,7 +51,7 @@
 - (void)buildSubviews
 {
     [self buildMapView];
-    [self buildDetailView];
+    [self buildFooterView];
     [self buildOverTittle];
     [self buildButtons];
 }
@@ -108,17 +107,47 @@
     [pledgeButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.overTitleView withOffset:-16];
 }
 
-- (void)buildDetailView
+- (void)buildFooterView
 {
-    self.detailView = [[PositiveActionDetailView alloc] initForAutoLayout];
-    self.detailView.userInteractionEnabled = YES;
-    [self addSubview: self.detailView];
-    [self addSubview: self.mapView];
-    [self.detailView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
-    [self.detailView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
-    [self.detailView autoPinEdgeToSuperviewEdge:ALEdgeRight];
-    [self.detailView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.mapView];
+    self.footerView = [[UIView alloc] initForAutoLayout];
+    [self addSubview: self.footerView];
+    
+    [self.footerView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+    [self.footerView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
+    [self.footerView autoPinEdgeToSuperviewEdge:ALEdgeRight];
+    [self.footerView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.mapView];
+    
+    [self buildPositiveActionTitle];
+    [self buildTitleUnderline];
 }
+
+- (void)buildPositiveActionTitle
+{
+    self.positiveActionTitle = [[UITextView alloc] initForAutoLayout];
+    self.positiveActionTitle.scrollEnabled = NO;
+    [self.footerView addSubview: self.positiveActionTitle];
+    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:16];
+    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
+    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:24];
+    
+    // TODO MOCK TEXT
+    self.positiveActionTitle.text = @"Sumate a nuestra campaña \"NO SELFIE\"";
+}
+
+- (void)buildTitleUnderline
+{
+    self.colorBandImageView = [[UIImageView alloc] initForAutoLayout];
+    UIImage *colorBand = [UIImage imageNamed:@"color_band"];
+    [self.colorBandImageView setImage: colorBand];
+    
+    [self.footerView addSubview: self.colorBandImageView];
+    [self.colorBandImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView: self.positiveActionTitle withOffset:8];
+    [self.colorBandImageView autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [self.colorBandImageView autoMatchDimension:ALDimensionWidth
+                                    toDimension:ALDimensionWidth
+                                         ofView:self.positiveActionTitle];
+}
+
 
 #pragma mark - Style
 
@@ -127,7 +156,13 @@
     [self.overTitleView setBackgroundColor: [UIColor colorWithRed:211/255.0 green:0 blue:11/255.0 alpha:1]];
     
     [self.overTitleLabel setTextColor: [UIColor whiteColor]];
-    [self.overTitleLabel setTextAlignment: NSTextAlignmentCenter];}
+    [self.overTitleLabel setTextAlignment: NSTextAlignmentCenter];
+
+    [self.footerView setBackgroundColor: [UIColor whiteColor]];
+    
+    [self.positiveActionTitle setTextAlignment:NSTextAlignmentCenter];
+    [self.positiveActionTitle setTextColor: [UIColor colorWithRed:211/255.0 green:0 blue:11/255.0 alpha:1]];
+}
 
 
 @end
