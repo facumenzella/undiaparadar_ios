@@ -7,7 +7,7 @@
 //
 
 #import "PositiveActionsMapViewController.h"
-#import "PositiveActionsWithMapView.h"
+#import "PositiveActionsMapView.h"
 
 #import "Routing.h"
 
@@ -15,7 +15,7 @@
 
 @property (strong, nonatomic) id<Routing> routing;
 
-@property (nonatomic, strong) PositiveActionsWithMapView *positiveActionsView;
+@property (nonatomic, strong) PositiveActionsMapView *positiveActionsView;
 
 @end
 
@@ -32,7 +32,7 @@
 
 -(void)loadView
 {
-    self.positiveActionsView = [[PositiveActionsWithMapView alloc] init];
+    self.positiveActionsView = [[PositiveActionsMapView alloc] init];
     self.view = self.positiveActionsView;
 }
 

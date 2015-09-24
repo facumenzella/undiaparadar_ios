@@ -25,7 +25,7 @@
 {
     self = [super init];
     if (self) {
-        _state = PositiveActionsWithMapViewStateMap;
+        _state = PositiveActionsMapViewStateMap;
         [self buildSubviews];
         [self styleSubviews];
     }
@@ -120,14 +120,14 @@
     [self.positiveActionDescription setBackgroundColor: [UIColor clearColor]];
 }
 
-- (void)setState:(PositiveActionsWithMapViewState)state
+- (void)setState:(PositiveActionsMapViewState)state
 {
     _state = state;
     switch (_state) {
-        case PositiveActionsWithMapViewStateDescription:
+        case PositiveActionsMapViewStateDescription:
             [self styleSubviewsOn];
             break;
-        case PositiveActionsWithMapViewStateMap:
+        case PositiveActionsMapViewStateMap:
             [self styleSubviewsOff];
             break;
         default:

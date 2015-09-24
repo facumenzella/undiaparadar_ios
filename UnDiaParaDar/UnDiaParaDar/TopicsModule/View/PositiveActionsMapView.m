@@ -1,21 +1,21 @@
 //
-//  PositiveActionsWithMapView.m
+//  PositiveActionsMapView.m
 //  UnDiaParaDar
 //
 //  Created by Facundo Menzella on 9/16/15.
 //  Copyright (c) 2015 ITBA. All rights reserved.
 //
 
-#import "PositiveActionsWithMapView.h"
+#import "PositiveActionsMapView.h"
 #import "PositiveActionDetailView.h"
 #import "ButtonFactory.h"
 
 #import <MapKit/MapKit.h>
 #import <PureLayout/PureLayout.h>
 
-@interface PositiveActionsWithMapView ()
+@interface PositiveActionsMapView ()
 
-@property (nonatomic) PositiveActionsWithMapViewState state;
+@property (nonatomic) PositiveActionsMapViewState state;
 
 @property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) UIView *overTitleView;
@@ -34,14 +34,14 @@
 
 @end
 
-@implementation PositiveActionsWithMapView
+@implementation PositiveActionsMapView
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
         [self setBackgroundColor: [UIColor whiteColor]];
-        self.state = PositiveActionsWithMapViewStateDescription;
+        self.state = PositiveActionsMapViewStateDescription;
         [self initializeHeights];
         [self buildSubviews];
         [self buildButtons];
@@ -73,7 +73,7 @@
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeRight];
-    CGFloat height = (self.state == PositiveActionsWithMapViewStateMap) ? self.mapActiveHeight : self.mapInactiveHeight;
+    CGFloat height = (self.state == PositiveActionsMapViewStateMap) ? self.mapActiveHeight : self.mapInactiveHeight;
     self.mapHeightConstraint = [self.mapView autoSetDimension:ALDimensionHeight
                                                        toSize:height];
     
@@ -150,10 +150,10 @@
 - (void)styleSubviews
 {
     switch (self.state) {
-        case PositiveActionsWithMapViewStateMap:
+        case PositiveActionsMapViewStateMap:
             [self styleSubviewsViewStateMap];
             break;
-        case PositiveActionsWithMapViewStateDescription:
+        case PositiveActionsMapViewStateDescription:
             [self styleSubviewsViewStateDescription];
             break;
         default:
@@ -185,14 +185,14 @@
 
 - (void)switchToMapActiveState
 {
-    self.state = PositiveActionsWithMapViewStateMap;
+    self.state = PositiveActionsMapViewStateMap;
     self.mapHeightConstraint.constant = self.mapActiveHeight;
     [self animateSwitchingStates];
 }
 
 - (void)switchToDescriptionActiveState
 {
-    self.state = PositiveActionsWithMapViewStateDescription;
+    self.state = PositiveActionsMapViewStateDescription;
     self.mapHeightConstraint.constant = self.mapInactiveHeight;
     [self animateSwitchingStates];
 }
@@ -206,7 +206,7 @@
 
 - (void)updateButtons
 {
-    if (self.state == PositiveActionsWithMapViewStateMap) {
+    if (self.state == PositiveActionsMapViewStateMap) {
         [self.mapActiveConstraints autoInstallConstraints];
         [self.detailActiveConstraints autoRemoveConstraints];
     } else {
@@ -217,9 +217,9 @@
 
 - (void)updateTapGestureRecognizers
 {
-    self.mapView.scrollEnabled = self.state == PositiveActionsWithMapViewStateMap;
+    self.mapView.scrollEnabled = self.state == PositiveActionsMapViewStateMap;
     // enable / disable taps to activate each section
-    self.mapTap.enabled = self.state == PositiveActionsWithMapViewStateDescription;
+    self.mapTap.enabled = self.state == PositiveActionsMapViewStateDescription;
     self.detailTap.enabled = !self.mapTap.enabled;
 }
 

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PositiveActionsWithMapView.h"
+#import "PositiveActionsMapView.h"
 
 @interface PositiveActionDetailView : UIView
 
-@property (nonatomic) PositiveActionsWithMapViewState state;
+@property (nonatomic) PositiveActionsMapViewState state;
 
 @end
