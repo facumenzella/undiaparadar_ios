@@ -11,7 +11,7 @@
 
 #import "Routing.h"
 
-@interface PositiveActionsMapViewController ()
+@interface PositiveActionsMapViewController () <PositiveActionsMapViewDelegate>
 
 @property (strong, nonatomic) id<Routing> routing;
 
@@ -39,6 +39,23 @@
 - (void)viewDidLoad
 {
 
+}
+
+#pragma mark - PositiveActionsMapViewDelegate
+
+-(void)didSelectShareButton
+{
+    // TODO
+}
+
+-(void)didSelectPledgeButton
+{
+    // TODO
+}
+
+-(void)didSelectDetail
+{
+    // TODO
 }
 
 @end

@@ -148,7 +148,6 @@
                                          ofView:self.positiveActionTitle];
 }
 
-
 #pragma mark - Style
 
 - (void)styleSubviews

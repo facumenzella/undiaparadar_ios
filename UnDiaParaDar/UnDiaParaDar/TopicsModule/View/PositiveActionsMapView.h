@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PositiveActionsMapViewDelegate;
+
 @interface PositiveActionsMapView : UIView
+
+@property (nonatomic, assign) id <PositiveActionsMapViewDelegate> pAMVDelegate;
+
+@end
+
+@protocol PositiveActionsMapViewDelegate <NSObject>
+
+- (void)didSelectShareButton;
+
+- (void)didSelectPledgeButton;
+
+- (void)didSelectDetail;
 
 @end
