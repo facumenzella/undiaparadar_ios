@@ -22,15 +22,7 @@
 @property (nonatomic, strong) UILabel *overTitleLabel;
 @property (nonatomic, strong) PositiveActionDetailView *detailView;
 
-@property (nonatomic) CGFloat mapActiveHeight;
-@property (nonatomic) CGFloat mapInactiveHeight;
-@property (nonatomic, strong) NSLayoutConstraint *mapHeightConstraint;
-
-@property (nonatomic, strong) UITapGestureRecognizer *mapTap;
-@property (nonatomic, strong) UITapGestureRecognizer *detailTap;
-
-@property (nonatomic, strong) NSArray *mapActiveConstraints;
-@property (nonatomic, strong) NSArray *detailActiveConstraints;
+@property (nonatomic) CGFloat mapHeight;
 
 @end
 
@@ -42,21 +34,19 @@
     if (self) {
         [self setBackgroundColor: [UIColor whiteColor]];
         self.state = PositiveActionsMapViewStateDescription;
-        [self initializeHeights];
+        [self setupHeight];
         [self buildSubviews];
-        [self buildButtons];
-        [self updateUIState];
+        [self styleSubviews];
     }
     return self;
 }
 
-- (void)initializeHeights
+- (void)setupHeight
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
     
-    self.mapActiveHeight = 3 * screenHeight / 4;
-    self.mapInactiveHeight = 3 * screenHeight / 8;
+    self.mapHeight = (3 * screenHeight / 4);
 }
 
 - (void)buildSubviews
@@ -64,6 +54,7 @@
     [self buildMapView];
     [self buildDetailView];
     [self buildOverTittle];
+    [self buildButtons];
 }
 
 - (void)buildMapView
@@ -73,12 +64,7 @@
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeRight];
-    CGFloat height = (self.state == PositiveActionsMapViewStateMap) ? self.mapActiveHeight : self.mapInactiveHeight;
-    self.mapHeightConstraint = [self.mapView autoSetDimension:ALDimensionHeight
-                                                       toSize:height];
-    
-    self.mapTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(switchToMapActiveState)];
-    [self.mapView addGestureRecognizer:self.mapTap];
+    [self.mapView autoSetDimension:ALDimensionHeight toSize:self.mapHeight];
 }
 
 - (void)buildOverTittle
@@ -115,20 +101,11 @@
     
     [self addSubview:shareButton];
     [self addSubview:pledgeButton];
-    self.mapActiveConstraints = [NSLayoutConstraint autoCreateConstraintsWithoutInstalling:^{
-        [shareButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.mapView withOffset:32];
-        [pledgeButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.mapView withOffset:-32];
-
-        [shareButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.overTitleView withOffset:-16];
-        [pledgeButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.overTitleView withOffset:-16];
-    }];
-    self.detailActiveConstraints = [NSLayoutConstraint autoCreateConstraintsWithoutInstalling:^{
-        [pledgeButton autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:24];
-        [shareButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pledgeButton withOffset:16];
-        
-        [shareButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.overTitleView withOffset:-8];
-        [shareButton autoAlignAxis:ALAxisVertical toSameAxisOfView:pledgeButton];
-    }];
+    [shareButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.mapView withOffset:32];
+    [pledgeButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.mapView withOffset:-32];
+    
+    [shareButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.overTitleView withOffset:-16];
+    [pledgeButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.overTitleView withOffset:-16];
 }
 
 - (void)buildDetailView
@@ -141,98 +118,16 @@
     [self.detailView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [self.detailView autoPinEdgeToSuperviewEdge:ALEdgeRight];
     [self.detailView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.mapView];
-    self.detailTap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                             action:@selector(switchToDescriptionActiveState)];
-    [self.detailView addGestureRecognizer:self.detailTap];
-    [self.detailView setState:self.state];
-}
-
-- (void)styleSubviews
-{
-    switch (self.state) {
-        case PositiveActionsMapViewStateMap:
-            [self styleSubviewsViewStateMap];
-            break;
-        case PositiveActionsMapViewStateDescription:
-            [self styleSubviewsViewStateDescription];
-            break;
-        default:
-            NSLog(@"Holy shit, weird state in POSITIVEACTIONSVIEW");
-            break;
-    }
-    [self.detailView setState:self.state];
 }
 
 #pragma mark - Style
 
-- (void)styleSubviewsViewStateDescription
-{
-    [self.overTitleView setBackgroundColor: [UIColor whiteColor]];
-    
-    [self.overTitleLabel setTextColor: [UIColor blackColor]];
-    [self.overTitleLabel setTextAlignment: NSTextAlignmentCenter];
-}
-
-- (void)styleSubviewsViewStateMap
+- (void)styleSubviews
 {
     [self.overTitleView setBackgroundColor: [UIColor colorWithRed:211/255.0 green:0 blue:11/255.0 alpha:1]];
     
     [self.overTitleLabel setTextColor: [UIColor whiteColor]];
-    [self.overTitleLabel setTextAlignment: NSTextAlignmentCenter];
-}
-
-#pragma mark - UpdateConstraints
-
-- (void)switchToMapActiveState
-{
-    self.state = PositiveActionsMapViewStateMap;
-    self.mapHeightConstraint.constant = self.mapActiveHeight;
-    [self animateSwitchingStates];
-}
-
-- (void)switchToDescriptionActiveState
-{
-    self.state = PositiveActionsMapViewStateDescription;
-    self.mapHeightConstraint.constant = self.mapInactiveHeight;
-    [self animateSwitchingStates];
-}
-
-- (void)updateUIState
-{
-    [self styleSubviews];
-    [self updateButtons];
-    [self updateTapGestureRecognizers];
-}
-
-- (void)updateButtons
-{
-    if (self.state == PositiveActionsMapViewStateMap) {
-        [self.mapActiveConstraints autoInstallConstraints];
-        [self.detailActiveConstraints autoRemoveConstraints];
-    } else {
-        [self.mapActiveConstraints autoRemoveConstraints];
-        [self.detailActiveConstraints autoInstallConstraints];
-    }
-}
-
-- (void)updateTapGestureRecognizers
-{
-    self.mapView.scrollEnabled = self.state == PositiveActionsMapViewStateMap;
-    // enable / disable taps to activate each section
-    self.mapTap.enabled = self.state == PositiveActionsMapViewStateDescription;
-    self.detailTap.enabled = !self.mapTap.enabled;
-}
-
-#pragma mark - Animations
-
-- (void)animateSwitchingStates
-{
-    [UIView animateWithDuration:1 animations:^{
-        [self updateUIState];
-        [self layoutIfNeeded];
-    }];
-}
-
+    [self.overTitleLabel setTextAlignment: NSTextAlignmentCenter];}
 
 
 @end
