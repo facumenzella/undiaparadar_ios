@@ -16,4 +16,7 @@
 - (void)showSplash;
 - (void)showPositiveActionsWithMapViewControllerWithPresenter:(UIViewController*)vc
                                            withSelectedTopics:(NSArray*)topics;
+- (void)showTermsAndConditions;
+- (void)showQueEsUDPD;
+
 @end

@@ -16,6 +16,8 @@
 @class ProfileModuleAssembly;
 @class SplashModuleAssembly;
 @class TopicsModuleAssembly;
+@class TermsAndConditionsAssembly;
+@class QueEsModuleAssembly;
 
 @interface SWRevealRouting : NSObject<Routing>
 
@@ -24,6 +26,8 @@
        withProfileModuleAssembly:(ProfileModuleAssembly*)profileModuleAssembly
         withSplashModuleAssembly:(SplashModuleAssembly*)splashModuleAssembly
         withTopicsModuleAssembly:(TopicsModuleAssembly*)topicsModuleAssembly
+  withTermsAndConditionsAssembly:(TermsAndConditionsAssembly*)termsAndConditionsAssembly
+         withQueEsModuleAssembly:(QueEsModuleAssembly*)queEsModuleAssembly
                    withArchitect:(id<Architect>)architect
                       withTailor:(id<Tailor>)tailor;
 

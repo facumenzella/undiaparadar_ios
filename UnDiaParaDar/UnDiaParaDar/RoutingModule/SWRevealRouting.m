@@ -22,7 +22,13 @@
 
 #import "TopicsModuleAssembly.h"
 #import "TopicsCollectionViewController.h"
-#import "PositiveActionsWithMapViewController.h"   
+#import "PositiveActionsWithMapViewController.h"
+
+#import "TermsAndConditionsAssembly.h"
+#import "TermsAndConditionsViewController.h"
+
+#import "QueEsModuleAssembly.h"
+#import "QueEsViewController.h"
 
 @interface SWRevealRouting ()
 
@@ -34,6 +40,8 @@
 @property (nonatomic, strong) ProfileModuleAssembly *profileModuleAssembly;
 @property (nonatomic, strong) SplashModuleAssembly *splashModuleAssembly;
 @property (nonatomic, strong) TopicsModuleAssembly *topicsModuleAssembly;
+@property (nonatomic, strong) TermsAndConditionsAssembly *termsAndConditionsAssembly;
+@property (nonatomic, strong) QueEsModuleAssembly *queEsModuleAssembly;
 
 @end
 
@@ -44,6 +52,8 @@
        withProfileModuleAssembly:(ProfileModuleAssembly*)profileModuleAssembly
         withSplashModuleAssembly:(SplashModuleAssembly*)splashModuleAssembly
         withTopicsModuleAssembly:(TopicsModuleAssembly*)topicsModuleAssembly
+  withTermsAndConditionsAssembly:(TermsAndConditionsAssembly*)termsAndConditionsAssembly
+         withQueEsModuleAssembly:(QueEsModuleAssembly*)queEsModuleAssembly
                    withArchitect:(id<Architect>)architect
                       withTailor:(id<Tailor>)tailor
 {
@@ -54,6 +64,8 @@
         self.profileModuleAssembly = profileModuleAssembly;
         self.splashModuleAssembly = splashModuleAssembly;
         self.topicsModuleAssembly = topicsModuleAssembly;
+        self.termsAndConditionsAssembly = termsAndConditionsAssembly;
+        self.queEsModuleAssembly = queEsModuleAssembly;
         self.architect = architect;
         self.tailor = tailor;
     }
@@ -94,6 +106,18 @@
     PositiveActionsWithMapViewController *mapViewController = [self.topicsModuleAssembly
                                                                positiveActionsWithMapViewController];
     [self.director present:mapViewController from:vc animated:YES];
+}
+
+- (void)showTermsAndConditions
+{
+    TermsAndConditionsViewController *tyc = [self.termsAndConditionsAssembly termsAndConditionsViewController];
+    [self.director setRoot:[self.architect buildMainScreenWithRootViewController: tyc]];
+}
+
+- (void)showQueEsUDPD
+{
+    QueEsViewController *queEsVC = [self.queEsModuleAssembly queEsViewController];
+    [self.director setRoot:[self.architect buildMainScreenWithRootViewController: queEsVC]];
 }
 
 @end

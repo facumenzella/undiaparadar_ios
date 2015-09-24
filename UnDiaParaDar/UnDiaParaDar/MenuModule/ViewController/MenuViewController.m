@@ -105,14 +105,39 @@
     [self.tableViewManager addSection:itemsSection];
     self.tableViewManager[@"MenuOptionPresenter"] = @"MenuOptionViewCell";
     
-    NSString *const title = NSLocalizedString(@"TOPICS_SECTION", @"Encuentra que hacer");
+    // topics
+    NSString *const topicsTittle = NSLocalizedString(@"TOPICS_SECTION", @"Encuentra que hacer");
     MenuOptionPresenter *topicsPresenter = [[MenuOptionPresenter alloc] initWithOptionImage:@"topics_section"
-                                                                            withOptionTitle:title];
+                                                                            withOptionTitle:topicsTittle];
     topicsPresenter.selectionHandler = ^(MenuOptionPresenter* presenter) {
         [presenter deselectRowAnimated:NO];
         [self.routing showProfile];
     };
     [itemsSection addItem:topicsPresenter];
+    
+    //que es UDPD
+    NSString *const queESTittle =
+    NSLocalizedString(@"QUEES_SECTION", @"Qué es UDPD?");
+    MenuOptionPresenter *queESPresenter = [[MenuOptionPresenter alloc]
+                                           initWithOptionImage:@"quees_section"
+                                           withOptionTitle:queESTittle];
+    queESPresenter.selectionHandler = ^(MenuOptionPresenter* presenter) {
+        [presenter deselectRowAnimated:NO];
+        [self.routing showQueEsUDPD];
+    };
+    [itemsSection addItem:queESPresenter];
+    
+    // t&c
+    NSString *const termsAndConditionsTittle =
+    NSLocalizedString(@"TERMSANDCONDITIONS_SECTION", @"Términos y condiciones");
+    MenuOptionPresenter *termsAndConditionsPresenter = [[MenuOptionPresenter alloc]
+                                                        initWithOptionImage:@"termsAndConditions_section"
+                                                        withOptionTitle:termsAndConditionsTittle];
+    termsAndConditionsPresenter.selectionHandler = ^(MenuOptionPresenter* presenter) {
+        [presenter deselectRowAnimated:NO];
+        [self.routing showTermsAndConditions];
+    };
+    [itemsSection addItem:termsAndConditionsPresenter];
 }
 
 - (MenuProfilePresenter*)menuProfilePresenterWithUserImage:(NSString*)userImage withUserName:(NSString*)userName

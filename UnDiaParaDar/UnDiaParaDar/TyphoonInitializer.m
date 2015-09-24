@@ -17,6 +17,8 @@
 #import "SplashModuleAssembly.h"
 #import "TopicsModuleAssembly.h"
 #import "ServiceModuleAssembly.h"
+#import "TermsAndConditionsAssembly.h"
+#import "QueEsModuleAssembly.h"
 
 @implementation TyphoonInitializer
 
@@ -31,11 +33,13 @@
                                                              [MenuModuleAssembly assembly],
                                                              [SplashModuleAssembly assembly],
                                                              [TopicsModuleAssembly assembly],
-                                                             [ServiceModuleAssembly assembly]
+                                                             [ServiceModuleAssembly assembly],
+                                                             [TermsAndConditionsAssembly assembly],
+                                                             [QueEsModuleAssembly assembly]
                                                              ]];
     
     TyphoonConfigPostProcessor* configurer = [TyphoonConfigPostProcessor postProcessor];
-    [configurer useResourceWithName:@("Info.plist")];
+    [configurer useResourceWithName:@("env.plist")];
     [factory attachPostProcessor:configurer];
     [factory makeDefault];
     [factory inject:appDelegate];

@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */; };
+		0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F4871BB37D4300AFE46D /* TermsAndConditionsAssembly.m */; };
+		0D11F48B1BB37DCD00AFE46D /* TermsAndConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F48A1BB37DCD00AFE46D /* TermsAndConditionsViewController.m */; };
+		0D11F48E1BB37EB200AFE46D /* TermsAndConditionsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F48D1BB37EB200AFE46D /* TermsAndConditionsPresenter.m */; };
+		0D11F4911BB37FA000AFE46D /* TermsAndConditionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F4901BB37FA000AFE46D /* TermsAndConditionsView.m */; };
+		0D11F4931BB380EE00AFE46D /* env.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D11F4921BB380EE00AFE46D /* env.plist */; };
+		0D11F4951BB3810400AFE46D /* termsAndConditions.html in Resources */ = {isa = PBXBuildFile; fileRef = 0D11F4941BB3810400AFE46D /* termsAndConditions.html */; };
+		0D1763771BB463A500C6E664 /* queEsUdpd.html in Resources */ = {isa = PBXBuildFile; fileRef = 0D1763761BB463A500C6E664 /* queEsUdpd.html */; };
+		0D17637F1BB4646100C6E664 /* QueEsModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D17637E1BB4646100C6E664 /* QueEsModuleAssembly.m */; };
+		0D1763821BB4647F00C6E664 /* QueEsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1763811BB4647F00C6E664 /* QueEsViewController.m */; };
+		0D1763851BB464C300C6E664 /* QueEsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1763841BB464C300C6E664 /* QueEsPresenter.m */; };
+		0D1763881BB464CE00C6E664 /* QueEsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1763871BB464CE00C6E664 /* QueEsView.m */; };
 		0D3DB3C31B7546D90052F46B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3DB3C21B7546D90052F46B /* MenuViewController.m */; };
 		0D44DADA1B90E62600A274BD /* MenuOptionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D44DAD91B90E62600A274BD /* MenuOptionViewCell.m */; };
 		0D4B13BA1BA4BB5D00961764 /* RemoteImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B13B91BA4BB5D00961764 /* RemoteImageView.m */; };
@@ -70,6 +81,25 @@
 
 /* Begin PBXFileReference section */
 		06C0FA932F79B7DB4ECAB673 /* Pods-UnDiaParaDar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnDiaParaDar.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar.release.xcconfig"; sourceTree = "<group>"; };
+		0D11F4861BB37D4300AFE46D /* TermsAndConditionsAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsAndConditionsAssembly.h; sourceTree = "<group>"; };
+		0D11F4871BB37D4300AFE46D /* TermsAndConditionsAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsAndConditionsAssembly.m; sourceTree = "<group>"; };
+		0D11F4891BB37DCD00AFE46D /* TermsAndConditionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsAndConditionsViewController.h; sourceTree = "<group>"; };
+		0D11F48A1BB37DCD00AFE46D /* TermsAndConditionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsAndConditionsViewController.m; sourceTree = "<group>"; };
+		0D11F48C1BB37EB200AFE46D /* TermsAndConditionsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsAndConditionsPresenter.h; sourceTree = "<group>"; };
+		0D11F48D1BB37EB200AFE46D /* TermsAndConditionsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsAndConditionsPresenter.m; sourceTree = "<group>"; };
+		0D11F48F1BB37FA000AFE46D /* TermsAndConditionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsAndConditionsView.h; sourceTree = "<group>"; };
+		0D11F4901BB37FA000AFE46D /* TermsAndConditionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsAndConditionsView.m; sourceTree = "<group>"; };
+		0D11F4921BB380EE00AFE46D /* env.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = env.plist; sourceTree = "<group>"; };
+		0D11F4941BB3810400AFE46D /* termsAndConditions.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = termsAndConditions.html; sourceTree = "<group>"; };
+		0D1763761BB463A500C6E664 /* queEsUdpd.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = queEsUdpd.html; sourceTree = "<group>"; };
+		0D17637D1BB4646100C6E664 /* QueEsModuleAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueEsModuleAssembly.h; sourceTree = "<group>"; };
+		0D17637E1BB4646100C6E664 /* QueEsModuleAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueEsModuleAssembly.m; sourceTree = "<group>"; };
+		0D1763801BB4647F00C6E664 /* QueEsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueEsViewController.h; sourceTree = "<group>"; };
+		0D1763811BB4647F00C6E664 /* QueEsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueEsViewController.m; sourceTree = "<group>"; };
+		0D1763831BB464C300C6E664 /* QueEsPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueEsPresenter.h; sourceTree = "<group>"; };
+		0D1763841BB464C300C6E664 /* QueEsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueEsPresenter.m; sourceTree = "<group>"; };
+		0D1763861BB464CE00C6E664 /* QueEsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueEsView.h; sourceTree = "<group>"; };
+		0D1763871BB464CE00C6E664 /* QueEsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueEsView.m; sourceTree = "<group>"; };
 		0D3DB3C11B7546D90052F46B /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		0D3DB3C21B7546D90052F46B /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		0D44DAD81B90E62600A274BD /* MenuOptionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuOptionViewCell.h; sourceTree = "<group>"; };
@@ -202,6 +232,101 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		0D11F4811BB37D0D00AFE46D /* T&CModule */ = {
+			isa = PBXGroup;
+			children = (
+				0D11F4821BB37D2D00AFE46D /* Assembly */,
+				0D11F4831BB37D2D00AFE46D /* Presenter */,
+				0D11F4841BB37D2D00AFE46D /* View */,
+				0D11F4851BB37D2D00AFE46D /* ViewController */,
+			);
+			name = "T&CModule";
+			path = "RoutingModule/T&CModule";
+			sourceTree = "<group>";
+		};
+		0D11F4821BB37D2D00AFE46D /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				0D11F4861BB37D4300AFE46D /* TermsAndConditionsAssembly.h */,
+				0D11F4871BB37D4300AFE46D /* TermsAndConditionsAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		0D11F4831BB37D2D00AFE46D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0D11F48C1BB37EB200AFE46D /* TermsAndConditionsPresenter.h */,
+				0D11F48D1BB37EB200AFE46D /* TermsAndConditionsPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0D11F4841BB37D2D00AFE46D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0D11F48F1BB37FA000AFE46D /* TermsAndConditionsView.h */,
+				0D11F4901BB37FA000AFE46D /* TermsAndConditionsView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0D11F4851BB37D2D00AFE46D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0D11F4891BB37DCD00AFE46D /* TermsAndConditionsViewController.h */,
+				0D11F48A1BB37DCD00AFE46D /* TermsAndConditionsViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0D1763781BB4644700C6E664 /* QueEsModule */ = {
+			isa = PBXGroup;
+			children = (
+				0D1763791BB4644700C6E664 /* Assembly */,
+				0D17637A1BB4644700C6E664 /* Presenter */,
+				0D17637B1BB4644700C6E664 /* View */,
+				0D17637C1BB4644700C6E664 /* ViewController */,
+			);
+			path = QueEsModule;
+			sourceTree = "<group>";
+		};
+		0D1763791BB4644700C6E664 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				0D17637D1BB4646100C6E664 /* QueEsModuleAssembly.h */,
+				0D17637E1BB4646100C6E664 /* QueEsModuleAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		0D17637A1BB4644700C6E664 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0D1763831BB464C300C6E664 /* QueEsPresenter.h */,
+				0D1763841BB464C300C6E664 /* QueEsPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0D17637B1BB4644700C6E664 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0D1763861BB464CE00C6E664 /* QueEsView.h */,
+				0D1763871BB464CE00C6E664 /* QueEsView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0D17637C1BB4644700C6E664 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0D1763801BB4647F00C6E664 /* QueEsViewController.h */,
+				0D1763811BB4647F00C6E664 /* QueEsViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		0D3DB3C01B7546D90052F46B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,7 +439,10 @@
 		0DAF2FAF1B7E8FBE0045CE08 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0D1763761BB463A500C6E664 /* queEsUdpd.html */,
+				0D11F4941BB3810400AFE46D /* termsAndConditions.html */,
 				0DAF2FD31B7E90ED0045CE08 /* topics.plist */,
+				0D11F4921BB380EE00AFE46D /* env.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -479,6 +607,8 @@
 		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
 			isa = PBXGroup;
 			children = (
+				0D1763781BB4644700C6E664 /* QueEsModule */,
+				0D11F4811BB37D0D00AFE46D /* T&CModule */,
 				0D6612C61B98C686006C272F /* Factories */,
 				0DCD99D21B8F7FBE00FF738E /* Extensions */,
 				0DAF2FD91B7E947B0045CE08 /* Services */,
@@ -698,9 +828,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D11F4931BB380EE00AFE46D /* env.plist in Resources */,
 				0DAF2FD41B7E90ED0045CE08 /* topics.plist in Resources */,
 				0D6612CC1B98CA76006C272F /* Localizable.strings in Resources */,
+				0D11F4951BB3810400AFE46D /* termsAndConditions.html in Resources */,
 				11A094161B5D61B100E4FB06 /* Images.xcassets in Resources */,
+				0D1763771BB463A500C6E664 /* queEsUdpd.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,6 +890,7 @@
 				11DEE6AD1B5D778F00DCDE3E /* RoutingModuleAssembly.m in Sources */,
 				113E469E1B62C07E00ADF8AC /* ProfileViewController.m in Sources */,
 				0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */,
+				0D11F4911BB37FA000AFE46D /* TermsAndConditionsView.m in Sources */,
 				0D9E1E141B7E610B0049D08B /* SplashModuleAssembly.m in Sources */,
 				11DEE6971B5D6F6D00DCDE3E /* TyphoonInitializer.m in Sources */,
 				0D44DADA1B90E62600A274BD /* MenuOptionViewCell.m in Sources */,
@@ -771,30 +905,37 @@
 				110FE8AF1B66B9B0002A2273 /* MenuModuleAssembly.m in Sources */,
 				0D94F83E1BA9FCE100945F81 /* PositiveActionsWithMapView.m in Sources */,
 				0DFF0A881B850B52004D1EB9 /* TopicsCollectionViewLayout.m in Sources */,
+				0D11F48E1BB37EB200AFE46D /* TermsAndConditionsPresenter.m in Sources */,
 				0DAF2FD81B7E94420045CE08 /* Topic.m in Sources */,
 				0DBD21A31BA37865002AC53C /* UserService.m in Sources */,
 				0DBD21A61BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m in Sources */,
 				0DAF2FDC1B7E94C40045CE08 /* TopicService.m in Sources */,
 				0D3DB3C31B7546D90052F46B /* MenuViewController.m in Sources */,
 				113E46A21B62C74D00ADF8AC /* SWRevealTailor.m in Sources */,
+				0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */,
 				11A0940B1B5D61B100E4FB06 /* main.m in Sources */,
 				0D9E1E101B7E5B8F0049D08B /* SplashView.m in Sources */,
 				0D94F8441BAA2A9500945F81 /* PositiveActionDetailView.m in Sources */,
+				0D1763821BB4647F00C6E664 /* QueEsViewController.m in Sources */,
 				0D9059301BA641650008BF75 /* PositiveActionsWithMapViewController.m in Sources */,
 				1113AA191B5F04B80066E7BB /* MenuOptionPresenter.m in Sources */,
 				11DEE6B01B5D7D9300DCDE3E /* AppDelegateAssembly.m in Sources */,
+				0D1763881BB464CE00C6E664 /* QueEsView.m in Sources */,
 				0DAF2FE21B7E9D290045CE08 /* ServiceModuleAssembly.m in Sources */,
 				0DB25A051B9A9688002F6E30 /* TopicCellPresenter.m in Sources */,
 				113E46A61B62CD4B00ADF8AC /* ProfileModuleAssembly.m in Sources */,
+				0D11F48B1BB37DCD00AFE46D /* TermsAndConditionsViewController.m in Sources */,
 				11DEE6911B5D6DF900DCDE3E /* LoginViewController.m in Sources */,
 				11DEE6A91B5D774900DCDE3E /* SWRevealDirector.m in Sources */,
 				110FE8A81B66AEF4002A2273 /* SpotifyLikeViewPresenter.m in Sources */,
+				0D17637F1BB4646100C6E664 /* QueEsModuleAssembly.m in Sources */,
 				1113AA161B5F044F0066E7BB /* MenuProfilePresenter.m in Sources */,
 				110FE8A51B66AC1C002A2273 /* SpotifyLikeView.m in Sources */,
 				0DBD21A01BA3780B002AC53C /* User.m in Sources */,
 				0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */,
 				11DEE6B31B5D818500DCDE3E /* LoginView.m in Sources */,
 				11DEE6941B5D6E7F00DCDE3E /* LoginModuleAssembly.m in Sources */,
+				0D1763851BB464C300C6E664 /* QueEsPresenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,8 @@
 #import "MenuModuleAssembly.h"
 #import "SplashModuleAssembly.h"
 #import "TopicsModuleAssembly.h"
+#import "TermsAndConditionsAssembly.h"
+#import "QueEsModuleAssembly.h"
 #import "SWRevealDirector.h"
 #import "SWRevealArchitect.h"
 #import "SWRevealTailor.h"
@@ -26,6 +28,8 @@
 @property (nonatomic, strong) ProfileModuleAssembly *profileModuleAssembly;
 @property (nonatomic, strong) SplashModuleAssembly *splashModuleAssembly;
 @property (nonatomic, strong) TopicsModuleAssembly *topicsModuleAssembly;
+@property (nonatomic, strong) TermsAndConditionsAssembly *termsAndConditionsAssembly;
+@property (nonatomic, strong) QueEsModuleAssembly *queEsAssembly;
 
 @end
 
@@ -33,7 +37,15 @@
 
 - (id<Routing>) routing
 {
-    SEL selector = @selector(initWithDirector:withLoginModuleAssembly:withProfileModuleAssembly:withSplashModuleAssembly:withTopicsModuleAssembly:withArchitect:withTailor:);
+    SEL selector = @selector(initWithDirector:
+                             withLoginModuleAssembly:
+                             withProfileModuleAssembly:
+                             withSplashModuleAssembly:
+                             withTopicsModuleAssembly:
+                             withTermsAndConditionsAssembly:
+                             withQueEsModuleAssembly:
+                             withArchitect:
+                             withTailor:);
     return [TyphoonDefinition withClass:[SWRevealRouting class]
                           configuration:^(TyphoonDefinition* definition) {
                               [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
@@ -42,6 +54,8 @@
                                   [initializer injectParameterWith:self.profileModuleAssembly];
                                   [initializer injectParameterWith:self.splashModuleAssembly];
                                   [initializer injectParameterWith:self.topicsModuleAssembly];
+                                  [initializer injectParameterWith:self.termsAndConditionsAssembly];
+                                  [initializer injectParameterWith:self.queEsAssembly];
                                   [initializer injectParameterWith:[self iphoneArchitect]];
                                   [initializer injectParameterWith:[self iphoneTailor]];
                               }];
