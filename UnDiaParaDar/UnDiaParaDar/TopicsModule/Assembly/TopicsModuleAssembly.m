@@ -35,12 +35,14 @@
 
 }
 
-- (PositiveActionsMapViewController*)positiveActionsMapViewController
+- (PositiveActionsMapViewController*)positiveActionsMapViewControllerWithTopics:(NSArray*)topics
 {
-    SEL selector = @selector(initWithRouting:);
+    SEL selector = @selector(initWithRouting:withTopicService:withTopics:);
     return [TyphoonDefinition withClass:[PositiveActionsMapViewController class] configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith: [self.routingModuleAssembly routing]];
+            [initializer injectParameterWith:[self.routingModuleAssembly routing]];
+            [initializer injectParameterWith:[self.serviceModuleAssembly topicService]];
+            [initializer injectParameterWith:topics];
         }];
     }];
 

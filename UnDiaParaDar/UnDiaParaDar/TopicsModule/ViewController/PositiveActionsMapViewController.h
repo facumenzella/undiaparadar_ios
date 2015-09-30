@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @protocol Routing;
+@class TopicService;
 
 @interface PositiveActionsMapViewController : UIViewController
 
-- (instancetype)initWithRouting:(id<Routing>)routing;
-
+- (instancetype)initWithRouting:(id<Routing>)routing
+               withTopicService:(TopicService*)topicService
+                     withTopics:(NSArray*)topics;
 @end

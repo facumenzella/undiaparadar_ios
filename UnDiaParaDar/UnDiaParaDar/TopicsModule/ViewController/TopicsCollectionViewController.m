@@ -107,9 +107,9 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
     t.selected = cell.selected;
     
     if (t.selected) {
-        [self.selectedTopics addObject:t];
+        [self.selectedTopics addObject:t.topic];
     } else {
-        [self.selectedTopics removeObject:t];
+        [self.selectedTopics removeObject:t.topic];
     }
     [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
     [self.selectionDelegate viewController:self

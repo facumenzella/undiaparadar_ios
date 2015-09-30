@@ -12,6 +12,7 @@
 @interface TopicCellPresenter : NSObject
 
 @property (nonatomic) BOOL selected;
+@property (nonatomic, strong, readonly) Topic *topic;
 
 - (NSString*)name;
 - (NSString*)image;

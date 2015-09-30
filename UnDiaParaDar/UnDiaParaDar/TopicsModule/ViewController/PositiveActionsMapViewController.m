@@ -10,22 +10,30 @@
 #import "PositiveActionsMapView.h"
 
 #import "Routing.h"
+#import "TopicService.h"
 
 @interface PositiveActionsMapViewController () <PositiveActionsMapViewDelegate>
 
-@property (strong, nonatomic) id<Routing> routing;
-
+@property (nonatomic, strong) id<Routing> routing;
+@property (nonatomic, strong) TopicService *topicService;
 @property (nonatomic, strong) PositiveActionsMapView *positiveActionsView;
+
+@property (nonatomic, strong) NSArray *topics;
+@property (nonatomic, strong) NSArray *positiveActions;
 
 @end
 
 @implementation PositiveActionsMapViewController
 
 - (instancetype)initWithRouting:(id<Routing>)routing
+               withTopicService:(TopicService*)topicService
+                     withTopics:(NSArray*)topics
 {
     self = [super init];
     if (self) {
         self.routing = routing;
+        self.topicService = topicService;
+        self.topics = topics;
     }
     return self;
 }
@@ -36,9 +44,14 @@
     self.view = self.positiveActionsView;
 }
 
+
 - (void)viewDidLoad
 {
-    
+    [self.topicService getPositiveActionsFilteredByTopics:self.topics
+                                             withCallback:^(NSError *error, NSArray *positiveActions) {
+        self.positiveActions = positiveActions;
+                                                
+                                             }];
 }
 
 #pragma mark - PositiveActionsMapViewDelegate

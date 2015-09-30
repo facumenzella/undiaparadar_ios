@@ -24,7 +24,7 @@
 @property (nonatomic, strong) NSString *ongName;
 @property (nonatomic) int64_t ongID;
 
-@property (nonatomic) int64_t topicID;
+@property (nonatomic) NSString *topicID;
 @property (nonatomic, strong) NSString *country;
 @property (nonatomic, strong) NSString *city;
 

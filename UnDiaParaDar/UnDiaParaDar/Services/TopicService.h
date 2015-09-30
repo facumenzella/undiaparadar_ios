@@ -17,5 +17,6 @@
 
 - (NSMutableArray*)topics;
 - (void)getPositiveActionsWithCallback:(void (^)(NSError* , NSArray*))callback;
+- (void)getPositiveActionsFilteredByTopics:(NSArray*)topics withCallback:(void (^)(NSError *, NSArray *))callback;
 
 @end

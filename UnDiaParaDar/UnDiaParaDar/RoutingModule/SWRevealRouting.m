@@ -104,7 +104,7 @@
                                            withSelectedTopics:(NSArray*)topics
 {
     PositiveActionsMapViewController *mapViewController = [self.topicsModuleAssembly
-                                                               positiveActionsMapViewController];
+                                                           positiveActionsMapViewControllerWithTopics:topics];
     [self.director present:mapViewController from:vc animated:YES];
 }
 

@@ -13,6 +13,6 @@
 @interface TopicsModuleAssembly : TyphoonAssembly
 
 - (TopicsCollectionViewController*)topicsCollectionViewController;
-- (PositiveActionsMapViewController*)positiveActionsMapViewController;
+- (PositiveActionsMapViewController*)positiveActionsMapViewControllerWithTopics:(NSArray*)topics;
 
 @end

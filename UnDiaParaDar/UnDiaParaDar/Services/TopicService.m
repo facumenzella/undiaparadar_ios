@@ -8,6 +8,7 @@
 
 #import "TopicService.h"
 #import "Topic.h"
+#import "PositiveAction.h"
 
 #import "RestkitService.h"
 #import "MappingProvider.h"
@@ -45,6 +46,21 @@ static NSString *ALL;
 
 #pragma mark - TopicService
 
+- (void)getPositiveActionsFilteredByTopics:(NSArray*)topics withCallback:(void (^)(NSError *, NSArray *))callback
+{
+    NSArray *ids = [self topicsIdsFromTopics:topics];
+    
+    void (^cb)(NSError *, NSArray *) = ^(NSError *error, NSArray *positives) {
+        NSPredicate *topicsActions = [NSPredicate predicateWithBlock:^BOOL(PositiveAction *p, NSDictionary *bindings) {
+            return [ids containsObject:p.topicID];
+        }];
+        
+        NSArray *filteredArray = [positives filteredArrayUsingPredicate:topicsActions];
+        callback(error, filteredArray);
+    };
+    [self getPositiveActionsWithCallback:cb];
+}
+
 - (void)getPositiveActionsWithCallback:(void (^)(NSError* , NSArray*))callback
 {
     void (^cb)(RKMappingResult*, NSError*) = ^(RKMappingResult* result, NSError* error) {
@@ -80,6 +96,17 @@ static NSString *ALL;
     });
     [self buildAllURL];
     return topics;
+}
+
+#pragma mark - IDS
+
+- (NSArray*)topicsIdsFromTopics:(NSArray*)topics
+{
+    NSMutableArray *filtered = [[NSMutableArray alloc] init];
+    for (Topic *t in topics) {
+        [filtered addObject:t.code];
+    }
+    return filtered;
 }
 
 #pragma mark - URLS
