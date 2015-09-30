@@ -25,6 +25,7 @@
 		0D4B13BA1BA4BB5D00961764 /* RemoteImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B13B91BA4BB5D00961764 /* RemoteImageView.m */; };
 		0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6612C81B98C69C006C272F /* ButtonFactory.m */; };
 		0D6612CC1B98CA76006C272F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D6612CE1B98CA76006C272F /* Localizable.strings */; };
+		0D75D5901BBC4B36009F0294 /* PositiveActionAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D75D58F1BBC4B36009F0294 /* PositiveActionAnnotation.m */; };
 		0D8580EF1BBB6B17002CEB2B /* MappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8580EE1BBB6B17002CEB2B /* MappingProvider.m */; };
 		0D8580F21BBB6BAB002CEB2B /* PositiveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8580F11BBB6BAB002CEB2B /* PositiveAction.m */; };
 		0D9059301BA641650008BF75 /* PositiveActionsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D90592F1BA641650008BF75 /* PositiveActionsMapViewController.m */; };
@@ -115,6 +116,8 @@
 		0D6612C81B98C69C006C272F /* ButtonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonFactory.m; sourceTree = "<group>"; };
 		0D6612CD1B98CA76006C272F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0D6612CF1B98CA96006C272F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0D75D58E1BBC4B36009F0294 /* PositiveActionAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionAnnotation.h; sourceTree = SOURCE_ROOT; };
+		0D75D58F1BBC4B36009F0294 /* PositiveActionAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionAnnotation.m; sourceTree = SOURCE_ROOT; };
 		0D8580ED1BBB6B17002CEB2B /* MappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingProvider.h; sourceTree = "<group>"; };
 		0D8580EE1BBB6B17002CEB2B /* MappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingProvider.m; sourceTree = "<group>"; };
 		0D8580F01BBB6BAB002CEB2B /* PositiveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveAction.h; sourceTree = "<group>"; };
@@ -354,6 +357,15 @@
 			path = Factories;
 			sourceTree = "<group>";
 		};
+		0D75D58D1BBC4B13009F0294 /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				0D75D58E1BBC4B36009F0294 /* PositiveActionAnnotation.h */,
+				0D75D58F1BBC4B36009F0294 /* PositiveActionAnnotation.m */,
+			);
+			name = Annotations;
+			sourceTree = "<group>";
+		};
 		0D9E1E081B7E5A910049D08B /* SplashModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +522,7 @@
 		0DD63F781B7EAD7D00766361 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				0D75D58D1BBC4B13009F0294 /* Annotations */,
 				0DB25A031B9A9688002F6E30 /* TopicCellPresenter.h */,
 				0DB25A041B9A9688002F6E30 /* TopicCellPresenter.m */,
 			);
@@ -948,6 +961,7 @@
 				0D1763881BB464CE00C6E664 /* QueEsView.m in Sources */,
 				0DAF2FE21B7E9D290045CE08 /* ServiceModuleAssembly.m in Sources */,
 				0DB25A051B9A9688002F6E30 /* TopicCellPresenter.m in Sources */,
+				0D75D5901BBC4B36009F0294 /* PositiveActionAnnotation.m in Sources */,
 				0D8580EF1BBB6B17002CEB2B /* MappingProvider.m in Sources */,
 				113E46A61B62CD4B00ADF8AC /* ProfileModuleAssembly.m in Sources */,
 				0D11F48B1BB37DCD00AFE46D /* TermsAndConditionsViewController.m in Sources */,
