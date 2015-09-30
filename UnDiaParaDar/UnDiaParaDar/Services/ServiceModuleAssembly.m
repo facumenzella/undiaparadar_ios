@@ -10,6 +10,9 @@
 
 #import "TopicService.h"
 #import "UserService.h"
+#import "RestkitService.h"
+
+#import "TyphoonConfigPostProcessor.h"
 
 @implementation ServiceModuleAssembly
 
@@ -21,6 +24,19 @@
 - (UserService*)userService
 {
     return [TyphoonDefinition withClass:[UserService class]];
+}
+
+- (RestkitService*)restkitService
+{
+    NSString const *baseURL = TyphoonConfig(@"baseURL");
+
+    SEL selector = @selector(initWithBaseURL:);
+    return [TyphoonDefinition withClass:[RestkitService class] configuration:^(TyphoonDefinition* definition) {
+        definition.scope = TyphoonScopeSingleton;
+        [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:baseURL];
+        }];
+    }];
 }
 
 @end
