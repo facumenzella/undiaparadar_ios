@@ -93,9 +93,6 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     TopicsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                                                               forIndexPath:indexPath];
-    if (!cell) {
-        cell = [[TopicsCollectionViewCell alloc] init];
-    }
     TopicCellPresenter *t = [self.presenters objectAtIndex: [indexPath row]];
     [cell populateCellWithTopic:t];
     return cell;
@@ -103,13 +100,10 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    TopicsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
-                                                                               forIndexPath:indexPath];
+    TopicsCollectionViewCell *cell = (TopicsCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
     
     TopicCellPresenter *t = [self.presenters objectAtIndex: [indexPath row]];
-    t.selected = !t.selected;
-    
-    [cell populateCellWithTopic:t]; 
+    t.selected = cell.selected;
     
     if (t.selected) {
         [self.selectedTopics addObject:t];
