@@ -44,6 +44,7 @@
 		0DBD21A01BA3780B002AC53C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD219F1BA3780B002AC53C /* User.m */; };
 		0DBD21A31BA37865002AC53C /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD21A21BA37865002AC53C /* UserService.m */; };
 		0DBD21A61BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD21A51BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m */; };
+		0DCBD1401BBB870500A870FD /* FMActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBD13F1BBB870500A870FD /* FMActivityIndicatorView.m */; };
 		0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */; };
 		0DFF0A881B850B52004D1EB9 /* TopicsCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF0A871B850B52004D1EB9 /* TopicsCollectionViewLayout.m */; };
 		110FE8A51B66AC1C002A2273 /* SpotifyLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 110FE8A41B66AC1C002A2273 /* SpotifyLikeView.m */; };
@@ -151,6 +152,8 @@
 		0DBD21A21BA37865002AC53C /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
 		0DBD21A41BA37CCB002AC53C /* RETableViewManager+ReplaceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RETableViewManager+ReplaceItem.h"; sourceTree = "<group>"; };
 		0DBD21A51BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RETableViewManager+ReplaceItem.m"; sourceTree = "<group>"; };
+		0DCBD13E1BBB870500A870FD /* FMActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMActivityIndicatorView.h; sourceTree = "<group>"; };
+		0DCBD13F1BBB870500A870FD /* FMActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMActivityIndicatorView.m; sourceTree = "<group>"; };
 		0DCD99D31B8F7FD500FF738E /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		0DFF0A861B850B52004D1EB9 /* TopicsCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicsCollectionViewLayout.h; path = UnDiaParaDar/TopicsModule/View/TopicsCollectionViewLayout.h; sourceTree = SOURCE_ROOT; };
@@ -481,6 +484,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		0DCBD13D1BBB870500A870FD /* FMActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				0DCBD13E1BBB870500A870FD /* FMActivityIndicatorView.h */,
+				0DCBD13F1BBB870500A870FD /* FMActivityIndicatorView.m */,
+			);
+			path = FMActivityIndicator;
+			sourceTree = "<group>";
+		};
 		0DCD99D21B8F7FBE00FF738E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +629,7 @@
 		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
 			isa = PBXGroup;
 			children = (
+				0DCBD13D1BBB870500A870FD /* FMActivityIndicator */,
 				0DAF2FD51B7E94360045CE08 /* Model */,
 				0DAF2FD91B7E947B0045CE08 /* Services */,
 				0DCD99D21B8F7FBE00FF738E /* Extensions */,
@@ -901,6 +914,7 @@
 				113E469E1B62C07E00ADF8AC /* ProfileViewController.m in Sources */,
 				0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */,
 				0D3D72351BBB6510006EC1E9 /* RestkitService.m in Sources */,
+				0DCBD1401BBB870500A870FD /* FMActivityIndicatorView.m in Sources */,
 				0D11F4911BB37FA000AFE46D /* TermsAndConditionsView.m in Sources */,
 				0D8580F21BBB6BAB002CEB2B /* PositiveAction.m in Sources */,
 				0D9E1E141B7E610B0049D08B /* SplashModuleAssembly.m in Sources */,
