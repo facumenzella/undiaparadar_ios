@@ -9,6 +9,7 @@
 #import "TopicService.h"
 #import "Topic.h"
 #import "PositiveAction.h"
+#import "PositiveActionAnnotation.h"
 
 #import "RestkitService.h"
 #import "MappingProvider.h"
@@ -21,7 +22,7 @@ static NSString * const CODE = @"code";
 static NSString * const MAP_ON = @"mapOn";
 static NSString * const MAP_OFF = @"mapOff";
 
-static NSMutableArray *topics;
+static NSMutableDictionary *topics;
 
 static NSString *ALL;
 
@@ -80,11 +81,11 @@ static NSString *ALL;
                           withCallback:cb];
 }
 
-- (NSMutableArray*)topics
+- (NSArray*)topics
 {
     static dispatch_once_t token;
     dispatch_once(&token, ^{
-        topics = [[NSMutableArray alloc]init];
+        topics = [[NSMutableDictionary alloc]init];
         NSString *filePath = [[NSBundle mainBundle] pathForResource:TOPICS ofType:@"plist"];
         NSArray *topicsDictionary = [NSArray arrayWithContentsOfFile:filePath];
         for (NSDictionary *d in topicsDictionary) {
@@ -95,11 +96,24 @@ static NSString *ALL;
             t.code = d[CODE];
             t.img40x40Off = d[MAP_OFF];
             t.img40x40On = d[MAP_ON];
-            [topics addObject:t];
+            [topics setObject:t forKey:t.code];
         }
     });
     [self buildAllURL];
-    return topics;
+    return [topics allValues];;
+}
+
+#pragma mark - Annotations
+
+
++ (NSString*)offAnnotationImageById:(NSString*)topicID
+{
+    return ((Topic*)[topics objectForKey:topicID]).img40x40Off;
+}
+
++ (NSString*)onAnnotationImageById:(NSString*)topicID
+{
+    return ((Topic*)[topics objectForKey:topicID]).img40x40On;
 }
 
 #pragma mark - IDS
@@ -121,11 +135,12 @@ static NSString *ALL;
     __block NSString *all = @"";
     static dispatch_once_t token;
     dispatch_once(&token, ^{
-        for (int i = 0 ; i < [topics count] - 1; i++) {
-            all = [all stringByAppendingString:((Topic*)(topics[i])).code];
+        NSArray *topicsA = [topics allValues];
+        for (int i = 0 ; i < [topicsA count] - 1; i++) {
+            all = [all stringByAppendingString:((Topic*)(topicsA[i])).code];
             all = [all stringByAppendingString:OR];
         }
-        Topic *last = [topics lastObject];
+        Topic *last = [topicsA lastObject];
         all = [all stringByAppendingString:last.code];
         ALL = [[@"select?q=topics:(" stringByAppendingString:all] stringByAppendingString:@")&wt=json&indent=true&rows=10000000"];
     });

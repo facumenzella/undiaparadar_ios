@@ -14,6 +14,8 @@
 
 @property (nonatomic, assign) id <PositiveActionsMapViewDelegate> pAMVDelegate;
 
+- (void)addPositiveActions:(NSArray*)positiveActions;
+
 @end
 
 @protocol PositiveActionsMapViewDelegate <NSObject>

@@ -15,8 +15,8 @@
 @interface PositiveActionAnnotation : NSObject <MKAnnotation>
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property (nonatomic, strong, readonly) UIImage *locationPinImage;
 
-- (id)initWithPositiveAction:(PositiveAction*)positiveAction;
-
+-(id)initWithPositiveAction:(PositiveAction*)positiveAction;
 
 @end

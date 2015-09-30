@@ -8,7 +8,34 @@
 //
 
 #import "PositiveActionAnnotation.h"
+#import "PositiveAction.h"
+
+#import "TopicService.h"
+
+@interface PositiveActionAnnotation ()
+
+@property (nonatomic, readwrite) CLLocationCoordinate2D coordinate;
+@property (nonatomic, strong, readwrite) UIImage *locationPinImage;
+@property (nonatomic, strong) NSString *name;
+
+@end
 
 @implementation PositiveActionAnnotation
+
+-(id)initWithPositiveAction:(PositiveAction*)positiveAction
+{
+    self = [super init];
+    if (self) {
+        self.coordinate = CLLocationCoordinate2DMake(positiveAction.latitude, positiveAction.longitude);
+        self.name = positiveAction.title;
+        self.locationPinImage = [UIImage imageNamed:[TopicService onAnnotationImageById:positiveAction.topicID]];
+    }
+    return self;
+}
+
+- (NSString*)title
+{
+    return self.name;
+}
 
 @end

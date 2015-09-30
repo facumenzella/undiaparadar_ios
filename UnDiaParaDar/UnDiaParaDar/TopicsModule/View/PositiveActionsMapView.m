@@ -8,11 +8,12 @@
 
 #import "PositiveActionsMapView.h"
 #import "ButtonFactory.h"
+#import "PositiveActionAnnotation.h"
 
 #import <MapKit/MapKit.h>
 #import <PureLayout/PureLayout.h>
 
-@interface PositiveActionsMapView ()
+@interface PositiveActionsMapView () <MKMapViewDelegate>
 
 @property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) UIView *overTitleView;
@@ -40,6 +41,12 @@
     return self;
 }
 
+- (void)addPositiveActions:(NSArray*)positiveActions
+{
+    [self.mapView addAnnotations:positiveActions];
+}
+
+
 - (void)setupHeight
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -59,6 +66,7 @@
 - (void)buildMapView
 {
     self.mapView = [[MKMapView alloc] initForAutoLayout];
+    self.mapView.delegate = self;
     [self addSubview: self.mapView];
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
@@ -156,12 +164,29 @@
     
     [self.overTitleLabel setTextColor: [UIColor whiteColor]];
     [self.overTitleLabel setTextAlignment: NSTextAlignmentCenter];
-
+    
     [self.footerView setBackgroundColor: [UIColor whiteColor]];
     
     [self.positiveActionTitle setTextAlignment:NSTextAlignmentCenter];
     [self.positiveActionTitle setTextColor: [UIColor colorWithRed:211/255.0 green:0 blue:11/255.0 alpha:1]];
 }
 
+#pragma mark - MapViewDelegate
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    // Handle any custom annotations.
+    MKAnnotationView *aView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"mapPin"];
+    if(aView){
+        aView.annotation = annotation;
+    } else {
+        aView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"mapPin"];
+    }
+    
+    aView.image = ((PositiveActionAnnotation*)annotation).locationPinImage;
+    aView.canShowCallout = YES;
+    
+    return aView;
+}
 
 @end

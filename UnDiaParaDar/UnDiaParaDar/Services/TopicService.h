@@ -15,6 +15,9 @@
 -(instancetype)initWithRestkitService:(RestkitService*)restkitService
                   withMappingProvider:(MappingProvider*)mappingProvider;
 
++ (NSString*)offAnnotationImageById:(NSString*)topicID;
++ (NSString*)onAnnotationImageById:(NSString*)topicID;
+
 - (NSMutableArray*)topics;
 - (void)getPositiveActionsWithCallback:(void (^)(NSError* , NSArray*))callback;
 - (void)getPositiveActionsFilteredByTopics:(NSArray*)topics withCallback:(void (^)(NSError *, NSArray *))callback;

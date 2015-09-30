@@ -8,6 +8,7 @@
 
 #import "PositiveActionsMapViewController.h"
 #import "PositiveActionsMapView.h"
+#import "PositiveActionAnnotation.h"
 
 #import "Routing.h"
 #import "TopicService.h"
@@ -47,11 +48,17 @@
 
 - (void)viewDidLoad
 {
-    [self.topicService getPositiveActionsFilteredByTopics:self.topics
-                                             withCallback:^(NSError *error, NSArray *positiveActions) {
-        self.positiveActions = positiveActions;
-                                                
-                                             }];
+    [self.topicService
+     getPositiveActionsFilteredByTopics:self.topics
+     withCallback:^(NSError *error, NSArray *positiveActions) {
+         self.positiveActions = positiveActions;
+         NSMutableArray *annotations = [[NSMutableArray alloc] init];
+         for (PositiveAction *p in self.positiveActions) {
+             id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
+             [annotations addObject:annotation];
+         }
+         [self.positiveActionsView addPositiveActions:annotations];
+     }];
 }
 
 #pragma mark - PositiveActionsMapViewDelegate
