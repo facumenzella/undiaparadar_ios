@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) UIView *overTitleView;
-@property (nonatomic, strong) UILabel *overTitleLabel;
+@property (nonatomic, strong) UITextView *overTitleTextView;
 
 @property (nonatomic) CGFloat mapHeight;
 
@@ -91,14 +91,16 @@
 
 - (void)buildOverTitleLabel
 {
-    self.overTitleLabel = [[UILabel alloc] initForAutoLayout];
-    [self addSubview: self.overTitleLabel];
-    [self.overTitleLabel autoSetDimension:ALDimensionHeight toSize:32];
-    [self.overTitleLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:40];
-    [self.overTitleLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
-    [self.overTitleLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mapView withOffset:16];
+    self.overTitleTextView = [[UITextView alloc] initForAutoLayout];
+    self.overTitleTextView.scrollEnabled = NO;
+    self.overTitleTextView.editable = NO;
+    [self addSubview: self.overTitleTextView];
+    [self.overTitleTextView autoSetDimension:ALDimensionHeight toSize:32];
+    [self.overTitleTextView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:40];
+    [self.overTitleTextView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
+    [self.overTitleTextView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mapView withOffset:16];
     // TODO mock text
-    self.overTitleLabel.text = @"Fuck iOS";
+    self.overTitleTextView.text = @"Fuck iOS";
 }
 
 - (void)buildButtons
@@ -133,6 +135,7 @@
 {
     self.positiveActionTitle = [[UITextView alloc] initForAutoLayout];
     self.positiveActionTitle.scrollEnabled = NO;
+    self.positiveActionTitle.editable = NO;
     [self.footerView addSubview: self.positiveActionTitle];
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:16];
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
@@ -162,8 +165,9 @@
 {
     [self.overTitleView setBackgroundColor: [UIColor colorWithRed:211/255.0 green:0 blue:11/255.0 alpha:1]];
     
-    [self.overTitleLabel setTextColor: [UIColor whiteColor]];
-    [self.overTitleLabel setTextAlignment: NSTextAlignmentCenter];
+    [self.overTitleTextView setTextColor: [UIColor whiteColor]];
+    [self.overTitleTextView setBackgroundColor:[UIColor clearColor]];
+    [self.overTitleTextView setTextAlignment: NSTextAlignmentCenter];
     
     [self.footerView setBackgroundColor: [UIColor whiteColor]];
     
