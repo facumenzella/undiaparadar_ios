@@ -39,6 +39,8 @@ static NSString * const BACKGROUND = @"menu_header";
 - (void)buildBackground
 {
     UIImageView *background = [[UIImageView alloc] initForAutoLayout];
+    [background setContentMode:UIViewContentModeScaleAspectFill];
+
     [self.contentView addSubview:background];
     
     [background setImage: [UIImage imageNamed:BACKGROUND]];
@@ -69,8 +71,8 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.contentView addSubview:self.redContainer];
     
     [self.redContainer autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.avatar withOffset:8];
-    [self.redContainer autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:16];
-    [self.redContainer autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:32];
+    [self.redContainer autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+    [self.redContainer autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
 }
 
 - (void)buildUsername
@@ -80,8 +82,8 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.redContainer addSubview:self.usernameTextView];
     
     [self.usernameTextView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
-    [self.usernameTextView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:8];
-    [self.usernameTextView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
+    [self.usernameTextView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:16];
+    [self.usernameTextView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:4];
     [self.usernameTextView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
 }
 
@@ -114,16 +116,13 @@ static NSString * const BACKGROUND = @"menu_header";
 
 - (void)styleRedContainer
 {
-    [self.redContainer setBackgroundColor: [UIColor colorWithRed:187/255.0
-                                                           green:42/255.0
-                                                            blue:48/255.0
-                                                           alpha:1]];
+    [self.redContainer setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]];
 }
 
 - (void)styleUsername
 {
     [self.usernameTextView setBackgroundColor:[UIColor clearColor]];
-    [self.usernameTextView setFont:[UIFont systemFontOfSize:20]];
+    [self.usernameTextView setFont:[UIFont systemFontOfSize:20 weight:5]];
     [self.usernameTextView setTextColor: [UIColor whiteColor]];
     self.usernameTextView.editable = NO;
 }
