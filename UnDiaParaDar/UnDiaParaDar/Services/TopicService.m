@@ -20,7 +20,7 @@ static NSString * const CODE = @"code";
 
 static NSMutableArray *topics;
 
-static NSString *const ALL = @"select?q=topics:(1+OR+2+OR+5+OR+6+OR+7+OR+8+OR+9+OR+10+OR+13+OR+14+OR+15+OR+16+OR+18+OR+20+OR+21+OR+22+OR+24)&wt=json&indent=true&rows=10000000";
+static NSString *ALL;
 
 @interface TopicService ()
 
@@ -38,6 +38,7 @@ static NSString *const ALL = @"select?q=topics:(1+OR+2+OR+5+OR+6+OR+7+OR+8+OR+9+
     if (self) {
         self.restkitService = restkitService;
         self.mappingProvider = mappingProvider;
+        [self topics];
     }
     return self;
 }
@@ -77,7 +78,26 @@ static NSString *const ALL = @"select?q=topics:(1+OR+2+OR+5+OR+6+OR+7+OR+8+OR+9+
             [topics addObject:t];
         }
     });
+    [self buildAllURL];
     return topics;
+}
+
+#pragma mark - URLS
+
+- (void)buildAllURL
+{
+    static NSString *const OR = @"+OR+";
+    __block NSString *all = @"";
+    static dispatch_once_t token;
+    dispatch_once(&token, ^{
+        for (int i = 0 ; i < [topics count] - 1; i++) {
+            all = [all stringByAppendingString:((Topic*)(topics[i])).code];
+            all = [all stringByAppendingString:OR];
+        }
+        Topic *last = [topics lastObject];
+        all = [all stringByAppendingString:last.code];
+        ALL = [[@"select?q=topics:(" stringByAppendingString:all] stringByAppendingString:@")&wt=json&indent=true&rows=10000000"];
+    });
 }
 
 @end
