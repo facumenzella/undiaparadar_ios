@@ -26,6 +26,7 @@
 		0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6612C81B98C69C006C272F /* ButtonFactory.m */; };
 		0D6612CC1B98CA76006C272F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D6612CE1B98CA76006C272F /* Localizable.strings */; };
 		0D8580EF1BBB6B17002CEB2B /* MappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8580EE1BBB6B17002CEB2B /* MappingProvider.m */; };
+		0D8580F21BBB6BAB002CEB2B /* PositiveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8580F11BBB6BAB002CEB2B /* PositiveAction.m */; };
 		0D9059301BA641650008BF75 /* PositiveActionsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D90592F1BA641650008BF75 /* PositiveActionsMapViewController.m */; };
 		0D94F83E1BA9FCE100945F81 /* PositiveActionsMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D94F83D1BA9FCE100945F81 /* PositiveActionsMapView.m */; };
 		0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E0C1B7E5AA50049D08B /* SplashViewController.m */; };
@@ -115,6 +116,8 @@
 		0D6612CF1B98CA96006C272F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0D8580ED1BBB6B17002CEB2B /* MappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingProvider.h; sourceTree = "<group>"; };
 		0D8580EE1BBB6B17002CEB2B /* MappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingProvider.m; sourceTree = "<group>"; };
+		0D8580F01BBB6BAB002CEB2B /* PositiveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveAction.h; sourceTree = "<group>"; };
+		0D8580F11BBB6BAB002CEB2B /* PositiveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveAction.m; sourceTree = "<group>"; };
 		0D90592E1BA641650008BF75 /* PositiveActionsMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionsMapViewController.h; sourceTree = "<group>"; };
 		0D90592F1BA641650008BF75 /* PositiveActionsMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionsMapViewController.m; sourceTree = "<group>"; };
 		0D94F83C1BA9FCE100945F81 /* PositiveActionsMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionsMapView.h; sourceTree = "<group>"; };
@@ -455,6 +458,8 @@
 				0DAF2FD71B7E94420045CE08 /* Topic.m */,
 				0DBD219E1BA3780B002AC53C /* User.h */,
 				0DBD219F1BA3780B002AC53C /* User.m */,
+				0D8580F01BBB6BAB002CEB2B /* PositiveAction.h */,
+				0D8580F11BBB6BAB002CEB2B /* PositiveAction.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -897,6 +902,7 @@
 				0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */,
 				0D3D72351BBB6510006EC1E9 /* RestkitService.m in Sources */,
 				0D11F4911BB37FA000AFE46D /* TermsAndConditionsView.m in Sources */,
+				0D8580F21BBB6BAB002CEB2B /* PositiveAction.m in Sources */,
 				0D9E1E141B7E610B0049D08B /* SplashModuleAssembly.m in Sources */,
 				11DEE6971B5D6F6D00DCDE3E /* TyphoonInitializer.m in Sources */,
 				0D44DADA1B90E62600A274BD /* MenuOptionViewCell.m in Sources */,
