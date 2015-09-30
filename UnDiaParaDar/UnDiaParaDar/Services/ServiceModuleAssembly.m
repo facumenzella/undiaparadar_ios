@@ -18,7 +18,13 @@
 
 - (TopicService*)topicService
 {
-    return [TyphoonDefinition withClass:[TopicService class]];
+    SEL selector = @selector(initWithRestkitService:);
+    return [TyphoonDefinition withClass:[TopicService class] configuration:^(TyphoonDefinition* definition) {
+        definition.scope = TyphoonScopeSingleton;
+        [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:[self restkitService]];
+        }];
+    }];
 }
 
 - (UserService*)userService
@@ -29,7 +35,7 @@
 - (RestkitService*)restkitService
 {
     NSString const *baseURL = TyphoonConfig(@"baseURL");
-
+    
     SEL selector = @selector(initWithBaseURL:);
     return [TyphoonDefinition withClass:[RestkitService class] configuration:^(TyphoonDefinition* definition) {
         definition.scope = TyphoonScopeSingleton;

@@ -9,6 +9,8 @@
 #import "TopicService.h"
 #import "Topic.h"
 
+#import "RestkitService.h"
+
 static NSString * const TOPICS = @"topics";
 static NSString * const NAME = @"name";
 static NSString * const IMG = @"img";
@@ -17,9 +19,26 @@ static NSString * const CODE = @"code";
 
 static NSMutableArray *topics;
 
+@interface TopicService ()
+
+@property (nonatomic, strong) RestkitService *restkitService;
+
+@end
+
 @implementation TopicService
 
+-(instancetype)initWithRestkitService:(RestkitService*)restkitService
+{
+    self = [super init];
+    if (self) {
+        self.restkitService = restkitService;
+    }
+    return self;
+}
+
 #pragma mark - TopicService
+
+
 
 - (NSMutableArray*)topics
 {

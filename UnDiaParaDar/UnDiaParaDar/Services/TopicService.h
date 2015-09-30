@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class RestkitService;
+
 @interface TopicService : NSObject
+
+-(instancetype)initWithRestkitService:(RestkitService*)restkitService;
 
 - (NSMutableArray*)topics;
 
