@@ -8,12 +8,13 @@
 
 #import "TyphoonAssembly.h"
 
-@class TopicService, UserService, RestkitService;
+@class TopicService, UserService, RestkitService, MappingProvider;
 
 @interface ServiceModuleAssembly : TyphoonAssembly
 
 - (TopicService*)topicService;
 - (UserService*)userService;
 - (RestkitService*)restkitService;
+- (MappingProvider*)mappingProvider;
 
 @end

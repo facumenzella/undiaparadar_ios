@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@class RestkitService;
+@class RestkitService, MappingProvider;
 
 @interface TopicService : NSObject
 
--(instancetype)initWithRestkitService:(RestkitService*)restkitService;
+-(instancetype)initWithRestkitService:(RestkitService*)restkitService
+                  withMappingProvider:(MappingProvider*)mappingProvider;
 
 - (NSMutableArray*)topics;
+- (void)getPositiveActionsWithCallback:(void (^)(NSError* , NSArray*))callback;
 
 @end
