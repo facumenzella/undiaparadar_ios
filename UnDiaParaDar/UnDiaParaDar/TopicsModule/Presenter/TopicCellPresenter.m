@@ -28,7 +28,7 @@
 
 - (NSString*)name
 {
-    return self.topic.name;
+    return NSLocalizedString(self.topic.name, "topic");
 }
 - (NSString*)image
 {

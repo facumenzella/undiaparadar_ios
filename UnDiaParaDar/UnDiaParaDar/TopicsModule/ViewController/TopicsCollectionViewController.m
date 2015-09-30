@@ -104,7 +104,9 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
     TopicsCollectionViewCell *cell = (TopicsCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
     
     TopicCellPresenter *t = [self.presenters objectAtIndex: [indexPath row]];
-    t.selected = cell.selected;
+    t.selected = !t.selected;
+    
+    [cell populateCellWithTopic:t];
     
     if (t.selected) {
         [self.selectedTopics addObject:t.topic];

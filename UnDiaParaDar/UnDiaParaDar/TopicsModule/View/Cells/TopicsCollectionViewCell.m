@@ -14,7 +14,7 @@
 @interface TopicsCollectionViewCell ()
 
 @property (nonatomic, strong) UIImageView *topicImageView;
-@property (nonatomic, strong) UITextView *topicTextView;
+@property (nonatomic, strong) UILabel *topicLabel;
 
 @end
 
@@ -41,7 +41,7 @@
 - (void)buildSubviews
 {
     [self buildTopicImageView];
-    [self buildTopicTextView];
+    [self buildTopicLabel];
     [self styleCellSubviews];
 }
 
@@ -56,17 +56,16 @@
     [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
 }
 
-- (void)buildTopicTextView
+- (void)buildTopicLabel
 {
-    self.topicTextView = [[UITextView alloc] initForAutoLayout];
-    self.topicTextView.scrollEnabled = NO;
-    [self.contentView addSubview:self.topicTextView];
+    self.topicLabel = [[UILabel alloc] initForAutoLayout];
+    [self.contentView addSubview:self.topicLabel];
     // we do this to force two lines in autolayout
-    [self.topicTextView setText:@"DefaultDefaultDefault"];
-    [self.topicTextView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.topicImageView];
-    [self.topicTextView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
-    [self.topicTextView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
-    [self.topicTextView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    [self.topicLabel setText:@"DefaultDefaultDefault"];
+    [self.topicLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.topicImageView];
+    [self.topicLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+    [self.topicLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
+    [self.topicLabel autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
 }
 
  - (void)styleCellSubviews
@@ -76,9 +75,10 @@
 
  - (void)styleTopicTextView
 {
-    self.topicTextView.textAlignment = NSTextAlignmentCenter;
-    [self.topicTextView setFont:[UIFont systemFontOfSize:14]];
-    [self.topicTextView setBackgroundColor:[UIColor clearColor]];
+    self.topicLabel.textAlignment = NSTextAlignmentCenter;
+    [self.topicLabel setFont:[UIFont systemFontOfSize:14]];
+    [self.topicLabel setBackgroundColor:[UIColor clearColor]];
+    [self.topicLabel setTextColor: [UIColor blackColor]];
 }
 
 - (void)populateCellWithTopic:(TopicCellPresenter *)presenter
@@ -90,9 +90,7 @@
     UIImage *topicImage = [UIImage imageNamed: img];
     [self.topicImageView setImage:topicImage];
     
-    [self.topicTextView setText:NSLocalizedString(presenter.name, "topic")];
-    [self.topicTextView setTextColor: [UIColor blackColor]];
-    self.topicTextView.editable = NO;
+    [self.topicLabel setText:presenter.name];
 }
 
 @end
