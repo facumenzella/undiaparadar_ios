@@ -19,6 +19,7 @@
 		0D1763821BB4647F00C6E664 /* QueEsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1763811BB4647F00C6E664 /* QueEsViewController.m */; };
 		0D1763851BB464C300C6E664 /* QueEsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1763841BB464C300C6E664 /* QueEsPresenter.m */; };
 		0D1763881BB464CE00C6E664 /* QueEsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1763871BB464CE00C6E664 /* QueEsView.m */; };
+		0D3D72351BBB6510006EC1E9 /* RestkitService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D72341BBB6510006EC1E9 /* RestkitService.m */; };
 		0D3DB3C31B7546D90052F46B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3DB3C21B7546D90052F46B /* MenuViewController.m */; };
 		0D44DADA1B90E62600A274BD /* MenuOptionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D44DAD91B90E62600A274BD /* MenuOptionViewCell.m */; };
 		0D4B13BA1BA4BB5D00961764 /* RemoteImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B13B91BA4BB5D00961764 /* RemoteImageView.m */; };
@@ -99,6 +100,8 @@
 		0D1763841BB464C300C6E664 /* QueEsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueEsPresenter.m; sourceTree = "<group>"; };
 		0D1763861BB464CE00C6E664 /* QueEsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueEsView.h; sourceTree = "<group>"; };
 		0D1763871BB464CE00C6E664 /* QueEsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueEsView.m; sourceTree = "<group>"; };
+		0D3D72331BBB6510006EC1E9 /* RestkitService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestkitService.h; sourceTree = "<group>"; };
+		0D3D72341BBB6510006EC1E9 /* RestkitService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestkitService.m; sourceTree = "<group>"; };
 		0D3DB3C11B7546D90052F46B /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		0D3DB3C21B7546D90052F46B /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		0D44DAD81B90E62600A274BD /* MenuOptionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuOptionViewCell.h; sourceTree = "<group>"; };
@@ -462,6 +465,8 @@
 				0DAF2FE11B7E9D290045CE08 /* ServiceModuleAssembly.m */,
 				0DBD21A11BA37865002AC53C /* UserService.h */,
 				0DBD21A21BA37865002AC53C /* UserService.m */,
+				0D3D72331BBB6510006EC1E9 /* RestkitService.h */,
+				0D3D72341BBB6510006EC1E9 /* RestkitService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -885,6 +890,7 @@
 				11DEE6AD1B5D778F00DCDE3E /* RoutingModuleAssembly.m in Sources */,
 				113E469E1B62C07E00ADF8AC /* ProfileViewController.m in Sources */,
 				0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */,
+				0D3D72351BBB6510006EC1E9 /* RestkitService.m in Sources */,
 				0D11F4911BB37FA000AFE46D /* TermsAndConditionsView.m in Sources */,
 				0D9E1E141B7E610B0049D08B /* SplashModuleAssembly.m in Sources */,
 				11DEE6971B5D6F6D00DCDE3E /* TyphoonInitializer.m in Sources */,
