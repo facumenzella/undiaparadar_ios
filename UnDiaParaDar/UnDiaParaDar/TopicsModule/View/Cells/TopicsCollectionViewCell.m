@@ -59,9 +59,10 @@
 - (void)buildTopicLabel
 {
     self.topicLabel = [[UILabel alloc] initForAutoLayout];
+    self.topicLabel.numberOfLines = 3;
     [self.contentView addSubview:self.topicLabel];
-    // we do this to force two lines in autolayout
-    [self.topicLabel setText:@"DefaultDefaultDefault"];
+    // we do this to force 3 lines in autolayout
+    [self.topicLabel setText:@"DefaultDefaultDefaultDefaultDefaultDefault"];
     [self.topicLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.topicImageView];
     [self.topicLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [self.topicLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
