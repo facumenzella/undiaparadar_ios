@@ -18,6 +18,8 @@ static NSString * const NAME = @"name";
 static NSString * const IMG = @"img";
 static NSString * const SELECTED = @"selected";
 static NSString * const CODE = @"code";
+static NSString * const MAP_ON = @"mapOn";
+static NSString * const MAP_OFF = @"mapOff";
 
 static NSMutableArray *topics;
 
@@ -91,6 +93,8 @@ static NSString *ALL;
             t.img = d[IMG];
             t.selectedImg = d[SELECTED];
             t.code = d[CODE];
+            t.img40x40Off = d[MAP_OFF];
+            t.img40x40On = d[MAP_ON];
             [topics addObject:t];
         }
     });

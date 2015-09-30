@@ -15,4 +15,7 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *code;
 
+@property (nonatomic, strong) NSString *img40x40On;
+@property (nonatomic, strong) NSString *img40x40Off;
+
 @end

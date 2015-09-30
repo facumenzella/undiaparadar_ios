@@ -9,6 +9,10 @@
 		<string>voluntariado</string>
 		<key>selected</key>
 		<string>voluntariado_on</string>
+		<key>mapOff</key>
+		<string>p_voluntariado_off</string>
+		<key>mapOn</key>
+		<string>p_voluntariado_on</string>
 		<key>code</key>
 		<string>24</string>
 	</dict>
@@ -19,6 +23,10 @@
 		<string>reutilizar</string>
 		<key>selected</key>
 		<string>reutilizar_on</string>
+		<key>mapOff</key>
+		<string>p_reutilizar_off</string>
+		<key>mapOn</key>
+		<string>p_reutilizar_on</string>
 		<key>code</key>
 		<string>18</string>
 	</dict>
@@ -29,6 +37,10 @@
 		<string>publicacion_de_calle</string>
 		<key>selected</key>
 		<string>publicacion_de_calle_on</string>
+		<key>mapOff</key>
+		<string>p_publicacion_de_calle_off</string>
+		<key>mapOn</key>
+		<string>p_publicacion_de_calle_on</string>
 		<key>code</key>
 		<string>20</string>
 	</dict>
@@ -39,6 +51,10 @@
 		<string>plantar_arboles</string>
 		<key>selected</key>
 		<string>plantar_arboles_on</string>
+		<key>mapOff</key>
+		<string>p_plantar_arboles_off</string>
+		<key>mapOn</key>
+		<string>p_plantar_arboles_on</string>
 		<key>code</key>
 		<string>22</string>
 	</dict>
@@ -49,6 +65,10 @@
 		<string>formarse_para_ayudar</string>
 		<key>selected</key>
 		<string>formarse_para_ayudar_on</string>
+		<key>mapOff</key>
+		<string>p_formarse_para_ayudar_off</string>
+		<key>mapOn</key>
+		<string>p_formarse_para_ayudar_on</string>
 		<key>code</key>
 		<string>21</string>
 	</dict>
@@ -59,6 +79,10 @@
 		<string>donar_pelo</string>
 		<key>selected</key>
 		<string>donar_pelo_on</string>
+		<key>mapOff</key>
+		<string>p_donar_pelo_off</string>
+		<key>mapOn</key>
+		<string>p_donar_pelo_on</string>
 		<key>code</key>
 		<string>10</string>
 	</dict>
@@ -69,6 +93,10 @@
 		<string>donar_millas_aereas</string>
 		<key>selected</key>
 		<string>donar_millas_aereas_on</string>
+		<key>mapOff</key>
+		<string>p_donar_millas_aereas_off</string>
+		<key>mapOn</key>
+		<string>p_donar_millas_aereas_on</string>
 		<key>code</key>
 		<string>2</string>
 	</dict>
@@ -79,6 +107,10 @@
 		<string>donar_leche_materna</string>
 		<key>selected</key>
 		<string>donar_leche_materna_on</string>
+		<key>mapOff</key>
+		<string>p_donar_leche_materna_off</string>
+		<key>mapOn</key>
+		<string>p_donar_leche_materna_on</string>
 		<key>code</key>
 		<string>13</string>
 	</dict>
@@ -89,6 +121,10 @@
 		<string>donar_dinero</string>
 		<key>selected</key>
 		<string>donar_dinero_on</string>
+		<key>mapOff</key>
+		<string>p_donar_dinero_off</string>
+		<key>mapOn</key>
+		<string>p_donar_dinero_on</string>
 		<key>code</key>
 		<string>7</string>
 	</dict>
@@ -99,6 +135,10 @@
 		<string>donar_articulos_usados</string>
 		<key>selected</key>
 		<string>donar_articulos_usados_on</string>
+		<key>mapOff</key>
+		<string>p_donar_articulos_usados_off</string>
+		<key>mapOn</key>
+		<string>p_donar_articulos_usados_on</string>
 		<key>code</key>
 		<string>9</string>
 	</dict>
@@ -109,6 +149,10 @@
 		<string>donar_alimentos</string>
 		<key>selected</key>
 		<string>donar_alimentos_on</string>
+		<key>mapOff</key>
+		<string>p_donar_alimentos_off</string>
+		<key>mapOn</key>
+		<string>p_donar_alimentos_on</string>
 		<key>code</key>
 		<string>8</string>
 	</dict>
@@ -119,6 +163,10 @@
 		<string>donar_telefonos_moviles</string>
 		<key>selected</key>
 		<string>donar_telefonos_moviles_on</string>
+		<key>mapOff</key>
+		<string>p_donar_telefonos_moviles_off</string>
+		<key>mapOn</key>
+		<string>p_donar_telefonos_moviles_on</string>
 		<key>code</key>
 		<string>15</string>
 	</dict>
@@ -129,6 +177,10 @@
 		<string>donar_sangre</string>
 		<key>selected</key>
 		<string>donar_sangre_on</string>
+		<key>mapOff</key>
+		<string>p_donar_sangre_off</string>
+		<key>mapOn</key>
+		<string>p_donar_sangre_on</string>
 		<key>code</key>
 		<string>5</string>
 	</dict>
@@ -139,6 +191,10 @@
 		<string>donar_plaquetas</string>
 		<key>selected</key>
 		<string>donar_plaquetas_on</string>
+		<key>mapOff</key>
+		<string>p_donar_plaquetas_off</string>
+		<key>mapOn</key>
+		<string>p_donar_plaquetas_on</string>
 		<key>code</key>
 		<string>16</string>
 	</dict>
@@ -149,6 +205,10 @@
 		<string>donante_de_medula osea</string>
 		<key>selected</key>
 		<string>donante_de_medula osea_on</string>
+		<key>mapOff</key>
+		<string>p_donante_de_medula osea_off</string>
+		<key>mapOn</key>
+		<string>p_donante_de_medula osea_on</string>
 		<key>code</key>
 		<string>6</string>
 	</dict>
@@ -159,6 +219,10 @@
 		<string>asesor_directorio</string>
 		<key>selected</key>
 		<string>asesor_directorio_on</string>
+		<key>mapOff</key>
+		<string>p_asesor_directorio_off</string>
+		<key>mapOn</key>
+		<string>p_asesor_directorio_on</string>
 		<key>code</key>
 		<string>1</string>
 	</dict>
@@ -169,6 +233,8 @@
 		<string>adopcion_de_mascotas</string>
 		<key>selected</key>
 		<string>adopcion_de_mascotas_on</string>
+		<key>mapOn</key>
+		<string>p_adopcion_de_mascotas_on</string>
 		<key>code</key>
 		<string>14</string>
 	</dict>
