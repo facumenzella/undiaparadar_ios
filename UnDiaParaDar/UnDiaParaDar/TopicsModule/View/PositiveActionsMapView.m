@@ -46,6 +46,11 @@
     [self.mapView addAnnotations:positiveActions];
 }
 
+- (void)showActivePositiveActionWithTitle:(NSString*)title withSubtitle:(NSString*)subttitle
+{
+    self.overTitleTextView.text = title;
+    self.positiveActionTitle.text = subttitle;
+}
 
 - (void)setupHeight
 {
@@ -99,8 +104,6 @@
     [self.overTitleTextView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:40];
     [self.overTitleTextView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
     [self.overTitleTextView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mapView withOffset:16];
-    // TODO mock text
-    self.overTitleTextView.text = @"Fuck iOS";
 }
 
 - (void)buildButtons
@@ -140,9 +143,6 @@
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:16];
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:24];
-    
-    // TODO MOCK TEXT
-    self.positiveActionTitle.text = @"Sumate a nuestra campaña \"NO SELFIE\"";
 }
 
 - (void)buildTitleUnderline
@@ -176,6 +176,16 @@
 }
 
 #pragma mark - MKMapViewDelegate
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    self.activeAnnotation = (PositiveActionAnnotation*)view.annotation;
+    
+    NSString *title = self.activeAnnotation.title;
+    NSString *subtitle = self.activeAnnotation.pSubtitle;
+    [self showActivePositiveActionWithTitle:title withSubtitle:subtitle];
+}
+
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {

@@ -19,4 +19,7 @@
 
 -(id)initWithPositiveAction:(PositiveAction*)positiveAction;
 
+- (NSString*)title;
+- (NSString*)pSubtitle;
+
 @end

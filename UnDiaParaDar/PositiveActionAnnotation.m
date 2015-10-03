@@ -17,6 +17,7 @@
 @property (nonatomic, readwrite) CLLocationCoordinate2D coordinate;
 @property (nonatomic, strong, readwrite) UIImage *locationPinImage;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *pSubtitle;
 
 @end
 
@@ -28,6 +29,7 @@
     if (self) {
         self.coordinate = CLLocationCoordinate2DMake(positiveAction.latitude, positiveAction.longitude);
         self.name = positiveAction.title;
+        self.pSubtitle = positiveAction.subtitle;
         self.locationPinImage = [UIImage imageNamed:[TopicService onAnnotationImageById:positiveAction.topicID]];
     }
     return self;
@@ -36,6 +38,11 @@
 - (NSString*)title
 {
     return self.name;
+}
+
+- (NSString*)pSubtitle
+{
+    return _pSubtitle;
 }
 
 @end
