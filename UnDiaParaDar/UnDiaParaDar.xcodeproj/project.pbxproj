@@ -52,6 +52,7 @@
 		0DD38FF91BBEFF590038C2E2 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FF81BBEFF590038C2E2 /* LoadingView.m */; };
 		0DD38FFF1BBF06860038C2E2 /* LoadingModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FFE1BBF06860038C2E2 /* LoadingModuleAssembly.m */; };
 		0DF920E71BC0851800BAA52C /* FakeModalAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF920E61BC0851800BAA52C /* FakeModalAnimator.m */; };
+		0DF920EA1BC08C8F00BAA52C /* PositiveActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF920E91BC08C8F00BAA52C /* PositiveActionView.m */; };
 		0DFF0A881B850B52004D1EB9 /* TopicsCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF0A871B850B52004D1EB9 /* TopicsCollectionViewLayout.m */; };
 		110FE8A51B66AC1C002A2273 /* SpotifyLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 110FE8A41B66AC1C002A2273 /* SpotifyLikeView.m */; };
 		110FE8A81B66AEF4002A2273 /* SpotifyLikeViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 110FE8A71B66AEF4002A2273 /* SpotifyLikeViewPresenter.m */; };
@@ -175,6 +176,8 @@
 		0DD38FFE1BBF06860038C2E2 /* LoadingModuleAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingModuleAssembly.m; sourceTree = "<group>"; };
 		0DF920E51BC0851800BAA52C /* FakeModalAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeModalAnimator.h; sourceTree = "<group>"; };
 		0DF920E61BC0851800BAA52C /* FakeModalAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeModalAnimator.m; sourceTree = "<group>"; };
+		0DF920E81BC08C8F00BAA52C /* PositiveActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionView.h; sourceTree = "<group>"; };
+		0DF920E91BC08C8F00BAA52C /* PositiveActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionView.m; sourceTree = "<group>"; };
 		0DFF0A861B850B52004D1EB9 /* TopicsCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicsCollectionViewLayout.h; path = UnDiaParaDar/TopicsModule/View/TopicsCollectionViewLayout.h; sourceTree = SOURCE_ROOT; };
 		0DFF0A871B850B52004D1EB9 /* TopicsCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicsCollectionViewLayout.m; path = UnDiaParaDar/TopicsModule/View/TopicsCollectionViewLayout.m; sourceTree = SOURCE_ROOT; };
 		110FE8A31B66AC1C002A2273 /* SpotifyLikeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyLikeView.h; sourceTree = "<group>"; };
@@ -447,6 +450,8 @@
 				0DAF2FAE1B7E8F080045CE08 /* Cells */,
 				0D94F83C1BA9FCE100945F81 /* PositiveActionsMapView.h */,
 				0D94F83D1BA9FCE100945F81 /* PositiveActionsMapView.m */,
+				0DF920E81BC08C8F00BAA52C /* PositiveActionView.h */,
+				0DF920E91BC08C8F00BAA52C /* PositiveActionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1017,6 +1022,7 @@
 				0D94F83E1BA9FCE100945F81 /* PositiveActionsMapView.m in Sources */,
 				0DFF0A881B850B52004D1EB9 /* TopicsCollectionViewLayout.m in Sources */,
 				0D11F48E1BB37EB200AFE46D /* TermsAndConditionsPresenter.m in Sources */,
+				0DF920EA1BC08C8F00BAA52C /* PositiveActionView.m in Sources */,
 				0DAF2FD81B7E94420045CE08 /* Topic.m in Sources */,
 				0DBD21A31BA37865002AC53C /* UserService.m in Sources */,
 				0DBD21A61BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m in Sources */,
