@@ -19,4 +19,7 @@
 - (void)showTermsAndConditions;
 - (void)showQueEsUDPD;
 
+- (void)showLoadingWithPresenter:(UIViewController*)presenter;
+- (void)removeLoading;
+
 @end

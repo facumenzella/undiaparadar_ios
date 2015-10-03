@@ -30,6 +30,9 @@
 #import "QueEsModuleAssembly.h"
 #import "QueEsViewController.h"
 
+#import "LoadingModuleAssembly.h"
+#import "LoadingViewController.h"
+
 @interface SWRevealRouting ()
 
 @property (nonatomic, strong) id<Director> director;
@@ -42,6 +45,7 @@
 @property (nonatomic, strong) TopicsModuleAssembly *topicsModuleAssembly;
 @property (nonatomic, strong) TermsAndConditionsAssembly *termsAndConditionsAssembly;
 @property (nonatomic, strong) QueEsModuleAssembly *queEsModuleAssembly;
+@property (nonatomic, strong) LoadingModuleAssembly *loadingModuleAssembly;
 
 @end
 
@@ -54,6 +58,7 @@
         withTopicsModuleAssembly:(TopicsModuleAssembly*)topicsModuleAssembly
   withTermsAndConditionsAssembly:(TermsAndConditionsAssembly*)termsAndConditionsAssembly
          withQueEsModuleAssembly:(QueEsModuleAssembly*)queEsModuleAssembly
+       withLoadingModuleAssembly:(LoadingModuleAssembly*)loadingModuleAssembly
                    withArchitect:(id<Architect>)architect
                       withTailor:(id<Tailor>)tailor
 {
@@ -66,6 +71,7 @@
         self.topicsModuleAssembly = topicsModuleAssembly;
         self.termsAndConditionsAssembly = termsAndConditionsAssembly;
         self.queEsModuleAssembly = queEsModuleAssembly;
+        self.loadingModuleAssembly = loadingModuleAssembly;
         self.architect = architect;
         self.tailor = tailor;
     }
@@ -119,5 +125,18 @@
     QueEsViewController *queEsVC = [self.queEsModuleAssembly queEsViewController];
     [self.director setRoot:[self.architect buildMainScreenWithRootViewController: queEsVC]];
 }
+
+- (void)showLoadingWithPresenter:(UIViewController*)presenter
+{
+    LoadingViewController *loading = [self.loadingModuleAssembly loadingViewController];
+    [self.director presentModal:loading withPresenter:presenter animated:NO];
+}
+
+- (void)removeLoading
+{
+    LoadingViewController *loading = [self.loadingModuleAssembly loadingViewController];
+    [self.director dismiss:loading animated:NO withCompletion:nil];
+}
+
 
 @end

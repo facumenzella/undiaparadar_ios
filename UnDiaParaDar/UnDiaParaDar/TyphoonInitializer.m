@@ -19,6 +19,7 @@
 #import "ServiceModuleAssembly.h"
 #import "TermsAndConditionsAssembly.h"
 #import "QueEsModuleAssembly.h"
+#import "LoadingModuleAssembly.h"
 
 @implementation TyphoonInitializer
 
@@ -35,7 +36,8 @@
                                                              [TopicsModuleAssembly assembly],
                                                              [ServiceModuleAssembly assembly],
                                                              [TermsAndConditionsAssembly assembly],
-                                                             [QueEsModuleAssembly assembly]
+                                                             [QueEsModuleAssembly assembly],
+                                                             [LoadingModuleAssembly assembly]
                                                              ]];
     
     TyphoonConfigPostProcessor* configurer = [TyphoonConfigPostProcessor postProcessor];

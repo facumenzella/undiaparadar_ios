@@ -18,6 +18,7 @@
 @class TopicsModuleAssembly;
 @class TermsAndConditionsAssembly;
 @class QueEsModuleAssembly;
+@class LoadingModuleAssembly;
 
 @interface SWRevealRouting : NSObject<Routing>
 
@@ -28,6 +29,7 @@
         withTopicsModuleAssembly:(TopicsModuleAssembly*)topicsModuleAssembly
   withTermsAndConditionsAssembly:(TermsAndConditionsAssembly*)termsAndConditionsAssembly
          withQueEsModuleAssembly:(QueEsModuleAssembly*)queEsModuleAssembly
+       withLoadingModuleAssembly:(LoadingModuleAssembly*)loadingModuleAssembly
                    withArchitect:(id<Architect>)architect
                       withTailor:(id<Tailor>)tailor;
 
