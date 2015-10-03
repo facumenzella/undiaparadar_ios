@@ -48,6 +48,9 @@
 		0DCBD1401BBB870500A870FD /* FMActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBD13F1BBB870500A870FD /* FMActivityIndicatorView.m */; };
 		0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */; };
 		0DD38FF11BBEFC4B0038C2E2 /* UIViewController+DisableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FF01BBEFC4B0038C2E2 /* UIViewController+DisableView.m */; };
+		0DD38FF51BBEFE5A0038C2E2 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FF41BBEFE5A0038C2E2 /* LoadingViewController.m */; };
+		0DD38FF91BBEFF590038C2E2 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FF81BBEFF590038C2E2 /* LoadingView.m */; };
+		0DD38FFF1BBF06860038C2E2 /* LoadingModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FFE1BBF06860038C2E2 /* LoadingModuleAssembly.m */; };
 		0DFF0A881B850B52004D1EB9 /* TopicsCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF0A871B850B52004D1EB9 /* TopicsCollectionViewLayout.m */; };
 		110FE8A51B66AC1C002A2273 /* SpotifyLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 110FE8A41B66AC1C002A2273 /* SpotifyLikeView.m */; };
 		110FE8A81B66AEF4002A2273 /* SpotifyLikeViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 110FE8A71B66AEF4002A2273 /* SpotifyLikeViewPresenter.m */; };
@@ -162,6 +165,13 @@
 		0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		0DD38FEF1BBEFC4B0038C2E2 /* UIViewController+DisableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DisableView.h"; sourceTree = "<group>"; };
 		0DD38FF01BBEFC4B0038C2E2 /* UIViewController+DisableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DisableView.m"; sourceTree = "<group>"; };
+		0DD38FF31BBEFE5A0038C2E2 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		0DD38FF41BBEFE5A0038C2E2 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		0DD38FF71BBEFF590038C2E2 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
+		0DD38FF81BBEFF590038C2E2 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
+		0DD38FFB1BBEFFA30038C2E2 /* AnimatedViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedViewProtocol.h; sourceTree = "<group>"; };
+		0DD38FFD1BBF06860038C2E2 /* LoadingModuleAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingModuleAssembly.h; sourceTree = "<group>"; };
+		0DD38FFE1BBF06860038C2E2 /* LoadingModuleAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingModuleAssembly.m; sourceTree = "<group>"; };
 		0DFF0A861B850B52004D1EB9 /* TopicsCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicsCollectionViewLayout.h; path = UnDiaParaDar/TopicsModule/View/TopicsCollectionViewLayout.h; sourceTree = SOURCE_ROOT; };
 		0DFF0A871B850B52004D1EB9 /* TopicsCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicsCollectionViewLayout.m; path = UnDiaParaDar/TopicsModule/View/TopicsCollectionViewLayout.m; sourceTree = SOURCE_ROOT; };
 		110FE8A31B66AC1C002A2273 /* SpotifyLikeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyLikeView.h; sourceTree = "<group>"; };
@@ -524,6 +534,45 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		0DD38FF21BBEFE460038C2E2 /* LoadingModule */ = {
+			isa = PBXGroup;
+			children = (
+				0DD38FFC1BBF042E0038C2E2 /* Assembly */,
+				0DD38FFA1BBEFF7F0038C2E2 /* Presenter */,
+				0DD38FF61BBEFF220038C2E2 /* View */,
+				0DD38FF31BBEFE5A0038C2E2 /* LoadingViewController.h */,
+				0DD38FF41BBEFE5A0038C2E2 /* LoadingViewController.m */,
+			);
+			name = LoadingModule;
+			path = Factories/LoadingModule;
+			sourceTree = "<group>";
+		};
+		0DD38FF61BBEFF220038C2E2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0DD38FF71BBEFF590038C2E2 /* LoadingView.h */,
+				0DD38FF81BBEFF590038C2E2 /* LoadingView.m */,
+				0DD38FFB1BBEFFA30038C2E2 /* AnimatedViewProtocol.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0DD38FFA1BBEFF7F0038C2E2 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0DD38FFC1BBF042E0038C2E2 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				0DD38FFD1BBF06860038C2E2 /* LoadingModuleAssembly.h */,
+				0DD38FFE1BBF06860038C2E2 /* LoadingModuleAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
 		0DD63F781B7EAD7D00766361 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -647,6 +696,7 @@
 		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
 			isa = PBXGroup;
 			children = (
+				0DD38FF21BBEFE460038C2E2 /* LoadingModule */,
 				0DCBD13D1BBB870500A870FD /* FMActivityIndicator */,
 				0DAF2FD51B7E94360045CE08 /* Model */,
 				0DAF2FD91B7E947B0045CE08 /* Services */,
@@ -928,12 +978,15 @@
 				0DBD219D1BA372DA002AC53C /* FacebookInitializer.m in Sources */,
 				0D4B13BA1BA4BB5D00961764 /* RemoteImageView.m in Sources */,
 				11DEE6B61B5D937F00DCDE3E /* FacebookLoginFlow.m in Sources */,
+				0DD38FFF1BBF06860038C2E2 /* LoadingModuleAssembly.m in Sources */,
 				11DEE6AD1B5D778F00DCDE3E /* RoutingModuleAssembly.m in Sources */,
 				113E469E1B62C07E00ADF8AC /* ProfileViewController.m in Sources */,
 				0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */,
 				0D3D72351BBB6510006EC1E9 /* RestkitService.m in Sources */,
+				0DD38FF91BBEFF590038C2E2 /* LoadingView.m in Sources */,
 				0DCBD1401BBB870500A870FD /* FMActivityIndicatorView.m in Sources */,
 				0D11F4911BB37FA000AFE46D /* TermsAndConditionsView.m in Sources */,
+				0DD38FF51BBEFE5A0038C2E2 /* LoadingViewController.m in Sources */,
 				0D8580F21BBB6BAB002CEB2B /* PositiveAction.m in Sources */,
 				0D9E1E141B7E610B0049D08B /* SplashModuleAssembly.m in Sources */,
 				11DEE6971B5D6F6D00DCDE3E /* TyphoonInitializer.m in Sources */,
