@@ -9,14 +9,27 @@
 #import "LoadingViewController.h"
 #import "LoadingView.h"
 #import "AnimatedViewProtocol.h"
+#import "FakeModalAnimator.h"
 
 @interface LoadingViewController ()
 
 @property (nonatomic, strong) UIView<AnimatedViewProtocol> *modalView;
+@property (nonatomic, strong) FakeModalAnimator *modalAnimator;
 
 @end
 
 @implementation LoadingViewController
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.modalPresentationStyle = UIModalPresentationCustom;
+        self.modalAnimator = [[FakeModalAnimator alloc] init];
+        self.transitioningDelegate = self.modalAnimator;
+    }
+    return self;
+}
 
 - (void)loadView
 {

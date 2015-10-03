@@ -39,7 +39,7 @@
 
 - (void)styleSubviews
 {
-    [self setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]];
+    [self setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.8]];
 }
 
 #pragma mark - ModalViewProtocol
