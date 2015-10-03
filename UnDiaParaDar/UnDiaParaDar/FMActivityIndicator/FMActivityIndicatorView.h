@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FMActivityIndicatorView : UIActivityIndicatorView
+@interface FMActivityIndicatorView : UIView
 
 @property (nonatomic, strong) UIImage * image;
 
 -(id)initWithImage:(UIImage*)image;
+-(void)startAnimating;
+-(void)stopAnimating;
 
 @end

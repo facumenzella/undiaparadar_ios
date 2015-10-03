@@ -28,18 +28,10 @@ static CGFloat kDURATION = 1.2f;
 
 -(id)initWithImage:(UIImage*)image
 {
-    self = [self initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self = [super init];
     if(self) {
         self.translatesAutoresizingMaskIntoConstraints = NO;
         self.image = image;
-    }
-    return self;
-}
-
-- (instancetype)initWithActivityIndicatorStyle:(UIActivityIndicatorViewStyle)style
-{
-    self = [super initWithActivityIndicatorStyle:style];
-    if (self) {
         [self buildAnimation];
     }
     return self;
@@ -66,29 +58,15 @@ static CGFloat kDURATION = 1.2f;
     [self.imageView autoCenterInSuperview];
 }
 
--(void)setHidesWhenStopped:(BOOL)hidesWhenStopped
-{
-    [super setHidesWhenStopped:hidesWhenStopped];
-    if(self.hidesWhenStopped && !self.isAnimating) {
-        self.imageView.hidden = YES;
-    } else {
-        self.imageView.hidden = NO;
-    }
-}
-
 -(void)startAnimating
 {
-    [super startAnimating];
     self.imageView.hidden = NO;
     [self.imageView.layer addAnimation:self.animation forKey:@"animation"];
 }
 
 -(void)stopAnimating
 {
-    [super stopAnimating];
-    if(self.hidesWhenStopped) {
-        self.imageView.hidden = YES;
-    }
+    self.imageView.hidden = YES;
     [self.imageView.layer removeAllAnimations];
 }
 
