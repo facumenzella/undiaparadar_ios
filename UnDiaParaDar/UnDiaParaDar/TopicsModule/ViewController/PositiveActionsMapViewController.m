@@ -48,6 +48,7 @@
 
 - (void)viewDidLoad
 {
+    [self.routing showLoadingWithPresenter:self];
     [self.topicService
      getPositiveActionsFilteredByTopics:self.topics
      withCallback:^(NSError *error, NSArray *positiveActions) {
@@ -57,6 +58,7 @@
              id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
              [annotations addObject:annotation];
          }
+         [self.routing removeLoading];
          [self.positiveActionsView addPositiveActions:annotations];
      }];
 }
