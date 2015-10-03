@@ -23,6 +23,7 @@
 		0D3DB3C31B7546D90052F46B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3DB3C21B7546D90052F46B /* MenuViewController.m */; };
 		0D44DADA1B90E62600A274BD /* MenuOptionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D44DAD91B90E62600A274BD /* MenuOptionViewCell.m */; };
 		0D4B13BA1BA4BB5D00961764 /* RemoteImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4B13B91BA4BB5D00961764 /* RemoteImageView.m */; };
+		0D6199D61BC0A18000A8C987 /* PositiveActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6199D51BC0A18000A8C987 /* PositiveActionViewController.m */; };
 		0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6612C81B98C69C006C272F /* ButtonFactory.m */; };
 		0D6612CC1B98CA76006C272F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D6612CE1B98CA76006C272F /* Localizable.strings */; };
 		0D75D5901BBC4B36009F0294 /* PositiveActionAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D75D58F1BBC4B36009F0294 /* PositiveActionAnnotation.m */; };
@@ -118,6 +119,8 @@
 		0D44DAD91B90E62600A274BD /* MenuOptionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuOptionViewCell.m; sourceTree = "<group>"; };
 		0D4B13B81BA4BB5D00961764 /* RemoteImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteImageView.h; sourceTree = "<group>"; };
 		0D4B13B91BA4BB5D00961764 /* RemoteImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteImageView.m; sourceTree = "<group>"; };
+		0D6199D41BC0A18000A8C987 /* PositiveActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionViewController.h; sourceTree = "<group>"; };
+		0D6199D51BC0A18000A8C987 /* PositiveActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionViewController.m; sourceTree = "<group>"; };
 		0D6612C71B98C69C006C272F /* ButtonFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonFactory.h; sourceTree = "<group>"; };
 		0D6612C81B98C69C006C272F /* ButtonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonFactory.m; sourceTree = "<group>"; };
 		0D6612CD1B98CA76006C272F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -463,6 +466,8 @@
 				0DAF2FAC1B7E8EED0045CE08 /* TopicsCollectionViewController.m */,
 				0D90592E1BA641650008BF75 /* PositiveActionsMapViewController.h */,
 				0D90592F1BA641650008BF75 /* PositiveActionsMapViewController.m */,
+				0D6199D41BC0A18000A8C987 /* PositiveActionViewController.h */,
+				0D6199D51BC0A18000A8C987 /* PositiveActionViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1045,6 +1050,7 @@
 				0D11F48B1BB37DCD00AFE46D /* TermsAndConditionsViewController.m in Sources */,
 				11DEE6911B5D6DF900DCDE3E /* LoginViewController.m in Sources */,
 				11DEE6A91B5D774900DCDE3E /* SWRevealDirector.m in Sources */,
+				0D6199D61BC0A18000A8C987 /* PositiveActionViewController.m in Sources */,
 				110FE8A81B66AEF4002A2273 /* SpotifyLikeViewPresenter.m in Sources */,
 				0D17637F1BB4646100C6E664 /* QueEsModuleAssembly.m in Sources */,
 				1113AA161B5F044F0066E7BB /* MenuProfilePresenter.m in Sources */,
