@@ -7,6 +7,7 @@
 //
 
 #import "PositiveActionView.h"
+#import "BeautyCenter.h"
 
 #import <PureLayout/PureLayout.h>
 
@@ -70,7 +71,7 @@ static NSString * const BACKGROUND = @"menu_header";
     self.mainHeaderView = [[UIImageView alloc] initForAutoLayout];
     [self.mainHeaderView setContentMode:UIViewContentModeScaleAspectFill];
     [self.mainHeaderView setImage: [UIImage imageNamed:BACKGROUND]];
-
+    
     [self.container addSubview:self.mainHeaderView];
     [self.mainHeaderView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
 }
@@ -79,32 +80,20 @@ static NSString * const BACKGROUND = @"menu_header";
 {
     self.overTitleView = [[UIView alloc] initForAutoLayout];
     [self.container addSubview: self.overTitleView];
-    [self.overTitleView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:40];
-    [self.overTitleView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
-    static CGFloat height = 32;
-    [self.overTitleView autoSetDimension:ALDimensionHeight toSize:height];
-    [self.overTitleView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mainHeaderView withOffset:height/2];
     self.overTitleView.layer.cornerRadius = 10;
     self.overTitleView.clipsToBounds = YES;
+    static CGFloat height = 32;
+    [self.overTitleView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:40];
+    [self.overTitleView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
+    [self.overTitleView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mainHeaderView withOffset:height/2];
     
-    [self buildOverTitleLabel];
-}
-
-- (void)buildOverTitleLabel
-{
     self.overTitleTextView = [[UITextView alloc] initForAutoLayout];
     self.overTitleTextView.scrollEnabled = NO;
     self.overTitleTextView.editable = NO;
     [self.overTitleView addSubview: self.overTitleTextView];
-    [self.overTitleTextView autoSetDimension:ALDimensionHeight toSize:32];
-    [self.overTitleTextView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:40];
-    [self.overTitleTextView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
-    [self.overTitleTextView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mainHeaderView withOffset:16];
+    [self.overTitleTextView autoPinEdgesToSuperviewEdges];
     self.overTitleTextView.text = @"Oh shit";
-    
-    [self.overTitleView bringSubviewToFront:self.overTitleTextView];
 }
-
 
 - (void)buildDescriptionContainer
 {
@@ -166,7 +155,7 @@ static NSString * const BACKGROUND = @"menu_header";
     
     [self.redBand autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self.colorBandImageView];
     [self.redBand autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.colorBandImageView];
-
+    
     [self.redBand autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.positiveActionDescription withOffset:8];
     [self.redBand autoAlignAxis:ALAxisVertical toSameAxisOfView:self.colorBandImageView];
 }
@@ -176,18 +165,23 @@ static NSString * const BACKGROUND = @"menu_header";
 {
     [self setBackgroundColor:[UIColor whiteColor]];
     
-    [self.overTitleView setBackgroundColor: [UIColor colorWithRed:211/255.0 green:0 blue:11/255.0 alpha:1]];
+    [self.overTitleView setBackgroundColor: [BeautyCenter beautyCenterColor:BeautyCenterColorDarkRed]];
     [self.overTitleTextView setTextColor: [UIColor whiteColor]];
     [self.overTitleTextView setBackgroundColor:[UIColor clearColor]];
     [self.overTitleTextView setTextAlignment: NSTextAlignmentCenter];
+    [self.overTitleTextView setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
+                                                                     withSize:BeautyCenterTypographySizeB]];
     
     [self.positiveActionTitle setTextColor:[UIColor blackColor]];
     [self.positiveActionTitle setTextAlignment:NSTextAlignmentCenter];
-    
+    [self.positiveActionTitle setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
+                                                                     withSize:BeautyCenterTypographySizeA]];
     [self.descriptionContainer setBackgroundColor:[UIColor whiteColor]];
     
     [self.positiveActionDescription setTextAlignment:NSTextAlignmentCenter];
-    [self.redBand setBackgroundColor: [UIColor colorWithRed:211/255.0 green:0 blue:11/255.0 alpha:1]];
+    [self.positiveActionDescription setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
+                                                                           withSize:BeautyCenterTypographySizeA]];
+    [self.redBand setBackgroundColor: [BeautyCenter beautyCenterColor:BeautyCenterColorDarkRed]];
 }
 
 @end
