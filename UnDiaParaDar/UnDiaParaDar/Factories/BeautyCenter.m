@@ -8,10 +8,16 @@
 
 #import "BeautyCenter.h"
 
-static NSString * const HELVETICA_NEUE_THIN = @"HelveticaNeue-Thin";
-static NSString * const HELVETICA_NEUE_LIGHT = @"HelveticaNeue-Light";
-static NSString * const HELVETICA_NEUE_MEDIUM = @"HelveticaNeue-Medium";
-static NSString * const HELVETICA_NEUE_BOLD = @"HelveticaNeue-Bold";
+static NSString * const kHELVETICA_NEUE_THIN = @"HelveticaNeue-Thin";
+static NSString * const kHELVETICA_NEUE_LIGHT = @"HelveticaNeue-Light";
+static NSString * const kHELVETICA_NEUE_MEDIUM = @"HelveticaNeue-Medium";
+static NSString * const kHELVETICA_NEUE_BOLD = @"HelveticaNeue-Bold";
+
+static NSUInteger const kSIZE_A = 14;
+static NSUInteger const kSIZE_B = 18;
+static NSUInteger const kSIZE_C = 20;
+static NSUInteger const kSIZE_D = 22;
+static NSUInteger const kSIZE_E = 24;
 
 static UIFont *font1a;
 static UIFont *font1b;
@@ -37,6 +43,11 @@ static UIFont *font4e;
 static UIColor *color1;
 
 @implementation BeautyCenter
+
++ (void)setup
+{
+    [BeautyCenter sharedInstance];
+}
 
 + (instancetype)sharedInstance
 {
@@ -171,29 +182,29 @@ static UIColor *color1;
 
 - (void)buildFonts
 {
-    font1a = [UIFont fontWithName:HELVETICA_NEUE_LIGHT size:18];
-    font1b = [UIFont fontWithName:HELVETICA_NEUE_LIGHT size:20];
-    font1c = [UIFont fontWithName:HELVETICA_NEUE_LIGHT size:22];
-    font1d = [UIFont fontWithName:HELVETICA_NEUE_LIGHT size:24];
-    font1e = [UIFont fontWithName:HELVETICA_NEUE_LIGHT size:30];
+    font1a = [UIFont fontWithName:kHELVETICA_NEUE_LIGHT size:kSIZE_A];
+    font1b = [UIFont fontWithName:kHELVETICA_NEUE_LIGHT size:kSIZE_B];
+    font1c = [UIFont fontWithName:kHELVETICA_NEUE_LIGHT size:kSIZE_C];
+    font1d = [UIFont fontWithName:kHELVETICA_NEUE_LIGHT size:kSIZE_D];
+    font1e = [UIFont fontWithName:kHELVETICA_NEUE_LIGHT size:kSIZE_E];
     
-    font2a = [UIFont fontWithName:HELVETICA_NEUE_THIN size:18];
-    font2b = [UIFont fontWithName:HELVETICA_NEUE_THIN size:20];
-    font2c = [UIFont fontWithName:HELVETICA_NEUE_THIN size:22];
-    font2d = [UIFont fontWithName:HELVETICA_NEUE_THIN size:24];
-    font2e = [UIFont fontWithName:HELVETICA_NEUE_THIN size:30];
+    font2a = [UIFont fontWithName:kHELVETICA_NEUE_THIN size:kSIZE_A];
+    font2b = [UIFont fontWithName:kHELVETICA_NEUE_THIN size:kSIZE_B];
+    font2c = [UIFont fontWithName:kHELVETICA_NEUE_THIN size:kSIZE_C];
+    font2d = [UIFont fontWithName:kHELVETICA_NEUE_THIN size:kSIZE_D];
+    font2e = [UIFont fontWithName:kHELVETICA_NEUE_THIN size:kSIZE_E];
     
-    font3a = [UIFont fontWithName:HELVETICA_NEUE_MEDIUM size:18];
-    font3b = [UIFont fontWithName:HELVETICA_NEUE_MEDIUM size:20];
-    font3c = [UIFont fontWithName:HELVETICA_NEUE_MEDIUM size:22];
-    font3d = [UIFont fontWithName:HELVETICA_NEUE_MEDIUM size:24];
-    font3e = [UIFont fontWithName:HELVETICA_NEUE_MEDIUM size:30];
+    font3a = [UIFont fontWithName:kHELVETICA_NEUE_MEDIUM size:kSIZE_A];
+    font3b = [UIFont fontWithName:kHELVETICA_NEUE_MEDIUM size:kSIZE_B];
+    font3c = [UIFont fontWithName:kHELVETICA_NEUE_MEDIUM size:kSIZE_C];
+    font3d = [UIFont fontWithName:kHELVETICA_NEUE_MEDIUM size:kSIZE_D];
+    font3e = [UIFont fontWithName:kHELVETICA_NEUE_MEDIUM size:kSIZE_E];
     
-    font4a = [UIFont fontWithName:HELVETICA_NEUE_BOLD size:18];
-    font4b = [UIFont fontWithName:HELVETICA_NEUE_BOLD size:20];
-    font4c = [UIFont fontWithName:HELVETICA_NEUE_BOLD size:22];
-    font4d = [UIFont fontWithName:HELVETICA_NEUE_BOLD size:24];
-    font4e = [UIFont fontWithName:HELVETICA_NEUE_BOLD size:30];
+    font4a = [UIFont fontWithName:kHELVETICA_NEUE_BOLD size:kSIZE_A];
+    font4b = [UIFont fontWithName:kHELVETICA_NEUE_BOLD size:kSIZE_B];
+    font4c = [UIFont fontWithName:kHELVETICA_NEUE_BOLD size:kSIZE_C];
+    font4d = [UIFont fontWithName:kHELVETICA_NEUE_BOLD size:kSIZE_D];
+    font4e = [UIFont fontWithName:kHELVETICA_NEUE_BOLD size:kSIZE_E];
 }
 
 - (void)buildColors

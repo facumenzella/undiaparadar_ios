@@ -29,6 +29,8 @@ typedef NS_ENUM(NSUInteger, BeautyCenterColor) {
 
 @interface BeautyCenter : NSObject
 
++ (void)setup;
++ (instancetype)sharedInstance;
 + (UIFont*)beautyCenterFontWithStyle:(BeautyCenterTypographyStyle)style withSize:(BeautyCenterTypographySize)size;
 + (UIColor*)beautyCenterColor:(BeautyCenterColor)color;
 
