@@ -74,32 +74,25 @@
  withCompletion:(void (^)(UIViewController *))completion
 {
     assert(vc);
-    if (vc.presentingViewController) {
-        // this means the vc was presented by someone
+    if (vc.navigationController && vc.navigationController.viewControllers.count > 1) {
+        
+        if (vc.navigationController.topViewController != vc) {
+            return;
+        }
+        
+        UINavigationController* nav = vc.navigationController;
+        [nav popViewControllerAnimated:animated];
+        if (completion) {
+            completion(nav.topViewController);
+        }
+        
+    } else if (vc.presentingViewController) {
         UIViewController* presenter = vc.presentingViewController;
         [presenter dismissViewControllerAnimated:animated completion:nil];
         if (completion) {
             completion(presenter);
         }
         
-    } else if ([vc.navigationController.viewControllers containsObject:vc]) {
-        // the vc is already in the navigation stack
-        if (vc.navigationController.topViewController != vc || vc.navigationController.viewControllers.count == 1 ) {
-            return;
-        }
-        UINavigationController* nav = vc.navigationController;
-        [nav popViewControllerAnimated:animated];
-        if (completion) {
-            completion(nav.topViewController);
-        }
-    } else if (vc.parentViewController) {
-        // this means it is contained within another view controller
-        UIViewController* parent = vc.parentViewController;
-        [vc.view removeFromSuperview];
-        [vc removeFromParentViewController];
-        if (completion) {
-            completion(parent);
-        }
     } else {
         NSLog(@"Trying to dismmis root VC %@", vc);
     }

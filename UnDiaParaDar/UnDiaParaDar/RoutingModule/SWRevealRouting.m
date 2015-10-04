@@ -107,12 +107,24 @@
     [self.director setRoot:splashViewController];
 }
 
-- (void)showPositiveActionsMapViewControllerWithPresenter:(UIViewController*)vc
-                                           withSelectedTopics:(NSArray*)topics
+
+- (void)showPositiveActionsMapViewControllerWithSelectedTopics:(NSArray*)topics
 {
     PositiveActionsMapViewController *mapViewController = [self.topicsModuleAssembly
                                                            positiveActionsMapViewControllerWithTopics:topics];
-    [self.director present:mapViewController from:vc animated:YES];
+     [self.director setRoot:[self.architect buildMainScreenWithRootViewController: mapViewController]];
+}
+
+- (void)showPositiveActionsMapViewControllerWithPresenter:(UIViewController*)vc
+                                           withSelectedTopics:(NSArray*)topics
+{
+    if (vc) {
+        PositiveActionsMapViewController *mapViewController = [self.topicsModuleAssembly
+                                                               positiveActionsMapViewControllerWithTopics:topics];
+        [self.director present:mapViewController from:vc animated:YES];
+        return;
+    }
+    [self showPositiveActionsMapViewControllerWithSelectedTopics:topics];
 }
 
 - (void)showPositiveaction:(PositiveAction*)positiveAction withPresenter:(UIViewController*)vc

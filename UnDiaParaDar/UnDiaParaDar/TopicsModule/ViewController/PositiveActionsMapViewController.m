@@ -47,21 +47,24 @@
 }
 
 
-- (void)viewDidLoad
+- (void)viewDidAppear:(BOOL)animated
 {
-    [self.routing showLoadingWithPresenter:self];
-    [self.topicService
-     getPositiveActionsFilteredByTopics:self.topics
-     withCallback:^(NSError *error, NSArray *positiveActions) {
-         self.positiveActions = positiveActions;
-         NSMutableArray *annotations = [[NSMutableArray alloc] init];
-         for (PositiveAction *p in self.positiveActions) {
-             id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
-             [annotations addObject:annotation];
-         }
-         [self.routing removeLoading];
-         [self.positiveActionsView addPositiveActions:annotations];
-     }];
+    [super viewDidAppear:animated];
+    if (!self.positiveActions) {
+        [self.routing showLoadingWithPresenter:self];
+        [self.topicService
+         getPositiveActionsFilteredByTopics:self.topics
+         withCallback:^(NSError *error, NSArray *positiveActions) {
+             self.positiveActions = positiveActions;
+             NSMutableArray *annotations = [[NSMutableArray alloc] init];
+             for (PositiveAction *p in self.positiveActions) {
+                 id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
+                 [annotations addObject:annotation];
+             }
+             [self.routing removeLoading];
+             [self.positiveActionsView addPositiveActions:annotations];
+         }];
+    }
 }
 
 #pragma mark - PositiveActionsMapViewDelegate

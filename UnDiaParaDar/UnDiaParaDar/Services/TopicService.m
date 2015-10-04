@@ -49,9 +49,14 @@ static NSString *ALL;
 
 #pragma mark - TopicService
 
-- (void)getPositiveActionsFilteredByTopics:(NSArray*)topics withCallback:(void (^)(NSError *, NSArray *))callback
+- (void)getPositiveActionsFilteredByTopics:(NSArray*)filterTopics withCallback:(void (^)(NSError *, NSArray *))callback
 {
-    NSArray *ids = [self topicsIdsFromTopics:topics];
+    NSArray *filter = filterTopics;
+    if (!filter) {
+        filter = [topics allValues];
+    }
+    
+    NSArray *ids = [self topicsIdsFromTopics:filter];
     
     void (^cb)(NSError *, NSArray *) = ^(NSError *error, NSArray *positives) {
         NSPredicate *topicsActions = [NSPredicate predicateWithBlock:^BOOL(PositiveAction *p, NSDictionary *bindings) {

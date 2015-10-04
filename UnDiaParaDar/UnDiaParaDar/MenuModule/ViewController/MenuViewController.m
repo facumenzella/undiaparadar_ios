@@ -115,6 +115,18 @@
     };
     [itemsSection addItem:topicsPresenter];
     
+    // map
+    NSString *const mapTittle =
+    NSLocalizedString(@"MAP_SECTION", @"Mapa");
+    MenuOptionPresenter *mapPresenter = [[MenuOptionPresenter alloc]
+                                                        initWithOptionImage:@"map_section"
+                                                        withOptionTitle:mapTittle];
+    mapPresenter.selectionHandler = ^(MenuOptionPresenter* presenter) {
+        [presenter deselectRowAnimated:NO];
+        [self.routing showPositiveActionsMapViewControllerWithPresenter:nil withSelectedTopics:nil];
+    };
+    [itemsSection addItem:mapPresenter];
+    
     //que es UDPD
     NSString *const queESTittle =
     NSLocalizedString(@"QUEES_SECTION", @"Qué es UDPD?");
