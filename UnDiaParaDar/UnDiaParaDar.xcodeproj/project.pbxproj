@@ -30,6 +30,7 @@
 		0D7C57471BC1B04200A402CF /* LoadingModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C573F1BC1B04200A402CF /* LoadingModuleAssembly.m */; };
 		0D7C57481BC1B04200A402CF /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C57411BC1B04200A402CF /* LoadingViewController.m */; };
 		0D7C57491BC1B04200A402CF /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C57461BC1B04200A402CF /* LoadingView.m */; };
+		0D7C574C1BC1B0B300A402CF /* BeautyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C574B1BC1B0B300A402CF /* BeautyCenter.m */; };
 		0D8580EF1BBB6B17002CEB2B /* MappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8580EE1BBB6B17002CEB2B /* MappingProvider.m */; };
 		0D8580F21BBB6BAB002CEB2B /* PositiveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8580F11BBB6BAB002CEB2B /* PositiveAction.m */; };
 		0D9059301BA641650008BF75 /* PositiveActionsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D90592F1BA641650008BF75 /* PositiveActionsMapViewController.m */; };
@@ -134,6 +135,8 @@
 		0D7C57441BC1B04200A402CF /* AnimatedViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedViewProtocol.h; sourceTree = "<group>"; };
 		0D7C57451BC1B04200A402CF /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		0D7C57461BC1B04200A402CF /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
+		0D7C574A1BC1B0B300A402CF /* BeautyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautyCenter.h; sourceTree = "<group>"; };
+		0D7C574B1BC1B0B300A402CF /* BeautyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautyCenter.m; sourceTree = "<group>"; };
 		0D8580ED1BBB6B17002CEB2B /* MappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingProvider.h; sourceTree = "<group>"; };
 		0D8580EE1BBB6B17002CEB2B /* MappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingProvider.m; sourceTree = "<group>"; };
 		0D8580F01BBB6BAB002CEB2B /* PositiveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveAction.h; sourceTree = "<group>"; };
@@ -374,6 +377,8 @@
 			isa = PBXGroup;
 			children = (
 				0D6612C71B98C69C006C272F /* ButtonFactory.h */,
+				0D7C574A1BC1B0B300A402CF /* BeautyCenter.h */,
+				0D7C574B1BC1B0B300A402CF /* BeautyCenter.m */,
 				0D6612C81B98C69C006C272F /* ButtonFactory.m */,
 			);
 			path = Factories;
@@ -1050,6 +1055,7 @@
 				0D11F48B1BB37DCD00AFE46D /* TermsAndConditionsViewController.m in Sources */,
 				11DEE6911B5D6DF900DCDE3E /* LoginViewController.m in Sources */,
 				11DEE6A91B5D774900DCDE3E /* SWRevealDirector.m in Sources */,
+				0D7C574C1BC1B0B300A402CF /* BeautyCenter.m in Sources */,
 				0D6199D61BC0A18000A8C987 /* PositiveActionViewController.m in Sources */,
 				110FE8A81B66AEF4002A2273 /* SpotifyLikeViewPresenter.m in Sources */,
 				0D17637F1BB4646100C6E664 /* QueEsModuleAssembly.m in Sources */,
