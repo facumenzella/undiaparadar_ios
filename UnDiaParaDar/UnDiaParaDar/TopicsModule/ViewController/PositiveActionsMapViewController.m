@@ -46,6 +46,10 @@
     self.view = self.positiveActionsView;
 }
 
+-(void)viewDidLoad
+{
+    self.title = NSLocalizedString(@"MAP_SECTION", @"Mapa");
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {
