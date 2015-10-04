@@ -12,6 +12,7 @@
 #import "TyphoonInitializer.h"
 #import "FacebookInitializer.h"
 #import "Routing.h"
+#import "LocationManager.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
@@ -32,6 +33,7 @@
     BOOL fbSetup = [FacebookInitializer setup:application withOptions:launchOptions];
     [TyphoonInitializer setup];
     [BeautyCenter setup];
+    [LocationManager sharedInstance];
     [self.routing showSplash];
     if ([FBSDKAccessToken currentAccessToken]) {
         NSLog(@"User already logged in");

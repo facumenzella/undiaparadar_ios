@@ -82,6 +82,7 @@
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeRight];
+    self.mapView.showsUserLocation = YES;
 }
 
 - (void)buildOverTittle
@@ -217,8 +218,10 @@
         aView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"mapPin"];
     }
     
-    aView.image = ((PositiveActionAnnotation*)annotation).locationPinImage;
-    aView.canShowCallout = YES;
+    if ([annotation isKindOfClass:[PositiveActionAnnotation class]]) {
+        aView.image = ((PositiveActionAnnotation*)annotation).locationPinImage;
+        aView.canShowCallout = YES;
+    }
     
     return aView;
 }
@@ -243,6 +246,16 @@
     self.shareButton.hidden = !active;
     self.pledgeButton.hidden = !active;
     self.overTitleView.hidden = !active;
+}
+
+- (void)zoomToMyLocation
+{
+    MKCoordinateRegion region = { {0.0, 0.0 }, { 0.0, 0.0 } };
+    region.center.latitude = self.mapView.userLocation.coordinate.latitude;
+    region.center.longitude = self.mapView.userLocation.coordinate.longitude;
+    region.span.longitudeDelta = 0.15f;
+    region.span.latitudeDelta = 0.15f;
+    [self.mapView setRegion:region animated:YES];
 }
 
 #pragma mark - Tap

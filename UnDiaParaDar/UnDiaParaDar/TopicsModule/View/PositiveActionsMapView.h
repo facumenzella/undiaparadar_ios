@@ -18,6 +18,7 @@
 
 - (void)addPositiveActions:(NSArray*)positiveActions;
 - (void)showActivePositiveActionWithTitle:(NSString*)title withSubtitle:(NSString*)subttitle;
+- (void)zoomToMyLocation;
 
 @end
 

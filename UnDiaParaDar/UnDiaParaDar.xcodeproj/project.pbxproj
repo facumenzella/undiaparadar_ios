@@ -53,6 +53,8 @@
 		0DCBD1401BBB870500A870FD /* FMActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBD13F1BBB870500A870FD /* FMActivityIndicatorView.m */; };
 		0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */; };
 		0DD38FF11BBEFC4B0038C2E2 /* UIViewController+DisableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FF01BBEFC4B0038C2E2 /* UIViewController+DisableView.m */; };
+		0DEBE1CD1BC1D4F000906E52 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DEBE1CC1BC1D4F000906E52 /* CoreLocation.framework */; };
+		0DEBE1D11BC1D58E00906E52 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEBE1D01BC1D58E00906E52 /* LocationManager.m */; };
 		0DF920E71BC0851800BAA52C /* FakeModalAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF920E61BC0851800BAA52C /* FakeModalAnimator.m */; };
 		0DF920EA1BC08C8F00BAA52C /* PositiveActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF920E91BC08C8F00BAA52C /* PositiveActionView.m */; };
 		0DFF0A881B850B52004D1EB9 /* TopicsCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF0A871B850B52004D1EB9 /* TopicsCollectionViewLayout.m */; };
@@ -180,6 +182,9 @@
 		0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		0DD38FEF1BBEFC4B0038C2E2 /* UIViewController+DisableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DisableView.h"; sourceTree = "<group>"; };
 		0DD38FF01BBEFC4B0038C2E2 /* UIViewController+DisableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DisableView.m"; sourceTree = "<group>"; };
+		0DEBE1CC1BC1D4F000906E52 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0DEBE1CF1BC1D58D00906E52 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationManager.h; path = UnDiaParaDar/LocationModule/LocationManager.h; sourceTree = SOURCE_ROOT; };
+		0DEBE1D01BC1D58E00906E52 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationManager.m; path = UnDiaParaDar/LocationModule/LocationManager.m; sourceTree = SOURCE_ROOT; };
 		0DF920E51BC0851800BAA52C /* FakeModalAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeModalAnimator.h; sourceTree = "<group>"; };
 		0DF920E61BC0851800BAA52C /* FakeModalAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeModalAnimator.m; sourceTree = "<group>"; };
 		0DF920E81BC08C8F00BAA52C /* PositiveActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionView.h; sourceTree = "<group>"; };
@@ -246,6 +251,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DEBE1CD1BC1D4F000906E52 /* CoreLocation.framework in Frameworks */,
 				0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,6 +608,16 @@
 			path = View/Presenter;
 			sourceTree = "<group>";
 		};
+		0DEBE1CE1BC1D58600906E52 /* LocationModule */ = {
+			isa = PBXGroup;
+			children = (
+				0DEBE1CF1BC1D58D00906E52 /* LocationManager.h */,
+				0DEBE1D01BC1D58E00906E52 /* LocationManager.m */,
+			);
+			name = LocationModule;
+			path = ../../../../../../Facundo/itba/pf/undiaparadarios/UnDiaParaDar/UnDiaParaDar/LocationModule;
+			sourceTree = "<group>";
+		};
 		0DF920E41BC0851800BAA52C /* Animator */ = {
 			isa = PBXGroup;
 			children = (
@@ -723,6 +739,7 @@
 		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
 			isa = PBXGroup;
 			children = (
+				0DEBE1CE1BC1D58600906E52 /* LocationModule */,
 				0D7C573C1BC1B04200A402CF /* LoadingModule */,
 				0DF920E41BC0851800BAA52C /* Animator */,
 				0DCBD13D1BBB870500A870FD /* FMActivityIndicator */,
@@ -860,6 +877,7 @@
 		724CCA6615E58C6D4901AFC9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DEBE1CC1BC1D4F000906E52 /* CoreLocation.framework */,
 				359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */,
 			);
 			name = Frameworks;
@@ -1054,6 +1072,7 @@
 				113E46A61B62CD4B00ADF8AC /* ProfileModuleAssembly.m in Sources */,
 				0D11F48B1BB37DCD00AFE46D /* TermsAndConditionsViewController.m in Sources */,
 				11DEE6911B5D6DF900DCDE3E /* LoginViewController.m in Sources */,
+				0DEBE1D11BC1D58E00906E52 /* LocationManager.m in Sources */,
 				11DEE6A91B5D774900DCDE3E /* SWRevealDirector.m in Sources */,
 				0D7C574C1BC1B0B300A402CF /* BeautyCenter.m in Sources */,
 				0D6199D61BC0A18000A8C987 /* PositiveActionViewController.m in Sources */,
