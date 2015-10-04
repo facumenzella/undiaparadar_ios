@@ -22,6 +22,8 @@ static NSString * const BACKGROUND = @"menu_header";
 @property (nonatomic, strong) UITextView *positiveActionTitle;
 @property (nonatomic, strong) UIImageView *colorBandImageView;
 @property (nonatomic, strong) UITextView *positiveActionDescription;
+@property (nonatomic, strong) UIView *redBand;
+
 
 @end
 
@@ -59,12 +61,14 @@ static NSString * const BACKGROUND = @"menu_header";
     [self buildPositiveActionTitle];
     [self buildTitleUnderline];
     [self buildPositiveActionDescription];
-    [self buildOverTittle]; 
+    [self buildOverTittle];
+    [self buildRedBand];
 }
 
 - (void)buildHeader
 {
     self.mainHeaderView = [[UIImageView alloc] initForAutoLayout];
+    [self.mainHeaderView setContentMode:UIViewContentModeScaleAspectFill];
     [self.mainHeaderView setImage: [UIImage imageNamed:BACKGROUND]];
 
     [self.container addSubview:self.mainHeaderView];
@@ -155,6 +159,18 @@ static NSString * const BACKGROUND = @"menu_header";
     self.positiveActionDescription.text = @"Te invitamos a que cuando dones sangre te saques una foto como esta y que despues compartas la foto en tus redes sociales usando el hashtag \'#NOSelfie\'";
 }
 
+- (void)buildRedBand
+{
+    self.redBand = [[UIView alloc] initForAutoLayout];
+    [self.descriptionContainer addSubview:self.redBand];
+    
+    [self.redBand autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self.colorBandImageView];
+    [self.redBand autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.colorBandImageView];
+
+    [self.redBand autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.positiveActionDescription withOffset:8];
+    [self.redBand autoAlignAxis:ALAxisVertical toSameAxisOfView:self.colorBandImageView];
+}
+
 
 - (void)styleSubviews
 {
@@ -171,6 +187,7 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.descriptionContainer setBackgroundColor:[UIColor whiteColor]];
     
     [self.positiveActionDescription setTextAlignment:NSTextAlignmentCenter];
+    [self.redBand setBackgroundColor: [UIColor colorWithRed:211/255.0 green:0 blue:11/255.0 alpha:1]];
 }
 
 @end
