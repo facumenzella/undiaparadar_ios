@@ -19,8 +19,14 @@
 @property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) UIView *overTitleView;
 @property (nonatomic, strong) UITextView *overTitleTextView;
+@property (nonatomic, strong) UIButton *shareButton;
+@property (nonatomic, strong) UIButton *pledgeButton;
 
+@property (nonatomic) BOOL didTapOnce;
 @property (nonatomic) CGFloat mapHeight;
+@property (nonatomic, strong) NSArray *defaultConstraints;
+@property (nonatomic) CGFloat mapHeightActive;
+@property (nonatomic, strong) NSArray *activeConstraints;
 
 @property (nonatomic, strong) UIView *footerView;
 @property (nonatomic, strong) UITextView *positiveActionTitle;
@@ -40,6 +46,7 @@
         [self setupHeight];
         [self buildSubviews];
         [self styleSubviews];
+        [self activate:NO];
     }
     return self;
 }
@@ -60,7 +67,8 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
     
-    self.mapHeight = (3 * screenHeight / 4);
+    self.mapHeight = screenHeight;
+    self.mapHeightActive = (3 * screenHeight / 4);
 }
 
 - (void)buildSubviews
@@ -79,7 +87,15 @@
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeRight];
-    [self.mapView autoSetDimension:ALDimensionHeight toSize:self.mapHeight];
+    
+    self.defaultConstraints = [NSLayoutConstraint autoCreateAndInstallConstraints:^{
+        [self.mapView autoSetDimension:ALDimensionHeight toSize:self.mapHeight];
+    }];
+    
+    self.activeConstraints = [NSLayoutConstraint autoCreateConstraintsWithoutInstalling:^{
+        [self.mapView autoSetDimension:ALDimensionHeight toSize:self.mapHeightActive];
+    }];
+    
 }
 
 - (void)buildOverTittle
@@ -91,7 +107,7 @@
     self.overTitleView.layer.cornerRadius = 10;
     self.overTitleView.clipsToBounds = YES;
     [self.overTitleView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mapView withOffset:16];
-
+    
     self.overTitleTextView = [[UITextView alloc] initForAutoLayout];
     self.overTitleTextView.scrollEnabled = NO;
     self.overTitleTextView.editable = NO;
@@ -103,16 +119,16 @@
 
 - (void)buildButtons
 {
-    UIButton *shareButton = [ButtonFactory buttonWithImage:@"share"];
-    UIButton *pledgeButton = [ButtonFactory buttonWithImage:@"pledge"];
+    self.shareButton = [ButtonFactory buttonWithImage:@"share"];
+    self.pledgeButton = [ButtonFactory buttonWithImage:@"pledge"];
     
-    [self addSubview:shareButton];
-    [self addSubview:pledgeButton];
-    [shareButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.mapView withOffset:32];
-    [pledgeButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.mapView withOffset:-32];
+    [self addSubview:self.shareButton];
+    [self addSubview:self.pledgeButton];
+    [self.shareButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.mapView withOffset:32];
+    [self.pledgeButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.mapView withOffset:-32];
     
-    [shareButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.overTitleView withOffset:-16];
-    [pledgeButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.overTitleView withOffset:-16];
+    [self.shareButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.overTitleView withOffset:-16];
+    [self.pledgeButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.overTitleView withOffset:-16];
 }
 
 - (void)buildFooterView
@@ -186,6 +202,12 @@
     [self showActivePositiveActionWithTitle:title withSubtitle:subtitle];
     
     self.footerView.userInteractionEnabled = YES;
+    self.overTitleView.userInteractionEnabled = self.footerView.userInteractionEnabled;
+    
+    if (!self.didTapOnce) {
+        self.didTapOnce = !self.didTapOnce;
+        [self activate:YES];
+    }
 }
 
 
@@ -203,6 +225,28 @@
     aView.canShowCallout = YES;
     
     return aView;
+}
+
+- (void)activate:(BOOL)active
+{
+    if (active) {
+        [UIView animateWithDuration:.4 animations:^{
+            [self activateViews:active];
+            
+            [self.defaultConstraints autoRemoveConstraints];
+            [self.activeConstraints autoInstallConstraints];
+            [self layoutIfNeeded];
+        }];
+    } else {
+        [self activateViews:active];
+    }
+}
+
+- (void)activateViews:(BOOL)active
+{
+    self.shareButton.hidden = !active;
+    self.pledgeButton.hidden = !active;
+    self.overTitleView.hidden = !active;
 }
 
 #pragma mark - Tap
