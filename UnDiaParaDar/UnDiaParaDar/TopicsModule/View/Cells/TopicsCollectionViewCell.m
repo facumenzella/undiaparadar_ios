@@ -9,6 +9,7 @@
 #import "TopicsCollectionViewCell.h"
 #import "Topic.h"
 #import "TopicCellPresenter.h"
+#import "BeautyCenter.h"
 #import <PureLayout/PureLayout.h>
 
 @interface TopicsCollectionViewCell ()
@@ -25,6 +26,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self buildSubviews];
+        [self styleCellSubviews];
     }
     return self;
 }
@@ -34,6 +36,7 @@
     self = [super init];
     if (self) {
         [self buildSubviews];
+        [self styleCellSubviews];
     }
     return self;
 }
@@ -42,7 +45,6 @@
 {
     [self buildTopicImageView];
     [self buildTopicLabel];
-    [self styleCellSubviews];
 }
 
  - (void)buildTopicImageView
@@ -77,9 +79,10 @@
  - (void)styleTopicTextView
 {
     self.topicLabel.textAlignment = NSTextAlignmentCenter;
-    [self.topicLabel setFont:[UIFont systemFontOfSize:14]];
     [self.topicLabel setBackgroundColor:[UIColor clearColor]];
     [self.topicLabel setTextColor: [UIColor blackColor]];
+    [self.topicLabel setFont: [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
+                                                             withSize:BeautyCenterTypographySizeA]];
 }
 
 - (void)populateCellWithTopic:(TopicCellPresenter *)presenter
