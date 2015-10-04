@@ -14,10 +14,12 @@ static NSString * const BACKGROUND = @"menu_header";
 
 @interface PositiveActionView ()
 
-@property (nonatomic, strong) UIScrollView *container;
+@property (nonatomic, strong) UIView *container;
 @property (nonatomic, strong) UIImageView *mainHeaderView;
+@property (nonatomic, strong) UIView *overTitleView;
+@property (nonatomic, strong) UITextView *overTitleTextView;
 @property (nonatomic, strong) UIView *descriptionContainer;
-@property (nonatomic, strong) UILabel *positiveActionTitle;
+@property (nonatomic, strong) UITextView *positiveActionTitle;
 @property (nonatomic, strong) UIImageView *colorBandImageView;
 @property (nonatomic, strong) UITextView *positiveActionDescription;
 
@@ -30,49 +32,93 @@ static NSString * const BACKGROUND = @"menu_header";
     self = [super init];
     if (self) {
         [self buildSubviews];
+        [self styleSubviews];
     }
     return self;
 }
 
 - (void)buildSubviews
 {
-    self.container = [[UIScrollView alloc] initForAutoLayout];
-    [self addSubview:self.container];
-    [self.container autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero];
+    UIScrollView *scrollView = [[UIScrollView alloc] initForAutoLayout];
+    [self addSubview:scrollView];
+    [scrollView autoPinEdgesToSuperviewEdges];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    
+    self.container = [[UIView alloc] initForAutoLayout];
+    [scrollView addSubview:self.container];
+    [self.container autoSetDimension:ALDimensionWidth toSize:screenWidth];
+    [self.container autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0 relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.container autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0 relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.container autoPinEdgeToSuperviewEdge:ALEdgeTop];
+    [self.container autoPinEdgeToSuperviewEdge:ALEdgeBottom];
     
     [self buildHeader];
     [self buildDescriptionContainer];
     [self buildPositiveActionTitle];
     [self buildTitleUnderline];
     [self buildPositiveActionDescription];
+    [self buildOverTittle]; 
 }
 
 - (void)buildHeader
 {
     self.mainHeaderView = [[UIImageView alloc] initForAutoLayout];
-    [self.mainHeaderView setContentMode:UIViewContentModeScaleAspectFill];
-    
-    [self.container addSubview:self.mainHeaderView];
-    
     [self.mainHeaderView setImage: [UIImage imageNamed:BACKGROUND]];
+
+    [self.container addSubview:self.mainHeaderView];
     [self.mainHeaderView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
 }
+
+- (void)buildOverTittle
+{
+    self.overTitleView = [[UIView alloc] initForAutoLayout];
+    [self.container addSubview: self.overTitleView];
+    [self.overTitleView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:40];
+    [self.overTitleView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
+    static CGFloat height = 32;
+    [self.overTitleView autoSetDimension:ALDimensionHeight toSize:height];
+    [self.overTitleView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mainHeaderView withOffset:height/2];
+    self.overTitleView.layer.cornerRadius = 10;
+    self.overTitleView.clipsToBounds = YES;
+    
+    [self buildOverTitleLabel];
+}
+
+- (void)buildOverTitleLabel
+{
+    self.overTitleTextView = [[UITextView alloc] initForAutoLayout];
+    self.overTitleTextView.scrollEnabled = NO;
+    self.overTitleTextView.editable = NO;
+    [self.overTitleView addSubview: self.overTitleTextView];
+    [self.overTitleTextView autoSetDimension:ALDimensionHeight toSize:32];
+    [self.overTitleTextView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:40];
+    [self.overTitleTextView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
+    [self.overTitleTextView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mainHeaderView withOffset:16];
+    self.overTitleTextView.text = @"Oh shit";
+    
+    [self.overTitleView bringSubviewToFront:self.overTitleTextView];
+}
+
 
 - (void)buildDescriptionContainer
 {
     self.descriptionContainer = [[UIView alloc] initForAutoLayout];
     [self.container addSubview:self.descriptionContainer];
-    [self.container autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.mainHeaderView];
+    [self.descriptionContainer autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.mainHeaderView];
     [self.descriptionContainer autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
 }
 
 - (void)buildPositiveActionTitle
 {
-    self.positiveActionTitle = [[UILabel alloc] initForAutoLayout];
+    self.positiveActionTitle = [[UITextView alloc] initForAutoLayout];
     [self.descriptionContainer addSubview: self.positiveActionTitle];
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:16];
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:24];
+    self.positiveActionTitle.scrollEnabled = NO;
+    self.positiveActionTitle.editable = NO;
     
     // TODO MOCK TEXT
     self.positiveActionTitle.text = @"Sumate a nuestra campaña \"NO SELFIE\"";
@@ -85,7 +131,7 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.colorBandImageView setImage: colorBand];
     
     [self.container addSubview: self.colorBandImageView];
-    [self.colorBandImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView: self.positiveActionTitle withOffset:8];
+    [self.colorBandImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.positiveActionTitle withOffset:0];
     [self.colorBandImageView autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [self.colorBandImageView autoMatchDimension:ALDimensionWidth
                                     toDimension:ALDimensionWidth
@@ -112,7 +158,19 @@ static NSString * const BACKGROUND = @"menu_header";
 
 - (void)styleSubviews
 {
-    // Here you should style every subviews
+    [self setBackgroundColor:[UIColor whiteColor]];
+    
+    [self.overTitleView setBackgroundColor: [UIColor colorWithRed:211/255.0 green:0 blue:11/255.0 alpha:1]];
+    [self.overTitleTextView setTextColor: [UIColor whiteColor]];
+    [self.overTitleTextView setBackgroundColor:[UIColor clearColor]];
+    [self.overTitleTextView setTextAlignment: NSTextAlignmentCenter];
+    
+    [self.positiveActionTitle setTextColor:[UIColor blackColor]];
+    [self.positiveActionTitle setTextAlignment:NSTextAlignmentCenter];
+    
+    [self.descriptionContainer setBackgroundColor:[UIColor whiteColor]];
+    
+    [self.positiveActionDescription setTextAlignment:NSTextAlignmentCenter];
 }
 
 @end
