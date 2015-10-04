@@ -23,6 +23,7 @@
 #import "TopicsModuleAssembly.h"
 #import "TopicsCollectionViewController.h"
 #import "PositiveActionsMapViewController.h"
+#import "PositiveActionViewController.h"
 
 #import "TermsAndConditionsAssembly.h"
 #import "TermsAndConditionsViewController.h"
@@ -113,6 +114,14 @@
                                                            positiveActionsMapViewControllerWithTopics:topics];
     [self.director present:mapViewController from:vc animated:YES];
 }
+
+- (void)showPositiveaction:(PositiveAction*)positiveAction withPresenter:(UIViewController*)vc
+{
+    PositiveActionViewController *positive = [self.topicsModuleAssembly
+                                              positiveActionViewControllerWithPositiveAction:positiveAction];
+    [self.director present:positive from:vc animated:YES];
+}
+
 
 - (void)showTermsAndConditions
 {

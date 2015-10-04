@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class PositiveAction;
+
 @protocol Routing <NSObject>
 
 - (void)showLoginPage;
@@ -16,6 +18,8 @@
 - (void)showSplash;
 - (void)showPositiveActionsMapViewControllerWithPresenter:(UIViewController*)vc
                                            withSelectedTopics:(NSArray*)topics;
+- (void)showPositiveaction:(PositiveAction*)positiveAction withPresenter:(UIViewController*)vc;
+
 - (void)showTermsAndConditions;
 - (void)showQueEsUDPD;
 
