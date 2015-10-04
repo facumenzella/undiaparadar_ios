@@ -23,7 +23,6 @@
 @property (nonatomic, strong) UIButton *pledgeButton;
 
 @property (nonatomic) BOOL didTapOnce;
-@property (nonatomic) CGFloat mapHeight;
 @property (nonatomic, strong) NSArray *defaultConstraints;
 @property (nonatomic) CGFloat mapHeightActive;
 @property (nonatomic, strong) NSArray *activeConstraints;
@@ -64,9 +63,7 @@
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
-    
-    self.mapHeight = screenHeight;
-    self.mapHeightActive = (3 * screenHeight / 4);
+    self.mapHeightActive = (screenHeight / 4);
 }
 
 - (void)buildSubviews
@@ -85,15 +82,6 @@
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeRight];
-    
-    self.defaultConstraints = [NSLayoutConstraint autoCreateAndInstallConstraints:^{
-        [self.mapView autoSetDimension:ALDimensionHeight toSize:self.mapHeight];
-    }];
-    
-    self.activeConstraints = [NSLayoutConstraint autoCreateConstraintsWithoutInstalling:^{
-        [self.mapView autoSetDimension:ALDimensionHeight toSize:self.mapHeightActive];
-    }];
-    
 }
 
 - (void)buildOverTittle
@@ -139,6 +127,15 @@
     [self.footerView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [self.footerView autoPinEdgeToSuperviewEdge:ALEdgeRight];
     [self.footerView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.mapView];
+    
+    self.defaultConstraints = [NSLayoutConstraint autoCreateAndInstallConstraints:^{
+        [self.footerView autoSetDimension:ALDimensionHeight toSize:0];
+    }];
+    
+    self.activeConstraints = [NSLayoutConstraint autoCreateConstraintsWithoutInstalling:^{
+        [self.footerView autoSetDimension:ALDimensionHeight toSize:self.mapHeightActive];
+    }];
+    
     
     [self buildPositiveActionTitle];
     [self buildTitleUnderline];
