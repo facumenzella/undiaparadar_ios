@@ -81,6 +81,12 @@ static NSString *ALL;
                           withCallback:cb];
 }
 
+- (Topic*)topicById:(NSString*)topicId
+{
+    return [topics objectForKey:topicId];
+}
+
+
 - (NSArray*)topics
 {
     static dispatch_once_t token;

@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @protocol Routing;
-@class PositiveAction;
+@class PositiveAction, TopicService;
 
 @interface PositiveActionViewController : UIViewController
 
-- (instancetype)initWithPositiveAction:(PositiveAction*)positiveAction withRouting:(id<Routing>)routing;
-
+- (instancetype)initWithPositiveAction:(PositiveAction*)positiveAction
+                           withRouting:(id<Routing>)routing
+                      withTopicService:(TopicService*)topicService;
 @end

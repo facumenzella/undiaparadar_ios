@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class PositiveAction;
+
 @interface PositiveActionView : UIView
+
+- (void)populateWithPositiveAction:(PositiveAction*)positiveAction withTopicImage:(NSString*)topicImage;
+
 
 @end

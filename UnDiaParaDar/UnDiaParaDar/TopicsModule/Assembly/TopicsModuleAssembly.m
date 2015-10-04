@@ -53,12 +53,13 @@
 
 - (PositiveActionViewController*)positiveActionViewControllerWithPositiveAction:(PositiveAction*)positiveAction
 {
-    SEL selector = @selector(initWithPositiveAction:withRouting:);
+    SEL selector = @selector(initWithPositiveAction:withRouting:withTopicService:);
     return [TyphoonDefinition withClass:[PositiveActionViewController class]
                           configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:positiveAction];
             [initializer injectParameterWith:[self.routingModuleAssembly routing]];
+            [initializer injectParameterWith:[self.serviceModuleAssembly topicService]];
         }];
     }];
 

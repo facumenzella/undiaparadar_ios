@@ -7,6 +7,7 @@
 //
 
 #import "PositiveActionView.h"
+#import "PositiveAction.h"
 #import "BeautyCenter.h"
 
 #import <PureLayout/PureLayout.h>
@@ -17,6 +18,8 @@ static NSString * const BACKGROUND = @"menu_header";
 
 @property (nonatomic, strong) UIView *container;
 @property (nonatomic, strong) UIImageView *mainHeaderView;
+@property (nonatomic, strong) UIImageView *topicImageView;
+
 @property (nonatomic, strong) UIView *overTitleView;
 @property (nonatomic, strong) UITextView *overTitleTextView;
 @property (nonatomic, strong) UIView *descriptionContainer;
@@ -38,6 +41,15 @@ static NSString * const BACKGROUND = @"menu_header";
         [self styleSubviews];
     }
     return self;
+}
+
+- (void)populateWithPositiveAction:(PositiveAction*)positiveAction withTopicImage:(NSString*)topicImage
+{
+    self.overTitleTextView.text = positiveAction.title;
+    self.positiveActionTitle.text = positiveAction.subtitle;
+    self.positiveActionDescription.text = positiveAction.positiveActionDescription;
+
+    [self.topicImageView setImage:[UIImage imageNamed:topicImage]];
 }
 
 - (void)buildSubviews
@@ -74,7 +86,25 @@ static NSString * const BACKGROUND = @"menu_header";
     
     [self.container addSubview:self.mainHeaderView];
     [self.mainHeaderView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
+    
+    [self buildTopicImage];
 }
+
+- (void)buildTopicImage
+{
+    self.topicImageView = [[UIImageView alloc] initForAutoLayout];
+    [self.mainHeaderView addSubview:self.topicImageView];
+    
+    [self.topicImageView autoSetDimension:ALDimensionHeight toSize:70];
+    [self.topicImageView autoSetDimension:ALDimensionWidth toSize:70];
+    [self.topicImageView autoCenterInSuperview];
+    
+    self.topicImageView.layer.cornerRadius = 35;
+    self.topicImageView.clipsToBounds = YES;
+    self.topicImageView.layer.borderWidth = 3.0f;
+    self.topicImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+}
+
 
 - (void)buildOverTittle
 {
@@ -82,10 +112,9 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.container addSubview: self.overTitleView];
     self.overTitleView.layer.cornerRadius = 10;
     self.overTitleView.clipsToBounds = YES;
-    static CGFloat height = 32;
     [self.overTitleView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:40];
     [self.overTitleView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
-    [self.overTitleView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mainHeaderView withOffset:height/2];
+    [self.overTitleView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mainHeaderView withOffset:20];
     
     self.overTitleTextView = [[UITextView alloc] initForAutoLayout];
     self.overTitleTextView.scrollEnabled = NO;

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class RestkitService, MappingProvider;
+@class RestkitService, MappingProvider, Topic;
 
 @interface TopicService : NSObject
 
@@ -19,6 +19,8 @@
 + (NSString*)onAnnotationImageById:(NSString*)topicID;
 
 - (NSMutableArray*)topics;
+- (Topic*)topicById:(NSString*)topicId;
+
 - (void)getPositiveActionsWithCallback:(void (^)(NSError* , NSArray*))callback;
 - (void)getPositiveActionsFilteredByTopics:(NSArray*)topics withCallback:(void (^)(NSError *, NSArray *))callback;
 
