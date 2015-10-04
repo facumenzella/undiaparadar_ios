@@ -23,8 +23,13 @@ typedef NS_ENUM(NSUInteger, BeautyCenterTypographySize) {
     BeautyCenterTypographySizeD
 };
 
+typedef NS_ENUM(NSUInteger, BeautyCenterColor) {
+    BeautyCenterColorDarkRed
+};
+
 @interface BeautyCenter : NSObject
 
 + (UIFont*)beautyCenterFontWithStyle:(BeautyCenterTypographyStyle)style withSize:(BeautyCenterTypographySize)size;
++ (UIColor*)beautyCenterColor:(BeautyCenterColor)color;
 
 @end

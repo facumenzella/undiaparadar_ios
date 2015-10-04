@@ -35,10 +35,6 @@ static UIFont *font4d;
 static UIFont *font4e;
 
 static UIColor *color1;
-static UIColor *color2;
-static UIColor *color3;
-static UIColor *color4;
-static UIColor *color5;
 
 @implementation BeautyCenter
 
@@ -56,7 +52,20 @@ static UIColor *color5;
 - (void)buildStyles
 {
     [self buildFonts];
+    [self buildColors];
 }
+
++ (UIColor*)beautyCenterColor:(BeautyCenterColor)color
+{
+    switch (color) {
+        case BeautyCenterColorDarkRed:
+            return color1;
+            break;
+        default:
+            break;
+    }
+}
+
 
 + (UIFont*)beautyCenterFontWithStyle:(BeautyCenterTypographyStyle)style withSize:(BeautyCenterTypographySize)size
 {
@@ -185,6 +194,11 @@ static UIColor *color5;
     font4c = [UIFont fontWithName:HELVETICA_NEUE_BOLD size:22];
     font4d = [UIFont fontWithName:HELVETICA_NEUE_BOLD size:24];
     font4e = [UIFont fontWithName:HELVETICA_NEUE_BOLD size:30];
+}
+
+- (void)buildColors
+{
+    color1 = [UIColor colorWithRed:211/255.0 green:0 blue:11/255.0 alpha:1];
 }
 
 @end
