@@ -27,10 +27,11 @@
 {
     self = [super init];
     if (self) {
-        self.coordinate = CLLocationCoordinate2DMake(positiveAction.latitude, positiveAction.longitude);
-        self.name = positiveAction.title;
-        self.pSubtitle = positiveAction.subtitle;
-        self.locationPinImage = [UIImage imageNamed:[TopicService onAnnotationImageById:positiveAction.topicID]];
+        self.positiveAction = positiveAction;
+        self.coordinate = CLLocationCoordinate2DMake(self.positiveAction.latitude, self.positiveAction.longitude);
+        self.name = self.positiveAction.title;
+        self.pSubtitle = self.positiveAction.subtitle;
+        self.locationPinImage = [UIImage imageNamed:[TopicService onAnnotationImageById:self.positiveAction.topicID]];
     }
     return self;
 }

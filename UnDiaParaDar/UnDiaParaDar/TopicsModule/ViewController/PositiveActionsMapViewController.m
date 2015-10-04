@@ -42,6 +42,7 @@
 -(void)loadView
 {
     self.positiveActionsView = [[PositiveActionsMapView alloc] init];
+    self.positiveActionsView.pAMVDelegate = self;
     self.view = self.positiveActionsView;
 }
 
@@ -77,7 +78,8 @@
 
 -(void)didSelectDetail
 {
-    // TODO
+    PositiveAction *action = self.positiveActionsView.activeAnnotation.positiveAction;
+    [self.routing showPositiveaction:action withPresenter:self];
 }
 
 @end

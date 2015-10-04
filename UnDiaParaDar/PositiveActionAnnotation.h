@@ -16,6 +16,7 @@
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, strong, readonly) UIImage *locationPinImage;
+@property (nonatomic, strong) PositiveAction *positiveAction;
 
 -(id)initWithPositiveAction:(PositiveAction*)positiveAction;
 

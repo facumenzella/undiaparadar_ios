@@ -132,6 +132,9 @@
     
     [self buildPositiveActionTitle];
     [self buildTitleUnderline];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSelectDetail)];
+    [self.footerView addGestureRecognizer:tap];
 }
 
 - (void)buildPositiveActionTitle
@@ -184,6 +187,8 @@
     NSString *title = self.activeAnnotation.title;
     NSString *subtitle = self.activeAnnotation.pSubtitle;
     [self showActivePositiveActionWithTitle:title withSubtitle:subtitle];
+    
+    self.footerView.userInteractionEnabled = YES;
 }
 
 
@@ -201,6 +206,13 @@
     aView.canShowCallout = YES;
     
     return aView;
+}
+
+#pragma mark - Tap
+
+- (void)didSelectDetail
+{
+    [self.pAMVDelegate didSelectDetail];
 }
 
 @end
