@@ -32,8 +32,6 @@
 @property (nonatomic, strong) UITextView *positiveActionTitle;
 @property (nonatomic, strong) UIImageView *colorBandImageView;
 
-@property (nonatomic, strong) UITapGestureRecognizer *tap;
-
 @end
 
 @implementation PositiveActionsMapView
@@ -114,7 +112,8 @@
     [self.overTitleView addSubview: self.overTitleTextView];
     [self.overTitleTextView autoPinEdgesToSuperviewEdges];
     
-    [self.overTitleView addGestureRecognizer:self.tap];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSelectDetail)];
+    [self.overTitleView addGestureRecognizer:tap];
 }
 
 - (void)buildButtons
@@ -144,8 +143,8 @@
     [self buildPositiveActionTitle];
     [self buildTitleUnderline];
     
-    self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSelectDetail)];
-    [self.footerView addGestureRecognizer:self.tap];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSelectDetail)];
+    [self.footerView addGestureRecognizer:tap];
 }
 
 - (void)buildPositiveActionTitle
