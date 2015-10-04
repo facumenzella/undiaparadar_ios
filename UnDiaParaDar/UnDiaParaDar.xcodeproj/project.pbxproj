@@ -26,7 +26,10 @@
 		0D6199D61BC0A18000A8C987 /* PositiveActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6199D51BC0A18000A8C987 /* PositiveActionViewController.m */; };
 		0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6612C81B98C69C006C272F /* ButtonFactory.m */; };
 		0D6612CC1B98CA76006C272F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D6612CE1B98CA76006C272F /* Localizable.strings */; };
-		0D75D5901BBC4B36009F0294 /* PositiveActionAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D75D58F1BBC4B36009F0294 /* PositiveActionAnnotation.m */; };
+		0D7C572B1BC1B01B00A402CF /* PositiveActionAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C572A1BC1B01B00A402CF /* PositiveActionAnnotation.m */; };
+		0D7C57471BC1B04200A402CF /* LoadingModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C573F1BC1B04200A402CF /* LoadingModuleAssembly.m */; };
+		0D7C57481BC1B04200A402CF /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C57411BC1B04200A402CF /* LoadingViewController.m */; };
+		0D7C57491BC1B04200A402CF /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C57461BC1B04200A402CF /* LoadingView.m */; };
 		0D8580EF1BBB6B17002CEB2B /* MappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8580EE1BBB6B17002CEB2B /* MappingProvider.m */; };
 		0D8580F21BBB6BAB002CEB2B /* PositiveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8580F11BBB6BAB002CEB2B /* PositiveAction.m */; };
 		0D9059301BA641650008BF75 /* PositiveActionsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D90592F1BA641650008BF75 /* PositiveActionsMapViewController.m */; };
@@ -49,9 +52,6 @@
 		0DCBD1401BBB870500A870FD /* FMActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBD13F1BBB870500A870FD /* FMActivityIndicatorView.m */; };
 		0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */; };
 		0DD38FF11BBEFC4B0038C2E2 /* UIViewController+DisableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FF01BBEFC4B0038C2E2 /* UIViewController+DisableView.m */; };
-		0DD38FF51BBEFE5A0038C2E2 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FF41BBEFE5A0038C2E2 /* LoadingViewController.m */; };
-		0DD38FF91BBEFF590038C2E2 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FF81BBEFF590038C2E2 /* LoadingView.m */; };
-		0DD38FFF1BBF06860038C2E2 /* LoadingModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FFE1BBF06860038C2E2 /* LoadingModuleAssembly.m */; };
 		0DF920E71BC0851800BAA52C /* FakeModalAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF920E61BC0851800BAA52C /* FakeModalAnimator.m */; };
 		0DF920EA1BC08C8F00BAA52C /* PositiveActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF920E91BC08C8F00BAA52C /* PositiveActionView.m */; };
 		0DFF0A881B850B52004D1EB9 /* TopicsCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF0A871B850B52004D1EB9 /* TopicsCollectionViewLayout.m */; };
@@ -125,8 +125,15 @@
 		0D6612C81B98C69C006C272F /* ButtonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonFactory.m; sourceTree = "<group>"; };
 		0D6612CD1B98CA76006C272F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0D6612CF1B98CA96006C272F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		0D75D58E1BBC4B36009F0294 /* PositiveActionAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionAnnotation.h; sourceTree = SOURCE_ROOT; };
-		0D75D58F1BBC4B36009F0294 /* PositiveActionAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionAnnotation.m; sourceTree = SOURCE_ROOT; };
+		0D7C57291BC1B01B00A402CF /* PositiveActionAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionAnnotation.h; sourceTree = "<group>"; };
+		0D7C572A1BC1B01B00A402CF /* PositiveActionAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionAnnotation.m; sourceTree = "<group>"; };
+		0D7C573E1BC1B04200A402CF /* LoadingModuleAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingModuleAssembly.h; sourceTree = "<group>"; };
+		0D7C573F1BC1B04200A402CF /* LoadingModuleAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingModuleAssembly.m; sourceTree = "<group>"; };
+		0D7C57401BC1B04200A402CF /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		0D7C57411BC1B04200A402CF /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		0D7C57441BC1B04200A402CF /* AnimatedViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedViewProtocol.h; sourceTree = "<group>"; };
+		0D7C57451BC1B04200A402CF /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
+		0D7C57461BC1B04200A402CF /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		0D8580ED1BBB6B17002CEB2B /* MappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingProvider.h; sourceTree = "<group>"; };
 		0D8580EE1BBB6B17002CEB2B /* MappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingProvider.m; sourceTree = "<group>"; };
 		0D8580F01BBB6BAB002CEB2B /* PositiveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveAction.h; sourceTree = "<group>"; };
@@ -170,13 +177,6 @@
 		0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		0DD38FEF1BBEFC4B0038C2E2 /* UIViewController+DisableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DisableView.h"; sourceTree = "<group>"; };
 		0DD38FF01BBEFC4B0038C2E2 /* UIViewController+DisableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DisableView.m"; sourceTree = "<group>"; };
-		0DD38FF31BBEFE5A0038C2E2 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
-		0DD38FF41BBEFE5A0038C2E2 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
-		0DD38FF71BBEFF590038C2E2 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
-		0DD38FF81BBEFF590038C2E2 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
-		0DD38FFB1BBEFFA30038C2E2 /* AnimatedViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedViewProtocol.h; sourceTree = "<group>"; };
-		0DD38FFD1BBF06860038C2E2 /* LoadingModuleAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingModuleAssembly.h; sourceTree = "<group>"; };
-		0DD38FFE1BBF06860038C2E2 /* LoadingModuleAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingModuleAssembly.m; sourceTree = "<group>"; };
 		0DF920E51BC0851800BAA52C /* FakeModalAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeModalAnimator.h; sourceTree = "<group>"; };
 		0DF920E61BC0851800BAA52C /* FakeModalAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeModalAnimator.m; sourceTree = "<group>"; };
 		0DF920E81BC08C8F00BAA52C /* PositiveActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionView.h; sourceTree = "<group>"; };
@@ -379,13 +379,52 @@
 			path = Factories;
 			sourceTree = "<group>";
 		};
-		0D75D58D1BBC4B13009F0294 /* Annotations */ = {
+		0D7C57281BC1B01B00A402CF /* Annotations */ = {
 			isa = PBXGroup;
 			children = (
-				0D75D58E1BBC4B36009F0294 /* PositiveActionAnnotation.h */,
-				0D75D58F1BBC4B36009F0294 /* PositiveActionAnnotation.m */,
+				0D7C57291BC1B01B00A402CF /* PositiveActionAnnotation.h */,
+				0D7C572A1BC1B01B00A402CF /* PositiveActionAnnotation.m */,
 			);
-			name = Annotations;
+			path = Annotations;
+			sourceTree = SOURCE_ROOT;
+		};
+		0D7C573C1BC1B04200A402CF /* LoadingModule */ = {
+			isa = PBXGroup;
+			children = (
+				0D7C573D1BC1B04200A402CF /* Assembly */,
+				0D7C57401BC1B04200A402CF /* LoadingViewController.h */,
+				0D7C57411BC1B04200A402CF /* LoadingViewController.m */,
+				0D7C57421BC1B04200A402CF /* Presenter */,
+				0D7C57431BC1B04200A402CF /* View */,
+			);
+			name = LoadingModule;
+			path = Animator/LoadingModule;
+			sourceTree = "<group>";
+		};
+		0D7C573D1BC1B04200A402CF /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				0D7C573E1BC1B04200A402CF /* LoadingModuleAssembly.h */,
+				0D7C573F1BC1B04200A402CF /* LoadingModuleAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		0D7C57421BC1B04200A402CF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0D7C57431BC1B04200A402CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0D7C57441BC1B04200A402CF /* AnimatedViewProtocol.h */,
+				0D7C57451BC1B04200A402CF /* LoadingView.h */,
+				0D7C57461BC1B04200A402CF /* LoadingView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		0D9E1E081B7E5A910049D08B /* SplashModule */ = {
@@ -547,49 +586,10 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		0DD38FF21BBEFE460038C2E2 /* LoadingModule */ = {
-			isa = PBXGroup;
-			children = (
-				0DD38FFC1BBF042E0038C2E2 /* Assembly */,
-				0DD38FFA1BBEFF7F0038C2E2 /* Presenter */,
-				0DD38FF61BBEFF220038C2E2 /* View */,
-				0DD38FF31BBEFE5A0038C2E2 /* LoadingViewController.h */,
-				0DD38FF41BBEFE5A0038C2E2 /* LoadingViewController.m */,
-			);
-			name = LoadingModule;
-			path = Factories/LoadingModule;
-			sourceTree = "<group>";
-		};
-		0DD38FF61BBEFF220038C2E2 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				0DD38FF71BBEFF590038C2E2 /* LoadingView.h */,
-				0DD38FF81BBEFF590038C2E2 /* LoadingView.m */,
-				0DD38FFB1BBEFFA30038C2E2 /* AnimatedViewProtocol.h */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		0DD38FFA1BBEFF7F0038C2E2 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		0DD38FFC1BBF042E0038C2E2 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				0DD38FFD1BBF06860038C2E2 /* LoadingModuleAssembly.h */,
-				0DD38FFE1BBF06860038C2E2 /* LoadingModuleAssembly.m */,
-			);
-			path = Assembly;
-			sourceTree = "<group>";
-		};
 		0DD63F781B7EAD7D00766361 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				0D75D58D1BBC4B13009F0294 /* Annotations */,
+				0D7C57281BC1B01B00A402CF /* Annotations */,
 				0DB25A031B9A9688002F6E30 /* TopicCellPresenter.h */,
 				0DB25A041B9A9688002F6E30 /* TopicCellPresenter.m */,
 			);
@@ -718,9 +718,9 @@
 		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
 			isa = PBXGroup;
 			children = (
+				0D7C573C1BC1B04200A402CF /* LoadingModule */,
 				0DF920E41BC0851800BAA52C /* Animator */,
 				0DCBD13D1BBB870500A870FD /* FMActivityIndicator */,
-				0DD38FF21BBEFE460038C2E2 /* LoadingModule */,
 				0DAF2FD51B7E94360045CE08 /* Model */,
 				0DAF2FD91B7E947B0045CE08 /* Services */,
 				0DCD99D21B8F7FBE00FF738E /* Extensions */,
@@ -1001,20 +1001,20 @@
 				0DBD219D1BA372DA002AC53C /* FacebookInitializer.m in Sources */,
 				0D4B13BA1BA4BB5D00961764 /* RemoteImageView.m in Sources */,
 				11DEE6B61B5D937F00DCDE3E /* FacebookLoginFlow.m in Sources */,
-				0DD38FFF1BBF06860038C2E2 /* LoadingModuleAssembly.m in Sources */,
 				11DEE6AD1B5D778F00DCDE3E /* RoutingModuleAssembly.m in Sources */,
 				113E469E1B62C07E00ADF8AC /* ProfileViewController.m in Sources */,
 				0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */,
 				0D3D72351BBB6510006EC1E9 /* RestkitService.m in Sources */,
-				0DD38FF91BBEFF590038C2E2 /* LoadingView.m in Sources */,
 				0DCBD1401BBB870500A870FD /* FMActivityIndicatorView.m in Sources */,
 				0D11F4911BB37FA000AFE46D /* TermsAndConditionsView.m in Sources */,
-				0DD38FF51BBEFE5A0038C2E2 /* LoadingViewController.m in Sources */,
+				0D7C572B1BC1B01B00A402CF /* PositiveActionAnnotation.m in Sources */,
+				0D7C57471BC1B04200A402CF /* LoadingModuleAssembly.m in Sources */,
 				0D8580F21BBB6BAB002CEB2B /* PositiveAction.m in Sources */,
 				0D9E1E141B7E610B0049D08B /* SplashModuleAssembly.m in Sources */,
 				11DEE6971B5D6F6D00DCDE3E /* TyphoonInitializer.m in Sources */,
 				0D44DADA1B90E62600A274BD /* MenuOptionViewCell.m in Sources */,
 				0DAF2FDF1B7E9AEC0045CE08 /* TopicsModuleAssembly.m in Sources */,
+				0D7C57491BC1B04200A402CF /* LoadingView.m in Sources */,
 				0DD38FF11BBEFC4B0038C2E2 /* UIViewController+DisableView.m in Sources */,
 				0DAF2FAD1B7E8EED0045CE08 /* TopicsCollectionViewController.m in Sources */,
 				0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */,
@@ -1022,6 +1022,7 @@
 				1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */,
 				0DAF2FE51B7E9FF30045CE08 /* TopicsCollectionViewCell.m in Sources */,
 				110FE8AB1B66B8C0002A2273 /* SWRevealArchitect.m in Sources */,
+				0D7C57481BC1B04200A402CF /* LoadingViewController.m in Sources */,
 				11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */,
 				110FE8AF1B66B9B0002A2273 /* MenuModuleAssembly.m in Sources */,
 				0D94F83E1BA9FCE100945F81 /* PositiveActionsMapView.m in Sources */,
@@ -1044,7 +1045,6 @@
 				0D1763881BB464CE00C6E664 /* QueEsView.m in Sources */,
 				0DAF2FE21B7E9D290045CE08 /* ServiceModuleAssembly.m in Sources */,
 				0DB25A051B9A9688002F6E30 /* TopicCellPresenter.m in Sources */,
-				0D75D5901BBC4B36009F0294 /* PositiveActionAnnotation.m in Sources */,
 				0D8580EF1BBB6B17002CEB2B /* MappingProvider.m in Sources */,
 				113E46A61B62CD4B00ADF8AC /* ProfileModuleAssembly.m in Sources */,
 				0D11F48B1BB37DCD00AFE46D /* TermsAndConditionsViewController.m in Sources */,
