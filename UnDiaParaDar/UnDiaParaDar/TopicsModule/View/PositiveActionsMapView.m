@@ -9,6 +9,7 @@
 #import "PositiveActionsMapView.h"
 #import "ButtonFactory.h"
 #import "PositiveActionAnnotation.h"
+#import "BeautyCenter.h"
 
 #import <MapKit/MapKit.h>
 #import <PureLayout/PureLayout.h>
@@ -85,25 +86,15 @@
     [self addSubview: self.overTitleView];
     [self.overTitleView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:40];
     [self.overTitleView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
-    static CGFloat height = 32;
-    [self.overTitleView autoSetDimension:ALDimensionHeight toSize:height];
-    [self.overTitleView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mapView withOffset:height/2];
     self.overTitleView.layer.cornerRadius = 10;
     self.overTitleView.clipsToBounds = YES;
-    
-    [self buildOverTitleLabel];
-}
+    [self.overTitleView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mapView withOffset:16];
 
-- (void)buildOverTitleLabel
-{
     self.overTitleTextView = [[UITextView alloc] initForAutoLayout];
     self.overTitleTextView.scrollEnabled = NO;
     self.overTitleTextView.editable = NO;
-    [self addSubview: self.overTitleTextView];
-    [self.overTitleTextView autoSetDimension:ALDimensionHeight toSize:32];
-    [self.overTitleTextView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:40];
-    [self.overTitleTextView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
-    [self.overTitleTextView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mapView withOffset:16];
+    [self.overTitleView addSubview: self.overTitleTextView];
+    [self.overTitleTextView autoPinEdgesToSuperviewEdges];
 }
 
 - (void)buildButtons
@@ -166,10 +157,12 @@
 
 - (void)styleSubviews
 {
-    [self.overTitleView setBackgroundColor: [UIColor colorWithRed:211/255.0 green:0 blue:11/255.0 alpha:1]];
+    [self.overTitleView setBackgroundColor: [BeautyCenter beautyCenterColor:BeautyCenterColorDarkRed]];
     
     [self.overTitleTextView setTextColor: [UIColor whiteColor]];
     [self.overTitleTextView setBackgroundColor:[UIColor clearColor]];
+    [self.overTitleTextView setFont: [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
+                                                                    withSize:BeautyCenterTypographySizeB]];
     [self.overTitleTextView setTextAlignment: NSTextAlignmentCenter];
     
     [self.footerView setBackgroundColor: [UIColor whiteColor]];
