@@ -8,6 +8,8 @@
 
 #import "MenuOptionViewCell.h"
 #import "MenuOptionPresenter.h"
+#import "BeautyCenter.h"
+
 #import <PureLayout/PureLayout.h>
 
 @interface MenuOptionViewCell ()
@@ -31,17 +33,20 @@
 - (void)buildOptionImageView
 {
     self.optionImageView = [[UIImageView alloc] initForAutoLayout];
+    [self.optionImageView setContentMode:UIViewContentModeScaleAspectFill];
     [self.contentView addSubview:self.optionImageView];
     
     [self.optionImageView autoSetDimension:ALDimensionHeight toSize:32];
     [self.optionImageView autoSetDimension:ALDimensionWidth toSize:32];
     [self.optionImageView autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
-    [self.optionImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:32];
+    [self.optionImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:16];
 }
 
 - (void)buildTitle
 {
     self.optionLabel = [[UILabel alloc] initForAutoLayout];
+    self.optionLabel.numberOfLines = 2;
+    
     [self.contentView addSubview:self.optionLabel];
     
     [self.optionLabel autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.optionImageView];
@@ -61,6 +66,12 @@
     [self.optionLabel setText: presenter.option];
     
     [self.contentView layoutIfNeeded];
+}
+
+- (void)styleSubviews
+{
+    [self.optionLabel setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
+                                                             withSize:BeautyCenterTypographySizeA]];
 }
 
 + (CGFloat)heightWithItem:(RETableViewItem *)item tableViewManager:(RETableViewManager *)tableViewManager

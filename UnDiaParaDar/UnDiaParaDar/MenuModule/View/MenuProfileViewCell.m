@@ -9,6 +9,8 @@
 #import "MenuProfileViewCell.h"
 #import "MenuProfilePresenter.h"
 #import "RemoteImageView.h"
+#import "BeautyCenter.h"
+
 #import <PureLayout/PureLayout.h>
 
 static NSString * const PLACEHOLDER = @"placeholder";
@@ -122,7 +124,8 @@ static NSString * const BACKGROUND = @"menu_header";
 - (void)styleUsername
 {
     [self.usernameTextView setBackgroundColor:[UIColor clearColor]];
-    [self.usernameTextView setFont:[UIFont systemFontOfSize:20 weight:5]];
+    [self.usernameTextView setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleMedium
+                                                                  withSize:BeautyCenterTypographySizeD]];
     [self.usernameTextView setTextColor: [UIColor whiteColor]];
     self.usernameTextView.editable = NO;
 }
