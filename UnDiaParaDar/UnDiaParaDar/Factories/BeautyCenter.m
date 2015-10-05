@@ -41,6 +41,7 @@ static UIFont *font4d;
 static UIFont *font4e;
 
 static UIColor *color1;
+static UIColor *color2;
 
 @implementation BeautyCenter
 
@@ -72,6 +73,8 @@ static UIColor *color1;
         case BeautyCenterColorDarkRed:
             return color1;
             break;
+        case BeautyCenterColorGrey:
+            return color2;
         default:
             break;
     }
@@ -210,6 +213,7 @@ static UIColor *color1;
 - (void)buildColors
 {
     color1 = [UIColor colorWithRed:211/255.0 green:0 blue:11/255.0 alpha:1];
+    color2 = [UIColor colorWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1];
 }
 
 @end

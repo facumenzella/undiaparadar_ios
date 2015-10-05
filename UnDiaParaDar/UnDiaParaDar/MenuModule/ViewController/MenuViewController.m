@@ -85,7 +85,7 @@
     
     self.tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
     // we do not like this, but we do not have a better method yet
-    self.tableViewManager.style.defaultCellSelectionStyle = UITableViewCellSelectionStyleNone;
+    self.tableViewManager.style.defaultCellSelectionStyle = UITableViewCellSelectionStyleGray;
 }
 
 - (void)registerAndBuildProfileSection

@@ -28,6 +28,7 @@
     [super cellDidLoad];
     [self buildOptionImageView];
     [self buildTitle];
+    [self buildSeparator];
 }
 
 - (void)buildOptionImageView
@@ -36,8 +37,8 @@
     [self.optionImageView setContentMode:UIViewContentModeScaleAspectFill];
     [self.contentView addSubview:self.optionImageView];
     
-    [self.optionImageView autoSetDimension:ALDimensionHeight toSize:32];
-    [self.optionImageView autoSetDimension:ALDimensionWidth toSize:32];
+    [self.optionImageView autoSetDimension:ALDimensionHeight toSize:24];
+    [self.optionImageView autoSetDimension:ALDimensionWidth toSize:24];
     [self.optionImageView autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     [self.optionImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:16];
 }
@@ -55,6 +56,17 @@
     [self.optionLabel autoSetDimension:ALDimensionHeight
                              toSize:64
                            relation:NSLayoutRelationLessThanOrEqual];
+}
+
+- (void)buildSeparator
+{
+    UIImageView *lineSeparator = [[UIImageView alloc] initForAutoLayout];
+    [self.contentView addSubview:lineSeparator];
+    [lineSeparator setBackgroundColor:[BeautyCenter beautyCenterColor:BeautyCenterColorGrey]];
+    [lineSeparator autoSetDimension:ALDimensionHeight toSize:1];
+    [lineSeparator autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:16];
+    [lineSeparator autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:16];
+    [lineSeparator autoPinEdgeToSuperviewEdge:ALEdgeBottom];
 }
 
 - (void) cellWillAppear
