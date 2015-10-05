@@ -192,18 +192,21 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    self.activeAnnotation = (PositiveActionAnnotation*)view.annotation;
-    
-    NSString *title = self.activeAnnotation.title;
-    NSString *subtitle = self.activeAnnotation.pSubtitle;
-    [self showActivePositiveActionWithTitle:title withSubtitle:subtitle];
-    
-    self.footerView.userInteractionEnabled = YES;
-    self.overTitleView.userInteractionEnabled = self.footerView.userInteractionEnabled;
-    
-    if (!self.didTapOnce) {
-        self.didTapOnce = !self.didTapOnce;
-        [self activate:YES];
+    if ([view.annotation isKindOfClass:[PositiveActionAnnotation class]]) {
+        self.activeAnnotation = (PositiveActionAnnotation*)view.annotation;
+        
+        
+        NSString *title = self.activeAnnotation.title;
+        NSString *subtitle = self.activeAnnotation.pSubtitle;
+        [self showActivePositiveActionWithTitle:title withSubtitle:subtitle];
+        
+        self.footerView.userInteractionEnabled = YES;
+        self.overTitleView.userInteractionEnabled = self.footerView.userInteractionEnabled;
+        
+        if (!self.didTapOnce) {
+            self.didTapOnce = !self.didTapOnce;
+            [self activate:YES];
+        }
     }
 }
 
