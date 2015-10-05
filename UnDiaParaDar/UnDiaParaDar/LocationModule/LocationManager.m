@@ -7,7 +7,12 @@
 //
 
 #import "LocationManager.h"
+#import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+
+#define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
+static BOOL enabled;
 
 @interface LocationManager () <CLLocationManagerDelegate>
 
@@ -34,12 +39,29 @@
     self.manager.delegate = self;
     self.manager.desiredAccuracy = kCLLocationAccuracyKilometer;
     self.manager.distanceFilter = 500; // meters
-    [self.manager requestWhenInUseAuthorization];
+    if (IS_OS_8_OR_LATER) {
+        [self.manager requestWhenInUseAuthorization];
+        [self.manager requestAlwaysAuthorization];
+    }
     [self.manager startUpdatingLocation];
 }
 
-// This method is from apple developer examples
++ (BOOL)locationServicesEnabled
+{
+    return [CLLocationManager locationServicesEnabled] && enabled;
+}
 
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    enabled = YES;
+    if (status == kCLAuthorizationStatusRestricted ||
+        status == kCLAuthorizationStatusDenied ||
+        status == kCLAuthorizationStatusNotDetermined) {
+        enabled = NO;
+    }
+}
+
+// This method is from apple developer examples
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations {
     // If it's a relatively recent event, turn off updates to save power.

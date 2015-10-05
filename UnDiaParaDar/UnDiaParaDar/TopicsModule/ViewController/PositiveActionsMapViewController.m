@@ -9,6 +9,7 @@
 #import "PositiveActionsMapViewController.h"
 #import "PositiveActionsMapView.h"
 #import "PositiveActionAnnotation.h"
+#import "LocationManager.h"
 
 #import "Routing.h"
 #import "TopicService.h"
@@ -49,9 +50,11 @@
 -(void)viewDidLoad
 {
     self.title = NSLocalizedString(@"MAP_SECTION", @"Mapa");
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.positiveActionsView zoomToMyLocation];
-    });
+    if ([LocationManager locationServicesEnabled]) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.positiveActionsView zoomToMyLocation];
+        });
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated

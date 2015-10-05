@@ -11,5 +11,6 @@
 @interface LocationManager : NSObject
 
 + (instancetype)sharedInstance;
++ (BOOL)locationServicesEnabled;
 
 @end
