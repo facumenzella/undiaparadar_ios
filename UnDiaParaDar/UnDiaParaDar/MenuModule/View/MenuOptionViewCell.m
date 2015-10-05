@@ -40,7 +40,7 @@
     [self.optionImageView autoSetDimension:ALDimensionHeight toSize:24];
     [self.optionImageView autoSetDimension:ALDimensionWidth toSize:24];
     [self.optionImageView autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
-    [self.optionImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:16];
+    [self.optionImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
 }
 
 - (void)buildTitle
