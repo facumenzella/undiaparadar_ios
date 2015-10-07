@@ -114,7 +114,7 @@ static NSString *const PLACEHOLDER = @"placeholder";
     [self.userName setBackgroundColor:[UIColor clearColor]];
     [self.userName setTextAlignment:NSTextAlignmentCenter];
     [self.userName setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleMedium
-                                                          withSize:BeautyCenterTypographySizeD]];
+                                                          withSize:BeautyCenterTypographySizeE]];
     [self.userName setTextColor: [UIColor whiteColor]];
     
 }
