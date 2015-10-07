@@ -10,10 +10,12 @@
 #import "SpotifyLikeView.h"
 #import "SpotifyLikeViewPresenter.h"
 #import "Routing.h"
+#import "UserService.h"
 
 @interface ProfileViewController ()
 
 @property (nonatomic, strong) id<Routing> routing;
+@property (nonatomic, strong) UserService *userService;
 
 @end
 
@@ -21,11 +23,12 @@
 
 #pragma mark - ProfileViewController
 
-- (instancetype)initWithRouting:(id<Routing>)routing
+- (instancetype)initWithRouting:(id<Routing>)routing withUserService:(UserService*)userService
 {
     self = [super init];
     if (self) {
         self.routing = routing;
+        self.userService = userService;
     }
     return self;
 }
