@@ -13,7 +13,7 @@
 
 #import <PureLayout/PureLayout.h>
 
-static NSString *const HEADER = @"menu_header";
+static NSString *const HEADER = @"profile_header";
 static NSString *const PLACEHOLDER = @"placeholder";
 
 @interface ProfileView ()
@@ -59,8 +59,7 @@ static NSString *const PLACEHOLDER = @"placeholder";
     [self.headerImageView setImage:[UIImage imageNamed:HEADER]];
     
     [self.headerImageView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
-    [self.headerImageView setContentMode:UIViewContentModeScaleAspectFill];
-    [self.headerImageView autoSetDimension:ALDimensionHeight toSize:250];
+    [self.headerImageView setContentMode:UIViewContentModeScaleToFill];
 }
 
 - (void)buildUserProfileImage
@@ -71,7 +70,7 @@ static NSString *const PLACEHOLDER = @"placeholder";
     [self.userProfileImageView autoSetDimension:ALDimensionHeight toSize:150];
     [self.userProfileImageView autoSetDimension:ALDimensionWidth toSize:150];
     [self.userProfileImageView autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [self.userProfileImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:24];
+    [self.userProfileImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:32];
     
     self.userProfileImageView.layer.cornerRadius = 75;
     self.userProfileImageView.clipsToBounds = YES;
@@ -86,7 +85,7 @@ static NSString *const PLACEHOLDER = @"placeholder";
     self.overview = [[UIView alloc] initForAutoLayout];
     [self.headerImageView addSubview:self.overview];
     
-    [self.overview autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.userProfileImageView withOffset:8];
+//    [self.overview autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.userProfileImageView withOffset:8];
     [self.overview autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [self.overview autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
     [self.overview autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:20];
