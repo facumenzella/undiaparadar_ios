@@ -98,7 +98,8 @@
 
 - (void)showProfile
 {
-    [self showMainPage];
+    ProfileViewController *profileViewController = [self.profileModuleAssembly profileViewController];
+    [self.director setRoot:[self.architect buildMainScreenWithRootViewController: profileViewController]];
 }
 
 - (void)showSplash

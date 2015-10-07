@@ -7,8 +7,7 @@
 //
 
 #import "ProfileViewController.h"
-#import "SpotifyLikeView.h"
-#import "SpotifyLikeViewPresenter.h"
+#import "ProfileView.h"
 #import "Routing.h"
 #import "UserService.h"
 
@@ -35,9 +34,7 @@
 
 - (void)loadView
 {
-    SpotifyLikeViewPresenter *presenter = [[SpotifyLikeViewPresenter alloc] initWithProfilePicture:@"avatar128x128"
-                                                                               withTimelinePicture:@"timeline"];
-    self.view = [[SpotifyLikeView alloc] initWithPresenter:presenter];
+    self.view = [[ProfileView alloc] init];
 }
 
 

@@ -96,6 +96,12 @@
     
     self.profileMenuPresenter = [self menuProfilePresenterWithUserImage:nil
                                                            withUserName:@""];
+    __weak MenuViewController *welf = self;
+    self.profileMenuPresenter.selectionHandler = ^(MenuProfilePresenter* presenter) {
+        [presenter deselectRowAnimated:NO];
+        [welf.routing showProfile];
+    };
+ 
     [profileSection addItem:self.profileMenuPresenter];
 }
 
@@ -157,10 +163,10 @@
     MenuProfilePresenter *profilePresenter = [[MenuProfilePresenter alloc]
                                               initWithUserImage:userImage
                                               withUserName:userName];
+    __weak MenuViewController *welf = self;
     profilePresenter.selectionHandler = ^(MenuProfilePresenter* presenter) {
-        
         [presenter deselectRowAnimated:NO];
-        [self.routing showProfile];
+        [welf.routing showProfile];
     };
     return profilePresenter;
 }
