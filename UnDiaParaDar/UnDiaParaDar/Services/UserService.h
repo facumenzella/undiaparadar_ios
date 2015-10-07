@@ -11,6 +11,7 @@
 
 @interface UserService : NSObject
 
+- (User*)cachedUser;
 - (void)userWithCallback:(void (^)(User*))callback;
 
 @end

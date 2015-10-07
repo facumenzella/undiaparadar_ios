@@ -31,7 +31,9 @@
 
 - (UserService*)userService
 {
-    return [TyphoonDefinition withClass:[UserService class]];
+    return [TyphoonDefinition withClass:[UserService class] configuration:^(TyphoonDefinition* definition) {
+        definition.scope = TyphoonScopeSingleton;
+    }];
 }
 
 - (RestkitService*)restkitService

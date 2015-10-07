@@ -43,7 +43,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     if (self.tableViewManager) {
-        [self loadUser];
+        User *u = [self.userService cachedUser];
+        if (u) {
+            [self updateUser:u];
+        }
     }
 }
 

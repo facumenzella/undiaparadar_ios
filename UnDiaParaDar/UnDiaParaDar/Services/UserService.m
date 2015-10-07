@@ -11,13 +11,32 @@
 #import <FBSDKProfile.h>
 #import <FBSDKGraphRequest.h>
 
+@interface UserService ()
+
+@property (nonatomic, strong) User *u;
+
+@end
+
 @implementation UserService
+
+- (User*)cachedUser
+{
+    if ([self isCachedUserAvailable]) {
+        return [self.u copy];
+    }
+    return nil;
+}
+
+- (BOOL)isCachedUserAvailable
+{
+    return self.u != nil;
+}
 
 - (void)userWithCallback:(void (^)(User*))callback
 {
     FBSDKProfile *profile = [FBSDKProfile currentProfile];
-    User *u = [[User alloc] init];
-    u.name = profile.name;
+    self.u = [[User alloc] init];
+    self.u.name = profile.name;
     
     NSString *image = [self userProfilePictureWithCGSize:CGSizeMake(250, 250)];
     [[[FBSDKGraphRequest alloc]
@@ -25,12 +44,12 @@
      startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
          if (error) {
              NSLog(@"Holy shit no profile picture");
+         } else {
+             NSDictionary *data = result[@"data"];
+             self.u.image200x200 = data[@"url"];
          }
-         NSDictionary *data = result[@"data"];
-         u.image200x200 = data[@"url"];
-         callback(u);
+         callback([self.u copy]);
      }];
-    
 }
 
 - (NSString*)userProfilePictureWithCGSize:(CGSize)size

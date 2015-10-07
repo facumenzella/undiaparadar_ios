@@ -10,4 +10,14 @@
 
 @implementation User
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    User *copy = [[[self class] alloc] init];
+    if (copy) {
+        copy.name = [self.name copy];
+        copy.image200x200 = [self.image200x200 copy];
+    }
+    return copy;
+}
+
 @end

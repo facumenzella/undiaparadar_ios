@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UserService *userService;
 
 @property (nonatomic, strong) ProfileView *profileView;
+@property (nonatomic, strong) User *u;
 
 @end
 
@@ -38,14 +39,24 @@
 {
     self.profileView = [[ProfileView alloc] init];
     self.view = self.profileView;
+    self.u = [self.userService cachedUser];
+    [self updateView];
 }
 
 -(void)viewDidLoad
 {
     self.title = NSLocalizedString(@"PROFILE", @"Perfil");
     [self.userService userWithCallback:^(User *user) {
-        [self.profileView populateWithUser:user];
+        self.u = user;
+        [self updateView];
     }];
+}
+
+- (void)updateView
+{
+    if (self.u) {
+        [self.profileView populateWithUser:self.u];
+    }
 }
 
 
