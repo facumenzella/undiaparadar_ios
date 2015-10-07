@@ -85,17 +85,20 @@ static NSString *const PLACEHOLDER = @"placeholder";
     self.overview = [[UIView alloc] initForAutoLayout];
     [self.headerImageView addSubview:self.overview];
     
-//    [self.overview autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.userProfileImageView withOffset:8];
+    [self.overview autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.userProfileImageView withOffset:8];
     [self.overview autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [self.overview autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
-    [self.overview autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:20];
+    [self.overview autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:20 relation:NSLayoutRelationGreaterThanOrEqual];
 }
 
 - (void)buildUserName
 {
     self.userName = [[UILabel alloc] initForAutoLayout];
     [self.overview addSubview:self.userName];
-    [self.userName autoPinEdgesToSuperviewEdges];
+    [self.userName autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:16];
+    [self.userName autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:16];
+    [self.userName autoPinEdgeToSuperviewEdge:ALEdgeLeft];
+    [self.userName autoPinEdgeToSuperviewEdge:ALEdgeRight];
 }
 
 - (void)buildDescription
