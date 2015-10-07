@@ -14,5 +14,4 @@
 
 - (void)populateWithPositiveAction:(PositiveAction*)positiveAction withTopicImage:(NSString*)topicImage;
 
-
 @end

@@ -28,6 +28,10 @@ static NSString * const BACKGROUND = @"menu_header";
 @property (nonatomic, strong) UITextView *positiveActionDescription;
 @property (nonatomic, strong) UIView *redBand;
 
+@property (nonatomic, strong) UIView *additionalLocationView;
+@property (nonatomic, strong) UITextView *locationLabel;
+@property (nonatomic, strong) UIView *additionalURLView;
+@property (nonatomic, strong) UITextView *externalURLLabel;
 
 @end
 
@@ -48,13 +52,16 @@ static NSString * const BACKGROUND = @"menu_header";
     self.overTitleTextView.text = positiveAction.title;
     self.positiveActionTitle.text = positiveAction.subtitle;
     self.positiveActionDescription.text = positiveAction.positiveActionDescription;
-
     [self.topicImageView setImage:[UIImage imageNamed:topicImage]];
+    
+    [self.locationLabel setText:[NSString stringWithFormat:@"%@, %@", positiveAction.city, positiveAction.country]];
+    [self.externalURLLabel setText:positiveAction.externalURL];
 }
 
 - (void)buildSubviews
 {
     UIScrollView *scrollView = [[UIScrollView alloc] initForAutoLayout];
+    scrollView.scrollEnabled = YES;
     [self addSubview:scrollView];
     [scrollView autoPinEdgesToSuperviewEdges];
     
@@ -70,12 +77,16 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.container autoPinEdgeToSuperviewEdge:ALEdgeBottom];
     
     [self buildHeader];
+    [self buildOverTittle];
     [self buildDescriptionContainer];
     [self buildPositiveActionTitle];
     [self buildTitleUnderline];
     [self buildPositiveActionDescription];
-    [self buildOverTittle];
     [self buildRedBand];
+    [self buildLocation];
+    [self buildExternalURL];
+    
+    [self.container bringSubviewToFront:self.overTitleView];
 }
 
 - (void)buildHeader
@@ -136,14 +147,11 @@ static NSString * const BACKGROUND = @"menu_header";
 {
     self.positiveActionTitle = [[UITextView alloc] initForAutoLayout];
     [self.descriptionContainer addSubview: self.positiveActionTitle];
-    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:16];
+    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:24];
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:24];
     self.positiveActionTitle.scrollEnabled = NO;
     self.positiveActionTitle.editable = NO;
-    
-    // TODO MOCK TEXT
-    self.positiveActionTitle.text = @"Sumate a nuestra campaña \"NO SELFIE\"";
 }
 
 - (void)buildTitleUnderline
@@ -152,12 +160,13 @@ static NSString * const BACKGROUND = @"menu_header";
     UIImage *colorBand = [UIImage imageNamed:@"color_band"];
     [self.colorBandImageView setImage: colorBand];
     
-    [self.container addSubview: self.colorBandImageView];
-    [self.colorBandImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.positiveActionTitle withOffset:0];
+    [self.descriptionContainer addSubview: self.colorBandImageView];
+    [self.colorBandImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.positiveActionTitle withOffset:8];
     [self.colorBandImageView autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [self.colorBandImageView autoMatchDimension:ALDimensionWidth
-                                    toDimension:ALDimensionWidth
-                                         ofView:self.positiveActionTitle];
+    [self.colorBandImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:40];
+    [self.colorBandImageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
+    [self.colorBandImageView setContentCompressionResistancePriority:UILayoutPriorityRequired
+                                                             forAxis:UILayoutConstraintAxisVertical];
 }
 
 - (void)buildPositiveActionDescription
@@ -170,11 +179,8 @@ static NSString * const BACKGROUND = @"menu_header";
                                      withOffset:8];
     [self.positiveActionDescription autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
     [self.positiveActionDescription autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:24];
-    [self.positiveActionDescription autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:24];
     self.positiveActionDescription.scrollEnabled = NO;
     self.positiveActionDescription.editable = NO;
-    // TODO MOCK TEXT
-    self.positiveActionDescription.text = @"Te invitamos a que cuando dones sangre te saques una foto como esta y que despues compartas la foto en tus redes sociales usando el hashtag \'#NOSelfie\'";
 }
 
 - (void)buildRedBand
@@ -183,12 +189,70 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.descriptionContainer addSubview:self.redBand];
     
     [self.redBand autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self.colorBandImageView];
-    [self.redBand autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.colorBandImageView];
+    [self.redBand autoMatchDimension:ALDimensionWidth toDimension:ALDimensionWidth ofView:self.overTitleView];
     
     [self.redBand autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.positiveActionDescription withOffset:8];
     [self.redBand autoAlignAxis:ALAxisVertical toSameAxisOfView:self.colorBandImageView];
 }
 
+- (void)buildAdditionalInformationInsideContainer:(UIView*)container
+                                        withImage:(NSString*)image
+                                     withTextView:(UITextView*)textView
+{
+    UIImageView *locationImageView = [[UIImageView alloc] initForAutoLayout];
+    [locationImageView setImage:[UIImage imageNamed:image]];
+    [container addSubview:locationImageView];
+    [locationImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:32];
+    [locationImageView setContentCompressionResistancePriority:UILayoutPriorityRequired
+                                                       forAxis:UILayoutConstraintAxisHorizontal];
+    [locationImageView setContentCompressionResistancePriority:UILayoutPriorityRequired
+                                                       forAxis:UILayoutConstraintAxisVertical];
+    [container addSubview:textView];
+    [textView autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:locationImageView withOffset:8];
+    [textView autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:locationImageView withOffset:8];
+    [textView autoSetDimension:ALDimensionWidth toSize:180 relation:NSLayoutRelationLessThanOrEqual];
+    [textView autoPinEdgeToSuperviewEdge:ALEdgeTop];
+    [textView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
+    
+    [locationImageView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:textView];
+}
+
+- (void)buildLocation
+{
+    self.additionalLocationView = [[UIView alloc] initForAutoLayout];
+    [self.descriptionContainer addSubview:self.additionalLocationView];
+    [self.additionalLocationView autoPinEdge:ALEdgeTop
+                                      toEdge:ALEdgeBottom
+                                      ofView:self.redBand
+                                  withOffset:8];
+    [self.additionalLocationView autoMatchDimension:ALDimensionWidth
+                                        toDimension:ALDimensionWidth
+                                             ofView:self.overTitleView];
+    [self.additionalLocationView autoAlignAxis:ALAxisVertical toSameAxisOfView:self.overTitleView];
+    self.locationLabel = [[UITextView alloc] initForAutoLayout];
+    [self buildAdditionalInformationInsideContainer:self.additionalLocationView
+                                          withImage:@"location"
+                                       withTextView:self.locationLabel];
+}
+
+- (void)buildExternalURL
+{
+    self.additionalURLView = [[UIView alloc] initForAutoLayout];
+    [self.descriptionContainer addSubview:self.additionalURLView];
+    [self.additionalURLView autoPinEdge:ALEdgeTop
+                                 toEdge:ALEdgeBottom
+                                 ofView:self.additionalLocationView
+                             withOffset:8];
+    [self.additionalURLView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:8];
+    [self.additionalURLView autoMatchDimension:ALDimensionWidth
+                                   toDimension:ALDimensionWidth
+                                        ofView:self.overTitleView];
+    [self.additionalURLView autoAlignAxis:ALAxisVertical toSameAxisOfView:self.overTitleView];
+    self.externalURLLabel = [[UITextView alloc] initForAutoLayout];
+    [self buildAdditionalInformationInsideContainer:self.additionalURLView
+                                          withImage:@"external"
+                                       withTextView:self.externalURLLabel];
+}
 
 - (void)styleSubviews
 {
@@ -199,7 +263,7 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.overTitleTextView setBackgroundColor:[UIColor clearColor]];
     [self.overTitleTextView setTextAlignment: NSTextAlignmentCenter];
     [self.overTitleTextView setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
-                                                                     withSize:BeautyCenterTypographySizeB]];
+                                                                   withSize:BeautyCenterTypographySizeB]];
     
     [self.positiveActionTitle setTextColor:[UIColor blackColor]];
     [self.positiveActionTitle setTextAlignment:NSTextAlignmentCenter];
@@ -210,7 +274,20 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.positiveActionDescription setTextAlignment:NSTextAlignmentCenter];
     [self.positiveActionDescription setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
                                                                            withSize:BeautyCenterTypographySizeA]];
+    
+    [self styleAdditionalInformation:@[self.locationLabel, self.externalURLLabel]];
     [self.redBand setBackgroundColor: [BeautyCenter beautyCenterColor:BeautyCenterColorDarkRed]];
+}
+
+- (void)styleAdditionalInformation:(NSArray*)additionalInfo
+{
+    for (UITextView *t in additionalInfo) {
+        t.scrollEnabled = NO;
+        t.editable = NO;
+        [t setTextAlignment:NSTextAlignmentLeft];
+        [t setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleBold
+                                                  withSize:BeautyCenterTypographySizeA]];
+    }
 }
 
 @end
