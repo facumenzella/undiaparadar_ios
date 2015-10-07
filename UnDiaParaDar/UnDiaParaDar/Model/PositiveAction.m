@@ -8,6 +8,8 @@
 
 #import "PositiveAction.h"
 
+static NSString *const kEXTERNAL_URL = @"http://www.ourmark.com/";
+
 @implementation PositiveAction
 
 - (NSString*)paTitle
@@ -37,7 +39,7 @@
 
 - (NSString*)paExternalURL
 {
-    return self.externalURL;
+    return (self.externalURL) ? self.externalURL : kEXTERNAL_URL;
 }
 
 @end
