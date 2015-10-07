@@ -44,7 +44,7 @@ static CGFloat kDURATION = 1.2f;
     self.animation.timingFunction = [CAMediaTimingFunction
                                      functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 
-    self.animation.toValue = [NSNumber numberWithFloat: 2*M_PI];
+    self.animation.toValue = [NSNumber numberWithFloat: -2*M_PI];
     self.animation.duration = kDURATION;
     self.animation.repeatCount = HUGE_VAL;
 }
