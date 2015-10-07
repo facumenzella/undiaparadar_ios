@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class PositiveAction;
+@protocol PositiveActionPresenter;
 
 @interface PositiveActionView : UIView
 
-- (void)populateWithPositiveAction:(PositiveAction*)positiveAction withTopicImage:(NSString*)topicImage;
+- (void)populateWithPositiveAction:(id<PositiveActionPresenter>)positiveAction withTopicImage:(NSString*)topicImage;
 
 @end

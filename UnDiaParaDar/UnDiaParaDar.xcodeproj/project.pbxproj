@@ -115,6 +115,7 @@
 		0D1763841BB464C300C6E664 /* QueEsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueEsPresenter.m; sourceTree = "<group>"; };
 		0D1763861BB464CE00C6E664 /* QueEsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueEsView.h; sourceTree = "<group>"; };
 		0D1763871BB464CE00C6E664 /* QueEsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueEsView.m; sourceTree = "<group>"; };
+		0D2574C81BC5BD7200C9926E /* PositiveActionPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PositiveActionPresenter.h; path = UnDiaParaDar/TopicsModule/Presenter/PositiveActionPresenter.h; sourceTree = SOURCE_ROOT; };
 		0D3D72331BBB6510006EC1E9 /* RestkitService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestkitService.h; sourceTree = "<group>"; };
 		0D3D72341BBB6510006EC1E9 /* RestkitService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestkitService.m; sourceTree = "<group>"; };
 		0D3DB3C11B7546D90052F46B /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
@@ -606,6 +607,7 @@
 				0D7C57281BC1B01B00A402CF /* Annotations */,
 				0DB25A031B9A9688002F6E30 /* TopicCellPresenter.h */,
 				0DB25A041B9A9688002F6E30 /* TopicCellPresenter.m */,
+				0D2574C81BC5BD7200C9926E /* PositiveActionPresenter.h */,
 			);
 			name = Presenter;
 			path = View/Presenter;

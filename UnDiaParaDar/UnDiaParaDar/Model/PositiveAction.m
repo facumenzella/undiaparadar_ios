@@ -10,4 +10,34 @@
 
 @implementation PositiveAction
 
+- (NSString*)paTitle
+{
+    return self.title;
+}
+
+- (NSString*)paSubtitle
+{
+    return self.subtitle;
+}
+
+- (NSString*)paDescription
+{
+    return self.positiveActionDescription;
+}
+
+- (NSString*)paCity
+{
+    return self.city;
+}
+
+- (NSString*)paCountry
+{
+    return self.country;
+}
+
+- (NSString*)paExternalURL
+{
+    return self.externalURL;
+}
+
 @end

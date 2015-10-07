@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "PositiveActionPresenter.h"
 
-@interface PositiveAction : NSObject
+@interface PositiveAction : NSObject <PositiveActionPresenter>
 
 @property (nonatomic) int64_t positiveActionID;
 

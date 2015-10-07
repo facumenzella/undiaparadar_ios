@@ -7,7 +7,7 @@
 //
 
 #import "PositiveActionView.h"
-#import "PositiveAction.h"
+#import "positiveActionPresenter.h"
 #import "BeautyCenter.h"
 
 #import <PureLayout/PureLayout.h>
@@ -47,18 +47,18 @@ static NSString * const BACKGROUND = @"menu_header";
     return self;
 }
 
-- (void)populateWithPositiveAction:(PositiveAction*)positiveAction withTopicImage:(NSString*)topicImage
+- (void)populateWithPositiveAction:(id<PositiveActionPresenter>)positiveAction withTopicImage:(NSString*)topicImage
 {
-    self.overTitleTextView.text = positiveAction.title;
-    self.positiveActionTitle.text = positiveAction.subtitle;
-    self.positiveActionDescription.text = positiveAction.positiveActionDescription;
+    self.overTitleTextView.text = positiveAction.paTitle;
+    self.positiveActionTitle.text = positiveAction.paSubtitle;
+    self.positiveActionDescription.text = positiveAction.paDescription;
     [self.topicImageView setImage:[UIImage imageNamed:topicImage]];
     
-    [self.locationLabel setText:[NSString stringWithFormat:@"%@, %@", positiveAction.city, positiveAction.country]];
-    self.additionalLocationView.hidden = !positiveAction.city && !positiveAction.country;
+    [self.locationLabel setText:[NSString stringWithFormat:@"%@, %@", positiveAction.paCity, positiveAction.paCountry]];
+    self.additionalLocationView.hidden = !positiveAction.paCity && !positiveAction.paCountry;
 
-    [self.externalURLLabel setText:positiveAction.externalURL];
-    self.additionalURLView.hidden = !positiveAction.externalURL;
+    [self.externalURLLabel setText:positiveAction.paExternalURL];
+    self.additionalURLView.hidden = !positiveAction.paExternalURL;
 }
 
 - (void)buildSubviews
@@ -227,7 +227,7 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.additionalLocationView autoPinEdge:ALEdgeTop
                                       toEdge:ALEdgeBottom
                                       ofView:self.redBand
-                                  withOffset:8];
+                                  withOffset:16];
     [self.additionalLocationView autoMatchDimension:ALDimensionWidth
                                         toDimension:ALDimensionWidth
                                              ofView:self.overTitleView];
