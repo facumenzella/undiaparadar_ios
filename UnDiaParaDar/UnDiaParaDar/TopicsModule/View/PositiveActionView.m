@@ -277,6 +277,8 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.positiveActionDescription setTextAlignment:NSTextAlignmentCenter];
     [self.positiveActionDescription setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
                                                                            withSize:BeautyCenterTypographySizeA]];
+    self.positiveActionDescription.dataDetectorTypes = UIDataDetectorTypeAll;
+
     
     [self styleAdditionalInformation:@[self.locationLabel, self.externalURLLabel]];
     [self styleURL];
