@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const kUserLocationFound;
+
 @interface LocationManager : NSObject
 
 + (instancetype)sharedInstance;

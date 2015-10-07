@@ -83,6 +83,7 @@
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeRight];
     self.mapView.showsUserLocation = YES;
+    
 }
 
 - (void)buildOverTittle

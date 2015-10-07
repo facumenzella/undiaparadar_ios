@@ -12,7 +12,8 @@
 
 #define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
-static BOOL enabled;
+static BOOL enabled = NO;
+NSString * const kUserLocationFound = @"kUserLocationFound";
 
 @interface LocationManager () <CLLocationManagerDelegate>
 
@@ -48,7 +49,7 @@ static BOOL enabled;
 
 + (BOOL)locationServicesEnabled
 {
-    return [CLLocationManager locationServicesEnabled] && enabled;
+    return [CLLocationManager locationServicesEnabled] && enabled && [LocationManager sharedInstance].manager.location;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
@@ -74,6 +75,7 @@ static BOOL enabled;
               location.coordinate.latitude,
               location.coordinate.longitude);
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:kUserLocationFound object:nil];
 }
 
 @end

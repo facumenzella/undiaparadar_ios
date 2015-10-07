@@ -20,6 +20,7 @@
 @property (nonatomic, strong) TopicService *topicService;
 @property (nonatomic, strong) PositiveActionsMapView *positiveActionsView;
 
+@property (nonatomic) BOOL alreadyZoomed;
 @property (nonatomic, strong) NSArray *topics;
 @property (nonatomic, strong) NSArray *positiveActions;
 
@@ -36,6 +37,7 @@
         self.routing = routing;
         self.topicService = topicService;
         self.topics = topics;
+        self.alreadyZoomed = NO;
     }
     return self;
 }
@@ -50,9 +52,23 @@
 -(void)viewDidLoad
 {
     self.title = NSLocalizedString(@"MAP_SECTION", @"Mapa");
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(zoomToMyLocation)
+                                                 name:kUserLocationFound
+                                               object:nil];
+}
+
+- (void)zoomToMyLocation
+{
+    if (self.alreadyZoomed) {
+        [self removeObserver];
+        return;
+    }
+    
     if ([LocationManager locationServicesEnabled]) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.positiveActionsView zoomToMyLocation];
+            self.alreadyZoomed = YES;
         });
     }
 }
@@ -75,6 +91,16 @@
              [self.positiveActionsView addPositiveActions:annotations];
          }];
     }
+}
+
+- (void)removeObserver
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)dealloc
+{
+    [self removeObserver];
 }
 
 #pragma mark - PositiveActionsMapViewDelegate
