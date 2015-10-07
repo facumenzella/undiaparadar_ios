@@ -29,7 +29,7 @@ static NSString * const BACKGROUND = @"menu_header";
 @property (nonatomic, strong) UIView *redBand;
 
 @property (nonatomic, strong) UIView *additionalLocationView;
-@property (nonatomic, strong) UITextView *locationLabel;
+@property (nonatomic, strong) UILabel *locationLabel;
 @property (nonatomic, strong) UIView *additionalURLView;
 @property (nonatomic, strong) UITextView *externalURLLabel;
 
@@ -55,7 +55,10 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.topicImageView setImage:[UIImage imageNamed:topicImage]];
     
     [self.locationLabel setText:[NSString stringWithFormat:@"%@, %@", positiveAction.city, positiveAction.country]];
+    self.additionalLocationView.hidden = !positiveAction.city && !positiveAction.country;
+
     [self.externalURLLabel setText:positiveAction.externalURL];
+    self.additionalURLView.hidden = !positiveAction.externalURL;
 }
 
 - (void)buildSubviews
@@ -197,7 +200,7 @@ static NSString * const BACKGROUND = @"menu_header";
 
 - (void)buildAdditionalInformationInsideContainer:(UIView*)container
                                         withImage:(NSString*)image
-                                     withTextView:(UITextView*)textView
+                                     withTextView:(UIView*)textView
 {
     UIImageView *locationImageView = [[UIImageView alloc] initForAutoLayout];
     [locationImageView setImage:[UIImage imageNamed:image]];
@@ -229,7 +232,7 @@ static NSString * const BACKGROUND = @"menu_header";
                                         toDimension:ALDimensionWidth
                                              ofView:self.overTitleView];
     [self.additionalLocationView autoAlignAxis:ALAxisVertical toSameAxisOfView:self.overTitleView];
-    self.locationLabel = [[UITextView alloc] initForAutoLayout];
+    self.locationLabel = [[UILabel alloc] initForAutoLayout];
     [self buildAdditionalInformationInsideContainer:self.additionalLocationView
                                           withImage:@"location"
                                        withTextView:self.locationLabel];
@@ -276,18 +279,26 @@ static NSString * const BACKGROUND = @"menu_header";
                                                                            withSize:BeautyCenterTypographySizeA]];
     
     [self styleAdditionalInformation:@[self.locationLabel, self.externalURLLabel]];
+    [self styleURL];
     [self.redBand setBackgroundColor: [BeautyCenter beautyCenterColor:BeautyCenterColorDarkRed]];
 }
 
 - (void)styleAdditionalInformation:(NSArray*)additionalInfo
 {
-    for (UITextView *t in additionalInfo) {
-        t.scrollEnabled = NO;
-        t.editable = NO;
+    for (UILabel *t in additionalInfo) {
         [t setTextAlignment:NSTextAlignmentLeft];
         [t setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleBold
                                                   withSize:BeautyCenterTypographySizeA]];
     }
+}
+
+- (void)styleURL
+{
+    self.externalURLLabel.editable = NO;
+    self.externalURLLabel.scrollEnabled = NO;
+    self.externalURLLabel.textContainer.maximumNumberOfLines = 1;
+    self.externalURLLabel.textContainer.lineBreakMode = NSLineBreakByTruncatingTail;
+    self.externalURLLabel.dataDetectorTypes = UIDataDetectorTypeAll;
 }
 
 @end
