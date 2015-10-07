@@ -63,7 +63,7 @@
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
-    self.mapHeightActive = (screenHeight / 4);
+    self.mapHeightActive = (screenHeight / 8);
 }
 
 - (void)buildSubviews
