@@ -22,7 +22,6 @@
 @property (nonatomic, strong) RETableViewManager *tableViewManager;
 // Update User
 @property (nonatomic, strong) RETableViewItem *profileMenuPresenter;
-
 @end
 
 @implementation MenuViewController
@@ -63,8 +62,8 @@
 - (void)loadUser
 {
     [self.userService userWithCallback:^(User* u) {
-        [self updateUser:u];
-        [self.tableView reloadData];
+            [self updateUser:u];
+            [self.tableView reloadData];
     }];
 }
 
@@ -117,7 +116,7 @@
                                                                             withOptionTitle:topicsTittle];
     topicsPresenter.selectionHandler = ^(MenuOptionPresenter* presenter) {
         [presenter deselectRowAnimated:NO];
-        [self.routing showProfile];
+        [self.routing showTopicsSelection];
     };
     [itemsSection addItem:topicsPresenter];
     
