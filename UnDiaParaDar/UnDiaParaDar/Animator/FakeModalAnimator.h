@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface FakeModalAnimator : NSObject <UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate>
+@interface FakeModalAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 
 @end

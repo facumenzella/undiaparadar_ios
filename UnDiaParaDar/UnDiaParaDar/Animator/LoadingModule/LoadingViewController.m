@@ -11,10 +11,9 @@
 #import "AnimatedViewProtocol.h"
 #import "FakeModalAnimator.h"
 
-@interface LoadingViewController ()
+@interface LoadingViewController () <UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, strong) UIView<AnimatedViewProtocol> *modalView;
-@property (nonatomic, strong) FakeModalAnimator *modalAnimator;
 
 @end
 
@@ -25,8 +24,7 @@
     self = [super init];
     if (self) {
         self.modalPresentationStyle = UIModalPresentationCustom;
-        self.modalAnimator = [[FakeModalAnimator alloc] init];
-        self.transitioningDelegate = self.modalAnimator;
+        self.transitioningDelegate = self;
     }
     return self;
 }
@@ -49,5 +47,17 @@
     [self.modalView endAnimating];
 }
 
+#pragma mark - UIViewControllerTransitionDelegate
+- (id<UIViewControllerAnimatedTransitioning>) animationControllerForPresentedController:(UIViewController*)presented
+                                                                   presentingController:(UIViewController*)presenting
+                                                                       sourceController:(UIViewController*)source
+{
+    return [[FakeModalAnimator alloc] init];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    return [[FakeModalAnimator alloc] init];
+}
 
 @end

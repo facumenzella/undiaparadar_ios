@@ -151,13 +151,13 @@
 - (void)showLoadingWithPresenter:(UIViewController*)presenter
 {
     LoadingViewController *loading = [self.loadingModuleAssembly loadingViewController];
-    [self.director presentModal:loading withPresenter:presenter animated:NO];
+    [self.director presentModal:loading withPresenter:presenter animated:YES];
 }
 
 - (void)removeLoading
 {
     LoadingViewController *loading = [self.loadingModuleAssembly loadingViewController];
-    [self.director dismiss:loading animated:NO withCompletion:nil];
+    [self.director dismiss:loading animated:YES withCompletion:nil];
 }
 
 
