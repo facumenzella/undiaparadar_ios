@@ -20,7 +20,8 @@ typedef NS_ENUM(NSUInteger, BeautyCenterTypographySize) {
     BeautyCenterTypographySizeA,
     BeautyCenterTypographySizeB,
     BeautyCenterTypographySizeC,
-    BeautyCenterTypographySizeD
+    BeautyCenterTypographySizeD,
+    BeautyCenterTypographySizeE
 };
 
 typedef NS_ENUM(NSUInteger, BeautyCenterColor) {

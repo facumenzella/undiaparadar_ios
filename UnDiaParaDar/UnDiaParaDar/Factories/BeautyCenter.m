@@ -118,6 +118,9 @@ static UIColor *color2;
         case BeautyCenterTypographySizeD:
             return font1d;
             break;
+        case BeautyCenterTypographySizeE:
+            return font1e;
+            break;
         default:
             break;
     }
@@ -137,6 +140,9 @@ static UIColor *color2;
             break;
         case BeautyCenterTypographySizeD:
             return font2d;
+            break;
+        case BeautyCenterTypographySizeE:
+            return font2e;
             break;
         default:
             break;
@@ -158,6 +164,9 @@ static UIColor *color2;
         case BeautyCenterTypographySizeD:
             return font3d;
             break;
+        case BeautyCenterTypographySizeE:
+            return font3e;
+            break;
         default:
             break;
     }
@@ -177,6 +186,9 @@ static UIColor *color2;
             break;
         case BeautyCenterTypographySizeD:
             return font4d;
+            break;
+        case BeautyCenterTypographySizeE:
+            return font4e;
             break;
         default:
             break;
