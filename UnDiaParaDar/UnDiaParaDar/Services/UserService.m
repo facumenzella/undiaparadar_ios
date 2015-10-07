@@ -19,7 +19,7 @@
     User *u = [[User alloc] init];
     u.name = profile.name;
     
-    NSString *image = [self userProfilePictureWithCGSize:CGSizeMake(200, 200)];
+    NSString *image = [self userProfilePictureWithCGSize:CGSizeMake(250, 250)];
     [[[FBSDKGraphRequest alloc]
       initWithGraphPath:image parameters:nil]
      startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {

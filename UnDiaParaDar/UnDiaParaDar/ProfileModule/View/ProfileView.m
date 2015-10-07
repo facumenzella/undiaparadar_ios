@@ -9,6 +9,7 @@
 #import "ProfileView.h"
 #import "RemoteImageView.h"
 #import "BeautyCenter.h"
+#import "User.h"
 
 #import <PureLayout/PureLayout.h>
 
@@ -36,11 +37,18 @@ static NSString *const PLACEHOLDER = @"placeholder";
     return self;
 }
 
+- (void)populateWithUser:(User*)user
+{
+    [self.userName setText:user.name];
+    [self.userProfileImageView setRemoteURL:user.image200x200];
+}
+
 - (void)buildSubviews
 {
     [self buildHeader];
     [self buildUserProfileImage];
     [self buildOverview];
+    [self buildUserName];
     [self buildDescription];
 }
 
@@ -81,7 +89,7 @@ static NSString *const PLACEHOLDER = @"placeholder";
     [self.overview autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.userProfileImageView withOffset:8];
     [self.overview autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [self.overview autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
-    [self.overview autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:8];
+    [self.overview autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:20];
 }
 
 - (void)buildUserName
@@ -105,6 +113,7 @@ static NSString *const PLACEHOLDER = @"placeholder";
     [self.overview setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]];
     
     [self.userName setBackgroundColor:[UIColor clearColor]];
+    [self.userName setTextAlignment:NSTextAlignmentCenter];
     [self.userName setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleMedium
                                                           withSize:BeautyCenterTypographySizeD]];
     [self.userName setTextColor: [UIColor whiteColor]];

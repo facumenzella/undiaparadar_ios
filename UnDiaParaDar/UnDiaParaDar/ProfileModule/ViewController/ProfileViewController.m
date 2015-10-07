@@ -16,6 +16,8 @@
 @property (nonatomic, strong) id<Routing> routing;
 @property (nonatomic, strong) UserService *userService;
 
+@property (nonatomic, strong) ProfileView *profileView;
+
 @end
 
 @implementation ProfileViewController
@@ -34,7 +36,15 @@
 
 - (void)loadView
 {
-    self.view = [[ProfileView alloc] init];
+    self.profileView = [[ProfileView alloc] init];
+    self.view = self.profileView;
+}
+
+-(void)viewDidLoad
+{
+    [self.userService userWithCallback:^(User *user) {
+        [self.profileView populateWithUser:user];
+    }];
 }
 
 

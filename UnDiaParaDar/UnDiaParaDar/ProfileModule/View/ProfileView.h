@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class User;
+
 @interface ProfileView : UIView
+
+- (void)populateWithUser:(User*)user;
 
 @end
