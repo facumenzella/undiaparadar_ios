@@ -47,6 +47,8 @@
 
 - (void)viewDidLoad
 {
+    self.title = NSLocalizedString(@"POSITIVE_ACTION", @"Acción positiva");
+    
     Topic *topic = [self.topicService topicById:self.positiveAction.topicID];
     [self.positiveActionView populateWithPositiveAction:self.positiveAction withTopicImage:topic.selectedImg];
 }
