@@ -42,6 +42,7 @@
 
 -(void)viewDidLoad
 {
+    self.title = NSLocalizedString(@"PROFILE", @"Perfil");
     [self.userService userWithCallback:^(User *user) {
         [self.profileView populateWithUser:user];
     }];
