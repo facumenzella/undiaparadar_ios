@@ -33,6 +33,7 @@
 		0D7C574C1BC1B0B300A402CF /* BeautyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C574B1BC1B0B300A402CF /* BeautyCenter.m */; };
 		0D8580EF1BBB6B17002CEB2B /* MappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8580EE1BBB6B17002CEB2B /* MappingProvider.m */; };
 		0D8580F21BBB6BAB002CEB2B /* PositiveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8580F11BBB6BAB002CEB2B /* PositiveAction.m */; };
+		0D8974921BC4B5AC00ACD124 /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8974911BC4B5AC00ACD124 /* ProfileView.m */; };
 		0D9059301BA641650008BF75 /* PositiveActionsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D90592F1BA641650008BF75 /* PositiveActionsMapViewController.m */; };
 		0D94F83E1BA9FCE100945F81 /* PositiveActionsMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D94F83D1BA9FCE100945F81 /* PositiveActionsMapView.m */; };
 		0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E0C1B7E5AA50049D08B /* SplashViewController.m */; };
@@ -143,6 +144,8 @@
 		0D8580EE1BBB6B17002CEB2B /* MappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingProvider.m; sourceTree = "<group>"; };
 		0D8580F01BBB6BAB002CEB2B /* PositiveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveAction.h; sourceTree = "<group>"; };
 		0D8580F11BBB6BAB002CEB2B /* PositiveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveAction.m; sourceTree = "<group>"; };
+		0D8974901BC4B5AC00ACD124 /* ProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileView.h; sourceTree = "<group>"; };
+		0D8974911BC4B5AC00ACD124 /* ProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileView.m; sourceTree = "<group>"; };
 		0D90592E1BA641650008BF75 /* PositiveActionsMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionsMapViewController.h; sourceTree = "<group>"; };
 		0D90592F1BA641650008BF75 /* PositiveActionsMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionsMapViewController.m; sourceTree = "<group>"; };
 		0D94F83C1BA9FCE100945F81 /* PositiveActionsMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionsMapView.h; sourceTree = "<group>"; };
@@ -694,6 +697,8 @@
 			children = (
 				110FE8A31B66AC1C002A2273 /* SpotifyLikeView.h */,
 				110FE8A41B66AC1C002A2273 /* SpotifyLikeView.m */,
+				0D8974901BC4B5AC00ACD124 /* ProfileView.h */,
+				0D8974911BC4B5AC00ACD124 /* ProfileView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1043,6 +1048,7 @@
 				0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */,
 				11DEE6AA1B5D774900DCDE3E /* SWRevealRouting.m in Sources */,
 				1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */,
+				0D8974921BC4B5AC00ACD124 /* ProfileView.m in Sources */,
 				0DAF2FE51B7E9FF30045CE08 /* TopicsCollectionViewCell.m in Sources */,
 				110FE8AB1B66B8C0002A2273 /* SWRevealArchitect.m in Sources */,
 				0D7C57481BC1B04200A402CF /* LoadingViewController.m in Sources */,
