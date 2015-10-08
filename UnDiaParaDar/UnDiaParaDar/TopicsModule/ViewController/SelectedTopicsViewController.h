@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TopicService;
 
 @interface SelectedTopicsViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+
+-(instancetype)initWithTopicService:(TopicService*)topicService;
 
 @property (nonatomic, strong) NSMutableArray *selectedTopics;
 

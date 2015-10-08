@@ -9,16 +9,27 @@
 #import "SelectedTopicsViewController.h"
 #import "SelectedTopicsCollectionView.h"
 #import "TopicsSelectedCell.h"
+#import "TopicService.h"
 
 static NSString *const IDENTIFIER = @"SelectedCell";
 
 @interface SelectedTopicsViewController ()
 
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) TopicService *topicService;
 
 @end
 
 @implementation SelectedTopicsViewController
+
+-(instancetype)initWithTopicService:(TopicService*)topicService
+{
+    self = [super init];
+    if (self) {
+        self.topicService = topicService;
+    }
+    return self;
+}
 
 -(void)loadView
 {
@@ -35,7 +46,11 @@ static NSString *const IDENTIFIER = @"SelectedCell";
 
 - (void)setSelectedTopics:(NSMutableArray *)selectedTopics
 {
-    _selectedTopics = selectedTopics;
+    NSMutableArray *selected = selectedTopics;
+    if (!selected || [selected count] == 0) {
+        selected = [self.topicService topics];
+    }
+    _selectedTopics = selected;
     [self.collectionView reloadData];
 }
 

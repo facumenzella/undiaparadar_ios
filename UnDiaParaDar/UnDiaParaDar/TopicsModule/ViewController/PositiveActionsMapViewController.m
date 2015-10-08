@@ -43,7 +43,8 @@
         self.topicService = topicService;
         self.topics = topics;
         self.alreadyZoomed = NO;
-        self.selectedTopicsViewController = [[SelectedTopicsViewController alloc] init];
+        self.selectedTopicsViewController = [[SelectedTopicsViewController alloc]
+                                             initWithTopicService:self.topicService];
         [self addChildViewController:self.selectedTopicsViewController];
     }
     return self;
@@ -95,7 +96,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.selectedTopicsViewController setSelectedTopics:self.topics];
+    [self.selectedTopicsViewController setSelectedTopics:[NSMutableArray arrayWithArray:self.topics]];
     if (!self.positiveActions) {
         [self.routing showLoadingWithPresenter:self];
         [self.topicService
