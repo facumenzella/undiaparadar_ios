@@ -21,6 +21,9 @@ static TopicsSelectedCell *cell;
     self = [super initWithFrame:CGRectNull collectionViewLayout:[[SelectedTopicsCollectionViewLayout alloc] init]];
     if (self) {
         [self setBackgroundColor:[UIColor whiteColor]];
+        self.scrollEnabled = YES;
+        self.pagingEnabled = YES;
+        self.contentInset = UIEdgeInsetsMake(4, 4, 4, 4);
     }
     return self;
 }

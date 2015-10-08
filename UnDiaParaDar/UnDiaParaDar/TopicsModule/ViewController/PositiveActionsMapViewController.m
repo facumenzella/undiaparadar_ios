@@ -59,9 +59,6 @@
     [self.positiveActionsView autoPinEdgesToSuperviewEdges];
     
     UICollectionView *col = (UICollectionView*)self.selectedTopicsViewController.view;
-    col.scrollEnabled = YES;
-    col.pagingEnabled = YES;
-    col.contentInset = UIEdgeInsetsMake(4, 4, 4, 4);
     [col autoSetDimension:ALDimensionHeight toSize:48];
     [view addSubview:col];
     [col autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
