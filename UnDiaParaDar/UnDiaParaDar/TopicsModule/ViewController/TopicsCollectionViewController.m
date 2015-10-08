@@ -48,7 +48,6 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
     return self;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     

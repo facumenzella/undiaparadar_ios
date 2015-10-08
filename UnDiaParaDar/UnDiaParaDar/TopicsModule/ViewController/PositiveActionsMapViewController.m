@@ -11,6 +11,9 @@
 #import "PositiveActionAnnotation.h"
 #import "LocationManager.h"
 
+#import "SelectedTopicsViewController.h"
+#import <PureLayout/PureLayout.h>
+
 #import "Routing.h"
 #import "TopicService.h"
 
@@ -19,6 +22,8 @@
 @property (nonatomic, strong) id<Routing> routing;
 @property (nonatomic, strong) TopicService *topicService;
 @property (nonatomic, strong) PositiveActionsMapView *positiveActionsView;
+
+@property (nonatomic, strong) SelectedTopicsViewController *selectedTopicsViewController;
 
 @property (nonatomic) BOOL alreadyZoomed;
 @property (nonatomic, strong) NSArray *topics;
@@ -38,6 +43,8 @@
         self.topicService = topicService;
         self.topics = topics;
         self.alreadyZoomed = NO;
+        self.selectedTopicsViewController = [[SelectedTopicsViewController alloc] init];
+        [self addChildViewController:self.selectedTopicsViewController];
     }
     return self;
 }
@@ -46,7 +53,22 @@
 {
     self.positiveActionsView = [[PositiveActionsMapView alloc] init];
     self.positiveActionsView.pAMVDelegate = self;
-    self.view = self.positiveActionsView;
+    
+    UIView *view = [[UIView alloc] init];
+    [view addSubview:self.positiveActionsView];
+    [self.positiveActionsView autoPinEdgesToSuperviewEdges];
+    
+    UICollectionView *col = (UICollectionView*)self.selectedTopicsViewController.view;
+    col.scrollEnabled = YES;
+    col.pagingEnabled = YES;
+    col.contentInset = UIEdgeInsetsMake(4, 4, 4, 4);
+    [col autoSetDimension:ALDimensionHeight toSize:48];
+    [view addSubview:col];
+    [col autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
+
+    self.view = view;
+    
+//    self.view = self.positiveActionsView;
 }
 
 -(void)viewDidLoad
@@ -76,6 +98,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self.selectedTopicsViewController setSelectedTopics:self.topics];
     if (!self.positiveActions) {
         [self.routing showLoadingWithPresenter:self];
         [self.topicService
