@@ -48,7 +48,7 @@ static NSString *const IDENTIFIER = @"SelectedCell";
 {
     NSMutableArray *selected = selectedTopics;
     if (!selected || [selected count] == 0) {
-        selected = [self.topicService topics];
+        selected = [NSMutableArray arrayWithArray:[self.topicService topics]];
     }
     _selectedTopics = selected;
     [self.collectionView reloadData];
@@ -58,7 +58,7 @@ static NSString *const IDENTIFIER = @"SelectedCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    int index = [indexPath row];
+    NSInteger index = [indexPath row];
     [self.selectedTopics removeObject:[self.selectedTopics objectAtIndex:index]];
     [self.collectionView reloadData];
 }
