@@ -8,20 +8,22 @@
 
 #import "TopicsCollectionViewController.h"
 #import "TopicsCollectionViewCell.h"
-#import "TopicsCollectionViewLayout.h"
+#import "TopicsCollectionView.h"
 
 #import "TopicService.h"
 #import "TopicCellPresenter.h"
 #import "Routing.h"
 #import "PositiveAction.h"
 
-@interface TopicsCollectionViewController ()
+@interface TopicsCollectionViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) id<Routing> routing;
 @property (nonatomic, strong) TopicService *topicService;
 @property (nonatomic, strong) NSArray *topics;
 @property (nonatomic, strong) NSMutableArray *presenters;
 @property (nonatomic, strong) NSMutableArray *selectedTopics;
+
+@property (nonatomic, strong) TopicsCollectionView *collectionView;
 
 @property (nonatomic, copy) SelectedTopicsCallback callback;
 
@@ -38,8 +40,7 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
               withTopicsService:(TopicService*)topicService
     withTopicsSelectionDelegate:(id<TopicsSelectionDelegate>)selectionDelegate
 {
-    TopicsCollectionViewLayout *layout = [[TopicsCollectionViewLayout alloc] init];
-    if (self = [super initWithCollectionViewLayout:layout]) {
+    if (self = [super init]) {
         self.routing = routing;
         self.topicService = topicService;
         self.selectionDelegate = selectionDelegate;
@@ -48,20 +49,22 @@ static NSString * const reuseIdentifier = @"TopicCollectionViewCell";
     return self;
 }
 
+- (void)loadView
+{
+    self.collectionView = [[TopicsCollectionView alloc] init];
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    self.view = self.collectionView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = NSLocalizedString(@"TOPICS_VC_TITLE", @"Encuentra qué hacer");
-    
-    [self loadTopics];
-    // TODO change this, put it inside a view
-    UIImageView *background = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"Splash"]];
-    [self.collectionView setBackgroundView:background];
-    self.collectionView.contentInset = UIEdgeInsetsMake(8, 12, 8, 12);
-    self.collectionView.allowsMultipleSelection = YES;
     [self.collectionView registerClass:[TopicsCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+
+    [self loadTopics];
     [self.collectionView reloadData];
-    
     [self.selectionDelegate viewController:self
                            didSelectTopics:self.selectedTopics
                               withCallback:self.callback];

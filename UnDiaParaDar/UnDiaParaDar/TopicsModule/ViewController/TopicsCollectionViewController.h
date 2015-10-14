@@ -22,7 +22,7 @@ typedef void (^SelectedTopicsCallback)(BOOL enabled);
 
 @end
 
-@interface TopicsCollectionViewController : UICollectionViewController <RightNextButtonProtocol>
+@interface TopicsCollectionViewController : UIViewController <RightNextButtonProtocol>
 
 @property (nonatomic, assign) id<TopicsSelectionDelegate> selectionDelegate; 
 
