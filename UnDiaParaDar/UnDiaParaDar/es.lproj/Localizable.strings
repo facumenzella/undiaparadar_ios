@@ -1,7 +1,34 @@
-/* 
-  Localizable.strings
-  UnDiaParaDar
+// MENU MODULE
+"TOPICS_SECTION" = "Encuentra qué hacer";
+"MAP_SECTION" = "Mapa";
+"TERMSANDCONDITIONS_SECTION" = "Términos y condiciones";
+"QUEES_SECTION" = "Qué es UDPD?";
 
-  Created by Facundo Menzella on 9/3/15.
-  Copyright (c) 2015 ITBA. All rights reserved.
-*/
+// TOPICS MODULE
+"TOPICS_VC_TITLE" = "Encuentra qué hacer";
+"POSITIVE_ACTION" = "Acción positiva";
+
+// TOPICS
+"VOLUNTARIADO" = "Voluntariado";
+"REUTILIZAR" = "Reutilizar";
+"PUBLICACION_CALLE" = "Publicaciones de la calle";
+"PLANTAR_ARBOLES" = "Plantar árboles";
+"FORMARSE_PARA_AYUDAR" = "Formarse para ayudar";
+"DONAR_PELO" = "Donar pelo";
+"DONAR_MILLAS" = "Donar millas aéreas";
+"DONAR_LECHE" = "Donar leche materna";
+"DONAR_DINERO" = "Donar dinero";
+"DONAR_ARTICULOS" = "Donar artículos usados";
+"DONAR_ALIMENTOS" = "Donar alimentos";
+"DONAR_TELEFONOS" = "Donar teléfonos móviles";
+"DONAR_SANGRE" = "Donar sangre";
+"DONAR_PLAQUETAS" = "Donar plaquetas";
+"DONAR_MEDULA" = "Donante de médula osea";
+"ASESOR_DIRECTORIO" = "Asesor / Directorio";
+"ADOPCION_MASCOTAS" = "Adopción de mascotas";
+
+// PROFILE MODULE
+"PROFILE" = "Perfil";
+
+
+
