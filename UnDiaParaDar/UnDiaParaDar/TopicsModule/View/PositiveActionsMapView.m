@@ -17,14 +17,13 @@
 
 @property (nonatomic, strong) UIButton *shareButton;
 @property (nonatomic, strong) UIButton *pledgeButton;
+
 @property (nonatomic, strong) UIView *footerView;
 @property (nonatomic, strong) UIImageView *fowardImageView;
 @property (nonatomic, strong) UITextView *positiveActionTitle;
 
 @property (nonatomic) BOOL didTapOnce;
 @property (nonatomic, strong) NSArray *defaultConstraints;
-@property (nonatomic) CGFloat mapHeightActive;
-@property (nonatomic, strong) NSArray *activeConstraints;
 
 @property (nonatomic, strong) NSArray *annotations;
 
@@ -37,7 +36,6 @@
     self = [super init];
     if (self) {
         [self setBackgroundColor: [UIColor whiteColor]];
-        [self setupHeight];
         [self buildSubviews];
         [self styleSubviews];
         [self activate:NO];
@@ -57,13 +55,6 @@
     self.positiveActionTitle.text = title;
 }
 
-- (void)setupHeight
-{
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenHeight = screenRect.size.height;
-    self.mapHeightActive = (screenHeight / 8);
-}
-
 - (void)buildSubviews
 {
     [self buildMapView];
@@ -81,6 +72,7 @@
     [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeRight];
     self.mapView.showsUserLocation = YES;
     self.mapView.showsPointsOfInterest = NO;
+    self.mapView.showsBuildings = NO;
 }
 
 - (void)buildButtons
@@ -111,10 +103,6 @@
         [self.footerView autoSetDimension:ALDimensionHeight toSize:0];
     }];
     
-    self.activeConstraints = [NSLayoutConstraint autoCreateConstraintsWithoutInstalling:^{
-        [self.footerView autoSetDimension:ALDimensionHeight toSize:self.mapHeightActive];
-    }];
-    
     [self buildFowardButton];
     [self buildPositiveActionTitle];
     
@@ -128,7 +116,8 @@
     self.positiveActionTitle.scrollEnabled = NO;
     self.positiveActionTitle.editable = NO;
     [self.footerView addSubview: self.positiveActionTitle];
-    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:16];
+    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:8];
+    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:8];
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
     NSLayoutConstraint * toFoward = [self.positiveActionTitle autoPinEdge:ALEdgeRight
                                                                    toEdge:ALEdgeLeft
@@ -173,7 +162,6 @@
     if ([view.annotation isKindOfClass:[PositiveActionAnnotation class]]) {
         self.activeAnnotation = (PositiveActionAnnotation*)view.annotation;
         
-        
         NSString *title = self.activeAnnotation.title;
         NSString *subtitle = self.activeAnnotation.pSubtitle;
         [self showActivePositiveActionWithTitle:title withSubtitle:subtitle];
@@ -213,7 +201,6 @@
             [self activateViews:active];
             
             [self.defaultConstraints autoRemoveConstraints];
-            [self.activeConstraints autoInstallConstraints];
             [self layoutIfNeeded];
         }];
     } else {
