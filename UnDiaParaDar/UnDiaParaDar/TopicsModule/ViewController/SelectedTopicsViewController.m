@@ -17,16 +17,18 @@ static NSString *const IDENTIFIER = @"SelectedCell";
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) TopicService *topicService;
-
+@property (nonatomic, copy) SelectedTopicsChangedCallback callback;
 @end
 
 @implementation SelectedTopicsViewController
 
 -(instancetype)initWithTopicService:(TopicService*)topicService
+         withSelectedTopicsCallback:(SelectedTopicsChangedCallback)callback
 {
     self = [super init];
     if (self) {
         self.topicService = topicService;
+        self.callback = callback;
     }
     return self;
 }
@@ -61,6 +63,8 @@ static NSString *const IDENTIFIER = @"SelectedCell";
     NSInteger index = [indexPath row];
     [self.selectedTopics removeObject:[self.selectedTopics objectAtIndex:index]];
     [self.collectionView reloadData];
+    
+    self.callback(self.selectedTopics);
 }
 
 #pragma mark - UICollectionViewDataSource

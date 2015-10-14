@@ -22,12 +22,13 @@
 
 @property (nonatomic, strong) id<Routing> routing;
 @property (nonatomic, strong) TopicService *topicService;
+@property (nonatomic, strong) NSArray *topics;
 @property (nonatomic, strong) PositiveActionsMapView *positiveActionsView;
 
 @property (nonatomic, strong) SelectedTopicsViewController *selectedTopicsViewController;
+@property (nonatomic, copy) SelectedTopicsChangedCallback selectedCallback;
 
 @property (nonatomic) BOOL alreadyZoomed;
-@property (nonatomic, strong) NSArray *topics;
 @property (nonatomic, strong) NSArray *positiveActions;
 
 @end
@@ -42,11 +43,19 @@
     if (self) {
         self.routing = routing;
         self.topicService = topicService;
-        self.topics = topics;
         self.alreadyZoomed = NO;
+        self.topics = topics;
+        
+        __weak PositiveActionsFilteredWithMapViewController *welf = self;
+        self.selectedCallback = ^(NSArray* selected) {
+            welf.topics = selected;
+            [welf refreshMapWithSelectedTopics:welf.topics];
+        };
         self.selectedTopicsViewController = [[SelectedTopicsViewController alloc]
-                                             initWithTopicService:self.topicService];
+                                             initWithTopicService:self.topicService
+                                             withSelectedTopicsCallback:self.selectedCallback];
         [self addChildViewController:self.selectedTopicsViewController];
+        [self.selectedTopicsViewController setSelectedTopics:[NSMutableArray arrayWithArray:self.topics]];
     }
     return self;
 }
@@ -57,8 +66,14 @@
     self.positiveActionsView.pAMVDelegate = self;
     
     self.view = [[PositiveActionsFilteredWithMapView alloc]
-                 initWithSelectedTopicsView:self.selectedTopicsViewController.view
+                 initWithSelectedTopicsView:(SelectedTopicsCollectionView*)self.selectedTopicsViewController.view
                  withPositiveActionsMapView:self.positiveActionsView];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self refreshMapWithSelectedTopics:self.topics];
 }
 
 -(void)viewDidLoad
@@ -75,6 +90,23 @@
     self.navigationItem.rightBarButtonItem = buttonItem;
 }
 
+- (void)refreshMapWithSelectedTopics:(NSArray*)selectedTopics
+{
+        [self.routing showLoadingWithPresenter:self];
+        [self.topicService
+         getPositiveActionsFilteredByTopics:selectedTopics
+         withCallback:^(NSError *error, NSArray *positiveActions) {
+             self.positiveActions = positiveActions;
+             NSMutableArray *annotations = [[NSMutableArray alloc] init];
+             for (PositiveAction *p in self.positiveActions) {
+                 id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
+                 [annotations addObject:annotation];
+             }
+             [self.routing removeLoading];
+             [self.positiveActionsView addPositiveActions:annotations];
+         }];
+}
+
 - (void)zoomToMyLocation
 {
     if (self.alreadyZoomed) {
@@ -87,27 +119,6 @@
             [self.positiveActionsView zoomToMyLocation];
             self.alreadyZoomed = YES;
         });
-    }
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self.selectedTopicsViewController setSelectedTopics:[NSMutableArray arrayWithArray:self.topics]];
-    if (!self.positiveActions) {
-        [self.routing showLoadingWithPresenter:self];
-        [self.topicService
-         getPositiveActionsFilteredByTopics:self.topics
-         withCallback:^(NSError *error, NSArray *positiveActions) {
-             self.positiveActions = positiveActions;
-             NSMutableArray *annotations = [[NSMutableArray alloc] init];
-             for (PositiveAction *p in self.positiveActions) {
-                 id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
-                 [annotations addObject:annotation];
-             }
-             [self.routing removeLoading];
-             [self.positiveActionsView addPositiveActions:annotations];
-         }];
     }
 }
 

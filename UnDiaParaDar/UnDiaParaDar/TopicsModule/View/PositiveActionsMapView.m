@@ -29,6 +29,8 @@
 @property (nonatomic, strong) UITextView *positiveActionTitle;
 @property (nonatomic, strong) UIImageView *colorBandImageView;
 
+@property (nonatomic, strong) NSArray *annotations;
+
 @end
 
 @implementation PositiveActionsMapView
@@ -48,7 +50,9 @@
 
 - (void)addPositiveActions:(NSArray*)positiveActions
 {
-    [self.mapView addAnnotations:positiveActions];
+    [self.mapView removeAnnotations:self.annotations];
+    self.annotations = positiveActions;
+    [self.mapView addAnnotations:self.annotations];
 }
 
 - (void)showActivePositiveActionWithTitle:(NSString*)title withSubtitle:(NSString*)subttitle
