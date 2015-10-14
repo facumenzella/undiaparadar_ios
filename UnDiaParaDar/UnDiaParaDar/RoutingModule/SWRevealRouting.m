@@ -22,7 +22,7 @@
 
 #import "TopicsModuleAssembly.h"
 #import "TopicsCollectionViewController.h"
-#import "PositiveActionsMapViewController.h"
+#import "PositiveActionsFilteredWithMapViewController.h"
 #import "PositiveActionViewController.h"
 
 #import "TermsAndConditionsAssembly.h"
@@ -111,17 +111,17 @@
 
 - (void)showPositiveActionsMapViewControllerWithSelectedTopics:(NSArray*)topics
 {
-    PositiveActionsMapViewController *mapViewController = [self.topicsModuleAssembly
-                                                           positiveActionsMapViewControllerWithTopics:topics];
-     [self.director setRoot:[self.architect buildMainScreenWithRootViewController: mapViewController]];
+    PositiveActionsFilteredWithMapViewController *mapViewController = [self.topicsModuleAssembly
+                                                                       positiveActionsMapViewControllerWithTopics:topics];
+    [self.director setRoot:[self.architect buildMainScreenWithRootViewController: mapViewController]];
 }
 
 - (void)showPositiveActionsMapViewControllerWithPresenter:(UIViewController*)vc
-                                           withSelectedTopics:(NSArray*)topics
+                                       withSelectedTopics:(NSArray*)topics
 {
     if (vc) {
-        PositiveActionsMapViewController *mapViewController = [self.topicsModuleAssembly
-                                                               positiveActionsMapViewControllerWithTopics:topics];
+        PositiveActionsFilteredWithMapViewController *mapViewController = [self.topicsModuleAssembly
+                                                                           positiveActionsMapViewControllerWithTopics:topics];
         [self.director present:mapViewController from:vc animated:YES];
         return;
     }

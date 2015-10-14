@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @protocol PositiveActionsMapViewDelegate;
 @class PositiveActionAnnotation;
 
 @interface PositiveActionsMapView : UIView
 
+@property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, assign) id <PositiveActionsMapViewDelegate> pAMVDelegate;
 @property (nonatomic, strong) PositiveActionAnnotation *activeAnnotation;
 

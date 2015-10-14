@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class SelectedTopicsCollectionView, PositiveActionsMapView;
+
 @interface PositiveActionsFilteredWithMapView : UIView
+
+-(instancetype)initWithSelectedTopicsView:(SelectedTopicsCollectionView*)selectedTopicsView
+               withPositiveActionsMapView:(PositiveActionsMapView*)positiveActionsMapView;
 
 @end

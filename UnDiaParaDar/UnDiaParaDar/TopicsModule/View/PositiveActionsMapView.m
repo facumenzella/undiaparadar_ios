@@ -11,12 +11,10 @@
 #import "PositiveActionAnnotation.h"
 #import "BeautyCenter.h"
 
-#import <MapKit/MapKit.h>
 #import <PureLayout/PureLayout.h>
 
 @interface PositiveActionsMapView () <MKMapViewDelegate>
 
-@property (nonatomic, strong) MKMapView *mapView;
 @property (nonatomic, strong) UIView *overTitleView;
 @property (nonatomic, strong) UITextView *overTitleTextView;
 @property (nonatomic, strong) UIButton *shareButton;

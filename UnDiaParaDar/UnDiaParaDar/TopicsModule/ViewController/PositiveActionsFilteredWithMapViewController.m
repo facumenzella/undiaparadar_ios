@@ -1,13 +1,14 @@
 //
-//  MapViewController.m
+//  PositiveActionsFilteredWithMapViewController.m
 //  UnDiaParaDar
 //
 //  Created by Facundo Menzella on 9/13/15.
 //  Copyright (c) 2015 ITBA. All rights reserved.
 //
 
-#import "PositiveActionsMapViewController.h"
+#import "PositiveActionsFilteredWithMapViewController.h"
 #import "PositiveActionsMapView.h"
+#import "PositiveActionsFilteredWithMapView.h"
 #import "PositiveActionAnnotation.h"
 #import "LocationManager.h"
 
@@ -17,7 +18,7 @@
 #import "Routing.h"
 #import "TopicService.h"
 
-@interface PositiveActionsMapViewController () <PositiveActionsMapViewDelegate>
+@interface PositiveActionsFilteredWithMapViewController () <PositiveActionsMapViewDelegate>
 
 @property (nonatomic, strong) id<Routing> routing;
 @property (nonatomic, strong) TopicService *topicService;
@@ -31,7 +32,7 @@
 
 @end
 
-@implementation PositiveActionsMapViewController
+@implementation PositiveActionsFilteredWithMapViewController
 
 - (instancetype)initWithRouting:(id<Routing>)routing
                withTopicService:(TopicService*)topicService
@@ -55,18 +56,9 @@
     self.positiveActionsView = [[PositiveActionsMapView alloc] init];
     self.positiveActionsView.pAMVDelegate = self;
     
-    UIView *view = [[UIView alloc] init];
-    [view addSubview:self.positiveActionsView];
-    [self.positiveActionsView autoPinEdgesToSuperviewEdges];
-    
-    UICollectionView *col = (UICollectionView*)self.selectedTopicsViewController.view;
-    [col autoSetDimension:ALDimensionHeight toSize:48];
-    [view addSubview:col];
-    [col autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
-
-    self.view = view;
-    
-//    self.view = self.positiveActionsView;
+    self.view = [[PositiveActionsFilteredWithMapView alloc]
+                 initWithSelectedTopicsView:self.selectedTopicsViewController.view
+                 withPositiveActionsMapView:self.positiveActionsView];
 }
 
 -(void)viewDidLoad
@@ -76,6 +68,10 @@
                                              selector:@selector(zoomToMyLocation)
                                                  name:kUserLocationFound
                                                object:nil];
+    
+    MKUserTrackingBarButtonItem *buttonItem = [[MKUserTrackingBarButtonItem alloc]
+                                               initWithMapView:self.positiveActionsView.mapView];
+    self.navigationItem.rightBarButtonItem = buttonItem;
 }
 
 - (void)zoomToMyLocation

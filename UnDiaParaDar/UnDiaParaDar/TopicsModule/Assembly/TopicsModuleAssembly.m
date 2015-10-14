@@ -11,7 +11,7 @@
 #import "ServiceModuleAssembly.h"
 
 #import "TopicsCollectionViewController.h"
-#import "PositiveActionsMapViewController.h"
+#import "PositiveActionsFilteredWithMapViewController.h"
 #import "PositiveActionViewController.h"
 
 @interface TopicsModuleAssembly ()
@@ -28,27 +28,27 @@
     SEL selector = @selector(initWithRouting:withTopicsService:withTopicsSelectionDelegate:);
     return [TyphoonDefinition withClass:[TopicsCollectionViewController class]
                           configuration:^(TyphoonDefinition* definition) {
-        [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith: [self.routingModuleAssembly routing]];
-            [initializer injectParameterWith: [self.serviceModuleAssembly topicService]];
-            [initializer injectParameterWith: [self.routingModuleAssembly iphoneTailor]];
-        }];
-    }];
-
+                              [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
+                                  [initializer injectParameterWith: [self.routingModuleAssembly routing]];
+                                  [initializer injectParameterWith: [self.serviceModuleAssembly topicService]];
+                                  [initializer injectParameterWith: [self.routingModuleAssembly iphoneTailor]];
+                              }];
+                          }];
+    
 }
 
-- (PositiveActionsMapViewController*)positiveActionsMapViewControllerWithTopics:(NSArray*)topics
+- (PositiveActionsFilteredWithMapViewController*)positiveActionsMapViewControllerWithTopics:(NSArray*)topics
 {
     SEL selector = @selector(initWithRouting:withTopicService:withTopics:);
-    return [TyphoonDefinition withClass:[PositiveActionsMapViewController class]
+    return [TyphoonDefinition withClass:[PositiveActionsFilteredWithMapViewController class]
                           configuration:^(TyphoonDefinition* definition) {
-        [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith:[self.routingModuleAssembly routing]];
-            [initializer injectParameterWith:[self.serviceModuleAssembly topicService]];
-            [initializer injectParameterWith:topics];
-        }];
-    }];
-
+                              [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
+                                  [initializer injectParameterWith:[self.routingModuleAssembly routing]];
+                                  [initializer injectParameterWith:[self.serviceModuleAssembly topicService]];
+                                  [initializer injectParameterWith:topics];
+                              }];
+                          }];
+    
 }
 
 - (PositiveActionViewController*)positiveActionViewControllerWithPositiveAction:(PositiveAction*)positiveAction
@@ -56,13 +56,13 @@
     SEL selector = @selector(initWithPositiveAction:withRouting:withTopicService:);
     return [TyphoonDefinition withClass:[PositiveActionViewController class]
                           configuration:^(TyphoonDefinition* definition) {
-        [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
-            [initializer injectParameterWith:positiveAction];
-            [initializer injectParameterWith:[self.routingModuleAssembly routing]];
-            [initializer injectParameterWith:[self.serviceModuleAssembly topicService]];
-        }];
-    }];
-
+                              [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
+                                  [initializer injectParameterWith:positiveAction];
+                                  [initializer injectParameterWith:[self.routingModuleAssembly routing]];
+                                  [initializer injectParameterWith:[self.serviceModuleAssembly topicService]];
+                              }];
+                          }];
+    
 }
 
 @end

@@ -8,13 +8,13 @@
 
 #import "TyphoonAssembly.h"
 
-@class TopicsCollectionViewController, PositiveActionsMapViewController, PositiveActionViewController;
+@class TopicsCollectionViewController, PositiveActionsFilteredWithMapViewController, PositiveActionViewController;
 @class PositiveAction;
 
 @interface TopicsModuleAssembly : TyphoonAssembly
 
 - (TopicsCollectionViewController*)topicsCollectionViewController;
-- (PositiveActionsMapViewController*)positiveActionsMapViewControllerWithTopics:(NSArray*)topics;
+- (PositiveActionsFilteredWithMapViewController*)positiveActionsMapViewControllerWithTopics:(NSArray*)topics;
 - (PositiveActionViewController*)positiveActionViewControllerWithPositiveAction:(PositiveAction*)positiveAction;
 
 @end

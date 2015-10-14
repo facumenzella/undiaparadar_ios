@@ -1,5 +1,5 @@
 //
-//  MapViewController.h
+//  PositiveActionsFilteredWithMapViewController.h
 //  UnDiaParaDar
 //
 //  Created by Facundo Menzella on 9/13/15.
@@ -11,7 +11,7 @@
 @protocol Routing;
 @class TopicService;
 
-@interface PositiveActionsMapViewController : UIViewController
+@interface PositiveActionsFilteredWithMapViewController : UIViewController
 
 - (instancetype)initWithRouting:(id<Routing>)routing
                withTopicService:(TopicService*)topicService
