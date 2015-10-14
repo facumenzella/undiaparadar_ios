@@ -15,19 +15,16 @@
 
 @interface PositiveActionsMapView () <MKMapViewDelegate>
 
-@property (nonatomic, strong) UIView *overTitleView;
-@property (nonatomic, strong) UITextView *overTitleTextView;
 @property (nonatomic, strong) UIButton *shareButton;
 @property (nonatomic, strong) UIButton *pledgeButton;
+@property (nonatomic, strong) UIView *footerView;
+@property (nonatomic, strong) UIImageView *fowardImageView;
+@property (nonatomic, strong) UITextView *positiveActionTitle;
 
 @property (nonatomic) BOOL didTapOnce;
 @property (nonatomic, strong) NSArray *defaultConstraints;
 @property (nonatomic) CGFloat mapHeightActive;
 @property (nonatomic, strong) NSArray *activeConstraints;
-
-@property (nonatomic, strong) UIView *footerView;
-@property (nonatomic, strong) UITextView *positiveActionTitle;
-@property (nonatomic, strong) UIImageView *colorBandImageView;
 
 @property (nonatomic, strong) NSArray *annotations;
 
@@ -57,8 +54,7 @@
 
 - (void)showActivePositiveActionWithTitle:(NSString*)title withSubtitle:(NSString*)subttitle
 {
-    self.overTitleTextView.text = title;
-    self.positiveActionTitle.text = subttitle;
+    self.positiveActionTitle.text = title;
 }
 
 - (void)setupHeight
@@ -72,7 +68,6 @@
 {
     [self buildMapView];
     [self buildFooterView];
-    [self buildOverTittle];
     [self buildButtons];
 }
 
@@ -88,26 +83,6 @@
     self.mapView.showsPointsOfInterest = NO;
 }
 
-- (void)buildOverTittle
-{
-    self.overTitleView = [[UIView alloc] initForAutoLayout];
-    [self addSubview: self.overTitleView];
-    [self.overTitleView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:40];
-    [self.overTitleView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
-    self.overTitleView.layer.cornerRadius = 10;
-    self.overTitleView.clipsToBounds = YES;
-    [self.overTitleView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mapView withOffset:16];
-    
-    self.overTitleTextView = [[UITextView alloc] initForAutoLayout];
-    self.overTitleTextView.scrollEnabled = NO;
-    self.overTitleTextView.editable = NO;
-    [self.overTitleView addSubview: self.overTitleTextView];
-    [self.overTitleTextView autoPinEdgesToSuperviewEdges];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSelectDetail)];
-    [self.overTitleView addGestureRecognizer:tap];
-}
-
 - (void)buildButtons
 {
     self.shareButton = [ButtonFactory buttonWithImage:@"share"];
@@ -118,8 +93,8 @@
     [self.shareButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.mapView withOffset:32];
     [self.pledgeButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.mapView withOffset:-32];
     
-    [self.shareButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.overTitleView withOffset:-16];
-    [self.pledgeButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.overTitleView withOffset:-16];
+    [self.shareButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.footerView withOffset:-16];
+    [self.pledgeButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.footerView withOffset:-16];
 }
 
 - (void)buildFooterView
@@ -140,9 +115,8 @@
         [self.footerView autoSetDimension:ALDimensionHeight toSize:self.mapHeightActive];
     }];
     
-    
+    [self buildFowardButton];
     [self buildPositiveActionTitle];
-    [self buildTitleUnderline];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSelectDetail)];
     [self.footerView addGestureRecognizer:tap];
@@ -156,39 +130,40 @@
     [self.footerView addSubview: self.positiveActionTitle];
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:16];
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
-    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:24];
+    NSLayoutConstraint * toFoward = [self.positiveActionTitle autoPinEdge:ALEdgeRight
+                                                                   toEdge:ALEdgeLeft
+                                                                   ofView:self.fowardImageView
+                                                               withOffset:8
+                                                                 relation:NSLayoutRelationGreaterThanOrEqual];
+    toFoward.priority = UILayoutPriorityDefaultLow;
+    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeRight
+                                               withInset:24
+                                                relation:NSLayoutRelationGreaterThanOrEqual];
 }
 
-- (void)buildTitleUnderline
+- (void)buildFowardButton
 {
-    self.colorBandImageView = [[UIImageView alloc] initForAutoLayout];
-    UIImage *colorBand = [UIImage imageNamed:@"color_band"];
-    [self.colorBandImageView setImage: colorBand];
-    
-    [self.footerView addSubview: self.colorBandImageView];
-    [self.colorBandImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView: self.positiveActionTitle withOffset:8];
-    [self.colorBandImageView autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [self.colorBandImageView autoMatchDimension:ALDimensionWidth
-                                    toDimension:ALDimensionWidth
-                                         ofView:self.positiveActionTitle];
+    self.fowardImageView = [[UIImageView alloc] initForAutoLayout];
+    [self.fowardImageView setImage:[UIImage imageNamed:@"foward"]];
+    [self.footerView addSubview:self.fowardImageView];
+    [self.fowardImageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
+    [self.fowardImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0 relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.fowardImageView autoPinEdgeToSuperviewEdge:ALEdgeBottom
+                                           withInset:0
+                                            relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.fowardImageView autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
 }
 
 #pragma mark - Style
 
 - (void)styleSubviews
 {
-    [self.overTitleView setBackgroundColor: [BeautyCenter beautyCenterColor:BeautyCenterColorDarkRed]];
-    
-    [self.overTitleTextView setTextColor: [UIColor whiteColor]];
-    [self.overTitleTextView setBackgroundColor:[UIColor clearColor]];
-    [self.overTitleTextView setFont: [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
-                                                                    withSize:BeautyCenterTypographySizeB]];
-    [self.overTitleTextView setTextAlignment: NSTextAlignmentCenter];
-    
-    [self.footerView setBackgroundColor: [UIColor whiteColor]];
-    
+    [self.positiveActionTitle setTextColor: [UIColor whiteColor]];
+    [self.positiveActionTitle setBackgroundColor:[UIColor clearColor]];
     [self.positiveActionTitle setTextAlignment:NSTextAlignmentCenter];
-    [self.positiveActionTitle setTextColor: [UIColor colorWithRed:211/255.0 green:0 blue:11/255.0 alpha:1]];
+    [self.positiveActionTitle setFont: [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
+                                                                      withSize:BeautyCenterTypographySizeB]];
+    [self.footerView setBackgroundColor: [BeautyCenter beautyCenterColor:BeautyCenterColorDarkRed]];
 }
 
 #pragma mark - MKMapViewDelegate
@@ -204,7 +179,6 @@
         [self showActivePositiveActionWithTitle:title withSubtitle:subtitle];
         
         self.footerView.userInteractionEnabled = YES;
-        self.overTitleView.userInteractionEnabled = self.footerView.userInteractionEnabled;
         
         if (!self.didTapOnce) {
             self.didTapOnce = !self.didTapOnce;
@@ -251,7 +225,6 @@
 {
     self.shareButton.hidden = !active;
     self.pledgeButton.hidden = !active;
-    self.overTitleView.hidden = !active;
 }
 
 - (void)zoomToMyLocation

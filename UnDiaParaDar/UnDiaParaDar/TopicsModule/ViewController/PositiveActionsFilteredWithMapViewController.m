@@ -84,7 +84,6 @@
                                                  name:kUserLocationFound
                                                object:nil];
     
-    
     MKUserTrackingBarButtonItem *buttonItem = [[MKUserTrackingBarButtonItem alloc]
                                                initWithMapView:self.positiveActionsView.mapView];
     self.navigationItem.rightBarButtonItem = buttonItem;
