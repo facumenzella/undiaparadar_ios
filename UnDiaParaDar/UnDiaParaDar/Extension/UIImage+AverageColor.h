@@ -11,6 +11,5 @@
 @interface UIImage (AverageColor)
 
 - (UIColor *)averageColor;
-- (UIColor *)mergedColor;
 
 @end
