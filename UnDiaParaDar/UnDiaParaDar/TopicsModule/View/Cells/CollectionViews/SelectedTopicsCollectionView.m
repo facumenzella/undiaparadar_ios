@@ -10,6 +10,8 @@
 #import "TopicsSelectedCell.h"
 
 static TopicsSelectedCell *cell;
+static CGFloat const kMinimumLineSpacing = 4;
+static CGFloat const kMinimumInteritemSpacing = 8;
 
 @interface SelectedTopicsCollectionViewLayout : UICollectionViewFlowLayout
 @end
@@ -51,12 +53,12 @@ static TopicsSelectedCell *cell;
 
 - (CGFloat)minimumInteritemSpacing
 {
-    return 8;
+    return kMinimumInteritemSpacing;
 }
 
 - (CGFloat)minimumLineSpacing
 {
-    return 4;
+    return kMinimumLineSpacing;
 }
 
 - (void)buildCell

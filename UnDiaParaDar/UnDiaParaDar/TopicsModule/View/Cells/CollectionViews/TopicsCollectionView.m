@@ -10,8 +10,8 @@
 #import "TopicsCollectionViewCell.h"
 
 static TopicsCollectionViewCell *cell;
-static CGFloat MINIMUM_LINE_SPACING = 0;
-static CGFloat MINIMUM_INTERITEM_SPACING = 0;
+static CGFloat const kMinimumLineSpacing = 0;
+static CGFloat const kMinimumInteritemSpacing = 0;
 
 @interface TopicsCollectionViewLayout : UICollectionViewFlowLayout
 @end
@@ -52,12 +52,12 @@ static CGFloat MINIMUM_INTERITEM_SPACING = 0;
 
 - (CGFloat)minimumInteritemSpacing
 {
-    return MINIMUM_INTERITEM_SPACING;
+    return kMinimumInteritemSpacing;
 }
 
 - (CGFloat)minimumLineSpacing
 {
-    return MINIMUM_LINE_SPACING;
+    return kMinimumLineSpacing;
 }
 
 - (void)buildCell
