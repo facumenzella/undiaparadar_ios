@@ -214,9 +214,9 @@ static double const kDefaultRadius = 1000;
 -(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
 {
     self.circleOverlay = [[MKCircleRenderer alloc] initWithOverlay:overlay];
-    self.circleOverlay.strokeColor = [UIColor blueColor];
+    self.circleOverlay.strokeColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:.6];
     self.circleOverlay.lineWidth = 2;
-    self.circleOverlay.fillColor=[UIColor colorWithRed:0 green:0 blue:1 alpha:.3];
+    self.circleOverlay.fillColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:.2];
     return self.circleOverlay;
 }
 
