@@ -18,7 +18,7 @@ static CGFloat MINIMUM_INTERITEM_SPACING = 0;
 
 @implementation TopicsCollectionView
 
--(instancetype)init
+- (instancetype)init
 {
     self = [super initWithFrame:CGRectNull collectionViewLayout:[[TopicsCollectionViewLayout alloc] init]];
     if (self) {
@@ -40,7 +40,7 @@ static CGFloat MINIMUM_INTERITEM_SPACING = 0;
 {
     self = [super init];
     if (self) {
-        cell = [[TopicsCollectionViewCell alloc] init];
+        [self buildCell];
     }
     return self;
 }
@@ -58,6 +58,14 @@ static CGFloat MINIMUM_INTERITEM_SPACING = 0;
 - (CGFloat)minimumLineSpacing
 {
     return MINIMUM_LINE_SPACING;
+}
+
+- (void)buildCell
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        cell = [[TopicsCollectionViewCell alloc] init];
+    });
 }
 
 @end

@@ -37,7 +37,7 @@ static TopicsSelectedCell *cell;
 {
     self = [super init];
     if (self) {
-        cell = [[TopicsSelectedCell alloc] init];
+        [self buildCell];
         self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     }
     return self;
@@ -58,5 +58,14 @@ static TopicsSelectedCell *cell;
 {
     return 4;
 }
+
+- (void)buildCell
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        cell = [[TopicsSelectedCell alloc] init];
+    });
+}
+
 @end
 
