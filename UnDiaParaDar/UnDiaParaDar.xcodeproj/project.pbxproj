@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */; };
+		0D0610691BD030AB00595A9A /* UIColor+Transformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0610681BD030AB00595A9A /* UIColor+Transformation.m */; };
 		0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F4871BB37D4300AFE46D /* TermsAndConditionsAssembly.m */; };
 		0D11F48B1BB37DCD00AFE46D /* TermsAndConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F48A1BB37DCD00AFE46D /* TermsAndConditionsViewController.m */; };
 		0D11F48E1BB37EB200AFE46D /* TermsAndConditionsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F48D1BB37EB200AFE46D /* TermsAndConditionsPresenter.m */; };
@@ -99,6 +100,8 @@
 
 /* Begin PBXFileReference section */
 		06C0FA932F79B7DB4ECAB673 /* Pods-UnDiaParaDar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnDiaParaDar.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar.release.xcconfig"; sourceTree = "<group>"; };
+		0D0610671BD030AB00595A9A /* UIColor+Transformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Transformation.h"; sourceTree = "<group>"; };
+		0D0610681BD030AB00595A9A /* UIColor+Transformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Transformation.m"; sourceTree = "<group>"; };
 		0D11F4861BB37D4300AFE46D /* TermsAndConditionsAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsAndConditionsAssembly.h; sourceTree = "<group>"; };
 		0D11F4871BB37D4300AFE46D /* TermsAndConditionsAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsAndConditionsAssembly.m; sourceTree = "<group>"; };
 		0D11F4891BB37DCD00AFE46D /* TermsAndConditionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsAndConditionsViewController.h; sourceTree = "<group>"; };
@@ -624,6 +627,8 @@
 				0DD38FF01BBEFC4B0038C2E2 /* UIViewController+DisableView.m */,
 				0DB1E7031BC5ED71004A86A9 /* UIImage+AverageColor.h */,
 				0DB1E7041BC5ED71004A86A9 /* UIImage+AverageColor.m */,
+				0D0610671BD030AB00595A9A /* UIColor+Transformation.h */,
+				0D0610681BD030AB00595A9A /* UIColor+Transformation.m */,
 			);
 			name = Extensions;
 			path = Extension;
@@ -1092,6 +1097,7 @@
 				0D3DB3C31B7546D90052F46B /* MenuViewController.m in Sources */,
 				113E46A21B62C74D00ADF8AC /* SWRevealTailor.m in Sources */,
 				0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */,
+				0D0610691BD030AB00595A9A /* UIColor+Transformation.m in Sources */,
 				11A0940B1B5D61B100E4FB06 /* main.m in Sources */,
 				0D9E1E101B7E5B8F0049D08B /* SplashView.m in Sources */,
 				0DB1E7021BC5E954004A86A9 /* TopicsSelectedCell.m in Sources */,
