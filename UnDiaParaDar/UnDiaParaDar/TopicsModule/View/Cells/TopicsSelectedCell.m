@@ -10,10 +10,13 @@
 #import "Topic.h"
 #import "BeautyCenter.h"
 #import "UIImage+AverageColor.h"
+#import "UIColor+Transformation.h"
 
 #import <PureLayout/PureLayout.h>
 
 @interface TopicsSelectedCell ()
+
+@property (nonatomic, strong) Topic *topic;
 
 @property (nonatomic, strong) UIImageView *topicImageView;
 @property (nonatomic, strong) UIView *separator;
@@ -48,10 +51,14 @@
 
 - (void)populateWithTopic:(Topic*)topic
 {
-    UIImage *image = [UIImage imageNamed:topic.img40x40On];
-    [self.topicImageView setImage:image];
+    self.topic = topic;
+    [self.topicImageView setImage:[UIImage imageNamed:topic.img40x40On]];
 
-    [self.contentView setBackgroundColor:[image averageColor]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([self.topic.code isEqualToString:topic.code]) {
+            [self.contentView setBackgroundColor:[[self.topicImageView.image averageColor] lightenWithTintFactor:.2]];
+        }
+    });
 }
 
 -(void)prepareForReuse
