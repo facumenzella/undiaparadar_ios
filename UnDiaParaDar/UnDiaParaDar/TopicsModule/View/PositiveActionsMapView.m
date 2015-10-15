@@ -129,27 +129,25 @@ static double const kDefaultRadius = 1000;
     self.positiveActionTitle.editable = NO;
     [self.footerView addSubview: self.positiveActionTitle];
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop
-                                               withInset:8
-                                                relation:NSLayoutRelationLessThanOrEqual];
+                                               withInset:4];
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeBottom
-                                               withInset:8
-                                                relation:NSLayoutRelationLessThanOrEqual];
+                                               withInset:4];
+    
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
-    NSLayoutConstraint * toFoward = [self.positiveActionTitle autoPinEdge:ALEdgeRight
-                                                                   toEdge:ALEdgeLeft
-                                                                   ofView:self.fowardImageView
-                                                               withOffset:8
-                                                                 relation:NSLayoutRelationGreaterThanOrEqual];
-    toFoward.priority = UILayoutPriorityDefaultLow;
-    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeRight
-                                               withInset:24
-                                                relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.positiveActionTitle autoPinEdge:ALEdgeRight
+                                   toEdge:ALEdgeLeft
+                                   ofView:self.fowardImageView
+                               withOffset:8
+                                 relation:NSLayoutRelationGreaterThanOrEqual];
 }
 
 - (void)buildFowardButton
 {
     self.fowardImageView = [[UIImageView alloc] initForAutoLayout];
     [self.fowardImageView setImage:[UIImage imageNamed:@"foward"]];
+    [self.fowardImageView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [self.fowardImageView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    
     [self.footerView addSubview:self.fowardImageView];
     [self.fowardImageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
     [self.fowardImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0 relation:NSLayoutRelationGreaterThanOrEqual];
