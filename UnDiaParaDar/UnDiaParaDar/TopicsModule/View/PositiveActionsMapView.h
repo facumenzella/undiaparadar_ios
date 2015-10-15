@@ -28,6 +28,8 @@
 
 @protocol PositiveActionsMapViewDelegate <NSObject>
 
+- (void)rangeDidChange:(CGFloat)range;
+
 - (void)didSelectShareButton;
 
 - (void)didSelectPledgeButton;

@@ -17,12 +17,15 @@
 #import "Routing.h"
 #import "TopicService.h"
 
-@interface PositiveActionsFilteredWithMapViewController () <PositiveActionsMapViewDelegate>
+@interface PositiveActionsFilteredWithMapViewController () <PositiveActionsFilteredWithMapViewDelegate,
+PositiveActionsMapViewDelegate>
 
 @property (nonatomic, strong) id<Routing> routing;
 @property (nonatomic, strong) TopicService *topicService;
 @property (nonatomic, strong) NSArray *topics;
+
 @property (nonatomic, strong) PositiveActionsMapView *positiveActionsView;
+@property (nonatomic, strong) PositiveActionsFilteredWithMapView *positiveFilteredView;
 
 @property (nonatomic, strong) SelectedTopicsViewController *selectedTopicsViewController;
 @property (nonatomic, copy) SelectedTopicsChangedCallback selectedCallback;
@@ -64,9 +67,11 @@
     self.positiveActionsView = [[PositiveActionsMapView alloc] init];
     self.positiveActionsView.pAMVDelegate = self;
     
-    self.view = [[PositiveActionsFilteredWithMapView alloc]
-                 initWithSelectedTopicsView:(SelectedTopicsCollectionView*)self.selectedTopicsViewController.view
-                 withPositiveActionsMapView:self.positiveActionsView];
+    self.positiveFilteredView = [[PositiveActionsFilteredWithMapView alloc]
+                                 initWithSelectedTopicsView:(SelectedTopicsCollectionView*)self.selectedTopicsViewController.view
+                                 withPositiveActionsMapView:self.positiveActionsView];
+    self.positiveFilteredView.delegate = self;
+    self.view = self.positiveFilteredView;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -90,19 +95,19 @@
 
 - (void)refreshMapWithSelectedTopics:(NSArray*)selectedTopics
 {
-        [self.routing showLoadingWithPresenter:self];
-        [self.topicService
-         getPositiveActionsFilteredByTopics:selectedTopics
-         withCallback:^(NSError *error, NSArray *positiveActions) {
-             self.positiveActions = positiveActions;
-             NSMutableArray *annotations = [[NSMutableArray alloc] init];
-             for (PositiveAction *p in self.positiveActions) {
-                 id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
-                 [annotations addObject:annotation];
-             }
-             [self.routing removeLoading];
-             [self.positiveActionsView addPositiveActions:annotations];
-         }];
+    [self.routing showLoadingWithPresenter:self];
+    [self.topicService
+     getPositiveActionsFilteredByTopics:selectedTopics
+     withCallback:^(NSError *error, NSArray *positiveActions) {
+         self.positiveActions = positiveActions;
+         NSMutableArray *annotations = [[NSMutableArray alloc] init];
+         for (PositiveAction *p in self.positiveActions) {
+             id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
+             [annotations addObject:annotation];
+         }
+         [self.routing removeLoading];
+         [self.positiveActionsView addPositiveActions:annotations];
+     }];
 }
 
 - (void)zoomToMyLocation
@@ -130,19 +135,27 @@
     [self removeObserver];
 }
 
+#pragma mark - PositiveActionsFilteredWithMapViewDelegate
+
+- (void)rangeDidChange:(CGFloat)range
+{
+    NSLog(@"range: %f", range);
+    self.positiveActionsView.radius = range;
+}
+
 #pragma mark - PositiveActionsMapViewDelegate
 
--(void)didSelectShareButton
+- (void)didSelectShareButton
 {
     // TODO
 }
 
--(void)didSelectPledgeButton
+- (void)didSelectPledgeButton
 {
     // TODO
 }
 
--(void)didSelectDetail
+- (void)didSelectDetail
 {
     PositiveAction *action = self.positiveActionsView.activeAnnotation.positiveAction;
     [self.routing showPositiveaction:action withPresenter:self];

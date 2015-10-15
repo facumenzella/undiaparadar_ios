@@ -73,8 +73,9 @@
     self.slider.minimumValue = 1000;
     self.slider.backgroundColor = [UIColor clearColor];
     self.slider.maximumValue = self.slider.minimumValue * 100;
-    self.slider.continuous = YES;
+    self.slider.continuous = NO;
     self.slider.value = self.slider.minimumValue;
+    [self.slider addTarget:self action:@selector(sliderChanged) forControlEvents:UIControlEventValueChanged];
     
     [sliderContainer addSubview:self.slider];
     
@@ -85,6 +86,13 @@
     
     CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI_2);
     self.slider.transform = transform;
+}
+
+#pragma mark - UISlider
+
+- (void)sliderChanged
+{
+    [self.delegate rangeDidChange:self.slider.value];
 }
 
 @end
