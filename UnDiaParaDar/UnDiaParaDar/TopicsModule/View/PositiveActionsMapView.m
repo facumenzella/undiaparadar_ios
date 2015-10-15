@@ -13,6 +13,8 @@
 
 #import <PureLayout/PureLayout.h>
 
+static double const kDefaultRadius = 1000;
+
 @interface PositiveActionsMapView () <MKMapViewDelegate>
 
 @property (nonatomic, strong) UIButton *shareButton;
@@ -26,6 +28,8 @@
 @property (nonatomic, strong) NSArray *defaultConstraints;
 
 @property (nonatomic, strong) NSArray *annotations;
+@property (nonatomic, strong) MKCircle *userCircle;
+@property (nonatomic, strong) MKCircleRenderer *circleOverlay;
 
 @end
 
@@ -36,6 +40,7 @@
     self = [super init];
     if (self) {
         [self setBackgroundColor: [UIColor whiteColor]];
+        self.radius = kDefaultRadius;
         [self buildSubviews];
         [self styleSubviews];
         [self activate:NO];
@@ -53,6 +58,13 @@
 - (void)showActivePositiveActionWithTitle:(NSString*)title withSubtitle:(NSString*)subttitle
 {
     self.positiveActionTitle.text = title;
+}
+
+-(void)setRadius:(CLLocationDistance)radius
+{
+    _radius = radius;
+    [self.mapView removeOverlay:self.userCircle];
+    [self updateUserCircle];
 }
 
 - (void)buildSubviews
@@ -116,8 +128,12 @@
     self.positiveActionTitle.scrollEnabled = NO;
     self.positiveActionTitle.editable = NO;
     [self.footerView addSubview: self.positiveActionTitle];
-    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:8];
-    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:8];
+    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop
+                                               withInset:8
+                                                relation:NSLayoutRelationLessThanOrEqual];
+    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeBottom
+                                               withInset:8
+                                                relation:NSLayoutRelationLessThanOrEqual];
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
     NSLayoutConstraint * toFoward = [self.positiveActionTitle autoPinEdge:ALEdgeRight
                                                                    toEdge:ALEdgeLeft
@@ -175,7 +191,6 @@
     }
 }
 
-
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
     // Handle any custom annotations.
@@ -189,10 +204,32 @@
     if ([annotation isKindOfClass:[PositiveActionAnnotation class]]) {
         aView.image = ((PositiveActionAnnotation*)annotation).locationPinImage;
         aView.canShowCallout = YES;
+    } else {
+        [self updateUserCircle];
     }
     
     return aView;
 }
+
+-(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    self.circleOverlay = [[MKCircleRenderer alloc] initWithOverlay:overlay];
+    self.circleOverlay.strokeColor = [UIColor blueColor];
+    self.circleOverlay.lineWidth = 2;
+    self.circleOverlay.fillColor=[UIColor colorWithRed:0 green:0 blue:1 alpha:.3];
+    return self.circleOverlay;
+}
+
+- (void)updateUserCircle
+{
+    // it's user pin
+    CLLocationCoordinate2D location = CLLocationCoordinate2DMake(self.mapView.userLocation.coordinate.latitude,
+                                                                 self.mapView.userLocation.coordinate.longitude);
+    self.userCircle = [MKCircle circleWithCenterCoordinate:location radius:self.radius];
+    [self.mapView addOverlay:self.userCircle];
+}
+
+#pragma mark - UITransitions
 
 - (void)activate:(BOOL)active
 {

@@ -13,7 +13,6 @@
 #import "LocationManager.h"
 
 #import "SelectedTopicsViewController.h"
-#import <PureLayout/PureLayout.h>
 
 #import "Routing.h"
 #import "TopicService.h"

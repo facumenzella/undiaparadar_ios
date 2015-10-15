@@ -15,6 +15,8 @@
 @interface PositiveActionsMapView : UIView
 
 @property (nonatomic, strong) MKMapView *mapView;
+@property (nonatomic) CLLocationDistance radius;
+
 @property (nonatomic, assign) id <PositiveActionsMapViewDelegate> pAMVDelegate;
 @property (nonatomic, strong) PositiveActionAnnotation *activeAnnotation;
 
