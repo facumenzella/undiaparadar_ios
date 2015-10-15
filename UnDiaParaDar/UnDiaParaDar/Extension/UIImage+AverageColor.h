@@ -1,9 +1,9 @@
 //
-//  UIImage+AverageColor.h
-//  UnDiaParaDar
+//  UIImage+UIImageAverageColorAddition.m
+//  AvgColor
 //
-//  Created by Facundo Menzella on 10/7/15.
-//  Copyright (c) 2015 ITBA. All rights reserved.
+//  Created by nikolai on 28.08.12.
+//  Copyright (c) 2012 Savoy Software. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,5 +11,6 @@
 @interface UIImage (AverageColor)
 
 - (UIColor *)averageColor;
+- (UIColor *)mergedColor;
 
 @end
