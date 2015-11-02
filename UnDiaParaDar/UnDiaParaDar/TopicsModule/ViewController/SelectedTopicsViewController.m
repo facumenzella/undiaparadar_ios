@@ -11,6 +11,8 @@
 #import "TopicsSelectedCell.h"
 #import "TopicService.h"
 
+#import <PureLayout/PureLayout.h>
+
 static NSString *const IDENTIFIER = @"SelectedCell";
 
 @interface SelectedTopicsViewController ()
@@ -38,7 +40,26 @@ static NSString *const IDENTIFIER = @"SelectedCell";
     self.collectionView = [[SelectedTopicsCollectionView alloc] init];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    self.view = self.collectionView;
+    
+    UIImageView *clearImageView = [[UIImageView alloc] initForAutoLayout];
+    clearImageView.image = [UIImage imageNamed:@"clear"];
+    clearImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeSelected)];
+    [clearImageView addGestureRecognizer:tap];
+    
+    
+    UIView *view = [[UIView alloc] initForAutoLayout];
+    [view addSubview:self.collectionView];
+    [self.collectionView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeRight];
+    
+    [view addSubview:clearImageView];
+    [clearImageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
+    [clearImageView autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.collectionView withOffset:8];
+    [clearImageView autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    [clearImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0 relation:NSLayoutRelationGreaterThanOrEqual];
+    [clearImageView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0 relation:NSLayoutRelationGreaterThanOrEqual];
+
+    self.view = view;
 }
 
 - (void)viewDidLoad
@@ -85,5 +106,13 @@ static NSString *const IDENTIFIER = @"SelectedCell";
     
     return cell;
 }
+
+#pragma mark - SelectedTopicsView
+
+- (void)removeSelected
+{
+    
+}
+
 
 @end
