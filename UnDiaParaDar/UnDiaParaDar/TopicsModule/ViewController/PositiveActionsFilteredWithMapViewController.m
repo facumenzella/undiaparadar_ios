@@ -87,10 +87,6 @@ PositiveActionsMapViewDelegate>
                                              selector:@selector(zoomToMyLocation)
                                                  name:kUserLocationFound
                                                object:nil];
-    
-    MKUserTrackingBarButtonItem *buttonItem = [[MKUserTrackingBarButtonItem alloc]
-                                               initWithMapView:self.positiveActionsView.mapView];
-    self.navigationItem.rightBarButtonItem = buttonItem;
 }
 
 - (void)refreshMapWithSelectedTopics:(NSArray*)selectedTopics
