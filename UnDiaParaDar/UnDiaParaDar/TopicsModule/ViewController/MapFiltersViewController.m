@@ -24,7 +24,7 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
 @property (nonatomic, strong) TopicService *topicService;
 
 @property (nonatomic, strong) NSMutableArray *topicPresenters;
-
+@property (nonatomic, strong) NSMutableArray *selected;
 @property (nonatomic, strong) MapFilters *mapFilters;
 
 @end
@@ -60,6 +60,7 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
 {
     [super viewDidLoad];
     self.topicPresenters = [[NSMutableArray alloc] init];
+    self.selected = [[NSMutableArray alloc] init];
     
     NSArray *topics = [self.topicService topics];
     for (Topic *t in topics) {
@@ -67,6 +68,10 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
         [self.topicPresenters addObject:presenter];
         presenter.selected = self.mapFilters.selectedTopics.count == 0 ||
         [self.mapFilters.selectedTopics containsObject:t];
+        
+        if (presenter.selected) {
+            [self.selected addObject:presenter];
+        }
     }
     [self.mapFiltersView.collectionView registerClass:[TopicsFilterViewCell class]
                            forCellWithReuseIdentifier:IDENTIFIER];
@@ -79,25 +84,19 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
     [self.mapFiltersView modalStyle];
 }
 
-- (void)saveSelected
-{
-    NSMutableArray *selected = [[NSMutableArray alloc] init];
-    for (TopicCellPresenter *t in self.topicPresenters) {
-        if (t.selected) {
-            [selected addObject:t.topic];
-        }
-    }
-    self.mapFilters.selectedTopics = selected;
-}
-
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TopicsFilterViewCell *cell = (TopicsFilterViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    
     TopicCellPresenter *t = [self.topicPresenters objectAtIndex: [indexPath row]];
     t.selected = !t.selected;
+    if (!t.selected) {
+        [self.selected removeObject:t];
+    } else {
+        [self.selected addObject:t];
+    }
+    [self.mapFiltersView setEnabled:(self.selected.count != 0)];
     [cell populateCellWithTopic:t];
     [collectionView reloadItemsAtIndexPaths:@[indexPath]];
 }
@@ -121,6 +120,17 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
     return cell;
 }
 
+- (void)saveSelected
+{
+    NSMutableArray *selected = [[NSMutableArray alloc] init];
+    for (TopicCellPresenter *t in self.topicPresenters) {
+        if (t.selected) {
+            [selected addObject:t.topic];
+        }
+    }
+    self.mapFilters.selectedTopics = selected;
+}
+
 #pragma mark - MapFiltersDelegate
 
 - (void)didTapCancel
@@ -140,8 +150,13 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
 
 - (void)didSelectAll:(BOOL)all
 {
+    [self.selected removeAllObjects];
+    
     for (TopicCellPresenter *t in self.topicPresenters) {
         t.selected = all;
+        if (all) {
+            [self.selected addObject:t];
+        }
     }
     [self.mapFiltersView.collectionView reloadData];
 }

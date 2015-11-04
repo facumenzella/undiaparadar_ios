@@ -26,5 +26,6 @@
 @property (nonatomic, strong, readonly) UICollectionView *collectionView;
 
 - (void)modalStyle;
+- (void)setEnabled:(BOOL)enabled;
 
 @end

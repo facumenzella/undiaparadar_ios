@@ -269,9 +269,15 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 - (void)segmentedControlDidChange:(id)sender
 {
     NSUInteger index = ((UISegmentedControl*)sender).selectedSegmentIndex;
-    [self.delegate didSelectAll:(index == 0)];
+    BOOL enabled = (index == 0);
+    [self.delegate didSelectAll:enabled];
     
-    self.acceptLabel.enabled = (index != 1);
+    [self setEnabled:enabled];
+}
+
+- (void)setEnabled:(BOOL)enabled
+{
+    self.acceptLabel.enabled = enabled;
     ((UIGestureRecognizer*)self.acceptLabel.gestureRecognizers[0]).enabled = self.acceptLabel.enabled;
 }
 

@@ -39,4 +39,18 @@
     return self.topic.selectedImg;
 }
 
+- (BOOL)isEqual:(id)object
+{
+    if (!object || ![object isKindOfClass:[TopicCellPresenter class]]) {
+        return NO;
+    }
+    TopicCellPresenter *t = (TopicCellPresenter*)object;
+    return [t.topic isEqual:self.topic];
+}
+
+- (NSUInteger)hash
+{
+    return [self.topic hash];
+}
+
 @end
