@@ -20,8 +20,8 @@
 @interface MapFiltersView : UIView
 
 @property (nonatomic, assign) id<MapFiltersViewDelegate> delegate;
-@property (nonatomic) NSUInteger radius;
-@property (nonatomic) BOOL radiusEnabled;
+@property (nonatomic) NSUInteger radio;
+@property (nonatomic) BOOL radioEnabled;
 
 @property (nonatomic, strong, readonly) UICollectionView *collectionView;
 

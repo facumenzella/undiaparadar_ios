@@ -80,9 +80,9 @@
     return self;
 }
 
-- (void)dismissViewController:(UIViewController*)vc
+- (void)dismissViewController:(UIViewController*)vc withCompletion:(void (^)(UIViewController *))completion
 {
-    [self.director dismiss:vc animated:YES withCompletion:nil];
+    [self.director dismiss:vc animated:YES withCompletion:completion];
 }
 
 

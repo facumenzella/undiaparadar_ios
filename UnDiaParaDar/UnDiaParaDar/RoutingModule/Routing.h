@@ -12,7 +12,7 @@
 
 @protocol Routing <NSObject>
 
-- (void)dismissViewController:(UIViewController*)vc;
+- (void)dismissViewController:(UIViewController*)vc withCompletion:(void (^)(UIViewController *))completion;
 
 - (void)showLoginPage;
 - (void)showMainPage;

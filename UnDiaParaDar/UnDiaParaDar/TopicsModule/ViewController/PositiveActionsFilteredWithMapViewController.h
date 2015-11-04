@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Tailor.h"
+#import "MapFilters.h"
 
 @protocol Routing;
 @class TopicService;
 
-@interface PositiveActionsFilteredWithMapViewController : UIViewController<RightFilterButtonProtocol>
+@interface PositiveActionsFilteredWithMapViewController : UIViewController<RightFilterButtonProtocol, MapFiltersHandler>
 
 - (instancetype)initWithRouting:(id<Routing>)routing
                withTopicService:(TopicService*)topicService

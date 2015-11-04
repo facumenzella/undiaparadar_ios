@@ -22,7 +22,6 @@
 
 @property (nonatomic, strong) id<Routing> routing;
 @property (nonatomic, strong) TopicService *topicService;
-@property (nonatomic, strong) NSArray *topics;
 
 @property (nonatomic, strong) PositiveActionsMapView *positiveActionsView;
 @property (nonatomic, strong) PositiveActionsFilteredWithMapView *positiveFilteredView;
@@ -34,6 +33,7 @@
 @property (nonatomic, strong) NSArray *positiveActions;
 
 @property (nonatomic, strong) MapFilters *mapFilters;
+@property (nonatomic, strong) NSArray *topics;
 
 @end
 
@@ -49,8 +49,7 @@
         self.topicService = topicService;
         self.alreadyZoomed = NO;
         self.topics = topics;
-        self.mapFilters = [[MapFilters alloc] init];
-        self.mapFilters.selectedTopics = self.topics;
+        self.mapFilters = [[MapFilters alloc] initWithSelectedTopics:self.topics];
         
         __weak PositiveActionsFilteredWithMapViewController *welf = self;
         self.selectedCallback = ^(NSArray* selected) {
@@ -62,7 +61,6 @@
                                              initWithTopicService:self.topicService
                                              withSelectedTopicsCallback:self.selectedCallback];
         [self addChildViewController:self.selectedTopicsViewController];
-        [self.selectedTopicsViewController setSelectedTopics:[NSMutableArray arrayWithArray:self.topics]];
     }
     return self;
 }
@@ -70,12 +68,13 @@
 -(void)loadView
 {
     self.positiveActionsView = [[PositiveActionsMapView alloc] init];
-    self.positiveActionsView.radius = self.mapFilters.radius;
+    self.positiveActionsView.radius = self.mapFilters.radio;
     self.positiveActionsView.pAMVDelegate = self;
     
-    self.positiveFilteredView = [[PositiveActionsFilteredWithMapView alloc]
-                                 initWithSelectedTopicsView:(SelectedTopicsCollectionView*)self.selectedTopicsViewController.view
-                                 withPositiveActionsMapView:self.positiveActionsView];
+    self.positiveFilteredView =
+    [[PositiveActionsFilteredWithMapView alloc] initWithSelectedTopicsView:(SelectedTopicsCollectionView*)
+     self.selectedTopicsViewController.view
+                                                withPositiveActionsMapView:self.positiveActionsView];
     self.view = self.positiveFilteredView;
 }
 
@@ -96,6 +95,7 @@
 
 - (void)refreshMapWithSelectedTopics:(NSArray*)selectedTopics
 {
+    [self.selectedTopicsViewController setSelectedTopics:[NSMutableArray arrayWithArray:selectedTopics]];
     [self.routing showLoadingWithPresenter:self];
     [self.topicService
      getPositiveActionsFilteredByTopics:selectedTopics
@@ -106,8 +106,8 @@
              id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
              [annotations addObject:annotation];
          }
-         [self.routing removeLoading];
          [self.positiveActionsView addPositiveActions:annotations];
+         [self.routing removeLoading];
      }];
 }
 
@@ -147,6 +147,16 @@
 {
     NSLog(@"range: %f", range);
     self.positiveActionsView.radius = range;
+}
+
+#pragma mark - MapFiltersHandler
+
+- (void)handleFilters:(MapFilters*)mapFilters
+{
+    self.mapFilters = mapFilters;
+    self.topics = self.mapFilters.selectedTopics;
+    [self refreshMapWithSelectedTopics:self.topics];
+    [self rangeDidChange:self.mapFilters.radio];
 }
 
 #pragma mark - PositiveActionsMapViewDelegate

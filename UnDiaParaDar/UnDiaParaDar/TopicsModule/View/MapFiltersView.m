@@ -256,14 +256,14 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 
 - (void)sliderDidChange:(id)sender
 {
-    _radius = ((UISlider*)sender).value;
-    self.radioLabel.text = [NSString stringWithFormat:@"%lu km", (unsigned long) _radius];
+    _radio = ((UISlider*)sender).value;
+    self.radioLabel.text = [NSString stringWithFormat:@"%lu km", (unsigned long) _radio];
 }
 
 - (void)radioEnabled:(id)sender
 {
-    _radiusEnabled = ((UISwitch*)sender).on;
-    [self styleRadiusEnabled:_radiusEnabled];
+    _radioEnabled = ((UISwitch*)sender).on;
+    [self styleRadiusEnabled:_radioEnabled];
 }
 
 - (void)segmentedControlDidChange:(id)sender
@@ -272,17 +272,17 @@ static NSUInteger const kSectionSeparator = kLeftInset;
     [self.delegate didSelectAll:(index == 0)];
 }
 
-- (void)setRadius:(NSUInteger)radius
+- (void)setRadio:(NSUInteger)radio
 {
-    _radius = radius;
-    [self.radioSlider setValue:radius animated:NO];
-    self.radioLabel.text = [NSString stringWithFormat:@"%lu km", (unsigned long) _radius];
+    _radio = radio;
+    [self.radioSlider setValue:radio animated:NO];
+    self.radioLabel.text = [NSString stringWithFormat:@"%lu km", (unsigned long) _radio];
 }
 
-- (void)setRadiusEnabled:(BOOL)radiusEnabled
+- (void)setRadioEnabled:(BOOL)radioEnabled
 {
-    _radiusEnabled = radiusEnabled;
-    [self styleRadiusEnabled:_radiusEnabled];
+    _radioEnabled = radioEnabled;
+    [self styleRadiusEnabled:_radioEnabled];
 }
 
 - (void)styleRadiusEnabled:(BOOL)enabled

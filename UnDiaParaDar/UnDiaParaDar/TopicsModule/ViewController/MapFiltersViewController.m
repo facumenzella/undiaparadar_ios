@@ -24,6 +24,7 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
 @property (nonatomic, strong) TopicService *topicService;
 
 @property (nonatomic, strong) NSMutableArray *topicPresenters;
+
 @property (nonatomic, strong) MapFilters *mapFilters;
 
 @end
@@ -51,17 +52,21 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
     self.mapFiltersView.delegate = self;
     self.view = self.mapFiltersView;
     
-    self.mapFiltersView.radiusEnabled = self.mapFilters.radioEnabled;
-    self.mapFiltersView.radius = self.mapFilters.radius;
+    self.mapFiltersView.radioEnabled = self.mapFilters.radioEnabled;
+    self.mapFiltersView.radio = self.mapFilters.radio;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.topicPresenters = [[NSMutableArray alloc] init];
+    
     NSArray *topics = [self.topicService topics];
     for (Topic *t in topics) {
-        [self.topicPresenters addObject:[[TopicCellPresenter alloc] initWithTopic:t]];
+        TopicCellPresenter *presenter = [[TopicCellPresenter alloc] initWithTopic:t];
+        [self.topicPresenters addObject:presenter];
+        presenter.selected = self.mapFilters.selectedTopics.count == 0 ||
+        [self.mapFilters.selectedTopics containsObject:t];
     }
     [self.mapFiltersView.collectionView registerClass:[TopicsFilterViewCell class]
                            forCellWithReuseIdentifier:IDENTIFIER];
@@ -72,6 +77,17 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
 {
     [super viewDidAppear:animated];
     [self.mapFiltersView modalStyle];
+}
+
+- (void)saveSelected
+{
+    NSMutableArray *selected = [[NSMutableArray alloc] init];
+    for (TopicCellPresenter *t in self.topicPresenters) {
+        if (t.selected) {
+            [selected addObject:t.topic];
+        }
+    }
+    self.mapFilters.selectedTopics = selected;
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -109,13 +125,17 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
 
 - (void)didTapCancel
 {
-    [self.routing dismissViewController:self];
+    [self.routing dismissViewController:self withCompletion:nil];
 }
 
 - (void)didTapAccept
 {
-    // TODO
-    [self.routing dismissViewController:self];
+    self.mapFilters.radio = self.mapFiltersView.radio;
+    self.mapFilters.radioEnabled = self.mapFiltersView.radioEnabled;
+    [self saveSelected];
+    [self.routing dismissViewController:self withCompletion:^(UIViewController<MapFiltersHandler>* presenter){
+        [presenter handleFilters:self.mapFilters];
+    }];
 }
 
 - (void)didSelectAll:(BOOL)all

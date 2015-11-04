@@ -87,10 +87,11 @@
         }
         
     } else if (vc.presentingViewController) {
-        UIViewController* presenter = vc.presentingViewController;
-        [presenter dismissViewControllerAnimated:animated completion:nil];
+        SWRevealViewController* reveal = (SWRevealViewController*)vc.presentingViewController;
+        [reveal dismissViewControllerAnimated:animated completion:nil];
+        UINavigationController *nav = (UINavigationController*)reveal.frontViewController;
         if (completion) {
-            completion(presenter);
+            completion([nav.viewControllers lastObject]);
         }
         
     } else {

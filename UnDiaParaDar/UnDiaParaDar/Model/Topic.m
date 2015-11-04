@@ -10,4 +10,18 @@
 
 @implementation Topic
 
+- (BOOL)isEqual:(id)object
+{
+    if (!object || ![object isKindOfClass:[Topic class]]) {
+        return NO;
+    }
+    Topic *t = (Topic*)object;
+    return [t.code isEqualToString:self.code];
+}
+
+- (NSUInteger)hash
+{
+    return [self.code hash];
+}
+
 @end

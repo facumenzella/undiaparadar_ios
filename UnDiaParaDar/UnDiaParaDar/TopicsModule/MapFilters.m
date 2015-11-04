@@ -8,7 +8,7 @@
 
 #import "MapFilters.h"
 
-static NSUInteger const kDefaultRadius = 1000;
+static NSUInteger const kDefaultRadio = 1000;
 static BOOL const kDefaultRadiusEnabled = YES;
 
 @implementation MapFilters
@@ -17,8 +17,17 @@ static BOOL const kDefaultRadiusEnabled = YES;
 {
     self = [super init];
     if (self) {
-        self.radius = kDefaultRadius;
+        self.radio = kDefaultRadio;
         self.radioEnabled = kDefaultRadiusEnabled;
+    }
+    return self;
+}
+
+- (instancetype)initWithSelectedTopics:(NSArray*)topics
+{
+    self = [self init];
+    if (self) {
+        self.selectedTopics = [NSMutableArray arrayWithArray:topics];
     }
     return self;
 }
