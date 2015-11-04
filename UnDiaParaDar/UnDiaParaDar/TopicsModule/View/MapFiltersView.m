@@ -17,8 +17,8 @@ static NSString *BACKGROUND_KEY = @"Splash";
 
 static NSUInteger const kLeftInset = 24;
 static NSUInteger const kRightInset = kLeftInset;
-static NSUInteger const kLineSeparator = kLeftInset;
-static NSUInteger const kSectionSeparator = 2 * kLeftInset;
+static NSUInteger const kLineSeparator = kLeftInset * .75;
+static NSUInteger const kSectionSeparator = kLeftInset;
 
 @interface MapFiltersView()
 
@@ -29,6 +29,7 @@ static NSUInteger const kSectionSeparator = 2 * kLeftInset;
 @property (nonatomic, strong) UILabel *radio;
 
 @property (nonatomic, strong) UILabel *topicsSectionTitle;
+@property (strong, nonatomic) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong, readwrite) UICollectionView *collectionView;
 
 @end
@@ -74,7 +75,7 @@ static NSUInteger const kSectionSeparator = 2 * kLeftInset;
     self.radioSectionTitle = [[UILabel alloc] initForAutoLayout];
     [self.backgroundView addSubview:self.radioSectionTitle];
     [self.radioSectionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:kLeftInset];
-    [self.radioSectionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:48];
+    [self.radioSectionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kSectionSeparator];
     self.radioSectionTitle.text = NSLocalizedString(@"RADIO", @"Radio");
 }
 
@@ -124,6 +125,7 @@ static NSUInteger const kSectionSeparator = 2 * kLeftInset;
 - (void)buildTopicsSection
 {
     [self buildTopicsTitle];
+    [self buildSegmentedControl];
     [self buildCollectionView];
 }
 
@@ -136,9 +138,22 @@ static NSUInteger const kSectionSeparator = 2 * kLeftInset;
                                   toEdge:ALEdgeBottom
                                   ofView:self.radioSlider
                               withOffset:kSectionSeparator];
-    [self.topicsSectionTitle autoPinEdgeToSuperviewEdge:ALEdgeRight];
     
     self.topicsSectionTitle.text = NSLocalizedString(@"TOPICS", @"Topics");
+}
+
+- (void)buildSegmentedControl
+{
+    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Todos", @"Ninguno"]];
+    self.segmentedControl.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.backgroundView addSubview:self.segmentedControl];
+    [self.segmentedControl autoPinEdge:ALEdgeLeft
+                           toEdge:ALEdgeRight
+                           ofView:self.topicsSectionTitle
+                       withOffset:0
+                         relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.segmentedControl autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
+    [self.segmentedControl autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.topicsSectionTitle];
 }
 
 - (void)buildCollectionView
