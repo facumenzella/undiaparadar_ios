@@ -32,6 +32,9 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 @property (strong, nonatomic) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong, readwrite) UICollectionView *collectionView;
 
+@property (nonatomic, strong) UILabel *acceptLabel;
+@property (nonatomic, strong) UILabel *cancelLabel;
+
 @end
 
 @implementation MapFiltersView
@@ -127,6 +130,7 @@ static NSUInteger const kSectionSeparator = kLeftInset;
     [self buildTopicsTitle];
     [self buildSegmentedControl];
     [self buildCollectionView];
+    [self buildButtons];
 }
 
 - (void)buildTopicsTitle
@@ -164,11 +168,40 @@ static NSUInteger const kSectionSeparator = kLeftInset;
     [self.backgroundView addSubview:self.collectionView];
     [self.collectionView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:kLineSeparator];
     [self.collectionView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:kLineSeparator];
-    [self.collectionView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLineSeparator];
     [self.collectionView autoPinEdge:ALEdgeTop
                               toEdge:ALEdgeBottom
                               ofView:self.topicsSectionTitle
                           withOffset:kLineSeparator];
+}
+
+- (void)buildButtons
+{
+    [self buildAccept];
+    [self buildCancel];
+}
+
+- (void)buildAccept
+{
+    self.acceptLabel = [[UILabel alloc] initForAutoLayout];
+    self.acceptLabel.text = @"Aceptar";
+    [self.backgroundView addSubview:self.acceptLabel];
+    [self.acceptLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.collectionView withOffset:kLineSeparator];
+    [self.acceptLabel autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kSectionSeparator];
+    [self.acceptLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:kLeftInset];
+}
+
+- (void)buildCancel
+{
+    self.cancelLabel = [[UILabel alloc] initForAutoLayout];
+    self.cancelLabel.text = @"Cancelar";
+    [self.backgroundView addSubview:self.cancelLabel];
+    [self.cancelLabel autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLineSeparator];
+    [self.cancelLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:kRightInset];
+    [self.cancelLabel autoPinEdge:ALEdgeLeft
+                           toEdge:ALEdgeRight
+                           ofView:self.acceptLabel
+                       withOffset:kLeftInset
+                         relation:NSLayoutRelationGreaterThanOrEqual];
 }
 
 - (void)styleSubviews
@@ -188,6 +221,10 @@ static NSUInteger const kSectionSeparator = kLeftInset;
     self.topicsSectionTitle.font = titleFont;
     
     self.collectionView.backgroundColor = [UIColor clearColor];
+    self.acceptLabel.font = radioFont;
+    self.acceptLabel.textAlignment = NSTextAlignmentCenter;
+    self.cancelLabel.font = radioFont;
+    self.cancelLabel.textAlignment = NSTextAlignmentCenter;
 }
 
 @end

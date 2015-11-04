@@ -9,8 +9,8 @@
 #import "FiltersViewCollectionLayout.h"
 #import "TopicsFilterViewCell.h"
 
-static CGFloat const kMinimumLineSpacing = 4;
-static CGFloat const kMinimumInteritemSpacing = 8;
+static CGFloat const kMinimumLineSpacing = 8;
+static CGFloat const kMinimumInteritemSpacing = 16;
 static TopicsFilterViewCell *cell;
 
 @implementation FiltersViewCollectionLayout
