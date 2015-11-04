@@ -240,6 +240,7 @@ static NSUInteger const kSectionSeparator = kLeftInset;
     self.topicsSectionTitle.font = titleFont;
     
     self.collectionView.backgroundColor = [UIColor clearColor];
+    self.collectionView.scrollEnabled = NO;
     self.acceptLabel.font = radioFont;
     self.acceptLabel.textAlignment = NSTextAlignmentCenter;
     self.cancelLabel.font = radioFont;
