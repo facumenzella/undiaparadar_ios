@@ -10,4 +10,6 @@
 
 @interface SelectedTopicsCollectionView : UICollectionView
 
+- (instancetype)initWithUICollectionViewLayout:(UICollectionViewLayout*)collectionLayout;
+
 @end

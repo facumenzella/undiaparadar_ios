@@ -29,6 +29,17 @@ static CGFloat const kMinimumInteritemSpacing = 8;
     return self;
 }
 
+- (instancetype)initWithUICollectionViewLayout:(UICollectionViewLayout*)collectionLayout
+{
+    self = [super initWithFrame:CGRectNull collectionViewLayout:collectionLayout];
+    if (self) {
+        [self setBackgroundColor:[UIColor whiteColor]];
+        self.scrollEnabled = YES;
+        self.contentInset = UIEdgeInsetsMake(4, 4, 4, 4);
+    }
+    return self;
+}
+
 @end
 
 #pragma mark - SelectedTopicsCollectionViewLayout

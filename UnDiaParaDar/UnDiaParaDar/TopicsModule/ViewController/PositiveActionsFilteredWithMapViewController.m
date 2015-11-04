@@ -13,6 +13,7 @@
 #import "LocationManager.h"
 
 #import "SelectedTopicsViewController.h"
+#import "MapFiltersViewController.h"
 
 #import "Routing.h"
 #import "TopicService.h"
@@ -137,6 +138,8 @@ PositiveActionsMapViewDelegate>
 {
     NSLog(@"range: %f", range);
     self.positiveActionsView.radius = range;
+    MapFiltersViewController *c = [[MapFiltersViewController  alloc] init];
+    [self presentViewController:c animated:YES completion:nil];
 }
 
 #pragma mark - PositiveActionsMapViewDelegate

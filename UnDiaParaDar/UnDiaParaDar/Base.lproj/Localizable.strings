@@ -7,8 +7,10 @@
 // TOPICS MODULE
 "TOPICS_VC_TITLE" = "Encuentra qué hacer";
 "POSITIVE_ACTION" = "Acción positiva";
+"RADIO" = "Radio";
 
 // TOPICS
+"TOPICS" = "Topics";
 "VOLUNTARIADO" = "Voluntariado";
 "REUTILIZAR" = "Reutilizar";
 "PUBLICACION_CALLE" = "Publicaciones de la calle";

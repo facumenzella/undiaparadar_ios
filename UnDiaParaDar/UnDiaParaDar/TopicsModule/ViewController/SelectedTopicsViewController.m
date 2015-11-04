@@ -13,7 +13,7 @@
 
 #import <PureLayout/PureLayout.h>
 
-static NSString *const IDENTIFIER = @"SelectedCell";
+static NSString *const IDENTIFIER = @"TopicsSelectedCell";
 
 @interface SelectedTopicsViewController ()
 
