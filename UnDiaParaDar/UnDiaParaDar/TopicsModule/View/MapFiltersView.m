@@ -197,6 +197,7 @@ static NSUInteger const kSectionSeparator = kLeftInset;
     [self.backgroundView addSubview:self.cancelLabel];
     [self.cancelLabel autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLineSeparator];
     [self.cancelLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:kRightInset];
+    [self.cancelLabel autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.acceptLabel];
     [self.cancelLabel autoPinEdge:ALEdgeLeft
                            toEdge:ALEdgeRight
                            ofView:self.acceptLabel
@@ -204,9 +205,16 @@ static NSUInteger const kSectionSeparator = kLeftInset;
                          relation:NSLayoutRelationGreaterThanOrEqual];
 }
 
+- (void)modalStyle
+{
+    [UIView animateWithDuration:.4 animations:^{
+        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.4];
+    }];
+}
+
 - (void)styleSubviews
 {
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor clearColor];
     self.backgroundView.layer.cornerRadius = 30;
     self.backgroundView.clipsToBounds = YES;
     

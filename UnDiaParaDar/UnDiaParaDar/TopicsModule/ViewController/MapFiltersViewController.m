@@ -48,6 +48,7 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     self.topicPresenters = [[NSMutableArray alloc] init];
     NSArray *topics = [self.topicService topics];
     for (Topic *t in topics) {
@@ -56,6 +57,12 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
     [self.mapFiltersView.collectionView registerClass:[TopicsFilterViewCell class]
                            forCellWithReuseIdentifier:IDENTIFIER];
     [self.mapFiltersView.collectionView reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.mapFiltersView modalStyle];
 }
 
 #pragma mark - UICollectionViewDelegate
