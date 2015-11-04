@@ -270,6 +270,9 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 {
     NSUInteger index = ((UISegmentedControl*)sender).selectedSegmentIndex;
     [self.delegate didSelectAll:(index == 0)];
+    
+    self.acceptLabel.enabled = (index != 1);
+    ((UIGestureRecognizer*)self.acceptLabel.gestureRecognizers[0]).enabled = self.acceptLabel.enabled;
 }
 
 - (void)setRadio:(NSUInteger)radio
