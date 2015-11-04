@@ -41,25 +41,7 @@ static NSString *const IDENTIFIER = @"TopicsSelectedCell";
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
-    UIImageView *clearImageView = [[UIImageView alloc] initForAutoLayout];
-    clearImageView.image = [UIImage imageNamed:@"clear"];
-    clearImageView.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeSelected)];
-    [clearImageView addGestureRecognizer:tap];
-    
-    
-    UIView *view = [[UIView alloc] initForAutoLayout];
-    [view addSubview:self.collectionView];
-    [self.collectionView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeRight];
-    
-    [view addSubview:clearImageView];
-    [clearImageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
-    [clearImageView autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.collectionView withOffset:8];
-    [clearImageView autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
-    [clearImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0 relation:NSLayoutRelationGreaterThanOrEqual];
-    [clearImageView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0 relation:NSLayoutRelationGreaterThanOrEqual];
-
-    self.view = view;
+    self.view = self.collectionView;
 }
 
 - (void)viewDidLoad
