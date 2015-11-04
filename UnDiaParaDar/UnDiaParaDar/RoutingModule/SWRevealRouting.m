@@ -128,8 +128,9 @@
                                        withSelectedTopics:(NSArray*)topics
 {
     if (vc) {
-        PositiveActionsFilteredWithMapViewController *mapViewController = [self.topicsModuleAssembly
-                                                                           positiveActionsMapViewControllerWithTopics:topics];
+        PositiveActionsFilteredWithMapViewController *mapViewController =
+        [self.topicsModuleAssembly positiveActionsMapViewControllerWithTopics:topics];
+        [self.tailor suitViewControllerUpForFilterEvent:mapViewController];
         [self.director present:mapViewController from:vc animated:YES];
         return;
     }
