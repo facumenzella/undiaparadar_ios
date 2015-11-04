@@ -43,6 +43,7 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
 {
     self.mapFiltersView = [[MapFiltersView alloc] init];
     self.mapFiltersView.collectionView.dataSource = self;
+    self.mapFiltersView.collectionView.delegate = self;
     self.mapFiltersView.delegate = self;
     self.view = self.mapFiltersView;
 }
@@ -68,10 +69,15 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
 
 #pragma mark - UICollectionViewDelegate
 
-//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-//{
-//
-//}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TopicsFilterViewCell *cell = (TopicsFilterViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    
+    TopicCellPresenter *t = [self.topicPresenters objectAtIndex: [indexPath row]];
+    t.selected = !t.selected;
+    [cell populateCellWithTopic:t];
+    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+}
 
 #pragma mark - UICollectionViewDataSource
 
