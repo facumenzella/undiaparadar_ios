@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MapFiltersViewDelegate <NSObject>
+
+- (void)didTapCancel;
+- (void)didTapAccept;
+
+@end
+
 @interface MapFiltersView : UIView
+
+@property (nonatomic, assign) id<MapFiltersViewDelegate> delegate;
+@property (nonatomic, readonly) NSUInteger radio;
+@property (nonatomic, readonly) BOOL radioEnabled;
 
 @property (nonatomic, strong, readonly) UICollectionView *collectionView;
 

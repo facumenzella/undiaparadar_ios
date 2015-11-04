@@ -26,7 +26,7 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 @property (nonatomic, strong) UILabel *radioSectionTitle;
 @property (nonatomic, strong) UISwitch *radioSwitch;
 @property (nonatomic, strong) UISlider *radioSlider;
-@property (nonatomic, strong) UILabel *radio;
+@property (nonatomic, strong) UILabel *radioLabel;
 
 @property (nonatomic, strong) UILabel *topicsSectionTitle;
 @property (strong, nonatomic) UISegmentedControl *segmentedControl;
@@ -34,6 +34,9 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 
 @property (nonatomic, strong) UILabel *acceptLabel;
 @property (nonatomic, strong) UILabel *cancelLabel;
+
+@property (nonatomic, readwrite) NSUInteger radio;
+@property (nonatomic, readwrite) BOOL radioEnabled;
 
 @end
 
@@ -112,17 +115,17 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 
 - (void)buildRadio
 {
-    self.radio = [[UILabel alloc] initForAutoLayout];
-    [self.backgroundView addSubview: self.radio];
-    [self.radio autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:kRightInset];
-    [self.radio autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.radioSlider];
-    [self.radio autoPinEdge:ALEdgeLeft
-                     toEdge:ALEdgeRight
-                     ofView:self.radioSlider
-                 withOffset:0
-                   relation:NSLayoutRelationGreaterThanOrEqual];
-    [self.radio autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.radioSwitch];
-    self.radio.text = @"10 km";
+    self.radioLabel = [[UILabel alloc] initForAutoLayout];
+    [self.backgroundView addSubview: self.radioLabel];
+    [self.radioLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:kRightInset];
+    [self.radioLabel autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.radioSlider];
+    [self.radioLabel autoPinEdge:ALEdgeLeft
+                          toEdge:ALEdgeRight
+                          ofView:self.radioSlider
+                      withOffset:0
+                        relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.radioLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.radioSwitch];
+    self.radioLabel.text = @"10 km";
 }
 
 - (void)buildTopicsSection
@@ -152,10 +155,10 @@ static NSUInteger const kSectionSeparator = kLeftInset;
     self.segmentedControl.translatesAutoresizingMaskIntoConstraints = NO;
     [self.backgroundView addSubview:self.segmentedControl];
     [self.segmentedControl autoPinEdge:ALEdgeLeft
-                           toEdge:ALEdgeRight
-                           ofView:self.topicsSectionTitle
-                       withOffset:0
-                         relation:NSLayoutRelationGreaterThanOrEqual];
+                                toEdge:ALEdgeRight
+                                ofView:self.topicsSectionTitle
+                            withOffset:0
+                              relation:NSLayoutRelationGreaterThanOrEqual];
     [self.segmentedControl autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
     [self.segmentedControl autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.topicsSectionTitle];
 }
@@ -188,6 +191,10 @@ static NSUInteger const kSectionSeparator = kLeftInset;
     [self.acceptLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.collectionView withOffset:kLineSeparator];
     [self.acceptLabel autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kSectionSeparator];
     [self.acceptLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:kLeftInset];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(accept)];
+    [self.acceptLabel addGestureRecognizer:tap];
+    self.acceptLabel.userInteractionEnabled = YES;
 }
 
 - (void)buildCancel
@@ -203,6 +210,10 @@ static NSUInteger const kSectionSeparator = kLeftInset;
                            ofView:self.acceptLabel
                        withOffset:kLeftInset
                          relation:NSLayoutRelationGreaterThanOrEqual];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancel)];
+    [self.cancelLabel addGestureRecognizer:tap];
+    self.cancelLabel.userInteractionEnabled = YES;
 }
 
 - (void)modalStyle
@@ -224,7 +235,7 @@ static NSUInteger const kSectionSeparator = kLeftInset;
                                                        withSize:BeautyCenterTypographySizeC];
     self.radioSectionTitle.textAlignment = NSTextAlignmentLeft;
     self.radioSectionTitle.font = titleFont;
-    self.radio.font = radioFont;
+    self.radioLabel.font = radioFont;
     self.topicsSectionTitle.textAlignment = NSTextAlignmentLeft;
     self.topicsSectionTitle.font = titleFont;
     
@@ -233,6 +244,18 @@ static NSUInteger const kSectionSeparator = kLeftInset;
     self.acceptLabel.textAlignment = NSTextAlignmentCenter;
     self.cancelLabel.font = radioFont;
     self.cancelLabel.textAlignment = NSTextAlignmentCenter;
+}
+
+#pragma mark - MapFiltersViewDelegate
+
+- (void)accept
+{
+    [self.delegate didTapAccept];
+}
+
+- (void)cancel
+{
+    [self.delegate didTapCancel];
 }
 
 @end

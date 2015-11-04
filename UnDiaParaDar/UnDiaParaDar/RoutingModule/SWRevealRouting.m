@@ -80,6 +80,12 @@
     return self;
 }
 
+- (void)dismissViewController:(UIViewController*)vc
+{
+    [self.director dismiss:vc animated:YES withCompletion:nil];
+}
+
+
 - (void)showLoginPage
 {
     [self.director setRoot:[self.loginModuleAssembly loginViewController]];

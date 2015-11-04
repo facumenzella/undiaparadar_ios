@@ -12,6 +12,8 @@
 
 @protocol Routing <NSObject>
 
+- (void)dismissViewController:(UIViewController*)vc;
+
 - (void)showLoginPage;
 - (void)showMainPage;
 - (void)showProfile;

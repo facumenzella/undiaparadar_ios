@@ -16,7 +16,7 @@
 
 static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
 
-@interface MapFiltersViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface MapFiltersViewController () <UICollectionViewDelegate, UICollectionViewDataSource, MapFiltersViewDelegate>
 
 @property (nonatomic, strong) MapFiltersView *mapFiltersView;
 @property (nonatomic, strong) id<Routing> routing;
@@ -43,6 +43,7 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
 {
     self.mapFiltersView = [[MapFiltersView alloc] init];
     self.mapFiltersView.collectionView.dataSource = self;
+    self.mapFiltersView.delegate = self;
     self.view = self.mapFiltersView;
 }
 
@@ -89,6 +90,19 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
     [cell populateCellWithTopic:t];
     
     return cell;
+}
+
+#pragma mark - MapFiltersDelegate
+
+- (void)didTapCancel
+{
+    [self.routing dismissViewController:self];
+}
+
+- (void)didTapAccept
+{
+    // TODO
+    [self.routing dismissViewController:self];
 }
 
 @end
