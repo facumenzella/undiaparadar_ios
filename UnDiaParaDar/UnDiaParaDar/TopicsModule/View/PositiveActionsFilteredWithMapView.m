@@ -16,7 +16,6 @@
 
 @property (nonatomic, strong) SelectedTopicsCollectionView *selectedTopicsView;
 @property (nonatomic, strong) PositiveActionsMapView *positiveActionsMapView;
-@property (nonatomic, strong) UISlider *slider;
 
 @end
 
@@ -38,7 +37,6 @@
 {
     [self buildPositiveActionsMapView];
     [self buildSelectedTopicsView];
-    [self buildSlider];
 }
 
 - (void)buildPositiveActionsMapView
@@ -53,46 +51,6 @@
     [self.selectedTopicsView autoSetDimension:ALDimensionHeight toSize:48];
     [self.selectedTopicsView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
     [self.selectedTopicsView autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.positiveActionsMapView withOffset:0];
-}
-
-- (void)buildSlider
-{
-    // we use this container to rotate the UISlider the best way we found
-    UIView *sliderContainer = [[UIView alloc] initForAutoLayout];
-    sliderContainer.backgroundColor = [UIColor clearColor];
-    sliderContainer.userInteractionEnabled = YES;
-    [self addSubview:sliderContainer];
-    
-    [sliderContainer autoSetDimension:ALDimensionHeight toSize:200];
-    [sliderContainer autoSetDimension:ALDimensionWidth toSize:24];
-    [sliderContainer autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.selectedTopicsView withOffset:24];
-    [sliderContainer autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
-    
-    self.slider = [[UISlider alloc] initForAutoLayout];
-    self.slider.userInteractionEnabled = YES;
-    self.slider.minimumValue = 1000;
-    self.slider.backgroundColor = [UIColor clearColor];
-    self.slider.maximumValue = self.slider.minimumValue * 100;
-    self.slider.continuous = NO;
-    self.slider.value = self.slider.minimumValue;
-    [self.slider addTarget:self action:@selector(sliderChanged) forControlEvents:UIControlEventValueChanged];
-    
-    [sliderContainer addSubview:self.slider];
-    
-    // this is inverted because we rotated 90 degrees
-    [self.slider autoMatchDimension:ALDimensionWidth toDimension:ALDimensionHeight ofView:sliderContainer];
-    [self.slider autoMatchDimension:ALDimensionHeight toDimension:ALDimensionWidth ofView:sliderContainer];
-    [self.slider autoCenterInSuperview];
-    
-    CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI_2);
-    self.slider.transform = transform;
-}
-
-#pragma mark - UISlider
-
-- (void)sliderChanged
-{
-    [self.delegate rangeDidChange:self.slider.value];
 }
 
 @end

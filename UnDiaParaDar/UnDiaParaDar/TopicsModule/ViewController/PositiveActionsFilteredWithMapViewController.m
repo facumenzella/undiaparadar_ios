@@ -13,13 +13,11 @@
 #import "LocationManager.h"
 
 #import "SelectedTopicsViewController.h"
-#import "MapFiltersViewController.h"
 
 #import "Routing.h"
 #import "TopicService.h"
 
-@interface PositiveActionsFilteredWithMapViewController () <PositiveActionsFilteredWithMapViewDelegate,
-PositiveActionsMapViewDelegate>
+@interface PositiveActionsFilteredWithMapViewController () <PositiveActionsMapViewDelegate>
 
 @property (nonatomic, strong) id<Routing> routing;
 @property (nonatomic, strong) TopicService *topicService;
@@ -71,7 +69,6 @@ PositiveActionsMapViewDelegate>
     self.positiveFilteredView = [[PositiveActionsFilteredWithMapView alloc]
                                  initWithSelectedTopicsView:(SelectedTopicsCollectionView*)self.selectedTopicsViewController.view
                                  withPositiveActionsMapView:self.positiveActionsView];
-    self.positiveFilteredView.delegate = self;
     self.view = self.positiveFilteredView;
 }
 
@@ -138,7 +135,6 @@ PositiveActionsMapViewDelegate>
 {
     NSLog(@"range: %f", range);
     self.positiveActionsView.radius = range;
-    [self.routing showMapFiltersViewWithPresenter:self];
 }
 
 #pragma mark - PositiveActionsMapViewDelegate
