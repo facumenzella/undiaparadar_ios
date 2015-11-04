@@ -46,12 +46,9 @@
 {
     self.topicImageView = [[UIImageView alloc] initForAutoLayout];
     [self.contentView addSubview:self.topicImageView];
-    [self.topicImageView autoSetDimension:ALDimensionWidth toSize:25];
-    [self.topicImageView autoSetDimension:ALDimensionHeight toSize:24];
-    [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:8];
-    [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:8];
-    [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
-    [self.topicImageView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:8];
+    [self.topicImageView autoSetDimension:ALDimensionWidth toSize:35];
+    [self.topicImageView autoSetDimension:ALDimensionHeight toSize:34];
+    [self.topicImageView autoPinEdgesToSuperviewEdges];
 }
 
 - (void)populateCellWithTopic:(TopicCellPresenter *)presenter
