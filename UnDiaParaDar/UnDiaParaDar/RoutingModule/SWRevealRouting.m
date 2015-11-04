@@ -120,6 +120,7 @@
 {
     PositiveActionsFilteredWithMapViewController *mapViewController = [self.topicsModuleAssembly
                                                                        positiveActionsMapViewControllerWithTopics:topics];
+    [self.tailor suitViewControllerUpForFilterEvent:mapViewController];
     [self.director setRoot:[self.architect buildMainScreenWithRootViewController: mapViewController]];
 }
 

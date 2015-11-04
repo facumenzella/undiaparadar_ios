@@ -14,9 +14,14 @@
 - (void)next;
 @end
 
+@protocol RightFilterButtonProtocol <NSObject>
+- (void)showFilters;
+@end
+
 @protocol Tailor <NSObject>
 
 - (void)suitViewControllerUpForMenuEvent:(UIViewController*)viewController;
 - (void)suitViewControllerUpForNextEvent:(id<RightNextButtonProtocol>)viewController;
+- (void)suitViewControllerUpForFilterEvent:(UIViewController<RightFilterButtonProtocol>*)viewController;
 
 @end

@@ -129,6 +129,11 @@
     [self removeObserver];
 }
 
+- (void)showFilters
+{
+    [self.routing showMapFiltersViewWithPresenter:self];
+}
+
 #pragma mark - PositiveActionsFilteredWithMapViewDelegate
 
 - (void)rangeDidChange:(CGFloat)range

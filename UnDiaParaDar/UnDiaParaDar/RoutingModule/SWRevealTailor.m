@@ -61,6 +61,15 @@ static UIImage *TAILOR_NAV_BAR_IMAGE;
     }
 }
 
+- (void)suitViewControllerUpForFilterEvent:(UIViewController<RightFilterButtonProtocol>*)viewController
+{
+    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"FILTROS", @"Filtros")
+                                                              style:UIBarButtonItemStyleDone
+                                                             target:viewController
+                                                             action:@selector(showFilters)];
+    viewController.navigationItem.rightBarButtonItem = right;
+}
+
 #pragma mark - TopicsSelectionDelegate
 
 - (void)viewController:(UIViewController*)viewController
