@@ -14,13 +14,14 @@
 #import <PureLayout/PureLayout.h>
 
 static NSString *BACKGROUND_KEY = @"Splash";
+static NSUInteger kMaxRadio = 5000;
 
 static NSUInteger const kLeftInset = 24;
 static NSUInteger const kRightInset = kLeftInset;
 static NSUInteger const kLineSeparator = kLeftInset * .75;
 static NSUInteger const kSectionSeparator = kLeftInset;
 
-@interface MapFiltersView()
+@interface MapFiltersView()<UICollectionViewDelegate>
 
 @property (nonatomic, strong) UIImageView *backgroundView;
 @property (nonatomic, strong) UILabel *radioSectionTitle;
@@ -34,9 +35,6 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 
 @property (nonatomic, strong) UILabel *acceptLabel;
 @property (nonatomic, strong) UILabel *cancelLabel;
-
-@property (nonatomic, readwrite) NSUInteger radio;
-@property (nonatomic, readwrite) BOOL radioEnabled;
 
 @end
 
@@ -96,6 +94,8 @@ static NSUInteger const kSectionSeparator = kLeftInset;
                          relation:NSLayoutRelationGreaterThanOrEqual];
     [self.radioSwitch autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:kRightInset];
     [self.radioSwitch autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.radioSectionTitle];
+    
+    [self.radioSwitch addTarget:self action:@selector(radioEnabled:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)buildRadioSlider
@@ -110,7 +110,9 @@ static NSUInteger const kSectionSeparator = kLeftInset;
     [self.radioSlider autoMatchDimension:ALDimensionWidth
                              toDimension:ALDimensionWidth
                                   ofView:self.backgroundView
-                          withMultiplier:.5];
+                          withMultiplier:.4];
+    self.radioSlider.maximumValue = kMaxRadio;
+    [self.radioSlider addTarget:self action:@selector(sliderDidChange:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)buildRadio
@@ -125,7 +127,8 @@ static NSUInteger const kSectionSeparator = kLeftInset;
                       withOffset:0
                         relation:NSLayoutRelationGreaterThanOrEqual];
     [self.radioLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.radioSwitch];
-    self.radioLabel.text = @"10 km";
+    [self.radioLabel setContentCompressionResistancePriority:UILayoutPriorityRequired
+                                                     forAxis:UILayoutConstraintAxisHorizontal];
 }
 
 - (void)buildTopicsSection
@@ -161,12 +164,16 @@ static NSUInteger const kSectionSeparator = kLeftInset;
                               relation:NSLayoutRelationGreaterThanOrEqual];
     [self.segmentedControl autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
     [self.segmentedControl autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.topicsSectionTitle];
+    [self.segmentedControl addTarget:self
+                              action:@selector(segmentedControlDidChange:)
+                    forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)buildCollectionView
 {
     FiltersViewCollectionLayout *layout = [[FiltersViewCollectionLayout alloc] init];
     self.collectionView = [[SelectedTopicsCollectionView alloc] initWithUICollectionViewLayout:layout];
+    self.collectionView.delegate = self;
     self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.backgroundView addSubview:self.collectionView];
     [self.collectionView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:kLineSeparator];
@@ -245,6 +252,53 @@ static NSUInteger const kSectionSeparator = kLeftInset;
     self.acceptLabel.textAlignment = NSTextAlignmentCenter;
     self.cancelLabel.font = radioFont;
     self.cancelLabel.textAlignment = NSTextAlignmentCenter;
+}
+
+- (void)sliderDidChange:(id)sender
+{
+    _radius = ((UISlider*)sender).value;
+    self.radioLabel.text = [NSString stringWithFormat:@"%lu km", (unsigned long) _radius];
+}
+
+- (void)radioEnabled:(id)sender
+{
+    _radiusEnabled = ((UISwitch*)sender).on;
+    [self styleRadiusEnabled:_radiusEnabled];
+}
+
+- (void)segmentedControlDidChange:(id)sender
+{
+    NSUInteger index = ((UISegmentedControl*)sender).selectedSegmentIndex;
+    [self.delegate didSelectAll:(index == 0)];
+}
+
+- (void)setRadius:(NSUInteger)radius
+{
+    _radius = radius;
+    [self.radioSlider setValue:radius animated:NO];
+    self.radioLabel.text = [NSString stringWithFormat:@"%lu km", (unsigned long) _radius];
+}
+
+- (void)setRadiusEnabled:(BOOL)radiusEnabled
+{
+    _radiusEnabled = radiusEnabled;
+    [self styleRadiusEnabled:_radiusEnabled];
+}
+
+- (void)styleRadiusEnabled:(BOOL)enabled
+{
+    self.radioSectionTitle.enabled = enabled;
+    self.radioSwitch.on = enabled;
+    self.radioSlider.enabled = enabled;
+    self.radioLabel.enabled = enabled;
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.segmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment;
+    [self.delegate collectionView:collectionView didSelectItemAtIndexPath:indexPath];
 }
 
 #pragma mark - MapFiltersViewDelegate

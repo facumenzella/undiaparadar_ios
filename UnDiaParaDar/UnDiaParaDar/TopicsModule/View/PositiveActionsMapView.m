@@ -13,8 +13,6 @@
 
 #import <PureLayout/PureLayout.h>
 
-static double const kDefaultRadius = 1000;
-
 @interface PositiveActionsMapView () <MKMapViewDelegate>
 
 @property (nonatomic, strong) UIButton *shareButton;
@@ -40,7 +38,6 @@ static double const kDefaultRadius = 1000;
     self = [super init];
     if (self) {
         [self setBackgroundColor: [UIColor whiteColor]];
-        self.radius = kDefaultRadius;
         [self buildSubviews];
         [self styleSubviews];
         [self activate:NO];

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class PositiveAction;
+@class PositiveAction, MapFilters;
 
 @protocol Routing <NSObject>
 
@@ -28,6 +28,6 @@
 
 - (void)showLoadingWithPresenter:(UIViewController*)presenter;
 - (void)removeLoading;
-- (void)showMapFiltersViewWithPresenter:(UIViewController*)presenters;
+- (void)showMapFiltersViewWithMapFilters:(MapFilters*)mapFilters withPresenter:(UIViewController*)presenters;
 
 @end

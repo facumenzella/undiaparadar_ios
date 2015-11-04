@@ -168,9 +168,9 @@
     [self.director dismiss:loading animated:YES withCompletion:nil];
 }
 
-- (void)showMapFiltersViewWithPresenter:(UIViewController*)presenters
+- (void)showMapFiltersViewWithMapFilters:(MapFilters *)mapFilters withPresenter:(UIViewController *)presenters
 {
-    MapFiltersViewController *vc = [self.topicsModuleAssembly mapFiltersViewController];
+    MapFiltersViewController *vc = [self.topicsModuleAssembly mapFiltersViewControllerWithMapFilters:mapFilters];
     [self.director presentModal:vc withPresenter:presenters animated:YES];
 }
 

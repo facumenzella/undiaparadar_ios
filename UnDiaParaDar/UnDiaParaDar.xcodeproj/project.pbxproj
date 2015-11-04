@@ -57,6 +57,7 @@
 		0DB25A051B9A9688002F6E30 /* TopicCellPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB25A041B9A9688002F6E30 /* TopicCellPresenter.m */; };
 		0DB589201BE9899F0033D027 /* FiltersViewCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB5891F1BE9899F0033D027 /* FiltersViewCollectionLayout.m */; };
 		0DB589231BE98A5F0033D027 /* TopicsFilterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB589221BE98A5F0033D027 /* TopicsFilterViewCell.m */; };
+		0DB589271BE99EB80033D027 /* MapFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB589261BE99EB80033D027 /* MapFilters.m */; };
 		0DBD219D1BA372DA002AC53C /* FacebookInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD219C1BA372DA002AC53C /* FacebookInitializer.m */; };
 		0DBD21A01BA3780B002AC53C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD219F1BA3780B002AC53C /* User.m */; };
 		0DBD21A31BA37865002AC53C /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD21A21BA37865002AC53C /* UserService.m */; };
@@ -200,6 +201,8 @@
 		0DB5891F1BE9899F0033D027 /* FiltersViewCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiltersViewCollectionLayout.m; sourceTree = "<group>"; };
 		0DB589211BE98A5F0033D027 /* TopicsFilterViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicsFilterViewCell.h; sourceTree = "<group>"; };
 		0DB589221BE98A5F0033D027 /* TopicsFilterViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicsFilterViewCell.m; sourceTree = "<group>"; };
+		0DB589251BE99EB80033D027 /* MapFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFilters.h; sourceTree = "<group>"; };
+		0DB589261BE99EB80033D027 /* MapFilters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapFilters.m; sourceTree = "<group>"; };
 		0DBD219B1BA372DA002AC53C /* FacebookInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookInitializer.h; sourceTree = "<group>"; };
 		0DBD219C1BA372DA002AC53C /* FacebookInitializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookInitializer.m; sourceTree = "<group>"; };
 		0DBD219E1BA3780B002AC53C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -520,6 +523,7 @@
 		0DAF2FA71B7E8EE20045CE08 /* TopicsModule */ = {
 			isa = PBXGroup;
 			children = (
+				0DB589241BE99E9C0033D027 /* Model */,
 				0DD63F781B7EAD7D00766361 /* Presenter */,
 				0DAF2FA81B7E8EE20045CE08 /* Assembly */,
 				0DAF2FA91B7E8EE20045CE08 /* View */,
@@ -623,6 +627,15 @@
 				0D8580EE1BBB6B17002CEB2B /* MappingProvider.m */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		0DB589241BE99E9C0033D027 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0DB589251BE99EB80033D027 /* MapFilters.h */,
+				0DB589261BE99EB80033D027 /* MapFilters.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		0DCBD13D1BBB870500A870FD /* FMActivityIndicator */ = {
@@ -1140,6 +1153,7 @@
 				11DEE6A91B5D774900DCDE3E /* SWRevealDirector.m in Sources */,
 				0DB1E7051BC5ED71004A86A9 /* UIImage+AverageColor.m in Sources */,
 				0D7C574C1BC1B0B300A402CF /* BeautyCenter.m in Sources */,
+				0DB589271BE99EB80033D027 /* MapFilters.m in Sources */,
 				0DB1E6FC1BC5E7F4004A86A9 /* SelectedTopicsViewController.m in Sources */,
 				0D6199D61BC0A18000A8C987 /* PositiveActionViewController.m in Sources */,
 				0D17637F1BB4646100C6E664 /* QueEsModuleAssembly.m in Sources */,

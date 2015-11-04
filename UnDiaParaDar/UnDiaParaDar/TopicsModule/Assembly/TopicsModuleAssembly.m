@@ -66,14 +66,15 @@
     
 }
 
-- (MapFiltersViewController*)mapFiltersViewController
+- (MapFiltersViewController*)mapFiltersViewControllerWithMapFilters:(MapFilters*)mapFilters
 {
-    SEL selector = @selector(initWithRouting:withTopicsService:);
+    SEL selector = @selector(initWithRouting:withTopicsService:withMapFilters:);
     return [TyphoonDefinition withClass:[MapFiltersViewController class]
                           configuration:^(TyphoonDefinition* definition) {
                               [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
                                   [initializer injectParameterWith:[self.routingModuleAssembly routing]];
                                   [initializer injectParameterWith:[self.serviceModuleAssembly topicService]];
+                                  [initializer injectParameterWith:mapFilters];
                               }];
                           }];
     

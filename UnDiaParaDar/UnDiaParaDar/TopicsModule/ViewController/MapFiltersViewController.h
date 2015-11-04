@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @protocol Routing;
-@class TopicService;
+@class TopicService, MapFilters;
 
 @interface MapFiltersViewController : UIViewController
 
-- (instancetype)initWithRouting:(id<Routing>)routing withTopicsService:(TopicService*)topicService;
+- (instancetype)initWithRouting:(id<Routing>)routing
+              withTopicsService:(TopicService*)topicService
+                 withMapFilters:(MapFilters*)mapFilters;
 
 @end

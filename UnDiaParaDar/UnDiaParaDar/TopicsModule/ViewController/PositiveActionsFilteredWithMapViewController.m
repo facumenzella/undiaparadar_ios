@@ -13,6 +13,7 @@
 #import "LocationManager.h"
 
 #import "SelectedTopicsViewController.h"
+#import "MapFilters.h"
 
 #import "Routing.h"
 #import "TopicService.h"
@@ -32,6 +33,8 @@
 @property (nonatomic) BOOL alreadyZoomed;
 @property (nonatomic, strong) NSArray *positiveActions;
 
+@property (nonatomic, strong) MapFilters *mapFilters;
+
 @end
 
 @implementation PositiveActionsFilteredWithMapViewController
@@ -46,10 +49,13 @@
         self.topicService = topicService;
         self.alreadyZoomed = NO;
         self.topics = topics;
+        self.mapFilters = [[MapFilters alloc] init];
+        self.mapFilters.selectedTopics = self.topics;
         
         __weak PositiveActionsFilteredWithMapViewController *welf = self;
         self.selectedCallback = ^(NSArray* selected) {
             welf.topics = selected;
+            welf.mapFilters.selectedTopics = welf.topics;
             [welf refreshMapWithSelectedTopics:welf.topics];
         };
         self.selectedTopicsViewController = [[SelectedTopicsViewController alloc]
@@ -64,6 +70,7 @@
 -(void)loadView
 {
     self.positiveActionsView = [[PositiveActionsMapView alloc] init];
+    self.positiveActionsView.radius = self.mapFilters.radius;
     self.positiveActionsView.pAMVDelegate = self;
     
     self.positiveFilteredView = [[PositiveActionsFilteredWithMapView alloc]
@@ -131,7 +138,7 @@
 
 - (void)showFilters
 {
-    [self.routing showMapFiltersViewWithPresenter:self];
+    [self.routing showMapFiltersViewWithMapFilters:self.mapFilters withPresenter:self];
 }
 
 #pragma mark - PositiveActionsFilteredWithMapViewDelegate

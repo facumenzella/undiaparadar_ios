@@ -12,14 +12,16 @@
 
 - (void)didTapCancel;
 - (void)didTapAccept;
+- (void)didSelectAll:(BOOL)all;
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
 @interface MapFiltersView : UIView
 
 @property (nonatomic, assign) id<MapFiltersViewDelegate> delegate;
-@property (nonatomic, readonly) NSUInteger radio;
-@property (nonatomic, readonly) BOOL radioEnabled;
+@property (nonatomic) NSUInteger radius;
+@property (nonatomic) BOOL radiusEnabled;
 
 @property (nonatomic, strong, readonly) UICollectionView *collectionView;
 
