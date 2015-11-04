@@ -15,7 +15,8 @@
 @interface PositiveActionsMapView : UIView
 
 @property (nonatomic, strong) MKMapView *mapView;
-@property (nonatomic) CLLocationDistance radius;
+@property (nonatomic, readonly) CLLocationDistance radio;
+@property (nonatomic, readonly) BOOL radioEnabled;
 
 @property (nonatomic, assign) id <PositiveActionsMapViewDelegate> pAMVDelegate;
 @property (nonatomic, strong) PositiveActionAnnotation *activeAnnotation;
@@ -23,6 +24,7 @@
 - (void)addPositiveActions:(NSArray*)positiveActions;
 - (void)showActivePositiveActionWithTitle:(NSString*)title withSubtitle:(NSString*)subttitle;
 - (void)zoomToMyLocation;
+-(void)setRadio:(CLLocationDistance)radio enabled:(BOOL)enabled;
 
 @end
 

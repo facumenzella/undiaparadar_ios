@@ -68,7 +68,7 @@
 -(void)loadView
 {
     self.positiveActionsView = [[PositiveActionsMapView alloc] init];
-    self.positiveActionsView.radius = self.mapFilters.radio;
+    [self.positiveActionsView setRadio:self.mapFilters.radio enabled:YES];
     self.positiveActionsView.pAMVDelegate = self;
     
     self.positiveFilteredView =
@@ -146,7 +146,7 @@
 - (void)rangeDidChange:(CGFloat)range
 {
     NSLog(@"range: %f", range);
-    self.positiveActionsView.radius = range;
+    [self.positiveActionsView setRadio:range enabled:self.mapFilters.radioEnabled];
 }
 
 #pragma mark - MapFiltersHandler

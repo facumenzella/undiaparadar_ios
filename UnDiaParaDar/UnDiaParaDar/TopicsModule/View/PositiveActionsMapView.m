@@ -57,11 +57,14 @@
     self.positiveActionTitle.text = title;
 }
 
--(void)setRadius:(CLLocationDistance)radius
+-(void)setRadio:(CLLocationDistance)radio enabled:(BOOL)enabled
 {
-    _radius = radius;
+    _radioEnabled = enabled;
+    _radio = radio;
     [self.mapView removeOverlay:self.userCircle];
-    [self updateUserCircle];
+    if (_radioEnabled) {
+        [self updateUserCircle];
+    }
 }
 
 - (void)buildSubviews
@@ -220,7 +223,7 @@
     // it's user pin
     CLLocationCoordinate2D location = CLLocationCoordinate2DMake(self.mapView.userLocation.coordinate.latitude,
                                                                  self.mapView.userLocation.coordinate.longitude);
-    self.userCircle = [MKCircle circleWithCenterCoordinate:location radius:self.radius];
+    self.userCircle = [MKCircle circleWithCenterCoordinate:location radius:self.radio];
     [self.mapView addOverlay:self.userCircle];
 }
 
