@@ -24,6 +24,7 @@
 #import "TopicsCollectionViewController.h"
 #import "PositiveActionsFilteredWithMapViewController.h"
 #import "PositiveActionViewController.h"
+#import "MapFiltersViewController.h"
 
 #import "TermsAndConditionsAssembly.h"
 #import "TermsAndConditionsViewController.h"
@@ -160,5 +161,10 @@
     [self.director dismiss:loading animated:YES withCompletion:nil];
 }
 
+- (void)showMapFiltersViewWithPresenter:(UIViewController*)presenters
+{
+    MapFiltersViewController *vc = [self.topicsModuleAssembly mapFiltersViewController];
+    [self.director presentModal:vc withPresenter:presenters animated:YES];
+}
 
 @end

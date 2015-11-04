@@ -138,8 +138,7 @@ PositiveActionsMapViewDelegate>
 {
     NSLog(@"range: %f", range);
     self.positiveActionsView.radius = range;
-    MapFiltersViewController *c = [[MapFiltersViewController  alloc] init];
-    [self presentViewController:c animated:YES completion:nil];
+    [self.routing showMapFiltersViewWithPresenter:self];
 }
 
 #pragma mark - PositiveActionsMapViewDelegate

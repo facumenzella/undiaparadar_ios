@@ -20,6 +20,7 @@ static TopicsFilterViewCell *cell;
     self = [super init];
     if (self) {
         self.scrollDirection = UICollectionViewScrollDirectionVertical;
+        [self buildCell];
     }
     return self;
 }

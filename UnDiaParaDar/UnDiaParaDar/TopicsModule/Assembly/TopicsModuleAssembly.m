@@ -13,6 +13,7 @@
 #import "TopicsCollectionViewController.h"
 #import "PositiveActionsFilteredWithMapViewController.h"
 #import "PositiveActionViewController.h"
+#import "MapFiltersViewController.h"
 
 @interface TopicsModuleAssembly ()
 
@@ -58,6 +59,19 @@
                           configuration:^(TyphoonDefinition* definition) {
                               [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
                                   [initializer injectParameterWith:positiveAction];
+                                  [initializer injectParameterWith:[self.routingModuleAssembly routing]];
+                                  [initializer injectParameterWith:[self.serviceModuleAssembly topicService]];
+                              }];
+                          }];
+    
+}
+
+- (MapFiltersViewController*)mapFiltersViewController
+{
+    SEL selector = @selector(initWithRouting:withTopicsService:);
+    return [TyphoonDefinition withClass:[MapFiltersViewController class]
+                          configuration:^(TyphoonDefinition* definition) {
+                              [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
                                   [initializer injectParameterWith:[self.routingModuleAssembly routing]];
                                   [initializer injectParameterWith:[self.serviceModuleAssembly topicService]];
                               }];

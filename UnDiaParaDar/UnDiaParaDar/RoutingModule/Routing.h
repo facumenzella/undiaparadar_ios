@@ -26,5 +26,6 @@
 
 - (void)showLoadingWithPresenter:(UIViewController*)presenter;
 - (void)removeLoading;
+- (void)showMapFiltersViewWithPresenter:(UIViewController*)presenters;
 
 @end

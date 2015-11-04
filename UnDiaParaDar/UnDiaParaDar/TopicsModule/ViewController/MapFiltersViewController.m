@@ -28,11 +28,13 @@ static NSString *const IDENTIFIER = @"TopicsFilterViewCell";
 
 @implementation MapFiltersViewController
 
-- (instancetype)initWithRouting:(id<Routing>)routing
+- (instancetype)initWithRouting:(id<Routing>)routing withTopicsService:(TopicService*)topicService
 {
     self = [super init];
     if (self) {
+        self.topicService = topicService;
         self.routing = routing;
+        self.modalPresentationStyle = UIModalPresentationCustom;
     }
     return self;
 }
