@@ -59,7 +59,7 @@ static NSString *const PLACEHOLDER = @"placeholder";
     [self.headerImageView setImage:[UIImage imageNamed:HEADER]];
     
     [self.headerImageView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
-    [self.headerImageView setContentMode:UIViewContentModeScaleToFill];
+    [self.headerImageView setContentMode:UIViewContentModeScaleAspectFill];
 }
 
 - (void)buildUserProfileImage
