@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */; };
 		0D0610691BD030AB00595A9A /* UIColor+Transformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0610681BD030AB00595A9A /* UIColor+Transformation.m */; };
+		0D0DFF4C1BEADDA700279997 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DFF4B1BEADDA700279997 /* PopupView.m */; };
 		0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F4871BB37D4300AFE46D /* TermsAndConditionsAssembly.m */; };
 		0D11F48B1BB37DCD00AFE46D /* TermsAndConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F48A1BB37DCD00AFE46D /* TermsAndConditionsViewController.m */; };
 		0D11F48E1BB37EB200AFE46D /* TermsAndConditionsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F48D1BB37EB200AFE46D /* TermsAndConditionsPresenter.m */; };
@@ -107,6 +108,8 @@
 		06C0FA932F79B7DB4ECAB673 /* Pods-UnDiaParaDar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnDiaParaDar.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar.release.xcconfig"; sourceTree = "<group>"; };
 		0D0610671BD030AB00595A9A /* UIColor+Transformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Transformation.h"; sourceTree = "<group>"; };
 		0D0610681BD030AB00595A9A /* UIColor+Transformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Transformation.m"; sourceTree = "<group>"; };
+		0D0DFF4A1BEADDA700279997 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopupView.h; path = PopupsModule/PopupView.h; sourceTree = SOURCE_ROOT; };
+		0D0DFF4B1BEADDA700279997 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopupView.m; path = PopupsModule/PopupView.m; sourceTree = SOURCE_ROOT; };
 		0D11F4861BB37D4300AFE46D /* TermsAndConditionsAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsAndConditionsAssembly.h; sourceTree = "<group>"; };
 		0D11F4871BB37D4300AFE46D /* TermsAndConditionsAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsAndConditionsAssembly.m; sourceTree = "<group>"; };
 		0D11F4891BB37DCD00AFE46D /* TermsAndConditionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsAndConditionsViewController.h; sourceTree = "<group>"; };
@@ -304,6 +307,16 @@
 				06C0FA932F79B7DB4ECAB673 /* Pods-UnDiaParaDar.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		0D0DFF491BEADD9700279997 /* PopupsModule */ = {
+			isa = PBXGroup;
+			children = (
+				0D0DFF4A1BEADDA700279997 /* PopupView.h */,
+				0D0DFF4B1BEADDA700279997 /* PopupView.m */,
+			);
+			name = PopupsModule;
+			path = ../../../../../../Facundo/itba/pf/undiaparadarios/UnDiaParaDar/PopupsModule;
 			sourceTree = "<group>";
 		};
 		0D11F4811BB37D0D00AFE46D /* T&CModule */ = {
@@ -808,6 +821,7 @@
 		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
 			isa = PBXGroup;
 			children = (
+				0D0DFF491BEADD9700279997 /* PopupsModule */,
 				0DEBE1CE1BC1D58600906E52 /* LocationModule */,
 				0D7C573C1BC1B04200A402CF /* LoadingModule */,
 				0DF920E41BC0851800BAA52C /* Animator */,
@@ -1103,6 +1117,7 @@
 				0D7C57471BC1B04200A402CF /* LoadingModuleAssembly.m in Sources */,
 				0D8580F21BBB6BAB002CEB2B /* PositiveAction.m in Sources */,
 				0D9E1E141B7E610B0049D08B /* SplashModuleAssembly.m in Sources */,
+				0D0DFF4C1BEADDA700279997 /* PopupView.m in Sources */,
 				0D9E12F41BE6EC7900506BBB /* MapFiltersView.m in Sources */,
 				11DEE6971B5D6F6D00DCDE3E /* TyphoonInitializer.m in Sources */,
 				0D44DADA1B90E62600A274BD /* MenuOptionViewCell.m in Sources */,

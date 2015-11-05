@@ -13,7 +13,6 @@
 
 #import <PureLayout/PureLayout.h>
 
-static NSString *BACKGROUND_KEY = @"Splash";
 static NSUInteger kMaxRadio = 5000;
 
 static NSUInteger const kLeftInset = 24;
@@ -23,7 +22,6 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 
 @interface MapFiltersView()<UICollectionViewDelegate>
 
-@property (nonatomic, strong) UIImageView *backgroundView;
 @property (nonatomic, strong) UILabel *radioSectionTitle;
 @property (nonatomic, strong) UISwitch *radioSwitch;
 @property (nonatomic, strong) UISlider *radioSlider;
@@ -42,7 +40,7 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 
 -(instancetype)init
 {
-    self = [super init];
+    self = [super initWithInsets:UIEdgeInsetsMake(64, 32, 64, 32)];
     if (self) {
         [self buildSubviews];
         [self styleSubviews];
@@ -52,18 +50,8 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 
 - (void)buildSubviews
 {
-    [self buildBackgroundView];
     [self buildRadioSection];
     [self buildTopicsSection];
-}
-
-- (void)buildBackgroundView
-{
-    self.backgroundView = [[UIImageView alloc] initForAutoLayout];
-    [self addSubview:self.backgroundView];
-    self.backgroundView.image = [UIImage imageNamed:BACKGROUND_KEY];
-    [self.backgroundView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(64, 32, 64, 32)];
-    self.backgroundView.userInteractionEnabled = YES;
 }
 
 - (void)buildRadioSection
@@ -77,7 +65,7 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 - (void)buildRadioTitle
 {
     self.radioSectionTitle = [[UILabel alloc] initForAutoLayout];
-    [self.backgroundView addSubview:self.radioSectionTitle];
+    [self addSubview:self.radioSectionTitle];
     [self.radioSectionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:kLeftInset];
     [self.radioSectionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kSectionSeparator];
     self.radioSectionTitle.text = NSLocalizedString(@"RADIO", @"Radio");
@@ -86,7 +74,7 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 - (void)buildRadioSwitch
 {
     self.radioSwitch = [[UISwitch alloc] initForAutoLayout];
-    [self.backgroundView addSubview:self.radioSwitch];
+    [self addSubview:self.radioSwitch];
     [self.radioSwitch autoPinEdge:ALEdgeLeft
                            toEdge:ALEdgeRight
                            ofView:self.radioSectionTitle
@@ -101,7 +89,7 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 - (void)buildRadioSlider
 {
     self.radioSlider = [[UISlider alloc] initForAutoLayout];
-    [self.backgroundView addSubview:self.radioSlider];
+    [self addSubview:self.radioSlider];
     [self.radioSlider autoPinEdge:ALEdgeTop
                            toEdge:ALEdgeBottom
                            ofView:self.radioSectionTitle
@@ -109,7 +97,7 @@ static NSUInteger const kSectionSeparator = kLeftInset;
     [self.radioSlider autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:kLeftInset];
     [self.radioSlider autoMatchDimension:ALDimensionWidth
                              toDimension:ALDimensionWidth
-                                  ofView:self.backgroundView
+                                  ofView:self
                           withMultiplier:.4];
     self.radioSlider.maximumValue = kMaxRadio;
     [self.radioSlider addTarget:self action:@selector(sliderDidChange:) forControlEvents:UIControlEventValueChanged];
@@ -118,7 +106,7 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 - (void)buildRadio
 {
     self.radioLabel = [[UILabel alloc] initForAutoLayout];
-    [self.backgroundView addSubview: self.radioLabel];
+    [self addSubview: self.radioLabel];
     [self.radioLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:kRightInset];
     [self.radioLabel autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.radioSlider];
     [self.radioLabel autoPinEdge:ALEdgeLeft
@@ -142,7 +130,7 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 - (void)buildTopicsTitle
 {
     self.topicsSectionTitle = [[UILabel alloc] initForAutoLayout];
-    [self.backgroundView addSubview:self.topicsSectionTitle];
+    [self addSubview:self.topicsSectionTitle];
     [self.topicsSectionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:kLeftInset];
     [self.topicsSectionTitle autoPinEdge:ALEdgeTop
                                   toEdge:ALEdgeBottom
@@ -156,7 +144,7 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 {
     self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Todos", @"Ninguno"]];
     self.segmentedControl.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.backgroundView addSubview:self.segmentedControl];
+    [self addSubview:self.segmentedControl];
     [self.segmentedControl autoPinEdge:ALEdgeLeft
                                 toEdge:ALEdgeRight
                                 ofView:self.topicsSectionTitle
@@ -175,7 +163,7 @@ static NSUInteger const kSectionSeparator = kLeftInset;
     self.collectionView = [[SelectedTopicsCollectionView alloc] initWithUICollectionViewLayout:layout];
     self.collectionView.delegate = self;
     self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.backgroundView addSubview:self.collectionView];
+    [self addSubview:self.collectionView];
     [self.collectionView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:kLineSeparator];
     [self.collectionView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:kLineSeparator];
     [self.collectionView autoPinEdge:ALEdgeTop
@@ -194,7 +182,7 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 {
     self.acceptLabel = [[UILabel alloc] initForAutoLayout];
     self.acceptLabel.text = @"Aceptar";
-    [self.backgroundView addSubview:self.acceptLabel];
+    [self addSubview:self.acceptLabel];
     [self.acceptLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.collectionView withOffset:kLineSeparator];
     [self.acceptLabel autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kSectionSeparator];
     [self.acceptLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:kLeftInset];
@@ -208,7 +196,7 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 {
     self.cancelLabel = [[UILabel alloc] initForAutoLayout];
     self.cancelLabel.text = @"Cancelar";
-    [self.backgroundView addSubview:self.cancelLabel];
+    [self addSubview:self.cancelLabel];
     [self.cancelLabel autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLineSeparator];
     [self.cancelLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:kRightInset];
     [self.cancelLabel autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.acceptLabel];
@@ -233,8 +221,6 @@ static NSUInteger const kSectionSeparator = kLeftInset;
 - (void)styleSubviews
 {
     self.backgroundColor = [UIColor clearColor];
-    self.backgroundView.layer.cornerRadius = 30;
-    self.backgroundView.clipsToBounds = YES;
     
     UIFont *titleFont = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
                                                        withSize:BeautyCenterTypographySizeD];

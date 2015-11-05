@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PopupView.h"
 
 @protocol MapFiltersViewDelegate <NSObject>
 
@@ -17,7 +18,7 @@
 
 @end
 
-@interface MapFiltersView : UIView
+@interface MapFiltersView : PopupView
 
 @property (nonatomic, assign) id<MapFiltersViewDelegate> delegate;
 @property (nonatomic) NSUInteger radio;
