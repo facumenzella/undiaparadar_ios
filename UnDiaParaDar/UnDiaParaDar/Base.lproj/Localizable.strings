@@ -33,5 +33,7 @@
 // PROFILE MODULE
 "PROFILE" = "Perfil";
 
-
+// POPUPS
+"I_COMMIT" = "Me Comprometo";
+"KEEP_LOOKING" = "Seguir buscando";
 

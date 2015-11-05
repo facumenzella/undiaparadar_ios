@@ -10,6 +10,7 @@
 		0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */; };
 		0D0610691BD030AB00595A9A /* UIColor+Transformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0610681BD030AB00595A9A /* UIColor+Transformation.m */; };
 		0D0DFF4C1BEADDA700279997 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DFF4B1BEADDA700279997 /* PopupView.m */; };
+		0D0DFF4F1BEAE39800279997 /* PledgePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DFF4E1BEAE39800279997 /* PledgePopupView.m */; };
 		0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F4871BB37D4300AFE46D /* TermsAndConditionsAssembly.m */; };
 		0D11F48B1BB37DCD00AFE46D /* TermsAndConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F48A1BB37DCD00AFE46D /* TermsAndConditionsViewController.m */; };
 		0D11F48E1BB37EB200AFE46D /* TermsAndConditionsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F48D1BB37EB200AFE46D /* TermsAndConditionsPresenter.m */; };
@@ -110,6 +111,8 @@
 		0D0610681BD030AB00595A9A /* UIColor+Transformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Transformation.m"; sourceTree = "<group>"; };
 		0D0DFF4A1BEADDA700279997 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopupView.h; path = PopupsModule/PopupView.h; sourceTree = SOURCE_ROOT; };
 		0D0DFF4B1BEADDA700279997 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopupView.m; path = PopupsModule/PopupView.m; sourceTree = SOURCE_ROOT; };
+		0D0DFF4D1BEAE39800279997 /* PledgePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PledgePopupView.h; path = PopupsModule/PledgePopupView.h; sourceTree = SOURCE_ROOT; };
+		0D0DFF4E1BEAE39800279997 /* PledgePopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PledgePopupView.m; path = PopupsModule/PledgePopupView.m; sourceTree = SOURCE_ROOT; };
 		0D11F4861BB37D4300AFE46D /* TermsAndConditionsAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsAndConditionsAssembly.h; sourceTree = "<group>"; };
 		0D11F4871BB37D4300AFE46D /* TermsAndConditionsAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsAndConditionsAssembly.m; sourceTree = "<group>"; };
 		0D11F4891BB37DCD00AFE46D /* TermsAndConditionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsAndConditionsViewController.h; sourceTree = "<group>"; };
@@ -314,6 +317,8 @@
 			children = (
 				0D0DFF4A1BEADDA700279997 /* PopupView.h */,
 				0D0DFF4B1BEADDA700279997 /* PopupView.m */,
+				0D0DFF4D1BEAE39800279997 /* PledgePopupView.h */,
+				0D0DFF4E1BEAE39800279997 /* PledgePopupView.m */,
 			);
 			name = PopupsModule;
 			path = ../../../../../../Facundo/itba/pf/undiaparadarios/UnDiaParaDar/PopupsModule;
@@ -1126,6 +1131,7 @@
 				0DD38FF11BBEFC4B0038C2E2 /* UIViewController+DisableView.m in Sources */,
 				0DAF2FAD1B7E8EED0045CE08 /* TopicsCollectionViewController.m in Sources */,
 				0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */,
+				0D0DFF4F1BEAE39800279997 /* PledgePopupView.m in Sources */,
 				0DFE5A201BCEAD76004EFBC1 /* PositiveActionsFilteredWithMapView.m in Sources */,
 				11DEE6AA1B5D774900DCDE3E /* SWRevealRouting.m in Sources */,
 				1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */,
