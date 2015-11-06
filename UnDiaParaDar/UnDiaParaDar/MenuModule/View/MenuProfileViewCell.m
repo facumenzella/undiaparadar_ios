@@ -31,7 +31,7 @@ static NSString * const BACKGROUND = @"menu_header";
 - (void)cellDidLoad
 {
     [super cellDidLoad];
-    
+
     [self buildBackground];
     [self buildAvatar];
     [self buildRedUserInfoContainer];
@@ -112,6 +112,7 @@ static NSString * const BACKGROUND = @"menu_header";
 
 - (void)styleSubviews
 {
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self styleRedContainer];
     [self styleUsername];
 }
