@@ -13,6 +13,7 @@
 #import "TermsAndConditionsAssembly.h"
 #import "QueEsModuleAssembly.h"
 #import "LoadingModuleAssembly.h"
+#import "NetworkReachabilityAssembly.h"
 #import "SWRevealDirector.h"
 #import "SWRevealArchitect.h"
 #import "SWRevealTailor.h"
@@ -32,6 +33,7 @@
 @property (nonatomic, strong) TermsAndConditionsAssembly *termsAndConditionsAssembly;
 @property (nonatomic, strong) QueEsModuleAssembly *queEsAssembly;
 @property (nonatomic, strong) LoadingModuleAssembly *loadingModuleAssembly;
+@property (nonatomic, strong) NetworkReachabilityAssembly *networkReachabilityAssembly;
 
 @end
 
@@ -47,6 +49,7 @@
                              withTermsAndConditionsAssembly:
                              withQueEsModuleAssembly:
                              withLoadingModuleAssembly:
+                             withNetworkReachabilityAssembly:
                              withArchitect:
                              withTailor:);
     return [TyphoonDefinition withClass:[SWRevealRouting class]
@@ -60,6 +63,7 @@
                                   [initializer injectParameterWith:self.termsAndConditionsAssembly];
                                   [initializer injectParameterWith:self.queEsAssembly];
                                   [initializer injectParameterWith:self.loadingModuleAssembly];
+                                  [initializer injectParameterWith:self.networkReachabilityAssembly];
                                   [initializer injectParameterWith:[self iphoneArchitect]];
                                   [initializer injectParameterWith:[self iphoneTailor]];
                               }];

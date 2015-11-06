@@ -20,6 +20,7 @@
     return [TyphoonDefinition withClass:[AppDelegate class] configuration:^(TyphoonDefinition* definition)
             {
                 [definition injectProperty:@selector(routing)];
+                [definition injectProperty:@selector(networkReachability)];
             }];
 }
 

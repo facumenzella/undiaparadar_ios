@@ -19,6 +19,7 @@
 @class TermsAndConditionsAssembly;
 @class QueEsModuleAssembly;
 @class LoadingModuleAssembly;
+@class NetworkReachabilityAssembly;
 
 @interface SWRevealRouting : NSObject<Routing>
 
@@ -30,6 +31,7 @@
   withTermsAndConditionsAssembly:(TermsAndConditionsAssembly*)termsAndConditionsAssembly
          withQueEsModuleAssembly:(QueEsModuleAssembly*)queEsModuleAssembly
        withLoadingModuleAssembly:(LoadingModuleAssembly*)loadingModuleAssembly
+ withNetworkReachabilityAssembly:(NetworkReachabilityAssembly*)networkModuleAssembly
                    withArchitect:(id<Architect>)architect
                       withTailor:(id<Tailor>)tailor;
 

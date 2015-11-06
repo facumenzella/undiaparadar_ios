@@ -11,6 +11,8 @@
 #import "BeautyCenter.h"
 #import "TyphoonInitializer.h"
 #import "FacebookInitializer.h"
+#import "NetworkReachabilityController.h"
+
 #import "Routing.h"
 #import "LocationManager.h"
 
@@ -19,6 +21,7 @@
 @interface AppDelegate ()
 
 @property (nonatomic, strong) id<Routing> routing;
+@property (nonatomic, strong) NetworkReachabilityController *networkReachability;
 
 @end
 
@@ -34,6 +37,8 @@
     [TyphoonInitializer setup];
     [BeautyCenter setup];
     [LocationManager sharedInstance];
+    [self setupNetwork];
+    
     [self.routing showSplash];
     if ([FBSDKAccessToken currentAccessToken]) {
         NSLog(@"User already logged in");
@@ -56,6 +61,11 @@
                                    selector:@selector(showLoginPage)
                                    userInfo:nil
                                     repeats:NO];
+}
+
+- (void)setupNetwork
+{
+    [self.networkReachability setup];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

@@ -20,6 +20,7 @@
 #import "TermsAndConditionsAssembly.h"
 #import "QueEsModuleAssembly.h"
 #import "LoadingModuleAssembly.h"
+#import "NetworkReachabilityAssembly.h"
 
 @implementation TyphoonInitializer
 
@@ -28,6 +29,7 @@
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     TyphoonComponentFactory* factory = [[TyphoonBlockComponentFactory alloc]
                                         initWithAssemblies:@[[RoutingModuleAssembly assembly],
+                                                             [NetworkReachabilityAssembly assembly],
                                                              [AppDelegateAssembly assembly],
                                                              [LoginModuleAssembly assembly],
                                                              [ProfileModuleAssembly assembly],

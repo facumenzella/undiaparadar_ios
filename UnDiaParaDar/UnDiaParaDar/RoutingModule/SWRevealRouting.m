@@ -35,6 +35,9 @@
 #import "LoadingModuleAssembly.h"
 #import "LoadingViewController.h"
 
+#import "NetworkReachabilityAssembly.h"
+#import "NetworkViewController.h"
+
 @interface SWRevealRouting ()
 
 @property (nonatomic, strong) id<Director> director;
@@ -48,6 +51,7 @@
 @property (nonatomic, strong) TermsAndConditionsAssembly *termsAndConditionsAssembly;
 @property (nonatomic, strong) QueEsModuleAssembly *queEsModuleAssembly;
 @property (nonatomic, strong) LoadingModuleAssembly *loadingModuleAssembly;
+@property (nonatomic, strong) NetworkReachabilityAssembly *networkModuleAssembly;
 
 @end
 
@@ -61,6 +65,7 @@
   withTermsAndConditionsAssembly:(TermsAndConditionsAssembly*)termsAndConditionsAssembly
          withQueEsModuleAssembly:(QueEsModuleAssembly*)queEsModuleAssembly
        withLoadingModuleAssembly:(LoadingModuleAssembly*)loadingModuleAssembly
+ withNetworkReachabilityAssembly:(NetworkReachabilityAssembly*)networkModuleAssembly
                    withArchitect:(id<Architect>)architect
                       withTailor:(id<Tailor>)tailor
 {
@@ -74,6 +79,7 @@
         self.termsAndConditionsAssembly = termsAndConditionsAssembly;
         self.queEsModuleAssembly = queEsModuleAssembly;
         self.loadingModuleAssembly = loadingModuleAssembly;
+        self.networkModuleAssembly = networkModuleAssembly;
         self.architect = architect;
         self.tailor = tailor;
     }
@@ -161,6 +167,12 @@
 {
     LoadingViewController *loading = [self.loadingModuleAssembly loadingViewController];
     [self.director presentModal:loading withPresenter:presenter animated:YES];
+}
+
+- (void)showNetworkReachability
+{
+    NetworkViewController *net = [self.networkModuleAssembly networkViewController];
+    [self.director presentModal:net withPresenter:nil animated:YES];
 }
 
 - (void)removeLoading
