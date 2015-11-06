@@ -15,7 +15,6 @@
 
 @interface PositiveActionsMapView () <MKMapViewDelegate>
 
-@property (nonatomic, strong) UIButton *shareButton;
 @property (nonatomic, strong) UIButton *pledgeButton;
 
 @property (nonatomic, strong) UIView *footerView;
@@ -89,15 +88,10 @@
 
 - (void)buildButtons
 {
-    self.shareButton = [ButtonFactory buttonWithImage:@"share"];
     self.pledgeButton = [ButtonFactory buttonWithImage:@"pledge"];
     
-    [self addSubview:self.shareButton];
     [self addSubview:self.pledgeButton];
-    [self.shareButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.mapView withOffset:32];
-    [self.pledgeButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.mapView withOffset:-32];
-    
-    [self.shareButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.footerView withOffset:-16];
+    [self.pledgeButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.mapView];
     [self.pledgeButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.footerView withOffset:-16];
 }
 
@@ -245,7 +239,6 @@
 
 - (void)activateViews:(BOOL)active
 {
-    self.shareButton.hidden = !active;
     self.pledgeButton.hidden = !active;
 }
 
