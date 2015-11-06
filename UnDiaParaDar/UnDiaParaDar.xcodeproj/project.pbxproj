@@ -34,6 +34,7 @@
 		0D7C57481BC1B04200A402CF /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C57411BC1B04200A402CF /* LoadingViewController.m */; };
 		0D7C57491BC1B04200A402CF /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C57461BC1B04200A402CF /* LoadingView.m */; };
 		0D7C574C1BC1B0B300A402CF /* BeautyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C574B1BC1B0B300A402CF /* BeautyCenter.m */; };
+		0D7D1BA71BEC2D57006AADAB /* FacebookLoginFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6B51B5D937F00DCDE3E /* FacebookLoginFlow.m */; };
 		0D8580EF1BBB6B17002CEB2B /* MappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8580EE1BBB6B17002CEB2B /* MappingProvider.m */; };
 		0D8580F21BBB6BAB002CEB2B /* PositiveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8580F11BBB6BAB002CEB2B /* PositiveAction.m */; };
 		0D8974921BC4B5AC00ACD124 /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8974911BC4B5AC00ACD124 /* ProfileView.m */; };
@@ -92,7 +93,6 @@
 		11DEE6AD1B5D778F00DCDE3E /* RoutingModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6AC1B5D778F00DCDE3E /* RoutingModuleAssembly.m */; };
 		11DEE6B01B5D7D9300DCDE3E /* AppDelegateAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6AF1B5D7D9300DCDE3E /* AppDelegateAssembly.m */; };
 		11DEE6B31B5D818500DCDE3E /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6B21B5D818500DCDE3E /* LoginView.m */; };
-		11DEE6B61B5D937F00DCDE3E /* FacebookLoginFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6B51B5D937F00DCDE3E /* FacebookLoginFlow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1111,7 +1111,6 @@
 			files = (
 				0DBD219D1BA372DA002AC53C /* FacebookInitializer.m in Sources */,
 				0D4B13BA1BA4BB5D00961764 /* RemoteImageView.m in Sources */,
-				11DEE6B61B5D937F00DCDE3E /* FacebookLoginFlow.m in Sources */,
 				11DEE6AD1B5D778F00DCDE3E /* RoutingModuleAssembly.m in Sources */,
 				113E469E1B62C07E00ADF8AC /* ProfileViewController.m in Sources */,
 				0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */,
@@ -1176,6 +1175,7 @@
 				0D7C574C1BC1B0B300A402CF /* BeautyCenter.m in Sources */,
 				0DB589271BE99EB80033D027 /* MapFilters.m in Sources */,
 				0DB1E6FC1BC5E7F4004A86A9 /* SelectedTopicsViewController.m in Sources */,
+				0D7D1BA71BEC2D57006AADAB /* FacebookLoginFlow.m in Sources */,
 				0D6199D61BC0A18000A8C987 /* PositiveActionViewController.m in Sources */,
 				0D17637F1BB4646100C6E664 /* QueEsModuleAssembly.m in Sources */,
 				1113AA161B5F044F0066E7BB /* MenuProfilePresenter.m in Sources */,

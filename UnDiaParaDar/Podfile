@@ -9,5 +9,6 @@ target 'UnDiaParaDar', :exclusive => true do
 	pod 'ExternalLibraries', :path => 'ExternalLibraries'
 # Facebook!!!
 	pod 'FBSDKLoginKit', '~> 4.1'
+	pod 'FBSDKShareKit', '~> 4.7.1'
 end
 

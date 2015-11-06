@@ -12,9 +12,12 @@
 #import "User.h"
 
 #import <PureLayout/PureLayout.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
 
 static NSString *const HEADER = @"profile_header";
 static NSString *const PLACEHOLDER = @"placeholder";
+static NSString *const LINK = @"https://www.facebook.com/undiaparadar/";
 
 @interface ProfileView ()
 
@@ -22,6 +25,11 @@ static NSString *const PLACEHOLDER = @"placeholder";
 @property (nonatomic, strong) RemoteImageView *userProfileImageView;
 @property (nonatomic, strong) UIView *overview;
 @property (nonatomic, strong) UILabel *userName;
+@property (nonatomic, strong) UIView *content;
+
+@property (nonatomic, strong) UILabel *facebookLabel;
+@property (nonatomic, strong) FBSDKLikeControl *likeButton;
+@property (nonatomic, strong) FBSDKShareButton *shareButton;
 
 @end
 
@@ -88,7 +96,6 @@ static NSString *const PLACEHOLDER = @"placeholder";
     [self.overview autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.userProfileImageView withOffset:8];
     [self.overview autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [self.overview autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
-    [self.overview autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:20 relation:NSLayoutRelationGreaterThanOrEqual];
 }
 
 - (void)buildUserName
@@ -103,23 +110,64 @@ static NSString *const PLACEHOLDER = @"placeholder";
 
 - (void)buildDescription
 {
-    UIView *description = [[UIView alloc] initForAutoLayout];
-    [self addSubview:description];
+    self.content = [[UIView alloc] initForAutoLayout];
+    [self addSubview:self.content];
     
-    [description autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.headerImageView];
-    [description autoPinEdgesToSuperviewMarginsExcludingEdge:ALEdgeTop];
+    [self.content autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.headerImageView];
+    [self.content autoPinEdgesToSuperviewMarginsExcludingEdge:ALEdgeTop];
+    
+    [self buildFacebookLabel];
+    [self buildLikeButton];
+    [self buildShareButton];
+}
+
+- (void)buildFacebookLabel
+{
+    self.facebookLabel = [[UILabel alloc] initForAutoLayout];
+    self.facebookLabel.text = NSLocalizedString(@"FOLLOW_US", @"Seguinos en Facebook");
+    [self.content addSubview:self.facebookLabel];
+    [self.facebookLabel autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(8, 8, 0, 8) excludingEdge:ALEdgeBottom];
+}
+
+- (void)buildLikeButton
+{
+    self.likeButton = [[FBSDKLikeControl alloc] initForAutoLayout];
+    self.likeButton.objectID = LINK;
+    [self.content addSubview:self.likeButton];
+
+    [self.likeButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.facebookLabel withOffset:8];
+    [self.likeButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [self.likeButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:20 relation:NSLayoutRelationGreaterThanOrEqual];
+}
+
+- (void)buildShareButton
+{
+    self.shareButton = [[FBSDKShareButton alloc] initForAutoLayout];
+    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+    content.contentURL = [NSURL URLWithString:LINK];
+    self.shareButton.shareContent = content;
+
+    [self.headerImageView addSubview:self.shareButton];
+
+    [self.shareButton autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:24];
+    [self.shareButton autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
 }
 
 - (void)styleSubviews
 {
+    self.backgroundColor = [UIColor whiteColor];
+    
     [self.overview setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]];
     
     [self.userName setBackgroundColor:[UIColor clearColor]];
     [self.userName setTextAlignment:NSTextAlignmentCenter];
-    [self.userName setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleMedium
+    [self.userName setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
                                                           withSize:BeautyCenterTypographySizeE]];
     [self.userName setTextColor: [UIColor whiteColor]];
     
+    self.facebookLabel.textAlignment = NSTextAlignmentCenter;
+    self.facebookLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
+                                                             withSize:BeautyCenterTypographySizeC];
 }
 
 @end
