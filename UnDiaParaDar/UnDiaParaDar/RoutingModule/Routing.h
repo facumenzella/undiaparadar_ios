@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoadingViewController.h"
 
 @class PositiveAction, MapFilters;
 
@@ -27,8 +28,7 @@
 - (void)showQueEsUDPD;
 
 - (void)showNetworkReachability;
-- (void)showLoadingWithPresenter:(UIViewController*)presenter;
-- (void)removeLoading;
+- (void)showLoadingWithPresenter:(UIViewController*)presenter withLoadingBlock:(LoadingBlock)loadingBlock;
 - (void)showMapFiltersViewWithMapFilters:(MapFilters*)mapFilters withPresenter:(UIViewController*)presenters;
 
 @end

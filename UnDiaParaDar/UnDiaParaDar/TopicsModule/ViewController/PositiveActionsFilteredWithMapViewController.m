@@ -95,20 +95,22 @@
 
 - (void)refreshMapWithSelectedTopics:(NSArray*)selectedTopics
 {
+    __weak PositiveActionsFilteredWithMapViewController *welf = self;
     [self.selectedTopicsViewController setSelectedTopics:[NSMutableArray arrayWithArray:selectedTopics]];
-    [self.routing showLoadingWithPresenter:self];
-    [self.topicService
-     getPositiveActionsFilteredByTopics:selectedTopics
-     withCallback:^(NSError *error, NSArray *positiveActions) {
-         self.positiveActions = positiveActions;
-         NSMutableArray *annotations = [[NSMutableArray alloc] init];
-         for (PositiveAction *p in self.positiveActions) {
-             id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
-             [annotations addObject:annotation];
-         }
-         [self.positiveActionsView addPositiveActions:annotations];
-         [self.routing removeLoading];
-     }];
+    [self.routing showLoadingWithPresenter:self withLoadingBlock:^(UIViewController *loadingVC) {
+        [welf.topicService
+         getPositiveActionsFilteredByTopics:selectedTopics
+         withCallback:^(NSError *error, NSArray *positiveActions) {
+             welf.positiveActions = positiveActions;
+             NSMutableArray *annotations = [[NSMutableArray alloc] init];
+             for (PositiveAction *p in self.positiveActions) {
+                 id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
+                 [annotations addObject:annotation];
+             }
+             [welf.positiveActionsView addPositiveActions:annotations];
+             [welf.routing dismissViewController:loadingVC withCompletion:nil];
+         }];
+    }];
 }
 
 - (void)zoomToMyLocation

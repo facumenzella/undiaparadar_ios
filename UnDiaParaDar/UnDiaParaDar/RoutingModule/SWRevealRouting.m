@@ -163,9 +163,9 @@
     [self.director setRoot:[self.architect buildMainScreenWithRootViewController: queEsVC]];
 }
 
-- (void)showLoadingWithPresenter:(UIViewController*)presenter
+- (void)showLoadingWithPresenter:(UIViewController*)presenter withLoadingBlock:(LoadingBlock)loadingBlock
 {
-    LoadingViewController *loading = [self.loadingModuleAssembly loadingViewController];
+    LoadingViewController *loading = [self.loadingModuleAssembly loadingViewControllerWithLoadingBlock:loadingBlock];
     [self.director presentModal:loading withPresenter:presenter animated:YES];
 }
 
@@ -173,12 +173,6 @@
 {
     NetworkViewController *net = [self.networkModuleAssembly networkViewController];
     [self.director presentModal:net withPresenter:nil animated:YES];
-}
-
-- (void)removeLoading
-{
-    LoadingViewController *loading = [self.loadingModuleAssembly loadingViewController];
-    [self.director dismiss:loading animated:YES withCompletion:nil];
 }
 
 - (void)showMapFiltersViewWithMapFilters:(MapFilters *)mapFilters withPresenter:(UIViewController *)presenters

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void (^LoadingBlock)(UIViewController *loading);
 
 @interface LoadingViewController : UIViewController
+
+- (instancetype)initWithLoadingBlock:(LoadingBlock)loadingBlock;
 
 @end

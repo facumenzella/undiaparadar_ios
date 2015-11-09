@@ -7,16 +7,15 @@
 //
 
 #import "LoadingModuleAssembly.h"
-#import "LoadingViewController.h"
 
 @implementation LoadingModuleAssembly
 
-- (LoadingViewController*)loadingViewController
+- (LoadingViewController*)loadingViewControllerWithLoadingBlock:(LoadingBlock)loadingBlock
 {
-    SEL selector = @selector(init);
+    SEL selector = @selector(initWithLoadingBlock:);
     return [TyphoonDefinition withClass:[LoadingViewController class] configuration:^(TyphoonDefinition* definition) {
-        definition.scope = TyphoonScopeSingleton;
         [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:loadingBlock];
         }];
     }];
 }

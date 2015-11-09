@@ -7,11 +7,10 @@
 //
 
 #import "TyphoonAssembly.h"
-
-@class LoadingViewController;
+#import "LoadingViewController.h"
 
 @interface LoadingModuleAssembly : TyphoonAssembly
 
-- (LoadingViewController*)loadingViewController;
+- (LoadingViewController*)loadingViewControllerWithLoadingBlock:(LoadingBlock)loadingBlock;
 
 @end

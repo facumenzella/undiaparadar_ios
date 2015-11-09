@@ -14,10 +14,20 @@
 @interface LoadingViewController () <UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, strong) UIView<AnimatedViewProtocol> *modalView;
+@property (nonatomic, copy) LoadingBlock loadingBlock;
 
 @end
 
 @implementation LoadingViewController
+
+- (instancetype)initWithLoadingBlock:(LoadingBlock)loadingBlock
+{
+    self = [self init];
+    if (self) {
+        self.loadingBlock = loadingBlock;
+    }
+    return self;
+}
 
 - (instancetype)init
 {
@@ -39,6 +49,8 @@
 {
     [super viewDidAppear:animated];
     [self.modalView startAnimating];
+    
+    self.loadingBlock(self);
 }
 
 - (void)viewWillDisappear:(BOOL)animated
