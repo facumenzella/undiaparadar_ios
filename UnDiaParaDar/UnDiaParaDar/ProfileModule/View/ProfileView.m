@@ -116,9 +116,19 @@ static NSString *const LINK = @"https://www.facebook.com/undiaparadar/";
     [self.content autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.headerImageView];
     [self.content autoPinEdgesToSuperviewMarginsExcludingEdge:ALEdgeTop];
     
+    [self buildCommingSoon];
     [self buildFacebookLabel];
     [self buildLikeButton];
     [self buildShareButton];
+}
+
+- (void)buildCommingSoon
+{
+    UIImageView *commingSoon = [[UIImageView alloc] initForAutoLayout];
+    commingSoon.image = [UIImage imageNamed:@"commingSoon"];
+    [self.content addSubview:commingSoon];
+    [commingSoon autoPinEdgeToSuperviewEdge:ALEdgeLeft];
+    [commingSoon autoPinEdgeToSuperviewEdge:ALEdgeBottom];
 }
 
 - (void)buildFacebookLabel
@@ -126,7 +136,7 @@ static NSString *const LINK = @"https://www.facebook.com/undiaparadar/";
     self.facebookLabel = [[UILabel alloc] initForAutoLayout];
     self.facebookLabel.text = NSLocalizedString(@"FOLLOW_US", @"Seguinos en Facebook");
     [self.content addSubview:self.facebookLabel];
-    [self.facebookLabel autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(8, 8, 0, 8) excludingEdge:ALEdgeBottom];
+    [self.facebookLabel autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(8, 8, 0, 16) excludingEdge:ALEdgeBottom];
 }
 
 - (void)buildLikeButton
@@ -135,8 +145,8 @@ static NSString *const LINK = @"https://www.facebook.com/undiaparadar/";
     self.likeButton.objectID = LINK;
     [self.content addSubview:self.likeButton];
 
+    [self.likeButton autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
     [self.likeButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.facebookLabel withOffset:8];
-    [self.likeButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [self.likeButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:20 relation:NSLayoutRelationGreaterThanOrEqual];
 }
 
@@ -147,9 +157,9 @@ static NSString *const LINK = @"https://www.facebook.com/undiaparadar/";
     content.contentURL = [NSURL URLWithString:LINK];
     self.shareButton.shareContent = content;
 
-    [self.headerImageView addSubview:self.shareButton];
-
-    [self.shareButton autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:24];
+    [self.content addSubview:self.shareButton];
+    
+    [self.shareButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.likeButton withOffset:8];
     [self.shareButton autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
 }
 
@@ -165,7 +175,7 @@ static NSString *const LINK = @"https://www.facebook.com/undiaparadar/";
                                                           withSize:BeautyCenterTypographySizeE]];
     [self.userName setTextColor: [UIColor whiteColor]];
     
-    self.facebookLabel.textAlignment = NSTextAlignmentCenter;
+    self.facebookLabel.textAlignment = NSTextAlignmentRight;
     self.facebookLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
                                                              withSize:BeautyCenterTypographySizeC];
 }
