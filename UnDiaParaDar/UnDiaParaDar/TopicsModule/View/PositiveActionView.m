@@ -21,7 +21,8 @@ static NSString * const BACKGROUND = @"menu_header";
 @property (nonatomic, strong) UIImageView *topicImageView;
 
 @property (nonatomic, strong) UIView *overTitleView;
-@property (nonatomic, strong) UITextView *overTitleTextView;
+@property (nonatomic, strong) UILabel *overTitleLabel;
+
 @property (nonatomic, strong) UIView *descriptionContainer;
 @property (nonatomic, strong) UITextView *positiveActionTitle;
 @property (nonatomic, strong) UIImageView *colorBandImageView;
@@ -49,14 +50,14 @@ static NSString * const BACKGROUND = @"menu_header";
 
 - (void)populateWithPositiveAction:(id<PositiveActionPresenter>)positiveAction withTopicImage:(NSString*)topicImage
 {
-    self.overTitleTextView.text = positiveAction.paTitle;
+    self.overTitleLabel.text = positiveAction.paTitle;
     self.positiveActionTitle.text = positiveAction.paSubtitle;
     self.positiveActionDescription.text = positiveAction.paDescription;
     [self.topicImageView setImage:[UIImage imageNamed:topicImage]];
     
     [self.locationLabel setText:[NSString stringWithFormat:@"%@, %@", positiveAction.paCity, positiveAction.paCountry]];
     self.additionalLocationView.hidden = !positiveAction.paCity && !positiveAction.paCountry;
-
+    
     [self.externalURLLabel setText:positiveAction.paExternalURL];
     self.additionalURLView.hidden = !positiveAction.paExternalURL;
 }
@@ -130,12 +131,10 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.overTitleView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
     [self.overTitleView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.mainHeaderView withOffset:20];
     
-    self.overTitleTextView = [[UITextView alloc] initForAutoLayout];
-    self.overTitleTextView.scrollEnabled = NO;
-    self.overTitleTextView.editable = NO;
-    [self.overTitleView addSubview: self.overTitleTextView];
-    [self.overTitleTextView autoPinEdgesToSuperviewEdges];
-    self.overTitleTextView.text = @"Oh shit";
+    self.overTitleLabel = [[UILabel alloc] initForAutoLayout];
+    [self.overTitleView addSubview: self.overTitleLabel];
+    [self.overTitleLabel autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(8, 0, 8, 0)];
+    self.overTitleLabel.text = @"Oh shit";
 }
 
 - (void)buildDescriptionContainer
@@ -262,11 +261,12 @@ static NSString * const BACKGROUND = @"menu_header";
     [self setBackgroundColor:[UIColor whiteColor]];
     
     [self.overTitleView setBackgroundColor: [BeautyCenter beautyCenterColor:BeautyCenterColorDarkRed]];
-    [self.overTitleTextView setTextColor: [UIColor whiteColor]];
-    [self.overTitleTextView setBackgroundColor:[UIColor clearColor]];
-    [self.overTitleTextView setTextAlignment: NSTextAlignmentCenter];
-    [self.overTitleTextView setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
-                                                                   withSize:BeautyCenterTypographySizeB]];
+    self.overTitleLabel.numberOfLines = 2;
+    self.overTitleLabel.textColor = [UIColor whiteColor];
+    self.overTitleLabel.backgroundColor = [UIColor clearColor];
+    self.overTitleLabel.textAlignment = NSTextAlignmentCenter;
+    self.overTitleLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
+                                                              withSize:BeautyCenterTypographySizeB];
     
     [self.positiveActionTitle setTextColor:[UIColor blackColor]];
     [self.positiveActionTitle setTextAlignment:NSTextAlignmentCenter];
@@ -278,7 +278,7 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.positiveActionDescription setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
                                                                            withSize:BeautyCenterTypographySizeA]];
     self.positiveActionDescription.dataDetectorTypes = UIDataDetectorTypeAll;
-
+    
     
     [self styleAdditionalInformation:@[self.locationLabel, self.externalURLLabel]];
     [self styleURL];
