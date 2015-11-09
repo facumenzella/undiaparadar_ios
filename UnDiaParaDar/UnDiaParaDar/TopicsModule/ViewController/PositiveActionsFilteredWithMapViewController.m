@@ -9,6 +9,8 @@
 #import "PositiveActionsFilteredWithMapViewController.h"
 #import "PositiveActionsMapView.h"
 #import "PositiveActionsFilteredWithMapView.h"
+#import "TapToRetryView.h"
+
 #import "PositiveActionAnnotation.h"
 #import "LocationManager.h"
 
@@ -18,11 +20,12 @@
 #import "Routing.h"
 #import "TopicService.h"
 
-@interface PositiveActionsFilteredWithMapViewController () <PositiveActionsMapViewDelegate>
+@interface PositiveActionsFilteredWithMapViewController () <PositiveActionsMapViewDelegate, TapToRetryViewDelegate>
 
 @property (nonatomic, strong) id<Routing> routing;
 @property (nonatomic, strong) TopicService *topicService;
 
+@property (nonatomic, strong) TapToRetryView *tapToRetryView;
 @property (nonatomic, strong) PositiveActionsFilteredWithMapView *positiveFilteredView;
 
 @property (nonatomic, strong) SelectedTopicsViewController *selectedTopicsViewController;
@@ -66,11 +69,12 @@
 -(void)loadView
 {
     self.positiveFilteredView = [[PositiveActionsFilteredWithMapView alloc] init];
-    
     self.view = self.positiveFilteredView;
     self.selectedTopicsViewController.collectionView = (UICollectionView*)self.positiveFilteredView.selectedTopicsView;
     [self.positiveFilteredView.positiveActionsMapView setRadio:self.mapFilters.radio enabled:YES];
     self.positiveFilteredView.positiveActionsMapView.pAMVDelegate = self;
+    self.tapToRetryView = [[TapToRetryView alloc] init];
+    self.tapToRetryView.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -96,14 +100,19 @@
         [welf.topicService
          getPositiveActionsFilteredByTopics:selectedTopics
          withCallback:^(NSError *error, NSArray *positiveActions) {
-             welf.positiveActions = positiveActions;
-             NSMutableArray *annotations = [[NSMutableArray alloc] init];
-             for (PositiveAction *p in self.positiveActions) {
-                 id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
-                 [annotations addObject:annotation];
+             if (error) {
+                 welf.positiveActions = positiveActions;
+                 NSMutableArray *annotations = [[NSMutableArray alloc] init];
+                 for (PositiveAction *p in self.positiveActions) {
+                     id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
+                     [annotations addObject:annotation];
+                 }
+                 [welf.positiveFilteredView.positiveActionsMapView addPositiveActions:annotations];
+                 [welf.routing dismissViewController:loadingVC withCompletion:nil];
+             } else {
+                 welf.view = self.tapToRetryView;
+                 [welf.routing dismissViewController:loadingVC withCompletion:nil];
              }
-             [welf.positiveFilteredView.positiveActionsMapView addPositiveActions:annotations];
-             [welf.routing dismissViewController:loadingVC withCompletion:nil];
          }];
     }];
 }
@@ -161,6 +170,14 @@
 {
     PositiveAction *action = self.positiveFilteredView.positiveActionsMapView.activeAnnotation.positiveAction;
     [self.routing showPositiveaction:action withPresenter:self];
+}
+
+#pragma mark - TapToRetryViewDelegate
+
+- (void)retry
+{
+    self.view = self.positiveFilteredView;
+    [self handleFilters:self.mapFilters];
 }
 
 @end
