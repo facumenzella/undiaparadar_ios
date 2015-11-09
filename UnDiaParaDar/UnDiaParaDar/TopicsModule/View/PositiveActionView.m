@@ -24,7 +24,7 @@ static NSString * const BACKGROUND = @"menu_header";
 @property (nonatomic, strong) UILabel *overTitleLabel;
 
 @property (nonatomic, strong) UIView *descriptionContainer;
-@property (nonatomic, strong) UITextView *positiveActionTitle;
+@property (nonatomic, strong) UILabel *positiveActionTitleLabel;
 @property (nonatomic, strong) UIImageView *colorBandImageView;
 @property (nonatomic, strong) UITextView *positiveActionDescription;
 @property (nonatomic, strong) UIView *redBand;
@@ -51,7 +51,7 @@ static NSString * const BACKGROUND = @"menu_header";
 - (void)populateWithPositiveAction:(id<PositiveActionPresenter>)positiveAction withTopicImage:(NSString*)topicImage
 {
     self.overTitleLabel.text = positiveAction.paTitle;
-    self.positiveActionTitle.text = positiveAction.paSubtitle;
+    self.positiveActionTitleLabel.text = positiveAction.paSubtitle;
     self.positiveActionDescription.text = positiveAction.paDescription;
     [self.topicImageView setImage:[UIImage imageNamed:topicImage]];
     
@@ -147,13 +147,11 @@ static NSString * const BACKGROUND = @"menu_header";
 
 - (void)buildPositiveActionTitle
 {
-    self.positiveActionTitle = [[UITextView alloc] initForAutoLayout];
-    [self.descriptionContainer addSubview: self.positiveActionTitle];
-    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:24];
-    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
-    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:24];
-    self.positiveActionTitle.scrollEnabled = NO;
-    self.positiveActionTitle.editable = NO;
+    self.positiveActionTitleLabel = [[UILabel alloc] initForAutoLayout];
+    [self.descriptionContainer addSubview: self.positiveActionTitleLabel];
+    [self.positiveActionTitleLabel autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:24];
+    [self.positiveActionTitleLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
+    [self.positiveActionTitleLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:24];
 }
 
 - (void)buildTitleUnderline
@@ -163,7 +161,10 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.colorBandImageView setImage: colorBand];
     
     [self.descriptionContainer addSubview: self.colorBandImageView];
-    [self.colorBandImageView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.positiveActionTitle withOffset:8];
+    [self.colorBandImageView autoPinEdge:ALEdgeTop
+                                  toEdge:ALEdgeBottom
+                                  ofView:self.positiveActionTitleLabel
+                              withOffset:8];
     [self.colorBandImageView autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [self.colorBandImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:40];
     [self.colorBandImageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:40];
@@ -261,17 +262,19 @@ static NSString * const BACKGROUND = @"menu_header";
     [self setBackgroundColor:[UIColor whiteColor]];
     
     [self.overTitleView setBackgroundColor: [BeautyCenter beautyCenterColor:BeautyCenterColorDarkRed]];
-    self.overTitleLabel.numberOfLines = 2;
+    self.overTitleLabel.numberOfLines = 3;
     self.overTitleLabel.textColor = [UIColor whiteColor];
     self.overTitleLabel.backgroundColor = [UIColor clearColor];
     self.overTitleLabel.textAlignment = NSTextAlignmentCenter;
     self.overTitleLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
                                                               withSize:BeautyCenterTypographySizeB];
     
-    [self.positiveActionTitle setTextColor:[UIColor blackColor]];
-    [self.positiveActionTitle setTextAlignment:NSTextAlignmentCenter];
-    [self.positiveActionTitle setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
-                                                                     withSize:BeautyCenterTypographySizeA]];
+    self.positiveActionTitleLabel.textColor = [UIColor blackColor];
+    self.positiveActionTitleLabel.textAlignment = NSTextAlignmentCenter;
+    self.positiveActionTitleLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
+                                                                        withSize:BeautyCenterTypographySizeA];
+    self.positiveActionTitleLabel.numberOfLines = 4;
+    
     [self.descriptionContainer setBackgroundColor:[UIColor whiteColor]];
     
     [self.positiveActionDescription setTextAlignment:NSTextAlignmentCenter];
