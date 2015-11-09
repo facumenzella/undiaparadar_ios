@@ -40,3 +40,8 @@
 // FACEBOOK
 "FOLLOW_US" = "Seguinos en Facebook";
 
+// CONNECTION
+"NO_CONNECTION" = "No posee conexión a internet";
+"TAP_TO_RETRY" = "Aprete para recargar la página";
+
+

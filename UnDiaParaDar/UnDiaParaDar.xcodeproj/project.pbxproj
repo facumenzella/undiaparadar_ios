@@ -29,6 +29,7 @@
 		0D6199D61BC0A18000A8C987 /* PositiveActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6199D51BC0A18000A8C987 /* PositiveActionViewController.m */; };
 		0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6612C81B98C69C006C272F /* ButtonFactory.m */; };
 		0D6612CC1B98CA76006C272F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D6612CE1B98CA76006C272F /* Localizable.strings */; };
+		0D7BA7B51BF1607F00297A7F /* TapToRetryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7BA7B41BF1607F00297A7F /* TapToRetryView.m */; };
 		0D7C572B1BC1B01B00A402CF /* PositiveActionAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C572A1BC1B01B00A402CF /* PositiveActionAnnotation.m */; };
 		0D7C57471BC1B04200A402CF /* LoadingModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C573F1BC1B04200A402CF /* LoadingModuleAssembly.m */; };
 		0D7C57481BC1B04200A402CF /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C57411BC1B04200A402CF /* LoadingViewController.m */; };
@@ -151,6 +152,8 @@
 		0D6612C81B98C69C006C272F /* ButtonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonFactory.m; sourceTree = "<group>"; };
 		0D6612CD1B98CA76006C272F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0D6612CF1B98CA96006C272F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0D7BA7B31BF1607F00297A7F /* TapToRetryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TapToRetryView.h; path = UnDiaParaDar/NetworkReachabilityModule/View/TapToRetryView.h; sourceTree = SOURCE_ROOT; };
+		0D7BA7B41BF1607F00297A7F /* TapToRetryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TapToRetryView.m; path = UnDiaParaDar/NetworkReachabilityModule/View/TapToRetryView.m; sourceTree = SOURCE_ROOT; };
 		0D7C57291BC1B01B00A402CF /* PositiveActionAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionAnnotation.h; sourceTree = "<group>"; };
 		0D7C572A1BC1B01B00A402CF /* PositiveActionAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionAnnotation.m; sourceTree = "<group>"; };
 		0D7C573E1BC1B04200A402CF /* LoadingModuleAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingModuleAssembly.h; sourceTree = "<group>"; };
@@ -453,6 +456,15 @@
 			path = Factories;
 			sourceTree = "<group>";
 		};
+		0D7BA7B21BF1607200297A7F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0D7BA7B31BF1607F00297A7F /* TapToRetryView.h */,
+				0D7BA7B41BF1607F00297A7F /* TapToRetryView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0D7C57281BC1B01B00A402CF /* Annotations */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +516,7 @@
 		0D7D1BAE1BEC3213006AADAB /* NetworkReachabilityModule */ = {
 			isa = PBXGroup;
 			children = (
+				0D7BA7B21BF1607200297A7F /* View */,
 				0D7D1BB71BEC37AD006AADAB /* ViewController */,
 				0D7D1BAF1BEC3228006AADAB /* Assembly */,
 				0D7D1BB01BEC3228006AADAB /* NetworkReachabilityController */,
@@ -1226,6 +1239,7 @@
 				113E46A61B62CD4B00ADF8AC /* ProfileModuleAssembly.m in Sources */,
 				0D11F48B1BB37DCD00AFE46D /* TermsAndConditionsViewController.m in Sources */,
 				11DEE6911B5D6DF900DCDE3E /* LoginViewController.m in Sources */,
+				0D7BA7B51BF1607F00297A7F /* TapToRetryView.m in Sources */,
 				0DEBE1D11BC1D58E00906E52 /* LocationManager.m in Sources */,
 				11DEE6A91B5D774900DCDE3E /* SWRevealDirector.m in Sources */,
 				0DB1E7051BC5ED71004A86A9 /* UIImage+AverageColor.m in Sources */,
