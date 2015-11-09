@@ -67,6 +67,10 @@ static NSString * const BACKGROUND = @"menu_header";
     
     [self.externalURLLabel setText:positiveAction.paExternalURL];
     self.additionalURLView.hidden = !positiveAction.paExternalURL;
+    self.shareButton.enabled = !self.additionalURLView.hidden;
+    
+    // TODO add proper message
+    self.pledgeButton.enabled = NO;
 }
 
 - (void)buildSubviews
