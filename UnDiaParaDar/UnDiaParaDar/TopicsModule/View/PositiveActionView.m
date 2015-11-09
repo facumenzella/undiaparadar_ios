@@ -9,9 +9,12 @@
 #import "PositiveActionView.h"
 #import "positiveActionPresenter.h"
 #import "BeautyCenter.h"
+#import "ButtonFactory.h"
 
 #import <PureLayout/PureLayout.h>
 
+static NSString * const kPledge = @"pledge";
+static NSString * const kShare = @"share";
 static NSString * const BACKGROUND = @"menu_header";
 
 @interface PositiveActionView ()
@@ -22,6 +25,10 @@ static NSString * const BACKGROUND = @"menu_header";
 
 @property (nonatomic, strong) UIView *overTitleView;
 @property (nonatomic, strong) UILabel *overTitleLabel;
+
+@property (nonatomic, strong) UIView *buttonsContainer;
+@property (nonatomic, strong) UIButton *shareButton;
+@property (nonatomic, strong) UIButton *pledgeButton;
 
 @property (nonatomic, strong) UIView *descriptionContainer;
 @property (nonatomic, strong) UILabel *positiveActionTitleLabel;
@@ -83,6 +90,7 @@ static NSString * const BACKGROUND = @"menu_header";
     [self buildHeader];
     [self buildOverTittle];
     [self buildDescriptionContainer];
+    [self buildButtons];
     [self buildPositiveActionTitle];
     [self buildTitleUnderline];
     [self buildPositiveActionDescription];
@@ -145,11 +153,37 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.descriptionContainer autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
 }
 
+- (void)buildButtons
+{
+    self.buttonsContainer = [[UIView alloc] initForAutoLayout];
+    [self.descriptionContainer addSubview:self.buttonsContainer];
+    [self.buttonsContainer autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:24];
+    [self.buttonsContainer autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    
+    [self buildShareButton];
+    [self buildPledgeButton];
+}
+
+- (void)buildShareButton
+{
+    self.shareButton = [ButtonFactory buttonWithImage:kShare];
+    [self.buttonsContainer addSubview:self.shareButton];
+    [self.shareButton autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeRight];
+}
+
+- (void)buildPledgeButton
+{
+    self.pledgeButton = [ButtonFactory buttonWithImage:kPledge];
+    [self.buttonsContainer addSubview:self.pledgeButton];
+    [self.pledgeButton autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeLeft];
+    [self.pledgeButton autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.shareButton withOffset:48];
+}
+
 - (void)buildPositiveActionTitle
 {
     self.positiveActionTitleLabel = [[UILabel alloc] initForAutoLayout];
     [self.descriptionContainer addSubview: self.positiveActionTitleLabel];
-    [self.positiveActionTitleLabel autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:24];
+    [self.positiveActionTitleLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.buttonsContainer withOffset:8];
     [self.positiveActionTitleLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
     [self.positiveActionTitleLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:24];
 }
