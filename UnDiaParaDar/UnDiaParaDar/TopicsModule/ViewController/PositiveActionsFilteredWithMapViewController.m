@@ -163,16 +163,6 @@
 
 #pragma mark - PositiveActionsMapViewDelegate
 
-- (void)didSelectShareButton
-{
-    // TODO
-}
-
-- (void)didSelectPledgeButton
-{
-    // TODO
-}
-
 - (void)didSelectDetail
 {
     PositiveAction *action = self.positiveActionsView.activeAnnotation.positiveAction;

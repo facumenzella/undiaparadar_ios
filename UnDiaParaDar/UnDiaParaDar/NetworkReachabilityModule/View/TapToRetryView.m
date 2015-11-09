@@ -41,6 +41,8 @@ static NSString *const kBackground = @"Splash";
     [self buildSeparator];
     [self buildUDPDImageView];
     [self buildTapToRetryLabel];
+    [self buildNoConnectionLabel];
+    [self buildGestureRecognizer];
 }
 
 - (void)buildBackground
@@ -54,6 +56,7 @@ static NSString *const kBackground = @"Splash";
 - (void)buildUDPDImageView
 {
     self.undiaparadarImageView = [[UIImageView alloc] initForAutoLayout];
+    self.undiaparadarImageView.image = [UIImage imageNamed:@"noconnection"];
     [self.background addSubview:self.undiaparadarImageView];
     [self.undiaparadarImageView autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.separator withOffset:0];
     [self.undiaparadarImageView autoAlignAxisToSuperviewAxis:ALAxisVertical];
@@ -83,18 +86,39 @@ static NSString *const kBackground = @"Splash";
 {
     self.noConnectionLabel = [[UILabel alloc] initForAutoLayout];
     [self.background addSubview:self.noConnectionLabel];
-    [self.noConnectionLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tapToRetryLabel];
+    [self.noConnectionLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.tapToRetryLabel withOffset:16];
     [self.noConnectionLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
     [self.noConnectionLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:24];
-    self.tapToRetryLabel.text = NSLocalizedString(@"TAP_TO_RETRY", @"Aprete para recargar la pagina");
+    self.noConnectionLabel.text = NSLocalizedString(@"TAP_TO_RETRY", @"Aprete para recargar la pagina");
+}
+
+- (void)buildGestureRecognizer
+{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(retry)];
+    [self addGestureRecognizer:tap];
+    self.userInteractionEnabled = YES;
 }
 
 - (void)styleSubviews
 {
     self.tapToRetryLabel.backgroundColor = [UIColor clearColor];
     self.tapToRetryLabel.numberOfLines = 3;
+    self.tapToRetryLabel.textAlignment = NSTextAlignmentCenter;
     self.tapToRetryLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
                                                                withSize:BeautyCenterTypographySizeD];
+    
+    self.noConnectionLabel.backgroundColor = [UIColor clearColor];
+    self.noConnectionLabel.numberOfLines = 3;
+    self.noConnectionLabel.textAlignment = NSTextAlignmentCenter;
+    self.noConnectionLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
+                                                               withSize:BeautyCenterTypographySizeB];
+}
+
+#pragma mark - TapToRetryViewDelegate
+
+- (void)retry
+{
+    [self.delegate retry];
 }
 
 @end

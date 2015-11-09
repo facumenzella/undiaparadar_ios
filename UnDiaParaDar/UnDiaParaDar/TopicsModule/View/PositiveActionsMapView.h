@@ -32,8 +32,6 @@
 
 - (void)rangeDidChange:(CGFloat)range;
 
-- (void)didSelectPledgeButton;
-
 - (void)didSelectDetail;
 
 @end

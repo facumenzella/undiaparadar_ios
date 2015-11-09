@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TapToRetryViewDelegate
+
+- (void)retry;
+
+@end
+
 @interface TapToRetryView : UIView
+
+@property (nonatomic, assign) id<TapToRetryViewDelegate> delegate;
 
 @end
