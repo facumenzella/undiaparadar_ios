@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) UIView *footerView;
 @property (nonatomic, strong) UIImageView *fowardImageView;
-@property (nonatomic, strong) UITextView *positiveActionTitle;
+@property (nonatomic, strong) UILabel *positiveActionTitle;
 
 @property (nonatomic) BOOL didTapOnce;
 @property (nonatomic, strong) NSArray *defaultConstraints;
@@ -53,6 +53,7 @@
 - (void)showActivePositiveActionWithTitle:(NSString*)title withSubtitle:(NSString*)subttitle
 {
     self.positiveActionTitle.text = title;
+    [self.footerView layoutIfNeeded];
 }
 
 -(void)setRadio:(CLLocationDistance)radio enabled:(BOOL)enabled
@@ -76,9 +77,7 @@
     self.mapView = [[MKMapView alloc] initForAutoLayout];
     self.mapView.delegate = self;
     [self addSubview: self.mapView];
-    [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeTop];
-    [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
-    [self.mapView autoPinEdgeToSuperviewEdge:ALEdgeRight];
+    [self.mapView autoPinEdgesToSuperviewEdges];
     self.mapView.showsUserLocation = YES;
     self.mapView.showsPointsOfInterest = NO;
     self.mapView.showsBuildings = NO;
@@ -92,14 +91,13 @@
     [self.footerView autoPinEdgeToSuperviewEdge:ALEdgeBottom];
     [self.footerView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [self.footerView autoPinEdgeToSuperviewEdge:ALEdgeRight];
-    [self.footerView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.mapView];
     
     self.defaultConstraints = [NSLayoutConstraint autoCreateAndInstallConstraints:^{
         [self.footerView autoSetDimension:ALDimensionHeight toSize:0];
     }];
     
-    [self buildFowardButton];
     [self buildPositiveActionTitle];
+    [self buildFowardButton];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSelectDetail)];
     [self.footerView addGestureRecognizer:tap];
@@ -107,25 +105,18 @@
 
 - (void)buildPositiveActionTitle
 {
-    self.positiveActionTitle = [[UITextView alloc] initForAutoLayout];
-    self.positiveActionTitle.scrollEnabled = NO;
-    self.positiveActionTitle.editable = NO;
+    self.positiveActionTitle = [[UILabel alloc] initForAutoLayout];
     [self.footerView addSubview: self.positiveActionTitle];
     [self.positiveActionTitle autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
-    
+    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
+
     self.activeConstraints = [NSLayoutConstraint autoCreateConstraintsWithoutInstalling:^{
         [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop
-                                                   withInset:4];
+                                                   withInset:8];
         [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeBottom
-                                                   withInset:4];
+                                                   withInset:8];
     }];
     
-    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
-    [self.positiveActionTitle autoPinEdge:ALEdgeRight
-                                   toEdge:ALEdgeLeft
-                                   ofView:self.fowardImageView
-                               withOffset:8
-                                 relation:NSLayoutRelationGreaterThanOrEqual];
 }
 
 - (void)buildFowardButton
@@ -134,13 +125,20 @@
     [self.fowardImageView setImage:[UIImage imageNamed:@"foward"]];
     [self.fowardImageView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     [self.fowardImageView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
-    
+    [self.fowardImageView setContentCompressionResistancePriority:UILayoutPriorityRequired
+                                                          forAxis:UILayoutConstraintAxisVertical];
+    [self.fowardImageView setContentCompressionResistancePriority:UILayoutPriorityRequired
+                                                          forAxis:UILayoutConstraintAxisHorizontal];
     [self.footerView addSubview:self.fowardImageView];
     [self.fowardImageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
     [self.fowardImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0 relation:NSLayoutRelationGreaterThanOrEqual];
     [self.fowardImageView autoPinEdgeToSuperviewEdge:ALEdgeBottom
                                            withInset:0
                                             relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.fowardImageView autoPinEdge:ALEdgeLeft
+                               toEdge:ALEdgeRight ofView:self.positiveActionTitle
+                           withOffset:8
+                             relation:NSLayoutRelationGreaterThanOrEqual];
     [self.fowardImageView autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
 }
 
@@ -148,12 +146,13 @@
 
 - (void)styleSubviews
 {
-    [self.positiveActionTitle setTextColor: [UIColor whiteColor]];
-    [self.positiveActionTitle setBackgroundColor:[UIColor clearColor]];
-    [self.positiveActionTitle setTextAlignment:NSTextAlignmentCenter];
+    self.positiveActionTitle.textColor = [UIColor whiteColor];
+    self.positiveActionTitle.backgroundColor = [UIColor clearColor];
+    self.positiveActionTitle.textAlignment = NSTextAlignmentCenter;
+    self.positiveActionTitle.numberOfLines = 2;
     [self.positiveActionTitle setFont: [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
                                                                       withSize:BeautyCenterTypographySizeB]];
-    [self.footerView setBackgroundColor: [BeautyCenter beautyCenterColor:BeautyCenterColorDarkRed]];
+    self.footerView.backgroundColor = [BeautyCenter beautyCenterColor:BeautyCenterColorDarkRed];
 }
 
 #pragma mark - MKMapViewDelegate
