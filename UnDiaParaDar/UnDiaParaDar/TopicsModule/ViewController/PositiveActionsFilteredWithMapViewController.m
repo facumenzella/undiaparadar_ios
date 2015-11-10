@@ -23,7 +23,6 @@
 @property (nonatomic, strong) id<Routing> routing;
 @property (nonatomic, strong) TopicService *topicService;
 
-@property (nonatomic, strong) PositiveActionsMapView *positiveActionsView;
 @property (nonatomic, strong) PositiveActionsFilteredWithMapView *positiveFilteredView;
 
 @property (nonatomic, strong) SelectedTopicsViewController *selectedTopicsViewController;
@@ -60,22 +59,18 @@
         self.selectedTopicsViewController = [[SelectedTopicsViewController alloc]
                                              initWithTopicService:self.topicService
                                              withSelectedTopicsCallback:self.selectedCallback];
-        [self addChildViewController:self.selectedTopicsViewController];
     }
     return self;
 }
 
 -(void)loadView
 {
-    self.positiveActionsView = [[PositiveActionsMapView alloc] init];
-    [self.positiveActionsView setRadio:self.mapFilters.radio enabled:YES];
-    self.positiveActionsView.pAMVDelegate = self;
+    self.positiveFilteredView = [[PositiveActionsFilteredWithMapView alloc] init];
     
-    self.positiveFilteredView =
-    [[PositiveActionsFilteredWithMapView alloc] initWithSelectedTopicsView:(SelectedTopicsCollectionView*)
-     self.selectedTopicsViewController.view
-                                                withPositiveActionsMapView:self.positiveActionsView];
     self.view = self.positiveFilteredView;
+    self.selectedTopicsViewController.collectionView = (UICollectionView*)self.positiveFilteredView.selectedTopicsView;
+    [self.positiveFilteredView.positiveActionsMapView setRadio:self.mapFilters.radio enabled:YES];
+    self.positiveFilteredView.positiveActionsMapView.pAMVDelegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -107,7 +102,7 @@
                  id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
                  [annotations addObject:annotation];
              }
-             [welf.positiveActionsView addPositiveActions:annotations];
+             [welf.positiveFilteredView.positiveActionsMapView addPositiveActions:annotations];
              [welf.routing dismissViewController:loadingVC withCompletion:nil];
          }];
     }];
@@ -122,7 +117,7 @@
     
     if ([LocationManager locationServicesEnabled]) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.positiveActionsView zoomToMyLocation];
+            [self.positiveFilteredView.positiveActionsMapView zoomToMyLocation];
             self.alreadyZoomed = YES;
         });
     }
@@ -147,8 +142,7 @@
 
 - (void)rangeDidChange:(CGFloat)range
 {
-    NSLog(@"range: %f", range);
-    [self.positiveActionsView setRadio:range enabled:self.mapFilters.radioEnabled];
+    [self.positiveFilteredView.positiveActionsMapView setRadio:range enabled:self.mapFilters.radioEnabled];
 }
 
 #pragma mark - MapFiltersHandler
@@ -165,7 +159,7 @@
 
 - (void)didSelectDetail
 {
-    PositiveAction *action = self.positiveActionsView.activeAnnotation.positiveAction;
+    PositiveAction *action = self.positiveFilteredView.positiveActionsMapView.activeAnnotation.positiveAction;
     [self.routing showPositiveaction:action withPresenter:self];
 }
 

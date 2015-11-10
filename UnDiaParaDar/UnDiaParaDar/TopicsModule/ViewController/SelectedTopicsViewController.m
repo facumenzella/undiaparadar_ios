@@ -17,14 +17,13 @@ static NSString *const IDENTIFIER = @"TopicsSelectedCell";
 
 @interface SelectedTopicsViewController ()
 
-@property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) TopicService *topicService;
 @property (nonatomic, copy) SelectedTopicsChangedCallback callback;
 @end
 
 @implementation SelectedTopicsViewController
 
--(instancetype)initWithTopicService:(TopicService*)topicService
+- (instancetype)initWithTopicService:(TopicService*)topicService
          withSelectedTopicsCallback:(SelectedTopicsChangedCallback)callback
 {
     self = [super init];
@@ -35,18 +34,13 @@ static NSString *const IDENTIFIER = @"TopicsSelectedCell";
     return self;
 }
 
--(void)loadView
+- (void)setCollectionView:(UICollectionView *)collectionView
 {
-    self.collectionView = [[SelectedTopicsCollectionView alloc] init];
-    self.collectionView.dataSource = self;
-    self.collectionView.delegate = self;
+    _collectionView = collectionView;
+    _collectionView.dataSource = self;
+    _collectionView.delegate = self;
     
-    self.view = self.collectionView;
-}
-
-- (void)viewDidLoad
-{
-    [self.collectionView registerClass:[TopicsSelectedCell class] forCellWithReuseIdentifier:IDENTIFIER];
+    [_collectionView registerClass:[TopicsSelectedCell class] forCellWithReuseIdentifier:IDENTIFIER];
 }
 
 - (void)setSelectedTopics:(NSMutableArray *)selectedTopics
@@ -88,13 +82,5 @@ static NSString *const IDENTIFIER = @"TopicsSelectedCell";
     
     return cell;
 }
-
-#pragma mark - SelectedTopicsView
-
-- (void)removeSelected
-{
-    
-}
-
 
 @end

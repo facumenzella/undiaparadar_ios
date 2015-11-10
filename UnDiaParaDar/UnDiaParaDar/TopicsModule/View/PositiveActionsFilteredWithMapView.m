@@ -9,25 +9,23 @@
 #import "PositiveActionsFilteredWithMapView.h"
 #import "SelectedTopicsCollectionView.h"
 #import "PositiveActionsMapView.h"
+#import "SelectedTopicsCollectionView.h"
 
 #import <PureLayout/PureLayout.h>
 
 @interface PositiveActionsFilteredWithMapView ()
 
-@property (nonatomic, strong) SelectedTopicsCollectionView *selectedTopicsView;
-@property (nonatomic, strong) PositiveActionsMapView *positiveActionsMapView;
+@property (nonatomic, strong, readwrite) SelectedTopicsCollectionView *selectedTopicsView;
+@property (nonatomic, strong, readwrite) PositiveActionsMapView *positiveActionsMapView;
 
 @end
 
 @implementation PositiveActionsFilteredWithMapView
 
--(instancetype)initWithSelectedTopicsView:(SelectedTopicsCollectionView*)selectedTopicsView
-               withPositiveActionsMapView:(PositiveActionsMapView*)positiveActionsMapView
+- (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.selectedTopicsView = selectedTopicsView;
-        self.positiveActionsMapView = positiveActionsMapView;
         [self buildSubviews];
     }
     return self;
@@ -41,12 +39,14 @@
 
 - (void)buildPositiveActionsMapView
 {
+    self.positiveActionsMapView = [[PositiveActionsMapView alloc] init];
     [self addSubview:self.positiveActionsMapView];
     [self.positiveActionsMapView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
 }
 
 - (void)buildSelectedTopicsView
 {
+    self.selectedTopicsView = [[SelectedTopicsCollectionView alloc] init];
     [self addSubview:self.selectedTopicsView];
     [self.selectedTopicsView autoSetDimension:ALDimensionHeight toSize:48];
     [self.selectedTopicsView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];

@@ -11,11 +11,12 @@
 
 typedef void (^SelectedTopicsChangedCallback)(NSArray *selected);
 
-@interface SelectedTopicsViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface SelectedTopicsViewController : NSObject <UICollectionViewDataSource, UICollectionViewDelegate>
 
 -(instancetype)initWithTopicService:(TopicService*)topicService
          withSelectedTopicsCallback:(SelectedTopicsChangedCallback)callback;
 
 @property (nonatomic, strong) NSMutableArray *selectedTopics;
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 @end
