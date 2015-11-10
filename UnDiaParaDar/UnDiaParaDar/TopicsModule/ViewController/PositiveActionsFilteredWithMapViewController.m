@@ -101,6 +101,9 @@
          getPositiveActionsFilteredByTopics:selectedTopics
          withCallback:^(NSError *error, NSArray *positiveActions) {
              if (error) {
+                 welf.view = self.tapToRetryView;
+                 [welf.routing dismissViewController:loadingVC withCompletion:nil];
+             } else {
                  welf.positiveActions = positiveActions;
                  NSMutableArray *annotations = [[NSMutableArray alloc] init];
                  for (PositiveAction *p in self.positiveActions) {
@@ -108,9 +111,6 @@
                      [annotations addObject:annotation];
                  }
                  [welf.positiveFilteredView.positiveActionsMapView addPositiveActions:annotations];
-                 [welf.routing dismissViewController:loadingVC withCompletion:nil];
-             } else {
-                 welf.view = self.tapToRetryView;
                  [welf.routing dismissViewController:loadingVC withCompletion:nil];
              }
          }];

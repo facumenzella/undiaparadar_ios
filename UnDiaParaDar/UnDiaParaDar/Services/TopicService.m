@@ -57,7 +57,6 @@ static NSString *ALL;
     }
     
     NSArray *ids = [self topicsIdsFromTopics:filter];
-    
     void (^cb)(NSError *, NSArray *) = ^(NSError *error, NSArray *positives) {
         NSPredicate *topicsActions = [NSPredicate predicateWithBlock:^BOOL(PositiveAction *p, NSDictionary *bindings) {
             return [ids containsObject:p.topicID];

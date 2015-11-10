@@ -15,7 +15,4 @@
 @property (nonatomic, strong, readonly) SelectedTopicsCollectionView *selectedTopicsView;
 @property (nonatomic, strong, readonly) PositiveActionsMapView *positiveActionsMapView;
 
--(instancetype)initWithSelectedTopicsView:(SelectedTopicsCollectionView*)selectedTopicsView
-               withPositiveActionsMapView:(PositiveActionsMapView*)positiveActionsMapView;
-
 @end
