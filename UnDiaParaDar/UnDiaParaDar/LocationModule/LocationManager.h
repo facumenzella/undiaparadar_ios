@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 extern NSString * const kUserLocationFound;
 
 @interface LocationManager : NSObject
+
+@property (nonatomic, strong, readonly) CLLocation *lastUpdate;
 
 + (instancetype)sharedInstance;
 + (BOOL)locationServicesEnabled;

@@ -24,6 +24,8 @@
 - (void)addPositiveActions:(NSArray*)positiveActions;
 - (void)showActivePositiveActionWithTitle:(NSString*)title withSubtitle:(NSString*)subttitle;
 - (void)zoomToMyLocation;
+
+// CLLocationDistance represents meters.
 -(void)setRadio:(CLLocationDistance)radio enabled:(BOOL)enabled;
 
 @end

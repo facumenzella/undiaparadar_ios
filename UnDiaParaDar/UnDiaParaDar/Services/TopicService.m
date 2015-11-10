@@ -10,6 +10,8 @@
 #import "Topic.h"
 #import "PositiveAction.h"
 #import "PositiveActionAnnotation.h"
+#import "MapFilters.h"
+#import "LocationManager.h"
 
 #import "RestkitService.h"
 #import "MappingProvider.h"
@@ -23,7 +25,6 @@ static NSString * const MAP_ON = @"mapOn";
 static NSString * const MAP_OFF = @"mapOff";
 
 static NSMutableDictionary *topics;
-
 static NSString *ALL;
 
 @interface TopicService ()
@@ -49,26 +50,29 @@ static NSString *ALL;
 
 #pragma mark - TopicService
 
-- (void)getPositiveActionsFilteredByTopics:(NSArray*)filterTopics withCallback:(void (^)(NSError *, NSArray *))callback
+- (void)positiveActionsFilteredWith:(MapFilters*)mapFilters withCallback:(void (^)(NSError *, NSArray *))callback
 {
-    NSArray *filter = filterTopics;
-    if (!filter) {
+    NSArray *filter = mapFilters.selectedTopics;
+    if (!filter || filter.count == 0) {
         filter = [topics allValues];
     }
-    
     NSArray *ids = [self topicsIdsFromTopics:filter];
-    void (^cb)(NSError *, NSArray *) = ^(NSError *error, NSArray *positives) {
-        NSPredicate *topicsActions = [NSPredicate predicateWithBlock:^BOOL(PositiveAction *p, NSDictionary *bindings) {
-            return [ids containsObject:p.topicID];
-        }];
-        
-        NSArray *filteredArray = [positives filteredArrayUsingPredicate:topicsActions];
-        callback(error, filteredArray);
-    };
-    [self getPositiveActionsWithCallback:cb];
+    
+    static NSString *const startURL = @"select?q=";
+    NSString *topicsURL = [self topicsURL:ids];
+    NSString *endURL = @"&wt=json&indent=true&rows=10000000";
+    if (mapFilters.radioEnabled) {
+        NSString* latlong = [self latLongURLWithRadius:mapFilters.radio];
+        endURL = [endURL stringByAppendingString:latlong];
+    }
+    NSString *finalURL = [NSString stringWithFormat:@"%@%@%@", startURL, topicsURL, endURL];
+    NSString *encodedURL = [[finalURL stringByRemovingPercentEncoding]
+                            stringByAddingPercentEncodingWithAllowedCharacters:
+                            [NSCharacterSet URLQueryAllowedCharacterSet]];
+    [self getPositiveActionsWithURL:encodedURL withCallback:callback];
 }
 
-- (void)getPositiveActionsWithCallback:(void (^)(NSError* , NSArray*))callback
+- (void)getPositiveActionsWithURL:(NSString*)url withCallback:(void (^)(NSError* , NSArray*))callback
 {
     void (^cb)(RKMappingResult*, NSError*) = ^(RKMappingResult* result, NSError* error) {
         callback(error, result.array);
@@ -76,7 +80,7 @@ static NSString *ALL;
     
     static NSString *const keyPath = @"response.docs";
     RKMapping *mapping = [self.mappingProvider positiveActionMapping];
-    [self.restkitService requestToPath:ALL
+    [self.restkitService requestToPath:url
                             withMethod:RKRequestMethodGET
                            withMapping:mapping
                             withParams:nil
@@ -84,6 +88,7 @@ static NSString *ALL;
                            withKeyPath:keyPath
                           withCallback:cb];
 }
+
 
 - (Topic*)topicById:(NSString*)topicId
 {
@@ -115,7 +120,6 @@ static NSString *ALL;
 
 #pragma mark - Annotations
 
-
 + (NSString*)offAnnotationImageById:(NSString*)topicID
 {
     return ((Topic*)[topics objectForKey:topicID]).img40x40Off;
@@ -138,6 +142,36 @@ static NSString *ALL;
 }
 
 #pragma mark - URLS
+
+- (NSString*)topicsURL:(NSArray*)topics
+{
+    if (topics.count == 1) {
+        return [NSString stringWithFormat:@"topics:(%@)", topics[0]];
+    }
+    static NSString *const OR = @"+OR+";
+    NSString *request = @"";
+    for (int i = 0 ; i < [topics count] - 1; i++) {
+        request = [request stringByAppendingString:topics[i]];
+        request = [request stringByAppendingString:OR];
+    }
+    NSString *last = [topics lastObject];
+    request = [request stringByAppendingString:last];
+    return [[@"topics:(" stringByAppendingString:request]
+            stringByAppendingString:@")"];
+}
+
+- (NSString*)latLongURLWithRadius:(NSUInteger)radius
+{
+    CLLocation *location = [[LocationManager sharedInstance] lastUpdate];
+    static NSString *const base = @"&fq={!geofilt%20pt=";
+    NSString *radiusBaseString = @"%20sfield=latlng%20d=";
+    NSString *lastButNotLeast = [NSString stringWithFormat:@"%@%f,%f%@",
+                                 base,
+                                 location.coordinate.latitude,
+                                 location.coordinate.longitude,
+                                 radiusBaseString];
+    return [NSString stringWithFormat:@"%@%d%@", lastButNotLeast, radius, @"}"];
+}
 
 - (void)buildAllURL
 {

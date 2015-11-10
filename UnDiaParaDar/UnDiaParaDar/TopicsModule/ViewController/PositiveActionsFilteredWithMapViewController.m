@@ -71,10 +71,11 @@
     self.positiveFilteredView = [[PositiveActionsFilteredWithMapView alloc] init];
     self.view = self.positiveFilteredView;
     self.selectedTopicsViewController.collectionView = (UICollectionView*)self.positiveFilteredView.selectedTopicsView;
-    [self.positiveFilteredView.positiveActionsMapView setRadio:self.mapFilters.radio enabled:YES];
     self.positiveFilteredView.positiveActionsMapView.pAMVDelegate = self;
     self.tapToRetryView = [[TapToRetryView alloc] init];
     self.tapToRetryView.delegate = self;
+    
+    [self handleFilters:self.mapFilters];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -97,23 +98,22 @@
     __weak PositiveActionsFilteredWithMapViewController *welf = self;
     [self.selectedTopicsViewController setSelectedTopics:[NSMutableArray arrayWithArray:selectedTopics]];
     [self.routing showLoadingWithPresenter:self withLoadingBlock:^(UIViewController *loadingVC) {
-        [welf.topicService
-         getPositiveActionsFilteredByTopics:selectedTopics
-         withCallback:^(NSError *error, NSArray *positiveActions) {
-             if (error) {
-                 welf.view = self.tapToRetryView;
-                 [welf.routing dismissViewController:loadingVC withCompletion:nil];
-             } else {
-                 welf.positiveActions = positiveActions;
-                 NSMutableArray *annotations = [[NSMutableArray alloc] init];
-                 for (PositiveAction *p in self.positiveActions) {
-                     id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
-                     [annotations addObject:annotation];
-                 }
-                 [welf.positiveFilteredView.positiveActionsMapView addPositiveActions:annotations];
-                 [welf.routing dismissViewController:loadingVC withCompletion:nil];
-             }
-         }];
+        [welf.topicService positiveActionsFilteredWith:self.mapFilters
+                                          withCallback:^(NSError *error, NSArray *positiveActions) {
+                                              if (error) {
+                                                  welf.view = self.tapToRetryView;
+                                                  [welf.routing dismissViewController:loadingVC withCompletion:nil];
+                                              } else {
+                                                  welf.positiveActions = positiveActions;
+                                                  NSMutableArray *annotations = [[NSMutableArray alloc] init];
+                                                  for (PositiveAction *p in self.positiveActions) {
+                                                      id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
+                                                      [annotations addObject:annotation];
+                                                  }
+                                                  [welf.positiveFilteredView.positiveActionsMapView addPositiveActions:annotations];
+                                                  [welf.routing dismissViewController:loadingVC withCompletion:nil];
+                                              }
+                                          }];
     }];
 }
 
@@ -161,7 +161,8 @@
     self.mapFilters = mapFilters;
     self.topics = self.mapFilters.selectedTopics;
     [self refreshMapWithSelectedTopics:self.topics];
-    [self rangeDidChange:self.mapFilters.radio];
+    // radio must be in meters
+    [self rangeDidChange:self.mapFilters.radio*1000];
 }
 
 #pragma mark - PositiveActionsMapViewDelegate

@@ -8,7 +8,6 @@
 
 #import "LocationManager.h"
 #import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
 
 #define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
@@ -18,6 +17,7 @@ NSString * const kUserLocationFound = @"kUserLocationFound";
 @interface LocationManager () <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *manager;
+@property (nonatomic, strong, readwrite) CLLocation *lastUpdate;
 
 @end
 
@@ -74,6 +74,7 @@ NSString * const kUserLocationFound = @"kUserLocationFound";
         NSLog(@"latitude %+.6f, longitude %+.6f\n",
               location.coordinate.latitude,
               location.coordinate.longitude);
+        self.lastUpdate = location;
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:kUserLocationFound object:nil];
 }
