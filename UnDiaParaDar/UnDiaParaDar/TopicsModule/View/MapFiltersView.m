@@ -236,8 +236,15 @@ static NSUInteger const kSectionSeparator = kLeftInset;
     self.collectionView.scrollEnabled = NO;
     self.acceptLabel.font = radioFont;
     self.acceptLabel.textAlignment = NSTextAlignmentCenter;
+    self.acceptLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleBold
+                                                           withSize:BeautyCenterTypographySizeB];
+    self.acceptLabel.textColor = [BeautyCenter beautyCenterColor:BeautyCenterColorDarkRed];
+    
     self.cancelLabel.font = radioFont;
     self.cancelLabel.textAlignment = NSTextAlignmentCenter;
+    self.cancelLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleBold
+                                                           withSize:BeautyCenterTypographySizeB];
+    self.cancelLabel.textColor = [BeautyCenter beautyCenterColor:BeautyCenterColorDarkRed];
 }
 
 - (void)sliderDidChange:(id)sender

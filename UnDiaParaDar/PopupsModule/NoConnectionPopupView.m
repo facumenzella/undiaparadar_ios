@@ -69,7 +69,7 @@ static NSString *const kUnderline = @"underline";
 - (void)buildSubtitleLabel
 {
     self.noConnectionSubtitleLabel = [[UILabel alloc] initForAutoLayout];
-    self.noConnectionSubtitleLabel.text = @"Parece que te has quedado sin conexión.\n#UnDiaParaDar necesita conexión para brindarte una mejor experiencia.]nPor favor chequea tu conexión a internet e intenta nuevamente.";
+    self.noConnectionSubtitleLabel.text = @"#UnDiaParaDar necesita conexión para brindarte una mejor experiencia.\n\nPor favor revisa tu conexión a internet e intenta nuevamente.";
     [self addSubview:self.noConnectionSubtitleLabel];
     
     [self.noConnectionSubtitleLabel autoPinEdge:ALEdgeTop
@@ -112,14 +112,15 @@ static NSString *const kUnderline = @"underline";
     self.noConnectionTitleLabel.textAlignment = NSTextAlignmentCenter;
     
     self.noConnectionSubtitleLabel.backgroundColor = [UIColor clearColor];
-    self.noConnectionSubtitleLabel.numberOfLines = 6;
+    self.noConnectionSubtitleLabel.numberOfLines = 10;
     self.noConnectionSubtitleLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
                                                                          withSize:BeautyCenterTypographySizeC];
     self.noConnectionSubtitleLabel.textAlignment = NSTextAlignmentCenter;
     
     self.noConnectionUnderstood.textAlignment = NSTextAlignmentCenter;
-    self.noConnectionUnderstood.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
-                                                                 withSize:BeautyCenterTypographySizeD];
+    self.noConnectionUnderstood.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleBold
+                                                                      withSize:BeautyCenterTypographySizeB];
+    self.noConnectionUnderstood.textColor = [BeautyCenter beautyCenterColor:BeautyCenterColorDarkRed];
 }
 
 - (void)understood

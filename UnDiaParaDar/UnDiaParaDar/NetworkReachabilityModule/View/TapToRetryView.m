@@ -104,8 +104,8 @@ static NSString *const kBackground = @"Splash";
     self.tapToRetryLabel.backgroundColor = [UIColor clearColor];
     self.tapToRetryLabel.numberOfLines = 3;
     self.tapToRetryLabel.textAlignment = NSTextAlignmentCenter;
-    self.tapToRetryLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
-                                                               withSize:BeautyCenterTypographySizeD];
+    self.tapToRetryLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleBold
+                                                               withSize:BeautyCenterTypographySizeB];
     
     self.noConnectionLabel.backgroundColor = [UIColor clearColor];
     self.noConnectionLabel.numberOfLines = 3;
