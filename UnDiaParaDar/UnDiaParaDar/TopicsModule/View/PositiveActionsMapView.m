@@ -60,7 +60,6 @@
 {
     _radioEnabled = enabled;
     _radio = radio;
-    [self.mapView removeOverlay:self.userCircle];
     if (_radioEnabled) {
         [self updateUserCircle];
     }
@@ -206,7 +205,9 @@
 
 - (void)updateUserCircle
 {
-    // it's user pin
+    if (self.userCircle) {
+        [self.mapView removeOverlay:self.userCircle];
+    }
     CLLocationCoordinate2D location = CLLocationCoordinate2DMake(self.mapView.userLocation.coordinate.latitude,
                                                                  self.mapView.userLocation.coordinate.longitude);
     self.userCircle = [MKCircle circleWithCenterCoordinate:location radius:self.radio];
