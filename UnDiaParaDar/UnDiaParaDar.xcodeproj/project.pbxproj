@@ -30,6 +30,7 @@
 		0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6612C81B98C69C006C272F /* ButtonFactory.m */; };
 		0D6612CC1B98CA76006C272F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D6612CE1B98CA76006C272F /* Localizable.strings */; };
 		0D7BA7B51BF1607F00297A7F /* TapToRetryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7BA7B41BF1607F00297A7F /* TapToRetryView.m */; };
+		0D7BA7B91BF1754900297A7F /* FacebookShareScout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7BA7B81BF1754900297A7F /* FacebookShareScout.m */; };
 		0D7C572B1BC1B01B00A402CF /* PositiveActionAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C572A1BC1B01B00A402CF /* PositiveActionAnnotation.m */; };
 		0D7C57471BC1B04200A402CF /* LoadingModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C573F1BC1B04200A402CF /* LoadingModuleAssembly.m */; };
 		0D7C57481BC1B04200A402CF /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7C57411BC1B04200A402CF /* LoadingViewController.m */; };
@@ -154,6 +155,8 @@
 		0D6612CF1B98CA96006C272F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0D7BA7B31BF1607F00297A7F /* TapToRetryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TapToRetryView.h; path = UnDiaParaDar/NetworkReachabilityModule/View/TapToRetryView.h; sourceTree = SOURCE_ROOT; };
 		0D7BA7B41BF1607F00297A7F /* TapToRetryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TapToRetryView.m; path = UnDiaParaDar/NetworkReachabilityModule/View/TapToRetryView.m; sourceTree = SOURCE_ROOT; };
+		0D7BA7B71BF1754900297A7F /* FacebookShareScout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookShareScout.h; path = UnDiaParaDar/Facebook/FacebookShareScout.h; sourceTree = SOURCE_ROOT; };
+		0D7BA7B81BF1754900297A7F /* FacebookShareScout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookShareScout.m; path = UnDiaParaDar/Facebook/FacebookShareScout.m; sourceTree = SOURCE_ROOT; };
 		0D7C57291BC1B01B00A402CF /* PositiveActionAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionAnnotation.h; sourceTree = "<group>"; };
 		0D7C572A1BC1B01B00A402CF /* PositiveActionAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionAnnotation.m; sourceTree = "<group>"; };
 		0D7C573E1BC1B04200A402CF /* LoadingModuleAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingModuleAssembly.h; sourceTree = "<group>"; };
@@ -463,6 +466,16 @@
 				0D7BA7B41BF1607F00297A7F /* TapToRetryView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0D7BA7B61BF1753D00297A7F /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				0D7BA7B71BF1754900297A7F /* FacebookShareScout.h */,
+				0D7BA7B81BF1754900297A7F /* FacebookShareScout.m */,
+			);
+			name = Facebook;
+			path = ../../../../../../Facundo/itba/pf/undiaparadarios/UnDiaParaDar/UnDiaParaDar/Facebook;
 			sourceTree = "<group>";
 		};
 		0D7C57281BC1B01B00A402CF /* Annotations */ = {
@@ -891,6 +904,7 @@
 		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
 			isa = PBXGroup;
 			children = (
+				0D7BA7B61BF1753D00297A7F /* Facebook */,
 				0D7D1BAE1BEC3213006AADAB /* NetworkReachabilityModule */,
 				0D0DFF491BEADD9700279997 /* PopupsModule */,
 				0DEBE1CE1BC1D58600906E52 /* LocationModule */,
@@ -1245,6 +1259,7 @@
 				0DB1E7051BC5ED71004A86A9 /* UIImage+AverageColor.m in Sources */,
 				0D7C574C1BC1B0B300A402CF /* BeautyCenter.m in Sources */,
 				0DB589271BE99EB80033D027 /* MapFilters.m in Sources */,
+				0D7BA7B91BF1754900297A7F /* FacebookShareScout.m in Sources */,
 				0DB1E6FC1BC5E7F4004A86A9 /* SelectedTopicsViewController.m in Sources */,
 				0D7D1BA71BEC2D57006AADAB /* FacebookLoginFlow.m in Sources */,
 				0D6199D61BC0A18000A8C987 /* PositiveActionViewController.m in Sources */,

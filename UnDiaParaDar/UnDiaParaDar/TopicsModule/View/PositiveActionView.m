@@ -173,6 +173,8 @@ static NSString * const BACKGROUND = @"menu_header";
     self.shareButton = [ButtonFactory buttonWithImage:kShare];
     [self.buttonsContainer addSubview:self.shareButton];
     [self.shareButton autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeRight];
+    
+    [self.shareButton addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)buildPledgeButton
@@ -342,6 +344,13 @@ static NSString * const BACKGROUND = @"menu_header";
     self.externalURLLabel.textContainer.maximumNumberOfLines = 1;
     self.externalURLLabel.textContainer.lineBreakMode = NSLineBreakByTruncatingTail;
     self.externalURLLabel.dataDetectorTypes = UIDataDetectorTypeAll;
+}
+
+#pragma mark - PositiveActionViewDelegate
+
+- (void)share
+{
+    [self.delegate share];
 }
 
 @end

@@ -10,7 +10,15 @@
 
 @protocol PositiveActionPresenter;
 
+@protocol PositiveActionViewDelegate <NSObject>
+
+- (void)share;
+
+@end
+
 @interface PositiveActionView : UIView
+
+@property (nonatomic, assign) id<PositiveActionViewDelegate> delegate;
 
 - (void)populateWithPositiveAction:(id<PositiveActionPresenter>)positiveAction withTopicImage:(NSString*)topicImage;
 

@@ -11,16 +11,19 @@
 #import "PositiveAction.h"
 #import "Topic.h"
 
+#import "FacebookShareScout.h"
 #import "Routing.h"
 #import "TopicService.h"
 
-@interface PositiveActionViewController ()
+@interface PositiveActionViewController ()<PositiveActionViewDelegate, FBSDKSharingDelegate>
 
 @property (nonatomic, strong) id<Routing> routing;
 @property (nonatomic, strong) TopicService *topicService;
 
 @property (nonatomic, strong) PositiveActionView *positiveActionView;
 @property (nonatomic, strong) PositiveAction *positiveAction;
+
+@property (nonatomic, strong) FacebookShareScout *scout;
 
 @end
 
@@ -42,6 +45,7 @@
 - (void)loadView
 {
     self.positiveActionView = [[PositiveActionView alloc] init];
+    self.positiveActionView.delegate = self;
     self.view = self.positiveActionView;
 }
 
@@ -51,6 +55,32 @@
     
     Topic *topic = [self.topicService topicById:self.positiveAction.topicID];
     [self.positiveActionView populateWithPositiveAction:self.positiveAction withTopicImage:topic.selectedImg];
+}
+
+#pragma mark - PositiveActionViewDelegate
+
+- (void)share
+{
+    self.scout = [[FacebookShareScout alloc] initWithLink:self.positiveAction.externalURL
+                                                 withTitle:self.positiveAction.title];
+    [self.scout shareWithViewController:self];
+}
+
+#pragma mark - FBSDKSharingDelegate
+
+- (void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results
+{
+    self.scout = nil;
+}
+
+- (void)sharer:(id<FBSDKSharing>)sharer didFailWithError:(NSError *)error
+{
+    self.scout = nil;
+}
+
+- (void)sharerDidCancel:(id<FBSDKSharing>)sharer
+{
+    self.scout = nil;
 }
 
 @end

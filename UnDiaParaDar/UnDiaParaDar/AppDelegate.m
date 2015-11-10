@@ -45,7 +45,6 @@
         [self landingPage];
         return fbSetup;
     }
-    [self loginPage];
     return fbSetup;
 }
 
