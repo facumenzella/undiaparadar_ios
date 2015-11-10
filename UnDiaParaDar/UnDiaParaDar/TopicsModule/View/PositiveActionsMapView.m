@@ -15,14 +15,13 @@
 
 @interface PositiveActionsMapView () <MKMapViewDelegate>
 
-@property (nonatomic, strong) UIButton *pledgeButton;
-
 @property (nonatomic, strong) UIView *footerView;
 @property (nonatomic, strong) UIImageView *fowardImageView;
 @property (nonatomic, strong) UITextView *positiveActionTitle;
 
 @property (nonatomic) BOOL didTapOnce;
 @property (nonatomic, strong) NSArray *defaultConstraints;
+@property (nonatomic, strong) NSArray *activeConstraints;
 
 @property (nonatomic, strong) NSArray *annotations;
 @property (nonatomic, strong) MKCircle *userCircle;
@@ -70,7 +69,6 @@
 {
     [self buildMapView];
     [self buildFooterView];
-    [self buildButtons];
 }
 
 - (void)buildMapView
@@ -84,15 +82,6 @@
     self.mapView.showsUserLocation = YES;
     self.mapView.showsPointsOfInterest = NO;
     self.mapView.showsBuildings = NO;
-}
-
-- (void)buildButtons
-{
-    self.pledgeButton = [ButtonFactory buttonWithImage:@"pledge"];
-    
-    [self addSubview:self.pledgeButton];
-    [self.pledgeButton autoAlignAxis:ALAxisVertical toSameAxisOfView:self.mapView];
-    [self.pledgeButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.footerView withOffset:-16];
 }
 
 - (void)buildFooterView
@@ -122,10 +111,14 @@
     self.positiveActionTitle.scrollEnabled = NO;
     self.positiveActionTitle.editable = NO;
     [self.footerView addSubview: self.positiveActionTitle];
-    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop
-                                               withInset:4];
-    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeBottom
-                                               withInset:4];
+    [self.positiveActionTitle autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    
+    self.activeConstraints = [NSLayoutConstraint autoCreateConstraintsWithoutInstalling:^{
+        [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop
+                                                   withInset:4];
+        [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeBottom
+                                                   withInset:4];
+    }];
     
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
     [self.positiveActionTitle autoPinEdge:ALEdgeRight
@@ -227,19 +220,11 @@
 {
     if (active) {
         [UIView animateWithDuration:.4 animations:^{
-            [self activateViews:active];
-            
             [self.defaultConstraints autoRemoveConstraints];
+            [self.activeConstraints autoInstallConstraints];
             [self layoutIfNeeded];
         }];
-    } else {
-        [self activateViews:active];
     }
-}
-
-- (void)activateViews:(BOOL)active
-{
-    self.pledgeButton.hidden = !active;
 }
 
 - (void)zoomToMyLocation
