@@ -74,23 +74,22 @@
     self.positiveFilteredView.positiveActionsMapView.pAMVDelegate = self;
     self.tapToRetryView = [[TapToRetryView alloc] init];
     self.tapToRetryView.delegate = self;
-    
-    [self handleFilters:self.mapFilters];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self refreshMapWithSelectedTopics:self.topics];
 }
 
 -(void)viewDidLoad
 {
+    [super viewDidLoad];
     self.title = NSLocalizedString(@"MAP_SECTION", @"Mapa");
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(zoomToMyLocation)
                                                  name:kUserLocationFound
                                                object:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self handleFilters:self.mapFilters];
 }
 
 - (void)refreshMapWithSelectedTopics:(NSArray*)selectedTopics
@@ -111,6 +110,8 @@
                                                       [annotations addObject:annotation];
                                                   }
                                                   [welf.positiveFilteredView.positiveActionsMapView addPositiveActions:annotations];
+                                                  // radio must be in meters
+                                                  [self rangeDidChange:self.mapFilters.radio*1000];
                                                   [welf.routing dismissViewController:loadingVC withCompletion:nil];
                                               }
                                           }];
@@ -161,8 +162,6 @@
     self.mapFilters = mapFilters;
     self.topics = self.mapFilters.selectedTopics;
     [self refreshMapWithSelectedTopics:self.topics];
-    // radio must be in meters
-    [self rangeDidChange:self.mapFilters.radio*1000];
 }
 
 #pragma mark - PositiveActionsMapViewDelegate

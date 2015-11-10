@@ -60,9 +60,7 @@
 {
     _radioEnabled = enabled;
     _radio = radio;
-    if (_radioEnabled) {
-        [self updateUserCircle];
-    }
+    [self updateUserCircle];
 }
 
 - (void)buildSubviews
@@ -108,7 +106,7 @@
     [self.footerView addSubview: self.positiveActionTitle];
     [self.positiveActionTitle autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
-
+    
     self.activeConstraints = [NSLayoutConstraint autoCreateConstraintsWithoutInstalling:^{
         [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop
                                                    withInset:8];
@@ -187,8 +185,6 @@
     if ([annotation isKindOfClass:[PositiveActionAnnotation class]]) {
         aView.image = ((PositiveActionAnnotation*)annotation).locationPinImage;
         aView.canShowCallout = YES;
-    } else {
-        [self updateUserCircle];
     }
     
     return aView;
@@ -205,13 +201,19 @@
 
 - (void)updateUserCircle
 {
+    if (!_radioEnabled) {
+        [self.mapView removeOverlay:self.userCircle];
+        return;
+    }
+    
+    CLLocationCoordinate2D location = CLLocationCoordinate2DMake(self.mapView.userLocation.coordinate.latitude,
+                                                                 self.mapView.userLocation.coordinate.longitude);
+    MKCircle *circle = [MKCircle circleWithCenterCoordinate:location radius:self.radio];
     if (self.userCircle) {
         [self.mapView removeOverlay:self.userCircle];
     }
-    CLLocationCoordinate2D location = CLLocationCoordinate2DMake(self.mapView.userLocation.coordinate.latitude,
-                                                                 self.mapView.userLocation.coordinate.longitude);
-    self.userCircle = [MKCircle circleWithCenterCoordinate:location radius:self.radio];
-    [self.mapView addOverlay:self.userCircle];
+    [self.mapView addOverlay:circle];
+    self.userCircle = circle;
 }
 
 #pragma mark - UITransitions

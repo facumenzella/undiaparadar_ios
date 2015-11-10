@@ -64,14 +64,9 @@
        withPresenter:(UIViewController*)presenter
             animated:(BOOL)animated
 {
-    assert(vc);
-    if (presenter) {
-        [presenter presentViewController:vc animated:animated completion:nil];
-        return;
-    }
-    [((SWRevealViewController*)self.window.rootViewController).frontViewController presentViewController:vc
-                                                                                                animated:YES
-                                                                                              completion:nil];
+    [((SWRevealViewController*)self.window.rootViewController) presentViewController:vc
+                                                                            animated:YES
+                                                                          completion:nil];
 }
 
 - (void)dismiss:(UIViewController *)vc

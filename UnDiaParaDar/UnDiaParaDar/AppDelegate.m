@@ -39,12 +39,12 @@
     [LocationManager sharedInstance];
     [self setupNetwork];
     
-    [self.routing showSplash];
     if ([FBSDKAccessToken currentAccessToken]) {
         NSLog(@"User already logged in");
         [self landingPage];
         return fbSetup;
     }
+    [self loginPage];
     return fbSetup;
 }
 
@@ -55,6 +55,7 @@
 
 - (void) loginPage
 {
+    [self.routing showSplash];
     [NSTimer scheduledTimerWithTimeInterval:1.0
                                      target:self.routing
                                    selector:@selector(showLoginPage)
