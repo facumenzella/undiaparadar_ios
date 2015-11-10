@@ -38,9 +38,9 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
     if (error) {
         NSLog(@"Holy shit");
         [self.loginDelegate loginDidFail];
+    } else {
+        [self.loginDelegate loginSucceded];
     }
-    
-    [self.loginDelegate loginSucceded];
 }
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton
