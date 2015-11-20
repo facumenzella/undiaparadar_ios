@@ -7,8 +7,11 @@
 // TOPICS MODULE
 "TOPICS_VC_TITLE" = "Encuentra qué hacer";
 "POSITIVE_ACTION" = "Acción positiva";
+"RADIO" = "Radio";
 
 // TOPICS
+"FILTROS" = "Filtros";
+"TOPICS" = "Topics";
 "VOLUNTARIADO" = "Voluntariado";
 "REUTILIZAR" = "Reutilizar";
 "PUBLICACION_CALLE" = "Publicaciones de la calle";
@@ -30,5 +33,13 @@
 // PROFILE MODULE
 "PROFILE" = "Perfil";
 
+// POPUPS
+"I_COMMIT" = "Me Comprometo";
+"KEEP_LOOKING" = "Seguir buscando";
 
+// FACEBOOK
+"FOLLOW_US" = "Seguinos en Facebook";
 
+// CONNECTION
+"NO_CONNECTION" = "No posee conexión a internet";
+"TAP_TO_RETRY" = "Aprete para recargar la página";
