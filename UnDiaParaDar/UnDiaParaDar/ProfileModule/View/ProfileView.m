@@ -114,7 +114,7 @@ static NSString *const LINK = @"https://www.facebook.com/undiaparadar/";
     [self addSubview:self.content];
     
     [self.content autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.headerImageView];
-    [self.content autoPinEdgesToSuperviewMarginsExcludingEdge:ALEdgeTop];
+    [self.content autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
     
     [self buildCommingSoon];
     [self buildFacebookLabel];
