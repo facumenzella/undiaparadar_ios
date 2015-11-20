@@ -59,6 +59,7 @@
             welf.mapFilters.selectedTopics = welf.topics;
             [welf refreshMapWithSelectedTopics:welf.topics];
         };
+        // this is just a simple object that controls the view
         self.selectedTopicsViewController = [[SelectedTopicsViewController alloc]
                                              initWithTopicService:self.topicService
                                              withSelectedTopicsCallback:self.selectedCallback];
@@ -72,6 +73,7 @@
     self.view = self.positiveFilteredView;
     self.selectedTopicsViewController.collectionView = (UICollectionView*)self.positiveFilteredView.selectedTopicsView;
     self.positiveFilteredView.positiveActionsMapView.pAMVDelegate = self;
+    
     self.tapToRetryView = [[TapToRetryView alloc] init];
     self.tapToRetryView.delegate = self;
 }
@@ -99,19 +101,19 @@
     [self.routing showLoadingWithPresenter:self withLoadingBlock:^(UIViewController *loadingVC) {
         [welf.topicService positiveActionsFilteredWith:self.mapFilters
                                           withCallback:^(NSError *error, NSArray *positiveActions) {
+                                              [welf rangeDidChange:self.mapFilters.radio*1000];
                                               if (error) {
                                                   welf.view = self.tapToRetryView;
                                                   [welf.routing dismissViewController:loadingVC withCompletion:nil];
                                               } else {
                                                   welf.positiveActions = positiveActions;
                                                   NSMutableArray *annotations = [[NSMutableArray alloc] init];
-                                                  for (PositiveAction *p in self.positiveActions) {
+                                                  for (PositiveAction *p in welf.positiveActions) {
                                                       id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
                                                       [annotations addObject:annotation];
                                                   }
                                                   [welf.positiveFilteredView.positiveActionsMapView addPositiveActions:annotations];
                                                   // radio must be in meters
-                                                  [self rangeDidChange:self.mapFilters.radio*1000];
                                                   [welf.routing dismissViewController:loadingVC withCompletion:nil];
                                               }
                                           }];
