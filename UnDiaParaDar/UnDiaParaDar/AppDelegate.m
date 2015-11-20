@@ -56,7 +56,7 @@
 - (void) loginPage
 {
     [self.routing showSplash];
-    [NSTimer scheduledTimerWithTimeInterval:1.0
+    [NSTimer scheduledTimerWithTimeInterval:.7
                                      target:self.routing
                                    selector:@selector(showLoginPage)
                                    userInfo:nil
