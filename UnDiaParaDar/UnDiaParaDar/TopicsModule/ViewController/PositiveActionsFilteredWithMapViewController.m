@@ -51,7 +51,10 @@
         self.topicService = topicService;
         self.alreadyZoomed = NO;
         self.topics = topics;
-        self.mapFilters = [[MapFilters alloc] initWithSelectedTopics:self.topics];
+        
+        const BOOL locationEnabled = [LocationManager locationServicesEnabled];
+        self.mapFilters = [[MapFilters alloc] initWithSelectedTopics:self.topics
+                                         withLocationServicesEnabled:locationEnabled];
         
         __weak PositiveActionsFilteredWithMapViewController *welf = self;
         self.selectedCallback = ^(NSArray* selected) {

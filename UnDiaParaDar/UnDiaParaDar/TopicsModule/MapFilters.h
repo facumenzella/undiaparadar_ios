@@ -12,10 +12,12 @@
 
 @property (nonatomic) NSUInteger radio;
 @property (nonatomic) BOOL radioEnabled;
+@property (nonatomic) BOOL locationEnabled;
 
 // remember that an empty array means all selected
 @property (nonatomic) NSArray *selectedTopics;
 
+- (instancetype)initWithSelectedTopics:(NSArray*)topics withLocationServicesEnabled:(BOOL)enabled;
 - (instancetype)initWithSelectedTopics:(NSArray*)topics;
 
 @end

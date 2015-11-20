@@ -24,12 +24,20 @@ static BOOL const kDefaultRadiusEnabled = YES;
 }
 
 - (instancetype)initWithSelectedTopics:(NSArray*)topics
+           withLocationServicesEnabled:(BOOL)enabled
 {
-    self = [self init];
+    self = [super init];
     if (self) {
-        self.selectedTopics = [NSMutableArray arrayWithArray:topics];
+        self.locationEnabled = enabled;
+        self.selectedTopics = topics;
     }
     return self;
+}
+
+
+- (instancetype)initWithSelectedTopics:(NSArray*)topics
+{
+    return [self initWithSelectedTopics:topics withLocationServicesEnabled:YES];
 }
 
 @end
