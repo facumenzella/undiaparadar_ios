@@ -29,6 +29,7 @@
     [self buildOptionImageView];
     [self buildTitle];
     [self buildSeparator];
+    [self styleSubviews];
 }
 
 - (void)buildOptionImageView
@@ -54,8 +55,8 @@
     [self.optionLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.optionImageView withOffset:16];
     [self.optionLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:32];
     [self.optionLabel autoSetDimension:ALDimensionHeight
-                             toSize:64
-                           relation:NSLayoutRelationLessThanOrEqual];
+                                toSize:64
+                              relation:NSLayoutRelationLessThanOrEqual];
 }
 
 - (void)buildSeparator
@@ -82,8 +83,9 @@
 
 - (void)styleSubviews
 {
-    [self.optionLabel setFont:[BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
-                                                             withSize:BeautyCenterTypographySizeA]];
+    self.backgroundColor = [BeautyCenter beautyCenterColor:BeautyCenterColorMenuBackgroundGrey];
+    self.optionLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
+                                                           withSize:BeautyCenterTypographySizeB];
 }
 
 + (CGFloat)heightWithItem:(RETableViewItem *)item tableViewManager:(RETableViewManager *)tableViewManager

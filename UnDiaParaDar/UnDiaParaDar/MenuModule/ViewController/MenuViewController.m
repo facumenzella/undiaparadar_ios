@@ -13,68 +13,37 @@
 #import "MenuProfilePresenter.h"
 #import "MenuOptionPresenter.h"
 #import "UserService.h"
+#import "BeautyCenter.h"
 
 @interface MenuViewController ()
 
 @property (nonatomic, strong) id<Routing> routing;
-@property (nonatomic, strong) UserService *userService;
 
 @property (nonatomic, strong) RETableViewManager *tableViewManager;
-// Update User
-@property (nonatomic, strong) RETableViewItem *profileMenuPresenter;
+
 @end
 
 @implementation MenuViewController
 
 #pragma mark - MenuViewController
 
-- (instancetype)initWithRouting:(id<Routing>)routing withUserService:(UserService*)userService
+- (instancetype)initWithRouting:(id<Routing>)routing
 {
     self = [super init];
     if (self) {
         self.routing = routing;
-        self.userService = userService;
     }
     return self;
 }
 
 #pragma mark - UIViewController
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    if (self.tableViewManager) {
-        User *u = [self.userService cachedUser];
-        if (u) {
-            [self updateUser:u];
-        }
-    }
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     [self initTableViewManager];
-    [self registerAndBuildProfileSection];
     [self registerAndBuildMenuOptions];
-    [self loadUser];
-}
-
-#pragma mark - User
-
-- (void)loadUser
-{
-    [self.userService userWithCallback:^(User* u) {
-            [self updateUser:u];
-            [self.tableView reloadData];
-    }];
-}
-
-- (void)updateUser:(User*)user
-{
-    MenuProfilePresenter *presenter = [self menuProfilePresenterWithUserImage:user.image200x200 withUserName:user.name];
-    [self.tableViewManager replaceItem:self.profileMenuPresenter withItem:presenter];
-    self.profileMenuPresenter = presenter;
 }
 
 #pragma mark - RETableViewManager
@@ -82,29 +51,13 @@
 - (void)initTableViewManager
 {
     // we do not like this, but we do not have a better method yet
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [self.tableView setBounces:NO];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.bounces = NO;
+    self.tableView.backgroundColor = [BeautyCenter beautyCenterColor:BeautyCenterColorMenuBackgroundGrey];
     
     self.tableViewManager = [[RETableViewManager alloc] initWithTableView:self.tableView];
     // we do not like this, but we do not have a better method yet
     self.tableViewManager.style.defaultCellSelectionStyle = UITableViewCellSelectionStyleGray;
-}
-
-- (void)registerAndBuildProfileSection
-{
-    RETableViewSection *profileSection = [RETableViewSection section];
-    [self.tableViewManager addSection:profileSection];
-    self.tableViewManager[@"MenuProfilePresenter"] = @"MenuProfileViewCell";
-    
-    self.profileMenuPresenter = [self menuProfilePresenterWithUserImage:nil
-                                                           withUserName:@""];
-    __weak MenuViewController *welf = self;
-    self.profileMenuPresenter.selectionHandler = ^(MenuProfilePresenter* presenter) {
-        [presenter deselectRowAnimated:NO];
-        [welf.routing showProfile];
-    };
- 
-    [profileSection addItem:self.profileMenuPresenter];
 }
 
 - (void)registerAndBuildMenuOptions
@@ -158,19 +111,6 @@
         [self.routing showTermsAndConditions];
     };
     [itemsSection addItem:termsAndConditionsPresenter];
-}
-
-- (MenuProfilePresenter*)menuProfilePresenterWithUserImage:(NSString*)userImage withUserName:(NSString*)userName
-{
-    MenuProfilePresenter *profilePresenter = [[MenuProfilePresenter alloc]
-                                              initWithUserImage:userImage
-                                              withUserName:userName];
-    __weak MenuViewController *welf = self;
-    profilePresenter.selectionHandler = ^(MenuProfilePresenter* presenter) {
-        [presenter deselectRowAnimated:NO];
-        [welf.routing showProfile];
-    };
-    return profilePresenter;
 }
 
 @end
