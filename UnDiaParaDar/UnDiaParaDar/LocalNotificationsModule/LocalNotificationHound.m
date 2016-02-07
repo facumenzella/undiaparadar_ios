@@ -7,8 +7,10 @@
 //
 
 #import "LocalNotificationHound.h"
+
 #import <UIKit/UILocalNotification.h>
 #import <UIKit/UIApplication.h>
+#import "LocalNotificationsManager.h"
 
 @interface LocalNotificationHound ()
 
@@ -31,6 +33,8 @@
 
 - (void)setup
 {
+    [[LocalNotificationsManager sharedInstance] checkPermissions];
+    
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = self.date;
     localNotification.alertBody = self.msg;

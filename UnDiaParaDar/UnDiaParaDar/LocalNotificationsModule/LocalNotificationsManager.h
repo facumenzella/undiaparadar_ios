@@ -1,5 +1,5 @@
 //
-//  LocalNotificationHound.h
+//  LocalNotificationsController.h
 //  UnDiaParaDar
 //
 //  Created by Facundo Menzella on 2/7/16.
@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LocalNotificationHound : NSObject
+@interface LocalNotificationsManager : NSObject
 
-- (instancetype)initWithDate:(NSDate*)date withMessage:(NSString*)msg;
-- (void)setup;
++ (instancetype)sharedInstance;
+- (void)checkPermissions;
 
 @end

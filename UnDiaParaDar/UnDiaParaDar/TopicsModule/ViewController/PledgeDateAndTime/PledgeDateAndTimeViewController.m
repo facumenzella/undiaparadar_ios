@@ -10,6 +10,7 @@
 #import "Routing.h"
 #import "PledgeDateAndTimeView.h"
 #import "RETableViewManager+ReplaceItem.h"
+#import "LocalNotificationHound.h"
 
 @interface PledgeDateAndTimeViewController ()
 
@@ -84,7 +85,19 @@
 
 - (void)confirm
 {
+    NSDate *hour = self.hourItem.value;
+    NSDate *date = self.dateItem.value;
     
+    unsigned dateUnits = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    unsigned hourUnits = NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+
+    NSDateComponents *comps = [[NSCalendar currentCalendar] components:dateUnits fromDate:date];
+    
+    NSDate *finalDate = [[NSCalendar currentCalendar] dateFromComponents:comps];
+    comps = [[NSCalendar currentCalendar] components:hourUnits fromDate:hour];
+    finalDate = [[NSCalendar currentCalendar] dateByAddingComponents:comps toDate:finalDate options:0];
+    
+    [[[LocalNotificationHound alloc] initWithDate:finalDate withMessage:@"Remember to do this shit"] setup];
 }
 
 @end
