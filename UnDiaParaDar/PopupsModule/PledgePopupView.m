@@ -156,7 +156,7 @@ static NSString *const kLooking = @"keepLooking";
     [keepLooking autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [keepLooking autoAlignAxisToSuperviewMarginAxis:ALAxisVertical];
     [keepLooking addTarget:self action:@selector(keepLooking) forControlEvents:UIControlEventTouchUpInside];
-
+    
     self.keepLookingButtonLabel = [[UILabel alloc] initForAutoLayout];
     [self.keepLookingButtonView addSubview:self.keepLookingButtonLabel];
     self.keepLookingButtonLabel.text = NSLocalizedString(@"KEEP_LOOKING", @"Seguir buscando");
@@ -212,7 +212,11 @@ static NSString *const kLooking = @"keepLooking";
 
 - (void)keepLooking
 {
-    [self.delegate keepLooking];
+    [UIView animateWithDuration:.4 animations: ^{
+        self.backgroundColor = [UIColor clearColor];
+    } completion:^(BOOL completed) {
+        [self.delegate keepLooking];
+    }];
 }
 
 @end
