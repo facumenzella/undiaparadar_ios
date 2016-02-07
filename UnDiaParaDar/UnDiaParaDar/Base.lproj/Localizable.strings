@@ -47,5 +47,8 @@
 // CANCEL
 "CANCEL" = "Cancelar";
 
+// CONFIRM
+"CONFIRM" = "Confirmar";
+
 // PLEDGE
 "I_PLEDGE" = "Me comprometo";

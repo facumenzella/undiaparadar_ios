@@ -80,4 +80,11 @@
     }];
 }
 
+#pragma mark - RightConfirmButtonProtocol
+
+- (void)confirm
+{
+    
+}
+
 @end

@@ -18,6 +18,10 @@
 - (void)showFilters;
 @end
 
+@protocol RightConfirmButtonProtocol <NSObject>
+- (void)confirm;
+@end
+
 @protocol LeftCancelButtonProtocol <NSObject>
 - (void)cancel;
 @end
@@ -28,5 +32,6 @@
 - (void)suitViewControllerUpForNextEvent:(id<RightNextButtonProtocol>)viewController;
 - (void)suitViewControllerUpForFilterEvent:(UIViewController<RightFilterButtonProtocol>*)viewController;
 - (void)suitViewControllerUpForCancelEvent:(UIViewController<LeftCancelButtonProtocol>*)viewController;
+- (void)suitViewControllerUpForConfirmEvent:(UIViewController<RightConfirmButtonProtocol>*)viewController;
 
 @end

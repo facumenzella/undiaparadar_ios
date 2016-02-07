@@ -165,6 +165,7 @@
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:pledge];
     
     [self.tailor suitViewControllerUpForCancelEvent:pledge];
+    [self.tailor suitViewControllerUpForConfirmEvent:pledge];
     
     [self.director presentModal:nav withPresenter:vc animated:YES];
 }

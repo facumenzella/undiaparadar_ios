@@ -79,6 +79,15 @@ static UIImage *TAILOR_NAV_BAR_IMAGE;
     viewController.navigationItem.leftBarButtonItem = left;
 }
 
+- (void)suitViewControllerUpForConfirmEvent:(UIViewController<RightConfirmButtonProtocol>*)viewController
+{
+    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"CONFIRM", @"Confirmar")
+                                                             style:UIBarButtonItemStyleDone
+                                                            target:viewController
+                                                            action:@selector(confirm)];
+    viewController.navigationItem.rightBarButtonItem = right;
+}
+
 #pragma mark - TopicsSelectionDelegate
 
 - (void)viewController:(UIViewController*)viewController
