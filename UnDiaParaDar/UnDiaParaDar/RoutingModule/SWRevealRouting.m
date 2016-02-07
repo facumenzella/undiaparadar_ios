@@ -164,6 +164,8 @@
     PledgeDateAndTimeViewController *pledge = [self.topicsModuleAssembly pledgeDateAndTimeViewController];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:pledge];
     
+    [self.tailor suitViewControllerUpForCancelEvent:pledge];
+    
     [self.director presentModal:nav withPresenter:vc animated:YES];
 }
 

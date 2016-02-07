@@ -41,4 +41,13 @@
     self.title = NSLocalizedString(@"I_PLEDGE", @"Me comprometo");
 }
 
+#pragma mark - LeftCancelButtonProtocol
+
+- (void)cancel
+{
+    [self.routing dismissViewController:self withCompletion:^(UIViewController*vc) {
+        [self.routing showPledgeViewControllerWithPresenter:vc];
+    }];
+}
+
 @end

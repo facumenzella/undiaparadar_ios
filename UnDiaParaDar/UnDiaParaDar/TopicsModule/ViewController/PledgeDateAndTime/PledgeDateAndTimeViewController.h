@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tailor.h"
 
-@interface PledgeDateAndTimeViewController : UIViewController
+@interface PledgeDateAndTimeViewController : UIViewController <LeftCancelButtonProtocol>
 
 @end

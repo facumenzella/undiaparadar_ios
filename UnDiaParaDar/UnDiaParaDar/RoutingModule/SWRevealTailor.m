@@ -70,6 +70,15 @@ static UIImage *TAILOR_NAV_BAR_IMAGE;
     viewController.navigationItem.rightBarButtonItem = right;
 }
 
+- (void)suitViewControllerUpForCancelEvent:(UIViewController<LeftCancelButtonProtocol>*)viewController
+{
+    UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"CANCEL", @"Cancel")
+                                                              style:UIBarButtonItemStyleDone
+                                                             target:viewController
+                                                             action:@selector(cancel)];
+    viewController.navigationItem.leftBarButtonItem = left;
+}
+
 #pragma mark - TopicsSelectionDelegate
 
 - (void)viewController:(UIViewController*)viewController

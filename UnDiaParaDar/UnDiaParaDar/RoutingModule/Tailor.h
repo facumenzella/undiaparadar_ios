@@ -18,10 +18,15 @@
 - (void)showFilters;
 @end
 
+@protocol LeftCancelButtonProtocol <NSObject>
+- (void)cancel;
+@end
+
 @protocol Tailor <NSObject>
 
 - (void)suitViewControllerUpForMenuEvent:(UIViewController*)viewController;
 - (void)suitViewControllerUpForNextEvent:(id<RightNextButtonProtocol>)viewController;
 - (void)suitViewControllerUpForFilterEvent:(UIViewController<RightFilterButtonProtocol>*)viewController;
+- (void)suitViewControllerUpForCancelEvent:(UIViewController<LeftCancelButtonProtocol>*)viewController;
 
 @end
