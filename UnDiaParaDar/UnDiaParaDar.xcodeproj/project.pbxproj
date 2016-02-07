@@ -72,8 +72,9 @@
 		0DBD21A01BA3780B002AC53C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD219F1BA3780B002AC53C /* User.m */; };
 		0DBD21A31BA37865002AC53C /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD21A21BA37865002AC53C /* UserService.m */; };
 		0DBD21A61BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD21A51BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m */; };
-		0DBD4AAD1C67E580002670D7 /* PledgeDateAndTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD4AAC1C67E580002670D7 /* PledgeDateAndTimeViewController.m */; };
 		0DCBD1401BBB870500A870FD /* FMActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBD13F1BBB870500A870FD /* FMActivityIndicatorView.m */; };
+		0DCC36F81C67ECA0007A0FAF /* PledgeDateAndTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCC36F71C67ECA0007A0FAF /* PledgeDateAndTimeView.m */; };
+		0DCC36FE1C67EE17007A0FAF /* PledgeDateAndTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCC36FD1C67EE17007A0FAF /* PledgeDateAndTimeViewController.m */; };
 		0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */; };
 		0DD38FF11BBEFC4B0038C2E2 /* UIViewController+DisableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FF01BBEFC4B0038C2E2 /* UIViewController+DisableView.m */; };
 		0DEBE1CD1BC1D4F000906E52 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DEBE1CC1BC1D4F000906E52 /* CoreLocation.framework */; };
@@ -239,10 +240,12 @@
 		0DBD21A21BA37865002AC53C /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
 		0DBD21A41BA37CCB002AC53C /* RETableViewManager+ReplaceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RETableViewManager+ReplaceItem.h"; sourceTree = "<group>"; };
 		0DBD21A51BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RETableViewManager+ReplaceItem.m"; sourceTree = "<group>"; };
-		0DBD4AAB1C67E580002670D7 /* PledgeDateAndTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PledgeDateAndTimeViewController.h; sourceTree = "<group>"; };
-		0DBD4AAC1C67E580002670D7 /* PledgeDateAndTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PledgeDateAndTimeViewController.m; sourceTree = "<group>"; };
 		0DCBD13E1BBB870500A870FD /* FMActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMActivityIndicatorView.h; sourceTree = "<group>"; };
 		0DCBD13F1BBB870500A870FD /* FMActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMActivityIndicatorView.m; sourceTree = "<group>"; };
+		0DCC36F61C67ECA0007A0FAF /* PledgeDateAndTimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PledgeDateAndTimeView.h; sourceTree = "<group>"; };
+		0DCC36F71C67ECA0007A0FAF /* PledgeDateAndTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PledgeDateAndTimeView.m; sourceTree = "<group>"; };
+		0DCC36FC1C67EE17007A0FAF /* PledgeDateAndTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PledgeDateAndTimeViewController.h; sourceTree = "<group>"; };
+		0DCC36FD1C67EE17007A0FAF /* PledgeDateAndTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PledgeDateAndTimeViewController.m; sourceTree = "<group>"; };
 		0DCD99D31B8F7FD500FF738E /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		0DD38FEF1BBEFC4B0038C2E2 /* UIViewController+DisableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DisableView.h"; sourceTree = "<group>"; };
@@ -656,6 +659,8 @@
 				0DFE5A1F1BCEAD76004EFBC1 /* PositiveActionsFilteredWithMapView.m */,
 				0D9E12F21BE6EC7900506BBB /* MapFiltersView.h */,
 				0D9E12F31BE6EC7900506BBB /* MapFiltersView.m */,
+				0DCC36F61C67ECA0007A0FAF /* PledgeDateAndTimeView.h */,
+				0DCC36F71C67ECA0007A0FAF /* PledgeDateAndTimeView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -663,6 +668,7 @@
 		0DAF2FAA1B7E8EE20045CE08 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0DCC36FB1C67EE17007A0FAF /* PledgeDateAndTime */,
 				0DAF2FAB1B7E8EED0045CE08 /* TopicsCollectionViewController.h */,
 				0DAF2FAC1B7E8EED0045CE08 /* TopicsCollectionViewController.m */,
 				0D90592E1BA641650008BF75 /* PositiveActionsFilteredWithMapViewController.h */,
@@ -675,8 +681,6 @@
 				0D9E12F01BE6EC1E00506BBB /* MapFiltersViewController.m */,
 				0D9A370A1C65466400DEC69F /* PledgeViewController.h */,
 				0D9A370B1C65466400DEC69F /* PledgeViewController.m */,
-				0DBD4AAB1C67E580002670D7 /* PledgeDateAndTimeViewController.h */,
-				0DBD4AAC1C67E580002670D7 /* PledgeDateAndTimeViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -751,6 +755,15 @@
 				0DCBD13F1BBB870500A870FD /* FMActivityIndicatorView.m */,
 			);
 			path = FMActivityIndicator;
+			sourceTree = "<group>";
+		};
+		0DCC36FB1C67EE17007A0FAF /* PledgeDateAndTime */ = {
+			isa = PBXGroup;
+			children = (
+				0DCC36FC1C67EE17007A0FAF /* PledgeDateAndTimeViewController.h */,
+				0DCC36FD1C67EE17007A0FAF /* PledgeDateAndTimeViewController.m */,
+			);
+			path = PledgeDateAndTime;
 			sourceTree = "<group>";
 		};
 		0DCD99D21B8F7FBE00FF738E /* Extensions */ = {
@@ -1205,6 +1218,7 @@
 				113E469E1B62C07E00ADF8AC /* ProfileViewController.m in Sources */,
 				0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */,
 				0D3D72351BBB6510006EC1E9 /* RestkitService.m in Sources */,
+				0DCC36FE1C67EE17007A0FAF /* PledgeDateAndTimeViewController.m in Sources */,
 				0DCBD1401BBB870500A870FD /* FMActivityIndicatorView.m in Sources */,
 				0D11F4911BB37FA000AFE46D /* TermsAndConditionsView.m in Sources */,
 				0D7C572B1BC1B01B00A402CF /* PositiveActionAnnotation.m in Sources */,
@@ -1231,6 +1245,7 @@
 				110FE8AB1B66B8C0002A2273 /* SWRevealArchitect.m in Sources */,
 				0DB589201BE9899F0033D027 /* FiltersViewCollectionLayout.m in Sources */,
 				0D7C57481BC1B04200A402CF /* LoadingViewController.m in Sources */,
+				0DCC36F81C67ECA0007A0FAF /* PledgeDateAndTimeView.m in Sources */,
 				0D7D1BBA1BEC37B6006AADAB /* NetworkViewController.m in Sources */,
 				11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */,
 				0DB589231BE98A5F0033D027 /* TopicsFilterViewCell.m in Sources */,
@@ -1260,7 +1275,6 @@
 				0DB25A051B9A9688002F6E30 /* TopicCellPresenter.m in Sources */,
 				0D7D1BB61BEC3280006AADAB /* NetworkReachabilityController.m in Sources */,
 				0D9E12F11BE6EC1E00506BBB /* MapFiltersViewController.m in Sources */,
-				0DBD4AAD1C67E580002670D7 /* PledgeDateAndTimeViewController.m in Sources */,
 				0D8580EF1BBB6B17002CEB2B /* MappingProvider.m in Sources */,
 				113E46A61B62CD4B00ADF8AC /* ProfileModuleAssembly.m in Sources */,
 				0D11F48B1BB37DCD00AFE46D /* TermsAndConditionsViewController.m in Sources */,

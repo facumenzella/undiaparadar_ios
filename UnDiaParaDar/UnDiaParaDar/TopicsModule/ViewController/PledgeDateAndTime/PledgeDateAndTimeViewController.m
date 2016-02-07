@@ -8,10 +8,12 @@
 
 #import "PledgeDateAndTimeViewController.h"
 #import "Routing.h"
+#import "PledgeDateAndTimeView.h"
 
 @interface PledgeDateAndTimeViewController ()
 
 @property (nonatomic, strong) id<Routing> routing;
+@property (nonatomic, strong) PledgeDateAndTimeView *pledgeView;
 
 @end
 
@@ -24,6 +26,12 @@
         self.routing = routing;
     }
     return self;
+}
+
+- (void)loadView
+{
+    self.pledgeView = [[PledgeDateAndTimeView alloc] init];
+    self.view = self.pledgeView;
 }
 
 - (void)viewDidLoad
