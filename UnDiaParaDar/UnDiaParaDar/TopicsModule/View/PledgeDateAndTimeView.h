@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PledgeDateAndTimeView : UITableView
+@interface PledgeDateAndTimeView : UIView
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end

@@ -7,8 +7,13 @@
 //
 
 #import "PledgeDateAndTimeView.h"
+#import "BeautyCenter.h"
+
+#import <PureLayout/PureLayout.h>
 
 @interface PledgeDateAndTimeView ()
+
+@property (nonatomic, strong) UILabel *header;
 
 @end
 
@@ -26,15 +31,42 @@
 
 - (void)buildSubviews
 {
-    // Inside this method you should create every subviews
-    // For example
-    // [self buildProfileImageView];
-    // [self buildMainHeader];
+    [self buildHeader];
+    [self buildTableView];
+}
+
+- (void)buildHeader
+{
+    self.header = [[UILabel alloc] initForAutoLayout];
+    self.header.text = @"Elige la hora y el dia en el cual realizaras la accion positiva";
+    [self addSubview:self.header];
+    [self.header autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:16];
+    [self.header autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:16];
+    [self.header autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:16];
+}
+
+- (void)buildTableView
+{
+    self.tableView = [[UITableView alloc] initForAutoLayout];
+    [self addSubview:self.tableView];
+    [self.tableView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.header withOffset:8];
+    [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
 }
 
 - (void)styleSubviews
 {
-    // Here you should style every subviews
+    self.backgroundColor = [UIColor whiteColor];
+    [self styleHeader];
+    self.tableView.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)styleHeader
+{
+    self.header.backgroundColor = [UIColor clearColor];
+    self.header.numberOfLines = 4;
+    self.header.textAlignment = NSTextAlignmentCenter;
+    self.header.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
+                                                      withSize:BeautyCenterTypographySizeB];
 }
 
 @end
