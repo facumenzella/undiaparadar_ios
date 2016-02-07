@@ -15,6 +15,7 @@
 #import "PositiveActionViewController.h"
 #import "MapFiltersViewController.h"
 #import "PledgeViewController.h"
+#import "PledgeDateAndTimeViewController.h"
 
 @interface TopicsModuleAssembly ()
 
@@ -85,6 +86,18 @@
 {
     SEL selector = @selector(initWithRouting:);
     return [TyphoonDefinition withClass:[PledgeViewController class]
+                          configuration:^(TyphoonDefinition* definition) {
+                              [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
+                                  [initializer injectParameterWith:[self.routingModuleAssembly routing]];
+                              }];
+                          }];
+    
+}
+
+- (PledgeDateAndTimeViewController*)pledgeDateAndTimeViewController
+{
+    SEL selector = @selector(initWithRouting:);
+    return [TyphoonDefinition withClass:[PledgeDateAndTimeViewController class]
                           configuration:^(TyphoonDefinition* definition) {
                               [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
                                   [initializer injectParameterWith:[self.routingModuleAssembly routing]];

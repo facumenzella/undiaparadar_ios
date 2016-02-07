@@ -26,6 +26,7 @@
 #import "PositiveActionViewController.h"
 #import "MapFiltersViewController.h"
 #import "PledgeViewController.h"
+#import "PledgeDateAndTimeViewController.h"
 
 #import "TermsAndConditionsAssembly.h"
 #import "TermsAndConditionsViewController.h"
@@ -155,7 +156,15 @@
 - (void)showPledgeViewControllerWithPresenter:(UIViewController *)vc
 {
     PledgeViewController *pledge = [self.topicsModuleAssembly pledgeViewController];
-    [self.director presentModal:pledge withPresenter:self animated:YES];
+    [self.director presentModal:pledge withPresenter:vc animated:YES];
+}
+
+- (void)showPledgeDateAndTimeOptionsWithPresenter:(UIViewController*)vc
+{
+    PledgeDateAndTimeViewController *pledge = [self.topicsModuleAssembly pledgeDateAndTimeViewController];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:pledge];
+    
+    [self.director presentModal:nav withPresenter:vc animated:YES];
 }
 
 - (void)showTermsAndConditions

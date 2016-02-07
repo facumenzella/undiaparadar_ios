@@ -48,7 +48,9 @@
 
 - (void)pledge
 {
-    
+    [self.routing dismissViewController:self withCompletion:^(UIViewController* vc) {
+        [self.routing showPledgeDateAndTimeOptionsWithPresenter:vc];
+    }];
 }
 
 - (void)keepLooking

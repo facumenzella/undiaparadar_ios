@@ -24,6 +24,7 @@
                                            withSelectedTopics:(NSArray*)topics;
 - (void)showPositiveaction:(PositiveAction*)positiveAction withPresenter:(UIViewController*)vc;
 - (void)showPledgeViewControllerWithPresenter:(UIViewController*)vc;
+- (void)showPledgeDateAndTimeOptionsWithPresenter:(UIViewController*)vc;
 
 - (void)showTermsAndConditions;
 - (void)showQueEsUDPD;

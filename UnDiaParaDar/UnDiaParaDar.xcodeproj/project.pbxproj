@@ -72,6 +72,7 @@
 		0DBD21A01BA3780B002AC53C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD219F1BA3780B002AC53C /* User.m */; };
 		0DBD21A31BA37865002AC53C /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD21A21BA37865002AC53C /* UserService.m */; };
 		0DBD21A61BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD21A51BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m */; };
+		0DBD4AAD1C67E580002670D7 /* PledgeDateAndTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD4AAC1C67E580002670D7 /* PledgeDateAndTimeViewController.m */; };
 		0DCBD1401BBB870500A870FD /* FMActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBD13F1BBB870500A870FD /* FMActivityIndicatorView.m */; };
 		0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */; };
 		0DD38FF11BBEFC4B0038C2E2 /* UIViewController+DisableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FF01BBEFC4B0038C2E2 /* UIViewController+DisableView.m */; };
@@ -238,6 +239,8 @@
 		0DBD21A21BA37865002AC53C /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
 		0DBD21A41BA37CCB002AC53C /* RETableViewManager+ReplaceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RETableViewManager+ReplaceItem.h"; sourceTree = "<group>"; };
 		0DBD21A51BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RETableViewManager+ReplaceItem.m"; sourceTree = "<group>"; };
+		0DBD4AAB1C67E580002670D7 /* PledgeDateAndTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PledgeDateAndTimeViewController.h; sourceTree = "<group>"; };
+		0DBD4AAC1C67E580002670D7 /* PledgeDateAndTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PledgeDateAndTimeViewController.m; sourceTree = "<group>"; };
 		0DCBD13E1BBB870500A870FD /* FMActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMActivityIndicatorView.h; sourceTree = "<group>"; };
 		0DCBD13F1BBB870500A870FD /* FMActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMActivityIndicatorView.m; sourceTree = "<group>"; };
 		0DCD99D31B8F7FD500FF738E /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
@@ -672,6 +675,8 @@
 				0D9E12F01BE6EC1E00506BBB /* MapFiltersViewController.m */,
 				0D9A370A1C65466400DEC69F /* PledgeViewController.h */,
 				0D9A370B1C65466400DEC69F /* PledgeViewController.m */,
+				0DBD4AAB1C67E580002670D7 /* PledgeDateAndTimeViewController.h */,
+				0DBD4AAC1C67E580002670D7 /* PledgeDateAndTimeViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1255,6 +1260,7 @@
 				0DB25A051B9A9688002F6E30 /* TopicCellPresenter.m in Sources */,
 				0D7D1BB61BEC3280006AADAB /* NetworkReachabilityController.m in Sources */,
 				0D9E12F11BE6EC1E00506BBB /* MapFiltersViewController.m in Sources */,
+				0DBD4AAD1C67E580002670D7 /* PledgeDateAndTimeViewController.m in Sources */,
 				0D8580EF1BBB6B17002CEB2B /* MappingProvider.m in Sources */,
 				113E46A61B62CD4B00ADF8AC /* ProfileModuleAssembly.m in Sources */,
 				0D11F48B1BB37DCD00AFE46D /* TermsAndConditionsViewController.m in Sources */,
