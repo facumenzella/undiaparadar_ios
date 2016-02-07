@@ -8,6 +8,17 @@
 
 #import "PopupView.h"
 
+@protocol PledgeViewDelegate <NSObject>
+
+- (void)keepLooking;
+- (void)pledge;
+
+@end
+
 @interface PledgePopupView : PopupView
+
+@property (nonatomic, weak) id<PledgeViewDelegate> delegate;
+
+- (void)modalStyle;
 
 @end

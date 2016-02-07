@@ -68,9 +68,6 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.externalURLLabel setText:positiveAction.paExternalURL];
     self.additionalURLView.hidden = !positiveAction.paExternalURL;
     self.shareButton.enabled = !self.additionalURLView.hidden;
-    
-    // TODO add proper message
-    self.pledgeButton.enabled = NO;
 }
 
 - (void)buildSubviews
@@ -183,6 +180,8 @@ static NSString * const BACKGROUND = @"menu_header";
     [self.buttonsContainer addSubview:self.pledgeButton];
     [self.pledgeButton autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeLeft];
     [self.pledgeButton autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.shareButton withOffset:48];
+    
+    [self.pledgeButton addTarget:self action:@selector(pledge) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)buildPositiveActionTitle
@@ -351,6 +350,11 @@ static NSString * const BACKGROUND = @"menu_header";
 - (void)share
 {
     [self.delegate share];
+}
+
+- (void)pledge
+{
+    [self.delegate pledge];
 }
 
 @end

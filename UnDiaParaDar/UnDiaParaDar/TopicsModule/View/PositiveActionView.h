@@ -13,6 +13,7 @@
 @protocol PositiveActionViewDelegate <NSObject>
 
 - (void)share;
+- (void)pledge;
 
 @end
 

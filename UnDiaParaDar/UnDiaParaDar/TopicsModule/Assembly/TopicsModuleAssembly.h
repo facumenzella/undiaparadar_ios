@@ -9,7 +9,7 @@
 #import "TyphoonAssembly.h"
 
 @class TopicsCollectionViewController, PositiveActionsFilteredWithMapViewController, PositiveActionViewController;
-@class PositiveAction, MapFiltersViewController, MapFilters;
+@class PositiveAction, MapFiltersViewController, MapFilters, PledgeViewController;
 
 @interface TopicsModuleAssembly : TyphoonAssembly
 
@@ -17,5 +17,6 @@
 - (PositiveActionsFilteredWithMapViewController*)positiveActionsMapViewControllerWithTopics:(NSArray*)topics;
 - (PositiveActionViewController*)positiveActionViewControllerWithPositiveAction:(PositiveAction*)positiveAction;
 - (MapFiltersViewController*)mapFiltersViewControllerWithMapFilters:(MapFilters*)mapFilters;
+- (PledgeViewController*)pledgeViewController;
 
 @end

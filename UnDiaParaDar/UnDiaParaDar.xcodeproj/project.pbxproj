@@ -48,6 +48,7 @@
 		0D8B6AFC1BCEE09D00D04A75 /* TopicsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B6AFA1BCEE09D00D04A75 /* TopicsCollectionView.m */; };
 		0D9059301BA641650008BF75 /* PositiveActionsFilteredWithMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D90592F1BA641650008BF75 /* PositiveActionsFilteredWithMapViewController.m */; };
 		0D94F83E1BA9FCE100945F81 /* PositiveActionsMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D94F83D1BA9FCE100945F81 /* PositiveActionsMapView.m */; };
+		0D9A370C1C65466400DEC69F /* PledgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A370B1C65466400DEC69F /* PledgeViewController.m */; };
 		0D9E12F11BE6EC1E00506BBB /* MapFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E12F01BE6EC1E00506BBB /* MapFiltersViewController.m */; };
 		0D9E12F41BE6EC7900506BBB /* MapFiltersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E12F31BE6EC7900506BBB /* MapFiltersView.m */; };
 		0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E1E0C1B7E5AA50049D08B /* SplashViewController.m */; };
@@ -190,6 +191,8 @@
 		0D90592F1BA641650008BF75 /* PositiveActionsFilteredWithMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionsFilteredWithMapViewController.m; sourceTree = "<group>"; };
 		0D94F83C1BA9FCE100945F81 /* PositiveActionsMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositiveActionsMapView.h; sourceTree = "<group>"; };
 		0D94F83D1BA9FCE100945F81 /* PositiveActionsMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveActionsMapView.m; sourceTree = "<group>"; };
+		0D9A370A1C65466400DEC69F /* PledgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PledgeViewController.h; sourceTree = "<group>"; };
+		0D9A370B1C65466400DEC69F /* PledgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PledgeViewController.m; sourceTree = "<group>"; };
 		0D9E12EF1BE6EC1E00506BBB /* MapFiltersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFiltersViewController.h; sourceTree = "<group>"; };
 		0D9E12F01BE6EC1E00506BBB /* MapFiltersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapFiltersViewController.m; sourceTree = "<group>"; };
 		0D9E12F21BE6EC7900506BBB /* MapFiltersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFiltersView.h; sourceTree = "<group>"; };
@@ -667,6 +670,8 @@
 				0DB1E6FB1BC5E7F4004A86A9 /* SelectedTopicsViewController.m */,
 				0D9E12EF1BE6EC1E00506BBB /* MapFiltersViewController.h */,
 				0D9E12F01BE6EC1E00506BBB /* MapFiltersViewController.m */,
+				0D9A370A1C65466400DEC69F /* PledgeViewController.h */,
+				0D9A370B1C65466400DEC69F /* PledgeViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1201,6 +1206,7 @@
 				0D7C57471BC1B04200A402CF /* LoadingModuleAssembly.m in Sources */,
 				0D8580F21BBB6BAB002CEB2B /* PositiveAction.m in Sources */,
 				0D9E1E141B7E610B0049D08B /* SplashModuleAssembly.m in Sources */,
+				0D9A370C1C65466400DEC69F /* PledgeViewController.m in Sources */,
 				0D0DFF4C1BEADDA700279997 /* PopupView.m in Sources */,
 				0D9E12F41BE6EC7900506BBB /* MapFiltersView.m in Sources */,
 				11DEE6971B5D6F6D00DCDE3E /* TyphoonInitializer.m in Sources */,

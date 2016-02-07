@@ -23,6 +23,7 @@
 - (void)showPositiveActionsMapViewControllerWithPresenter:(UIViewController*)vc
                                            withSelectedTopics:(NSArray*)topics;
 - (void)showPositiveaction:(PositiveAction*)positiveAction withPresenter:(UIViewController*)vc;
+- (void)showPledgeViewControllerWithPresenter:(UIViewController*)vc;
 
 - (void)showTermsAndConditions;
 - (void)showQueEsUDPD;

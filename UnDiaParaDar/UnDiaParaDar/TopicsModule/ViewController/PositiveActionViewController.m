@@ -66,6 +66,11 @@
     [self.scout shareWithViewController:self];
 }
 
+- (void)pledge
+{
+    [self.routing showPledgeViewControllerWithPresenter:self];
+}
+
 #pragma mark - FBSDKSharingDelegate
 
 - (void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results

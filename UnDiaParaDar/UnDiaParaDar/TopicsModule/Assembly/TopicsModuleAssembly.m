@@ -14,6 +14,7 @@
 #import "PositiveActionsFilteredWithMapViewController.h"
 #import "PositiveActionViewController.h"
 #import "MapFiltersViewController.h"
+#import "PledgeViewController.h"
 
 @interface TopicsModuleAssembly ()
 
@@ -79,5 +80,18 @@
                           }];
     
 }
+
+- (PledgeViewController*)pledgeViewController
+{
+    SEL selector = @selector(initWithRouting:);
+    return [TyphoonDefinition withClass:[PledgeViewController class]
+                          configuration:^(TyphoonDefinition* definition) {
+                              [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
+                                  [initializer injectParameterWith:[self.routingModuleAssembly routing]];
+                              }];
+                          }];
+    
+}
+
 
 @end

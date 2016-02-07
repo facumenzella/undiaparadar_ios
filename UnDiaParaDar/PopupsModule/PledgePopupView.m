@@ -130,6 +130,7 @@ static NSString *const kLooking = @"keepLooking";
     [pledge autoAlignAxisToSuperviewMarginAxis:ALAxisVertical];
     [pledge autoSetDimension:ALDimensionWidth toSize:69];
     [pledge autoSetDimension:ALDimensionHeight toSize:70];
+    [pledge addTarget:self action:@selector(pledge) forControlEvents:UIControlEventTouchUpInside];
     
     self.pledgeButtonLabel = [[UILabel alloc] initForAutoLayout];
     [self.pledgeButtonView addSubview:self.pledgeButtonLabel];
@@ -154,7 +155,8 @@ static NSString *const kLooking = @"keepLooking";
     [keepLooking autoSetDimension:ALDimensionHeight toSize:70];
     [keepLooking autoPinEdgeToSuperviewEdge:ALEdgeTop];
     [keepLooking autoAlignAxisToSuperviewMarginAxis:ALAxisVertical];
-    
+    [keepLooking addTarget:self action:@selector(keepLooking) forControlEvents:UIControlEventTouchUpInside];
+
     self.keepLookingButtonLabel = [[UILabel alloc] initForAutoLayout];
     [self.keepLookingButtonView addSubview:self.keepLookingButtonLabel];
     self.keepLookingButtonLabel.text = NSLocalizedString(@"KEEP_LOOKING", @"Seguir buscando");
@@ -166,9 +168,6 @@ static NSString *const kLooking = @"keepLooking";
 
 - (void)styleSubviews
 {
-    self.layer.borderColor = [UIColor redColor].CGColor;
-    self.layer.borderWidth = 3.0f;
-    
     self.pledgeTitleLabel.backgroundColor = [UIColor clearColor];
     self.pledgeTitleLabel.textColor = [UIColor redColor];
     self.pledgeTitleLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleMedium
@@ -178,7 +177,7 @@ static NSString *const kLooking = @"keepLooking";
     self.pledgeSubtitleLabel.backgroundColor = [UIColor clearColor];
     self.pledgeSubtitleLabel.numberOfLines = 2;
     self.pledgeSubtitleLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleBold
-                                                                   withSize:BeautyCenterTypographySizeA];
+                                                                   withSize:BeautyCenterTypographySizeB];
     self.pledgeSubtitleLabel.textAlignment = NSTextAlignmentCenter;
     
     self.pledgeNotificationsLabel.backgroundColor = [UIColor clearColor];
@@ -195,6 +194,25 @@ static NSString *const kLooking = @"keepLooking";
     self.keepLookingButtonLabel.textAlignment = NSTextAlignmentCenter;
     self.keepLookingButtonLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
                                                                       withSize:BeautyCenterTypographySizeA];
+}
+
+- (void)modalStyle
+{
+    [UIView animateWithDuration:.4 animations:^{
+        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.4];
+    }];
+}
+
+#pragma mark - PledgeViewDelegate
+
+- (void)pledge
+{
+    [self.delegate pledge];
+}
+
+- (void)keepLooking
+{
+    [self.delegate keepLooking];
 }
 
 @end

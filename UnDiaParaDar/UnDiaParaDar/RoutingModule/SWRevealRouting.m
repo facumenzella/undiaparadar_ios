@@ -25,6 +25,7 @@
 #import "PositiveActionsFilteredWithMapViewController.h"
 #import "PositiveActionViewController.h"
 #import "MapFiltersViewController.h"
+#import "PledgeViewController.h"
 
 #import "TermsAndConditionsAssembly.h"
 #import "TermsAndConditionsViewController.h"
@@ -37,6 +38,7 @@
 
 #import "NetworkReachabilityAssembly.h"
 #import "NetworkViewController.h"
+
 
 @interface SWRevealRouting ()
 
@@ -150,6 +152,11 @@
     [self.director present:positive from:vc animated:YES];
 }
 
+- (void)showPledgeViewControllerWithPresenter:(UIViewController *)vc
+{
+    PledgeViewController *pledge = [self.topicsModuleAssembly pledgeViewController];
+    [self.director presentModal:pledge withPresenter:self animated:YES];
+}
 
 - (void)showTermsAndConditions
 {
