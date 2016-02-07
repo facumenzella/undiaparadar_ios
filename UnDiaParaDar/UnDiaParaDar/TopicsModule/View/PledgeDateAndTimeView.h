@@ -10,6 +10,6 @@
 
 @interface PledgeDateAndTimeView : UIView
 
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong, readonly) UITableView *tableView;
 
 @end

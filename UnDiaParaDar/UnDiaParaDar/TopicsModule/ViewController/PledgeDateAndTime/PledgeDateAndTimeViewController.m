@@ -9,11 +9,16 @@
 #import "PledgeDateAndTimeViewController.h"
 #import "Routing.h"
 #import "PledgeDateAndTimeView.h"
+#import "RETableViewManager+ReplaceItem.h"
 
 @interface PledgeDateAndTimeViewController ()
 
 @property (nonatomic, strong) id<Routing> routing;
 @property (nonatomic, strong) PledgeDateAndTimeView *pledgeView;
+@property (nonatomic, strong) RETableViewManager *manager;
+
+@property (nonatomic, strong) REDateTimeItem *dateItem;
+@property (nonatomic, strong) REDateTimeItem *hourItem;
 
 @end
 
@@ -39,6 +44,31 @@
     [super viewDidLoad];
     
     self.title = NSLocalizedString(@"I_PLEDGE", @"Me comprometo");
+    self.manager = [[RETableViewManager alloc] initWithTableView:self.pledgeView.tableView];
+    [self registerAndBuildSections];
+}
+
+- (void)registerAndBuildSections
+{
+    RETableViewSection *dateSection = [RETableViewSection section];
+    [self.manager addSection:dateSection];
+    
+    self.dateItem = [REDateTimeItem itemWithTitle:@"Date"
+                                            value:[NSDate date]
+                                      placeholder:nil
+                                           format:@"MM/dd/yyyy"
+                                   datePickerMode:UIDatePickerModeDate];
+    [dateSection addItem:self.dateItem];
+    
+    RETableViewSection *timeSection = [RETableViewSection section];
+    [self.manager addSection:timeSection];
+    
+    self.hourItem = [REDateTimeItem itemWithTitle:@"Time"
+                                            value:[NSDate date]
+                                      placeholder:nil
+                                           format:@"hh:mm"
+                                   datePickerMode:UIDatePickerModeTime];
+    [timeSection addItem:self.hourItem];
 }
 
 #pragma mark - LeftCancelButtonProtocol

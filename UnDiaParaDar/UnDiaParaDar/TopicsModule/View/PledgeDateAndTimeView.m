@@ -14,6 +14,7 @@
 @interface PledgeDateAndTimeView ()
 
 @property (nonatomic, strong) UILabel *header;
+@property (nonatomic, strong, readwrite) UITableView *tableView;
 
 @end
 
@@ -40,7 +41,7 @@
     self.header = [[UILabel alloc] initForAutoLayout];
     self.header.text = @"Elige la hora y el dia en el cual realizaras la accion positiva";
     [self addSubview:self.header];
-    [self.header autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:16];
+    [self.header autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:24];
     [self.header autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:16];
     [self.header autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:16];
 }
@@ -51,6 +52,9 @@
     [self addSubview:self.tableView];
     [self.tableView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.header withOffset:8];
     [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
+    
+    // In order to remove empty cells
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (void)styleSubviews
@@ -58,6 +62,7 @@
     self.backgroundColor = [UIColor whiteColor];
     [self styleHeader];
     self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.scrollEnabled = NO;
 }
 
 - (void)styleHeader
