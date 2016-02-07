@@ -75,6 +75,7 @@
 		0DCBD1401BBB870500A870FD /* FMActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBD13F1BBB870500A870FD /* FMActivityIndicatorView.m */; };
 		0DCC36F81C67ECA0007A0FAF /* PledgeDateAndTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCC36F71C67ECA0007A0FAF /* PledgeDateAndTimeView.m */; };
 		0DCC36FE1C67EE17007A0FAF /* PledgeDateAndTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCC36FD1C67EE17007A0FAF /* PledgeDateAndTimeViewController.m */; };
+		0DCC37021C67FDC9007A0FAF /* LocalNotificationHound.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCC37011C67FDC9007A0FAF /* LocalNotificationHound.m */; };
 		0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */; };
 		0DD38FF11BBEFC4B0038C2E2 /* UIViewController+DisableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FF01BBEFC4B0038C2E2 /* UIViewController+DisableView.m */; };
 		0DEBE1CD1BC1D4F000906E52 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DEBE1CC1BC1D4F000906E52 /* CoreLocation.framework */; };
@@ -246,6 +247,8 @@
 		0DCC36F71C67ECA0007A0FAF /* PledgeDateAndTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PledgeDateAndTimeView.m; sourceTree = "<group>"; };
 		0DCC36FC1C67EE17007A0FAF /* PledgeDateAndTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PledgeDateAndTimeViewController.h; sourceTree = "<group>"; };
 		0DCC36FD1C67EE17007A0FAF /* PledgeDateAndTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PledgeDateAndTimeViewController.m; sourceTree = "<group>"; };
+		0DCC37001C67FDC9007A0FAF /* LocalNotificationHound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationHound.h; sourceTree = "<group>"; };
+		0DCC37011C67FDC9007A0FAF /* LocalNotificationHound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationHound.m; sourceTree = "<group>"; };
 		0DCD99D31B8F7FD500FF738E /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		0DD38FEF1BBEFC4B0038C2E2 /* UIViewController+DisableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DisableView.h"; sourceTree = "<group>"; };
@@ -766,6 +769,15 @@
 			path = PledgeDateAndTime;
 			sourceTree = "<group>";
 		};
+		0DCC36FF1C67FDA0007A0FAF /* LocalNotificationsModule */ = {
+			isa = PBXGroup;
+			children = (
+				0DCC37001C67FDC9007A0FAF /* LocalNotificationHound.h */,
+				0DCC37011C67FDC9007A0FAF /* LocalNotificationHound.m */,
+			);
+			path = LocalNotificationsModule;
+			sourceTree = "<group>";
+		};
 		0DCD99D21B8F7FBE00FF738E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -927,6 +939,7 @@
 		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
 			isa = PBXGroup;
 			children = (
+				0DCC36FF1C67FDA0007A0FAF /* LocalNotificationsModule */,
 				0D7BA7B61BF1753D00297A7F /* Facebook */,
 				0D7D1BAE1BEC3213006AADAB /* NetworkReachabilityModule */,
 				0D0DFF491BEADD9700279997 /* PopupsModule */,
@@ -1279,6 +1292,7 @@
 				113E46A61B62CD4B00ADF8AC /* ProfileModuleAssembly.m in Sources */,
 				0D11F48B1BB37DCD00AFE46D /* TermsAndConditionsViewController.m in Sources */,
 				11DEE6911B5D6DF900DCDE3E /* LoginViewController.m in Sources */,
+				0DCC37021C67FDC9007A0FAF /* LocalNotificationHound.m in Sources */,
 				0D7BA7B51BF1607F00297A7F /* TapToRetryView.m in Sources */,
 				0DEBE1D11BC1D58E00906E52 /* LocationManager.m in Sources */,
 				11DEE6A91B5D774900DCDE3E /* SWRevealDirector.m in Sources */,
