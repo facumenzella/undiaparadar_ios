@@ -12,4 +12,9 @@
 
 @property (nonatomic, strong, readonly) UITableView *tableView;
 
+- (void)setDone:(NSUInteger)done;
+- (void)setPledged:(NSUInteger)pledged;
+- (void)setNotDone:(NSUInteger)notdone;
+- (void)setAll:(NSUInteger)all;
+
 @end

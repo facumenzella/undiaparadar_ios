@@ -29,9 +29,9 @@
     return self;
 }
 
-- (void)populateWithQuantity:(NSString*)quantity withCategory:(NSString*)category
+- (void)populateWithQuantity:(NSUInteger)quantity withCategory:(NSString*)category
 {
-    self.quantityLabel.text = quantity;
+    self.quantityLabel.text = [NSString stringWithFormat:@"%d", quantity];
     self.categoryLabel.text = category;
 }
 

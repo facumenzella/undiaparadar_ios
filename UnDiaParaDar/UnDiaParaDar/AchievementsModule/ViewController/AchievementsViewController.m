@@ -90,14 +90,19 @@
         AchievementPledgePresenter *p = [[AchievementPledgePresenter alloc] initWithTitle:a.title];
         [self.sectionPledge addItem:p];
     }
+    [self.achievementsView setPledged:self.pledge.count];
     for (Achievement *a in self.done) {
         AchievementConfirmedPresenter *p = [[AchievementConfirmedPresenter alloc] initWithTitle:a.title];
         [self.sectionDone addItem:p];
     }
+    [self.achievementsView setDone:self.done.count];
     for (Achievement *a in self.notdone) {
         AchievementNotDonePresenter *p = [[AchievementNotDonePresenter alloc] initWithTitle:a.title];
         [self.sectionNotDone addItem:p];
     }
+    [self.achievementsView setNotDone:self.notdone.count];
+    [self.achievementsView setAll: (self.notdone.count + self.done.count + self.pledge.count)];
+    
     [self.manager addSection:self.sectionPledge];
     [self.manager.tableView reloadData];
 }

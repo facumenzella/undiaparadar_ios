@@ -11,6 +11,11 @@
 
 #import <PureLayout/PureLayout.h>
 
+static NSString *const kAll = @"todos";
+static NSString *const kDone = @"confirmados";
+static NSString *const kPledged = @"compromiso";
+static NSString *const kNotDone = @"faltas";
+
 @interface AchievementsView ()
 
 @property (nonatomic, strong) UIView *filtersContainer;
@@ -60,21 +65,21 @@
     [self.allFilter autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
     [self.allFilter autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
     [self.allFilter autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
-    [self.allFilter populateWithQuantity:@"100" withCategory:@"todos"];
+    [self.allFilter populateWithQuantity:@"0" withCategory:kAll];
     
     self.doneFilter = [[AchievementFilterView alloc] initForAutoLayout];
     [self.filtersContainer addSubview:self.doneFilter];
     [self.doneFilter autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
     [self.doneFilter autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
     [self.doneFilter autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.allFilter withOffset:16];
-    [self.doneFilter populateWithQuantity:@"50" withCategory:@"confirmados"];
+    [self.doneFilter populateWithQuantity:@"0" withCategory:kDone];
 
     self.pledgeFilter = [[AchievementFilterView alloc] initForAutoLayout];
     [self.filtersContainer addSubview:self.pledgeFilter];
     [self.pledgeFilter autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
     [self.pledgeFilter autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
     [self.pledgeFilter autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.doneFilter withOffset:16];
-    [self.pledgeFilter populateWithQuantity:@"30" withCategory:@"compromiso"];
+    [self.pledgeFilter populateWithQuantity:@"0" withCategory:kPledged];
 
     self.notDoneFilter = [[AchievementFilterView alloc] initForAutoLayout];
     [self.filtersContainer addSubview:self.notDoneFilter];
@@ -82,7 +87,7 @@
     [self.notDoneFilter autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
     [self.notDoneFilter autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.pledgeFilter withOffset:16];
     [self.notDoneFilter autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
-    [self.notDoneFilter populateWithQuantity:@"20" withCategory:@"faltas"];
+    [self.notDoneFilter populateWithQuantity:@"0" withCategory:kNotDone];
 }
 
 
@@ -97,6 +102,25 @@
 - (void)styleSubviews
 {
     // Here you should style every subviews
+}
+
+- (void)setAll:(NSUInteger)all
+{
+    [self.allFilter populateWithQuantity:all withCategory:kAll];
+}
+
+- (void)setDone:(NSUInteger)done
+{
+    [self.doneFilter populateWithQuantity:done withCategory:kDone];
+}
+
+- (void)setPledged:(NSUInteger)pledged
+{
+    [self.pledgeFilter populateWithQuantity:pledged withCategory:kPledged];
+}
+- (void)setNotDone:(NSUInteger)notdone
+{
+    [self.notDoneFilter populateWithQuantity:notdone withCategory:kNotDone];
 }
 
 @end

@@ -10,6 +10,6 @@
 
 @interface AchievementFilterView : UIView
 
-- (void)populateWithQuantity:(NSString*)quantity withCategory:(NSString*)category;
+- (void)populateWithQuantity:(NSUInteger)quantity withCategory:(NSString*)category;
 
 @end
