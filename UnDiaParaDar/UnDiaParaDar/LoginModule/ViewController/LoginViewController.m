@@ -9,14 +9,12 @@
 #import "LoginViewController.h"
 #import "LoginView.h"
 #import "Routing.h"
-#import "FacebookLoginFlow.h"
 #import "ParseLoginHound.h"
 
-@interface LoginViewController ()<LoginDelegate, LoginViewDelegate>
+@interface LoginViewController ()<LoginViewDelegate, ParseLoginDelegate>
 
 @property (nonatomic, strong) id<Routing> routing;
 @property (nonatomic, strong) LoginView *loginView;
-@property (nonatomic, strong) FacebookLoginFlow *loginFlow;
 @property (nonatomic, strong) ParseLoginHound *hound;
 
 @end
@@ -30,15 +28,15 @@
     self = [super init];
     if (self) {
         self.routing = routing;
-        self.loginFlow = [[FacebookLoginFlow alloc] initWithLoginDelegate:self];
         self.hound = [[ParseLoginHound alloc] init];
+        self.hound.delegate = self;
     }
     return self;
 }
 
 - (void)loadView
 {
-    self.loginView = [[LoginView alloc] initWithFacebookLoginDelegate:self.loginFlow];
+    self.loginView = [[LoginView alloc] initWithFacebookLoginDelegate:self];
     self.view = self.loginView;
 }
 
@@ -47,7 +45,7 @@
     [self.loginView animate];
 }
 
-#pragma mark - LoginDelegate
+#pragma mark - ParseLoginDelegate
 
 - (void)loginSucceded
 {

@@ -8,11 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol LoginDelegate;
+@protocol ParseLoginDelegate <NSObject>
+
+- (void)loginSucceded;
+- (void)loginDidFail;
+
+@end
 
 @interface ParseLoginHound : NSObject
 
-@property (nonatomic, weak) id<LoginDelegate> delegate;
+@property (nonatomic, weak) id<ParseLoginDelegate> delegate;
 
 - (void)login;
 
