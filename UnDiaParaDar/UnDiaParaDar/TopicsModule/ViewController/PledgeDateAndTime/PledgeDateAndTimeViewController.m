@@ -75,9 +75,27 @@ static NSArray *reminders;
 
 - (void)registerAndBuildSections
 {
+    [self buildPositiveActionSection];
+    
     [self buildDateSection];
     [self buildTimeSection];
     [self buildReminderSection];
+}
+
+- (void)buildPositiveActionSection
+{
+    RETableViewSection *positiveSection = [RETableViewSection section];
+    RETableViewItem *item = [RETableViewItem itemWithTitle:NSLocalizedString(@"POSITIVE_ACTION", @"Accion positiva")
+                                             accessoryType:UITableViewCellAccessoryDetailButton
+                                          selectionHandler:^(RETableViewItem *item) {
+                                              [item deselectRowAnimated:YES];
+                                              [self.routing showPositiveaction:self.positiveAction
+                                                                 withPresenter:self];
+                                          }];
+    item.detailLabelText = self.positiveAction.title;
+    [positiveSection addItem:item];
+    
+    [self.manager addSection:positiveSection];
 }
 
 - (void)buildDateSection
@@ -161,7 +179,7 @@ static NSArray *reminders;
 
 - (NSDate*)calculateReminderDateFromPledgeDate:(NSDate*)date
 {
-        return [date dateByAddingTimeInterval:-[self reminder]];
+    return [date dateByAddingTimeInterval:-[self reminder]];
 }
 
 - (NSTimeInterval)reminder
