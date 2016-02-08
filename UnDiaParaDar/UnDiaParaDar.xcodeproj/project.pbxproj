@@ -11,6 +11,9 @@
 		0D0610691BD030AB00595A9A /* UIColor+Transformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0610681BD030AB00595A9A /* UIColor+Transformation.m */; };
 		0D06464E1C682AE900F1AEB7 /* ParseLoginHound.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D06464D1C682AE900F1AEB7 /* ParseLoginHound.m */; };
 		0D0646521C68EAFA00F1AEB7 /* ParsePositiveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0646511C68EAFA00F1AEB7 /* ParsePositiveAction.m */; };
+		0D06465A1C690C2D00F1AEB7 /* AchievementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0646591C690C2D00F1AEB7 /* AchievementsViewController.m */; };
+		0D06465D1C690C7000F1AEB7 /* AchievementsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D06465C1C690C7000F1AEB7 /* AchievementsView.m */; };
+		0D0646601C690D2800F1AEB7 /* AchievementFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D06465F1C690D2800F1AEB7 /* AchievementFilterView.m */; };
 		0D0DFF4C1BEADDA700279997 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DFF4B1BEADDA700279997 /* PopupView.m */; };
 		0D0DFF4F1BEAE39800279997 /* PledgePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DFF4E1BEAE39800279997 /* PledgePopupView.m */; };
 		0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F4871BB37D4300AFE46D /* TermsAndConditionsAssembly.m */; };
@@ -138,6 +141,12 @@
 		0D06464D1C682AE900F1AEB7 /* ParseLoginHound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseLoginHound.m; sourceTree = "<group>"; };
 		0D0646501C68EAFA00F1AEB7 /* ParsePositiveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsePositiveAction.h; sourceTree = "<group>"; };
 		0D0646511C68EAFA00F1AEB7 /* ParsePositiveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsePositiveAction.m; sourceTree = "<group>"; };
+		0D0646581C690C2D00F1AEB7 /* AchievementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementsViewController.h; sourceTree = "<group>"; };
+		0D0646591C690C2D00F1AEB7 /* AchievementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementsViewController.m; sourceTree = "<group>"; };
+		0D06465B1C690C7000F1AEB7 /* AchievementsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementsView.h; sourceTree = "<group>"; };
+		0D06465C1C690C7000F1AEB7 /* AchievementsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementsView.m; sourceTree = "<group>"; };
+		0D06465E1C690D2800F1AEB7 /* AchievementFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementFilterView.h; sourceTree = "<group>"; };
+		0D06465F1C690D2800F1AEB7 /* AchievementFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementFilterView.m; sourceTree = "<group>"; };
 		0D0DFF4A1BEADDA700279997 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopupView.h; path = PopupsModule/PopupView.h; sourceTree = SOURCE_ROOT; };
 		0D0DFF4B1BEADDA700279997 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopupView.m; path = PopupsModule/PopupView.m; sourceTree = SOURCE_ROOT; };
 		0D0DFF4D1BEAE39800279997 /* PledgePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PledgePopupView.h; path = PopupsModule/PledgePopupView.h; sourceTree = SOURCE_ROOT; };
@@ -394,6 +403,51 @@
 				0D0646511C68EAFA00F1AEB7 /* ParsePositiveAction.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0D0646531C690BF400F1AEB7 /* AchievementsModule */ = {
+			isa = PBXGroup;
+			children = (
+				0D0646541C690C2000F1AEB7 /* Assembly */,
+				0D0646551C690C2000F1AEB7 /* Presenter */,
+				0D0646561C690C2000F1AEB7 /* View */,
+				0D0646571C690C2000F1AEB7 /* ViewController */,
+			);
+			path = AchievementsModule;
+			sourceTree = "<group>";
+		};
+		0D0646541C690C2000F1AEB7 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		0D0646551C690C2000F1AEB7 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0D0646561C690C2000F1AEB7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0D06465B1C690C7000F1AEB7 /* AchievementsView.h */,
+				0D06465C1C690C7000F1AEB7 /* AchievementsView.m */,
+				0D06465E1C690D2800F1AEB7 /* AchievementFilterView.h */,
+				0D06465F1C690D2800F1AEB7 /* AchievementFilterView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0D0646571C690C2000F1AEB7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0D0646581C690C2D00F1AEB7 /* AchievementsViewController.h */,
+				0D0646591C690C2D00F1AEB7 /* AchievementsViewController.m */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		0D0DFF491BEADD9700279997 /* PopupsModule */ = {
@@ -1007,6 +1061,7 @@
 		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
 			isa = PBXGroup;
 			children = (
+				0D0646531C690BF400F1AEB7 /* AchievementsModule */,
 				0DCC37201C6825D8007A0FAF /* Parse */,
 				0DCC36FF1C67FDA0007A0FAF /* LocalNotificationsModule */,
 				0D7BA7B61BF1753D00297A7F /* Facebook */,
@@ -1324,6 +1379,7 @@
 				0DBD219D1BA372DA002AC53C /* FacebookInitializer.m in Sources */,
 				0D4B13BA1BA4BB5D00961764 /* RemoteImageView.m in Sources */,
 				11DEE6AD1B5D778F00DCDE3E /* RoutingModuleAssembly.m in Sources */,
+				0D06465D1C690C7000F1AEB7 /* AchievementsView.m in Sources */,
 				113E469E1B62C07E00ADF8AC /* ProfileViewController.m in Sources */,
 				0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */,
 				0D3D72351BBB6510006EC1E9 /* RestkitService.m in Sources */,
@@ -1411,6 +1467,8 @@
 				11DEE6B31B5D818500DCDE3E /* LoginView.m in Sources */,
 				11DEE6941B5D6E7F00DCDE3E /* LoginModuleAssembly.m in Sources */,
 				0D1763851BB464C300C6E664 /* QueEsPresenter.m in Sources */,
+				0D0646601C690D2800F1AEB7 /* AchievementFilterView.m in Sources */,
+				0D06465A1C690C2D00F1AEB7 /* AchievementsViewController.m in Sources */,
 				0D8B6AFB1BCEE09D00D04A75 /* SelectedTopicsCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
