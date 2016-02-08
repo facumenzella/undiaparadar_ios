@@ -1,30 +1,29 @@
 //
-//  AchievementConfirmedPresenter.m
+//  AchievementNotDonePresenter.m
 //  UnDiaParaDar
 //
 //  Created by Facundo Menzella on 2/8/16.
 //  Copyright © 2016 ITBA. All rights reserved.
 //
 
-#import "AchievementConfirmedPresenter.h"
+#import "AchievementNotDonePresenter.h"
 
-@interface AchievementConfirmedPresenter ()
+@interface AchievementNotDonePresenter ()
 
 @property (nonatomic, strong, readwrite) NSString *state;
 @property (nonatomic, readwrite) BOOL confirmEnabled;
 
 @end
 
-@implementation AchievementConfirmedPresenter
+@implementation AchievementNotDonePresenter
 
 - (instancetype)initWithTitle:(NSString *)title
 {
     self = [super initWithTitle:title];
     if (self) {
-        self.state = kconfirmedPledge;
+        self.state = kNotDonePledge;
         self.confirmEnabled = YES;
     }
     return self;
 }
-
 @end

@@ -79,7 +79,7 @@ static NSString *const kPledge = @"pledge";
 {
     self.confirmButton = [ButtonFactory buttonWithImage:kPledge];
     [self.contentView addSubview:self.confirmButton];
-    [self.confirmButton autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:8];
+    [self.confirmButton autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
     [self.confirmButton autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.positiveActionTitle withOffset:4];
     [self.confirmButton autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     [self.confirmButton autoPinEdgeToSuperviewEdge:ALEdgeTop
@@ -88,6 +88,7 @@ static NSString *const kPledge = @"pledge";
     [self.confirmButton autoPinEdgeToSuperviewEdge:ALEdgeBottom
                                          withInset:0
                                           relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.confirmButton setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
 }
 
 - (void)styleSubviews
@@ -100,7 +101,7 @@ static NSString *const kPledge = @"pledge";
 
 + (CGFloat)heightWithItem:(RETableViewItem *)item tableViewManager:(RETableViewManager *)tableViewManager
 {
-    return 80;
+    return 60;
 }
 
 @end

@@ -10,6 +10,8 @@
 #import "AchievementsView.h"
 #import "RETableViewManager+ReplaceItem.h"
 #import "AchievementConfirmedPresenter.h"
+#import "AchievementNotDonePresenter.h"
+#import "AchievementPledgePresenter.h"
 
 @interface AchievementsViewController ()
 
@@ -42,7 +44,10 @@
 
 - (void)registerAndBuildSections
 {
+    self.manager[@"AchievementPledgePresenter"] = @"AchievementCell";
     self.manager[@"AchievementConfirmedPresenter"] = @"AchievementCell";
+    self.manager[@"AchievementNotDonePresenter"] = @"AchievementCell";
+
     [self buildAllSection];
 }
 
@@ -51,7 +56,7 @@
     self.sectionAll = [RETableViewSection section];
     [self.manager addSection:self.sectionAll];
     
-    [self.sectionAll addItem:[[AchievementConfirmedPresenter alloc] initWithTitle:@""]];
+    [self.sectionAll addItem:[[AchievementPledgePresenter alloc] initWithTitle:@""]];
     
 }
 

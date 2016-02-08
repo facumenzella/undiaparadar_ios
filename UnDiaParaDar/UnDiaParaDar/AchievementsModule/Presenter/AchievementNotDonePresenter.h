@@ -1,5 +1,5 @@
 //
-//  AchievementConfirmedPresenter.h
+//  AchievementNotDonePresenter.h
 //  UnDiaParaDar
 //
 //  Created by Facundo Menzella on 2/8/16.
@@ -9,7 +9,7 @@
 #import <RETableViewManager/RETableViewManager.h>
 #import "AchievementBaseCellProtocol.h"
 
-@interface AchievementConfirmedPresenter : RETableViewItem <AchievementBaseCellProtocol>
+@interface AchievementNotDonePresenter : RETableViewItem <AchievementBaseCellProtocol>
 
 @property (nonatomic, readonly) BOOL confirmEnabled;
 @property (nonatomic, strong, readonly) NSString *state;

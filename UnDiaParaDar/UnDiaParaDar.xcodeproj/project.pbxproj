@@ -17,6 +17,8 @@
 		0D0646631C69161C00F1AEB7 /* AchievementsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0646621C69161C00F1AEB7 /* AchievementsAssembly.m */; };
 		0D0646661C6919C000F1AEB7 /* AchievementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0646651C6919C000F1AEB7 /* AchievementCell.m */; };
 		0D06466D1C6920B700F1AEB7 /* AchievementConfirmedPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D06466C1C6920B700F1AEB7 /* AchievementConfirmedPresenter.m */; };
+		0D0646731C6929F000F1AEB7 /* AchievementPledgePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0646721C6929F000F1AEB7 /* AchievementPledgePresenter.m */; };
+		0D0646761C692A6600F1AEB7 /* AchievementNotDonePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0646751C692A6600F1AEB7 /* AchievementNotDonePresenter.m */; };
 		0D0DFF4C1BEADDA700279997 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DFF4B1BEADDA700279997 /* PopupView.m */; };
 		0D0DFF4F1BEAE39800279997 /* PledgePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DFF4E1BEAE39800279997 /* PledgePopupView.m */; };
 		0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F4871BB37D4300AFE46D /* TermsAndConditionsAssembly.m */; };
@@ -157,6 +159,10 @@
 		0D06466A1C69201800F1AEB7 /* AchievementBaseCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementBaseCellProtocol.h; sourceTree = "<group>"; };
 		0D06466B1C6920B700F1AEB7 /* AchievementConfirmedPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementConfirmedPresenter.h; sourceTree = "<group>"; };
 		0D06466C1C6920B700F1AEB7 /* AchievementConfirmedPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementConfirmedPresenter.m; sourceTree = "<group>"; };
+		0D0646711C6929F000F1AEB7 /* AchievementPledgePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementPledgePresenter.h; sourceTree = "<group>"; };
+		0D0646721C6929F000F1AEB7 /* AchievementPledgePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementPledgePresenter.m; sourceTree = "<group>"; };
+		0D0646741C692A6600F1AEB7 /* AchievementNotDonePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementNotDonePresenter.h; sourceTree = "<group>"; };
+		0D0646751C692A6600F1AEB7 /* AchievementNotDonePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementNotDonePresenter.m; sourceTree = "<group>"; };
 		0D0DFF4A1BEADDA700279997 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopupView.h; path = PopupsModule/PopupView.h; sourceTree = SOURCE_ROOT; };
 		0D0DFF4B1BEADDA700279997 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopupView.m; path = PopupsModule/PopupView.m; sourceTree = SOURCE_ROOT; };
 		0D0DFF4D1BEAE39800279997 /* PledgePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PledgePopupView.h; path = PopupsModule/PledgePopupView.h; sourceTree = SOURCE_ROOT; };
@@ -441,6 +447,10 @@
 				0D06466A1C69201800F1AEB7 /* AchievementBaseCellProtocol.h */,
 				0D06466B1C6920B700F1AEB7 /* AchievementConfirmedPresenter.h */,
 				0D06466C1C6920B700F1AEB7 /* AchievementConfirmedPresenter.m */,
+				0D0646711C6929F000F1AEB7 /* AchievementPledgePresenter.h */,
+				0D0646721C6929F000F1AEB7 /* AchievementPledgePresenter.m */,
+				0D0646741C692A6600F1AEB7 /* AchievementNotDonePresenter.h */,
+				0D0646751C692A6600F1AEB7 /* AchievementNotDonePresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1480,10 +1490,12 @@
 				0D6199D61BC0A18000A8C987 /* PositiveActionViewController.m in Sources */,
 				0D17637F1BB4646100C6E664 /* QueEsModuleAssembly.m in Sources */,
 				1113AA161B5F044F0066E7BB /* MenuProfilePresenter.m in Sources */,
+				0D0646731C6929F000F1AEB7 /* AchievementPledgePresenter.m in Sources */,
 				0DF920E71BC0851800BAA52C /* FakeModalAnimator.m in Sources */,
 				0DBD21A01BA3780B002AC53C /* User.m in Sources */,
 				0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */,
 				11DEE6B31B5D818500DCDE3E /* LoginView.m in Sources */,
+				0D0646761C692A6600F1AEB7 /* AchievementNotDonePresenter.m in Sources */,
 				11DEE6941B5D6E7F00DCDE3E /* LoginModuleAssembly.m in Sources */,
 				0D1763851BB464C300C6E664 /* QueEsPresenter.m in Sources */,
 				0D06466D1C6920B700F1AEB7 /* AchievementConfirmedPresenter.m in Sources */,

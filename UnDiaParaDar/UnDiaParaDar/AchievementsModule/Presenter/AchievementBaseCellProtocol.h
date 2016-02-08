@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+static NSString *const kNewPledge = @"newPledge";
+static NSString *const kconfirmedPledge = @"confirmedPledge";
+static NSString *const kNotDonePledge = @"notDonePledge";
+
 @protocol AchievementBaseCellProtocol <NSObject>
 
 - (BOOL)confirmEnabled;
