@@ -26,8 +26,7 @@ typedef NS_ENUM(NSUInteger, BeautyCenterTypographySize) {
 
 typedef NS_ENUM(NSUInteger, BeautyCenterColor) {
     BeautyCenterColorDarkRed,
-    BeautyCenterColorGrey,
-    BeautyCenterColorMenuBackgroundGrey
+    BeautyCenterColorGrey
 };
 
 @interface BeautyCenter : NSObject

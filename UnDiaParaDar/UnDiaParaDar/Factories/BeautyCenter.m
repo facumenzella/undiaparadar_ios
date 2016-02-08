@@ -42,7 +42,6 @@ static UIFont *font4e;
 
 static UIColor *color1;
 static UIColor *color2;
-static UIColor *color3;
 
 @implementation BeautyCenter
 
@@ -76,8 +75,6 @@ static UIColor *color3;
             break;
         case BeautyCenterColorGrey:
             return color2;
-        case BeautyCenterColorMenuBackgroundGrey:
-            return color3;
         default:
             break;
     }
@@ -228,10 +225,7 @@ static UIColor *color3;
 - (void)buildColors
 {
     color1 = [UIColor colorWithRed:211/255.0 green:0 blue:11/255.0 alpha:1];
-    static const CGFloat factor = 204/255.0;
-    color2 = [UIColor colorWithRed:factor green:factor blue:factor alpha:1];
-    static const CGFloat menuFactor = 225/255.0;
-    color3 = [UIColor colorWithRed:menuFactor green:menuFactor blue:menuFactor alpha:1];
+    color2 = [UIColor colorWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1];
 }
 
 @end

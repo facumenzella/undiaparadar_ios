@@ -15,6 +15,7 @@
 @interface MenuModuleAssembly ()
 
 @property (nonatomic, strong) RoutingModuleAssembly *routingModuleAssembly;
+@property (nonatomic, strong) ServiceModuleAssembly *serviceModuleAssembly;
 
 @end
 
@@ -23,10 +24,11 @@
 - (MenuViewController*) menuViewController
 {
     
-    SEL selector = @selector(initWithRouting:);
+    SEL selector = @selector(initWithRouting:withUserService:);
     return [TyphoonDefinition withClass:[MenuViewController class] configuration:^(TyphoonDefinition* definition) {
         [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith: [self.routingModuleAssembly routing]];
+            [initializer injectParameterWith: [self.serviceModuleAssembly userService]];
         }];
     }];
 

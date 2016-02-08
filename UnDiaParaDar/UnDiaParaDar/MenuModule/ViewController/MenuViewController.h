@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @protocol Routing;
+@class UserService;
 
 @interface MenuViewController : UITableViewController
 
-- (instancetype)initWithRouting:(id<Routing>)routing;
+- (instancetype)initWithRouting:(id<Routing>)routing withUserService:(UserService*)userService;
 
 @end
