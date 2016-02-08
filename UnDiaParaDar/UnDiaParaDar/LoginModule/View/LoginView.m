@@ -7,7 +7,6 @@
 //
 
 #import "LoginView.h"
-#import "FacebookLoginFlow.h"
 
 #import <PureLayout/PureLayout.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
@@ -20,7 +19,8 @@ static NSString *UNDIAPARADAR_KEY = @"undiaparadar";
 @property (nonatomic, strong) UIImageView *undiaparadarLogoImageView;
 @property (nonatomic, strong) UIImageView *backgroundImageView;
 @property (nonatomic, strong) NSLayoutConstraint *undiaparadarLogoCenterConstraint;
-@property (nonatomic, assign) id<FBSDKLoginButtonDelegate> loginDelegate;
+@property (nonatomic, strong) UIView *buttonContainer;
+@property (nonatomic, assign) id<LoginViewDelegate> loginDelegate;
 
 @end
 
@@ -28,12 +28,13 @@ static NSString *UNDIAPARADAR_KEY = @"undiaparadar";
 
 #pragma mark - LoginView
 
-- (instancetype) initWithFacebookLoginDelegate:(id<FBSDKLoginButtonDelegate>)loginDelegate
+- (instancetype) initWithFacebookLoginDelegate:(id<LoginViewDelegate>)loginDelegate
 {
     self = [super init];
     if (self) {
         self.loginDelegate = loginDelegate;
         [self buildSubviews];
+        [self styleSubviews];
     }
     return self;
 }
@@ -42,7 +43,6 @@ static NSString *UNDIAPARADAR_KEY = @"undiaparadar";
 
 - (void)buildSubviews
 {
-    [self setBackgroundColor:[UIColor whiteColor]];
     [self buildBackground];
     [self buildUnDiaParaDarLogo];
     [self buildLoginButton];
@@ -72,13 +72,27 @@ static NSString *UNDIAPARADAR_KEY = @"undiaparadar";
 
 - (void)buildLoginButton
 {
+    self.buttonContainer = [[UIView alloc] initForAutoLayout];
+    [self addSubview:self.buttonContainer];
+    [self.buttonContainer autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [self.buttonContainer autoPinEdge:ALEdgeTop
+                               toEdge:ALEdgeBottom
+                               ofView:self.undiaparadarLogoImageView
+                           withOffset:24];
+    self.buttonContainer.userInteractionEnabled = YES;
+    [self.buttonContainer addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                       action:@selector(login)]];
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.readPermissions = [FacebookLoginFlow readPermissions];
-    loginButton.delegate = self.loginDelegate;
+    loginButton.userInteractionEnabled = NO;
     loginButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addSubview:loginButton];
-    [loginButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [loginButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.undiaparadarLogoImageView withOffset:24];
+    [self.buttonContainer addSubview:loginButton];
+    [loginButton autoPinEdgesToSuperviewEdges];
+}
+
+- (void)styleSubviews
+{
+    [self setBackgroundColor:[UIColor whiteColor]];
+    self.buttonContainer.backgroundColor = [UIColor clearColor];
 }
 
 - (void)animate
@@ -89,6 +103,13 @@ static NSString *UNDIAPARADAR_KEY = @"undiaparadar";
     [UIView animateWithDuration:.6 animations:^{
         [self layoutIfNeeded];
     }];
+}
+
+#pragma mark - LoginViewDelegate
+
+- (void)login
+{
+    [self.loginDelegate login];
 }
 
 @end

@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol FBSDKLoginButtonDelegate;
+@protocol LoginViewDelegate <NSObject>
+
+- (void)login;
+
+@end
 
 @interface LoginView : UIView
 
-- (instancetype) initWithFacebookLoginDelegate:(id<FBSDKLoginButtonDelegate>)loginDelegate;
+- (instancetype) initWithFacebookLoginDelegate:(id<LoginViewDelegate>)loginDelegate;
 
 - (void)animate;
 

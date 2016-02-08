@@ -10,12 +10,14 @@
 #import "LoginView.h"
 #import "Routing.h"
 #import "FacebookLoginFlow.h"
+#import "ParseLoginHound.h"
 
-@interface LoginViewController ()<LoginDelegate>
+@interface LoginViewController ()<LoginDelegate, LoginViewDelegate>
 
 @property (nonatomic, strong) id<Routing> routing;
 @property (nonatomic, strong) LoginView *loginView;
 @property (nonatomic, strong) FacebookLoginFlow *loginFlow;
+@property (nonatomic, strong) ParseLoginHound *hound;
 
 @end
 
@@ -29,6 +31,7 @@
     if (self) {
         self.routing = routing;
         self.loginFlow = [[FacebookLoginFlow alloc] initWithLoginDelegate:self];
+        self.hound = [[ParseLoginHound alloc] init];
     }
     return self;
 }
@@ -56,4 +59,12 @@
 {
     NSLog(@"Holy shit");
 }
+
+#pragma mark - LoginViewDelegate
+
+- (void)login
+{
+    [self.hound login];
+}
+
 @end

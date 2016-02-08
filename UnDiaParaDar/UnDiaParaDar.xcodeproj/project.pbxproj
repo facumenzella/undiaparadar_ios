@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */; };
 		0D0610691BD030AB00595A9A /* UIColor+Transformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0610681BD030AB00595A9A /* UIColor+Transformation.m */; };
+		0D06464E1C682AE900F1AEB7 /* ParseLoginHound.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D06464D1C682AE900F1AEB7 /* ParseLoginHound.m */; };
 		0D0DFF4C1BEADDA700279997 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DFF4B1BEADDA700279997 /* PopupView.m */; };
 		0D0DFF4F1BEAE39800279997 /* PledgePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DFF4E1BEAE39800279997 /* PledgePopupView.m */; };
 		0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F4871BB37D4300AFE46D /* TermsAndConditionsAssembly.m */; };
@@ -132,6 +133,8 @@
 		06C0FA932F79B7DB4ECAB673 /* Pods-UnDiaParaDar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnDiaParaDar.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar.release.xcconfig"; sourceTree = "<group>"; };
 		0D0610671BD030AB00595A9A /* UIColor+Transformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Transformation.h"; sourceTree = "<group>"; };
 		0D0610681BD030AB00595A9A /* UIColor+Transformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Transformation.m"; sourceTree = "<group>"; };
+		0D06464C1C682AE900F1AEB7 /* ParseLoginHound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseLoginHound.h; sourceTree = "<group>"; };
+		0D06464D1C682AE900F1AEB7 /* ParseLoginHound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseLoginHound.m; sourceTree = "<group>"; };
 		0D0DFF4A1BEADDA700279997 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopupView.h; path = PopupsModule/PopupView.h; sourceTree = SOURCE_ROOT; };
 		0D0DFF4B1BEADDA700279997 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopupView.m; path = PopupsModule/PopupView.m; sourceTree = SOURCE_ROOT; };
 		0D0DFF4D1BEAE39800279997 /* PledgePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PledgePopupView.h; path = PopupsModule/PledgePopupView.h; sourceTree = SOURCE_ROOT; };
@@ -824,6 +827,8 @@
 			children = (
 				0DCC37211C6825F2007A0FAF /* ParseInitializer.h */,
 				0DCC37221C6825F2007A0FAF /* ParseInitializer.m */,
+				0D06464C1C682AE900F1AEB7 /* ParseLoginHound.h */,
+				0D06464D1C682AE900F1AEB7 /* ParseLoginHound.m */,
 			);
 			path = Parse;
 			sourceTree = "<group>";
@@ -1331,6 +1336,7 @@
 				0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */,
 				0D0DFF4F1BEAE39800279997 /* PledgePopupView.m in Sources */,
 				0DFE5A201BCEAD76004EFBC1 /* PositiveActionsFilteredWithMapView.m in Sources */,
+				0D06464E1C682AE900F1AEB7 /* ParseLoginHound.m in Sources */,
 				11DEE6AA1B5D774900DCDE3E /* SWRevealRouting.m in Sources */,
 				1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */,
 				0D8974921BC4B5AC00ACD124 /* ProfileView.m in Sources */,
