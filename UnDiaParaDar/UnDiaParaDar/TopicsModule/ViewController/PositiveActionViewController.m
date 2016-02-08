@@ -68,7 +68,7 @@
 
 - (void)pledge
 {
-    [self.routing showPledgeViewControllerWithPresenter:self];
+    [self.routing showPledgeViewControllerForPositiveAction:self.positiveAction withPresenter:self];
 }
 
 #pragma mark - FBSDKSharingDelegate

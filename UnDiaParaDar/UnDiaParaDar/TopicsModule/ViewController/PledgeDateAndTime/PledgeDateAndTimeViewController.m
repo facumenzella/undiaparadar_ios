@@ -11,6 +11,8 @@
 #import "PledgeDateAndTimeView.h"
 #import "RETableViewManager+ReplaceItem.h"
 #import "LocalNotificationHound.h"
+#import "PositiveAction.h"
+#import "TopicService.h"
 
 static NSArray *reminders;
 
@@ -24,15 +26,21 @@ static NSArray *reminders;
 @property (nonatomic, strong) REDateTimeItem *hourItem;
 @property (nonatomic, strong) REPickerItem *reminderItem;
 
+@property (nonatomic, strong) PositiveAction *positiveAction;
+@property (nonatomic, strong) TopicService *topicService;
 @end
 
 @implementation PledgeDateAndTimeViewController
 
 - (instancetype)initWithRouting:(id<Routing>)routing
+             withPositiveAction:(PositiveAction*)positiveAction
+               withTopicService:(TopicService*)topicService
 {
     self = [super init];
     if (self) {
         self.routing = routing;
+        self.positiveAction = positiveAction;
+        self.topicService = topicService;
         [self buildReminders];
     }
     return self;
@@ -115,7 +123,7 @@ static NSArray *reminders;
 {
     [self.manager.tableView reloadData];
     [self.routing dismissViewController:self withCompletion:^(UIViewController*vc) {
-        [self.routing showPledgeViewControllerWithPresenter:vc];
+        [self.routing showPledgeViewControllerForPositiveAction:nil withPresenter:vc];
     }];
 }
 
@@ -123,18 +131,20 @@ static NSArray *reminders;
 
 - (void)confirm
 {
-    NSDate *finalDate = [self calculateReminderDate];
+    NSDate *pledgeDate = [self pledgeDate];
+    NSDate *finalDate = [self calculateReminderDateFromPledgeDate:pledgeDate];
     NSLog(@"date: %@", finalDate);
     if (![self.reminderItem.value[0] isEqualToString:[reminders lastObject]]) {
         [[[LocalNotificationHound alloc] initWithDate:finalDate withMessage:@"Remember to do this shit"] setup];
     }
+    [self.topicService pledgePositiveAction:self.positiveAction forDate:pledgeDate];
 }
 
-- (NSDate*)calculateReminderDate
+- (NSDate*)pledgeDate
 {
     NSDate *date = self.dateItem.value;
     unsigned dateUnits = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
-
+    
     NSDate *hour = self.hourItem.value;
     unsigned hourUnits = NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
     
@@ -146,8 +156,12 @@ static NSArray *reminders;
                                                                              toDate:finalDateWithoutReminder
                                                                             options:0];
     
-    
-    return [finalDateWithoutReminder dateByAddingTimeInterval:-[self reminder]];
+    return finalDateWithoutReminder;
+}
+
+- (NSDate*)calculateReminderDateFromPledgeDate:(NSDate*)date
+{
+        return [date dateByAddingTimeInterval:-[self reminder]];
 }
 
 - (NSTimeInterval)reminder

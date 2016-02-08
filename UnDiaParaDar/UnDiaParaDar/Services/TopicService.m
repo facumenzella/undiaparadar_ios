@@ -9,6 +9,7 @@
 #import "TopicService.h"
 #import "Topic.h"
 #import "PositiveAction.h"
+#import "ParsePositiveAction.h"
 #import "PositiveActionAnnotation.h"
 #import "MapFilters.h"
 #import "LocationManager.h"
@@ -89,6 +90,12 @@ static NSString *ALL;
                           withCallback:cb];
 }
 
+- (void)pledgePositiveAction:(PositiveAction*)positiveAction forDate:(NSDate*)date
+{
+    ParsePositiveAction *action = [[ParsePositiveAction alloc] initFromPositiveAction:positiveAction
+                                                                             withDate:date];
+    [action saveInBackground];
+}
 
 - (Topic*)topicById:(NSString*)topicId
 {

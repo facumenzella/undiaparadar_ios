@@ -17,7 +17,7 @@
 - (PositiveActionsFilteredWithMapViewController*)positiveActionsMapViewControllerWithTopics:(NSArray*)topics;
 - (PositiveActionViewController*)positiveActionViewControllerWithPositiveAction:(PositiveAction*)positiveAction;
 - (MapFiltersViewController*)mapFiltersViewControllerWithMapFilters:(MapFilters*)mapFilters;
-- (PledgeViewController*)pledgeViewController;
-- (PledgeDateAndTimeViewController*)pledgeDateAndTimeViewController;
+- (PledgeViewController*)pledgeViewControllerForPositiveAction:(PositiveAction*)positiveAction;
+- (PledgeDateAndTimeViewController*)pledgeDateAndTimeViewControllerForPositiveAction:(PositiveAction*)positiveAction;
 
 @end

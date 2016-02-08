@@ -28,6 +28,8 @@
 #import "PledgeViewController.h"
 #import "PledgeDateAndTimeViewController.h"
 
+#import "PositiveAction.h"
+
 #import "TermsAndConditionsAssembly.h"
 #import "TermsAndConditionsViewController.h"
 
@@ -153,15 +155,17 @@
     [self.director present:positive from:vc animated:YES];
 }
 
-- (void)showPledgeViewControllerWithPresenter:(UIViewController *)vc
+- (void)showPledgeViewControllerForPositiveAction:(PositiveAction*)positiveAction withPresenter:(UIViewController*)vc
 {
-    PledgeViewController *pledge = [self.topicsModuleAssembly pledgeViewController];
+    PledgeViewController *pledge = [self.topicsModuleAssembly pledgeViewControllerForPositiveAction:positiveAction];
     [self.director presentModal:pledge withPresenter:vc animated:YES];
 }
 
-- (void)showPledgeDateAndTimeOptionsWithPresenter:(UIViewController*)vc
+- (void)showPledgeDateAndTimeOptionsForPositiveAction:(PositiveAction*)positiveAction
+                                        withPresenter:(UIViewController*)vc
 {
-    PledgeDateAndTimeViewController *pledge = [self.topicsModuleAssembly pledgeDateAndTimeViewController];
+    PledgeDateAndTimeViewController *pledge = [self.topicsModuleAssembly
+                                               pledgeDateAndTimeViewControllerForPositiveAction:positiveAction];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:pledge];
     
     [self.tailor suitViewControllerUpForCancelEvent:pledge];

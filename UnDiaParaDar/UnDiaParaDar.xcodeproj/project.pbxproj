@@ -10,6 +10,7 @@
 		0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */; };
 		0D0610691BD030AB00595A9A /* UIColor+Transformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0610681BD030AB00595A9A /* UIColor+Transformation.m */; };
 		0D06464E1C682AE900F1AEB7 /* ParseLoginHound.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D06464D1C682AE900F1AEB7 /* ParseLoginHound.m */; };
+		0D0646521C68EAFA00F1AEB7 /* ParsePositiveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0646511C68EAFA00F1AEB7 /* ParsePositiveAction.m */; };
 		0D0DFF4C1BEADDA700279997 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DFF4B1BEADDA700279997 /* PopupView.m */; };
 		0D0DFF4F1BEAE39800279997 /* PledgePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DFF4E1BEAE39800279997 /* PledgePopupView.m */; };
 		0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F4871BB37D4300AFE46D /* TermsAndConditionsAssembly.m */; };
@@ -135,6 +136,8 @@
 		0D0610681BD030AB00595A9A /* UIColor+Transformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Transformation.m"; sourceTree = "<group>"; };
 		0D06464C1C682AE900F1AEB7 /* ParseLoginHound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseLoginHound.h; sourceTree = "<group>"; };
 		0D06464D1C682AE900F1AEB7 /* ParseLoginHound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseLoginHound.m; sourceTree = "<group>"; };
+		0D0646501C68EAFA00F1AEB7 /* ParsePositiveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsePositiveAction.h; sourceTree = "<group>"; };
+		0D0646511C68EAFA00F1AEB7 /* ParsePositiveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsePositiveAction.m; sourceTree = "<group>"; };
 		0D0DFF4A1BEADDA700279997 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopupView.h; path = PopupsModule/PopupView.h; sourceTree = SOURCE_ROOT; };
 		0D0DFF4B1BEADDA700279997 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopupView.m; path = PopupsModule/PopupView.m; sourceTree = SOURCE_ROOT; };
 		0D0DFF4D1BEAE39800279997 /* PledgePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PledgePopupView.h; path = PopupsModule/PledgePopupView.h; sourceTree = SOURCE_ROOT; };
@@ -382,6 +385,15 @@
 				06C0FA932F79B7DB4ECAB673 /* Pods-UnDiaParaDar.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		0D06464F1C68EAE800F1AEB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0D0646501C68EAFA00F1AEB7 /* ParsePositiveAction.h */,
+				0D0646511C68EAFA00F1AEB7 /* ParsePositiveAction.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0D0DFF491BEADD9700279997 /* PopupsModule */ = {
@@ -825,6 +837,7 @@
 		0DCC37201C6825D8007A0FAF /* Parse */ = {
 			isa = PBXGroup;
 			children = (
+				0D06464F1C68EAE800F1AEB7 /* Model */,
 				0DCC37211C6825F2007A0FAF /* ParseInitializer.h */,
 				0DCC37221C6825F2007A0FAF /* ParseInitializer.m */,
 				0D06464C1C682AE900F1AEB7 /* ParseLoginHound.h */,
@@ -1361,6 +1374,7 @@
 				0D3DB3C31B7546D90052F46B /* MenuViewController.m in Sources */,
 				113E46A21B62C74D00ADF8AC /* SWRevealTailor.m in Sources */,
 				0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */,
+				0D0646521C68EAFA00F1AEB7 /* ParsePositiveAction.m in Sources */,
 				0D0610691BD030AB00595A9A /* UIColor+Transformation.m in Sources */,
 				11A0940B1B5D61B100E4FB06 /* main.m in Sources */,
 				0D9E1E101B7E5B8F0049D08B /* SplashView.m in Sources */,

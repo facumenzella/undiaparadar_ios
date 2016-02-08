@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Tailor.h"
 
+@class PositiveAction, TopicService;
+@protocol Routing;
+
 @interface PledgeDateAndTimeViewController : UIViewController <LeftCancelButtonProtocol, RightConfirmButtonProtocol>
 
+- (instancetype)initWithRouting:(id<Routing>)routing
+             withPositiveAction:(PositiveAction*)positiveAction
+               withTopicService:(TopicService*)topicService;
 @end

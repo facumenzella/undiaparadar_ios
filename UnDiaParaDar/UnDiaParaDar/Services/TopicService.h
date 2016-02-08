@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class RestkitService, MappingProvider, Topic, MapFilters;
+@class RestkitService, MappingProvider, Topic, MapFilters, PositiveAction;
 
 @interface TopicService : NSObject
 
@@ -22,5 +22,6 @@
 - (Topic*)topicById:(NSString*)topicId;
 
 - (void)positiveActionsFilteredWith:(MapFilters*)mapFilters withCallback:(void (^)(NSError *, NSArray *))callback;
+- (void)pledgePositiveAction:(PositiveAction*)positiveAction forDate:(NSDate*)date;
 
 @end

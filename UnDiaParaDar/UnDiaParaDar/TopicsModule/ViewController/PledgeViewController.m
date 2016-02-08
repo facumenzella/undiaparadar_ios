@@ -8,12 +8,14 @@
 
 #import "PledgeViewController.h"
 #import "PledgePopupView.h"
+#import "PositiveAction.h"
 
 #import "Routing.h"
 
 @interface PledgeViewController () <PledgeViewDelegate>
 
 @property (nonatomic, strong) PledgePopupView *pledgeView;
+@property (nonatomic, strong) PositiveAction *positiveAction;
 
 @property (nonatomic, strong) id<Routing> routing;
 
@@ -21,11 +23,12 @@
 
 @implementation PledgeViewController
 
-- (instancetype)initWithRouting:(id<Routing>)routing
+- (instancetype)initWithRouting:(id<Routing>)routing withPositiveAction:(PositiveAction*)positiveAction
 {
     self = [super init];
     if (self) {
         self.routing = routing;
+        self.positiveAction = positiveAction;
         self.modalPresentationStyle = UIModalPresentationCustom;
     }
     return self;
@@ -49,7 +52,7 @@
 - (void)pledge
 {
     [self.routing dismissViewController:self withCompletion:^(UIViewController* vc) {
-        [self.routing showPledgeDateAndTimeOptionsWithPresenter:vc];
+        [self.routing showPledgeDateAndTimeOptionsForPositiveAction:self.positiveAction withPresenter:self];
     }];
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "ParseInitializer.h"
+#import "ParsePositiveAction.h"
 #import <Parse/Parse.h>
 #import <ParseFacebookUtilsV4/ParseFacebookUtilsV4.h>
 
@@ -14,6 +15,7 @@
 
 + (void)setupWithLaunchOptions:(NSDictionary*)launchOptions
 {
+    [ParsePositiveAction registerSubclass];
     [Parse setApplicationId:@"EQYn0fafGF0NFi7IyZDBzBUKWcewFKI6SsiMUIe8"
                   clientKey:@"9nii0zRFoSxyzyspa1bqihXzdbaYAF561twEbB2j"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];

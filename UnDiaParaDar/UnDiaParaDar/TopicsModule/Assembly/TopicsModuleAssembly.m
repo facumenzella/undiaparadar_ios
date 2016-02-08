@@ -10,6 +10,7 @@
 #import "RoutingModuleAssembly.h"
 #import "ServiceModuleAssembly.h"
 
+#import "PositiveAction.h"
 #import "TopicsCollectionViewController.h"
 #import "PositiveActionsFilteredWithMapViewController.h"
 #import "PositiveActionViewController.h"
@@ -82,25 +83,28 @@
     
 }
 
-- (PledgeViewController*)pledgeViewController
+- (PledgeViewController*)pledgeViewControllerForPositiveAction:(PositiveAction*)positiveAction
 {
-    SEL selector = @selector(initWithRouting:);
+    SEL selector = @selector(initWithRouting:withPositiveAction:);
     return [TyphoonDefinition withClass:[PledgeViewController class]
                           configuration:^(TyphoonDefinition* definition) {
                               [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
                                   [initializer injectParameterWith:[self.routingModuleAssembly routing]];
+                                  [initializer injectParameterWith:positiveAction];
                               }];
                           }];
     
 }
 
-- (PledgeDateAndTimeViewController*)pledgeDateAndTimeViewController
+- (PledgeDateAndTimeViewController*)pledgeDateAndTimeViewControllerForPositiveAction:(PositiveAction*)positiveAction
 {
-    SEL selector = @selector(initWithRouting:);
+    SEL selector = @selector(initWithRouting:withPositiveAction:withTopicService:);
     return [TyphoonDefinition withClass:[PledgeDateAndTimeViewController class]
                           configuration:^(TyphoonDefinition* definition) {
                               [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
                                   [initializer injectParameterWith:[self.routingModuleAssembly routing]];
+                                  [initializer injectParameterWith:positiveAction];
+                                  [initializer injectParameterWith:[self.serviceModuleAssembly topicService]];
                               }];
                           }];
     

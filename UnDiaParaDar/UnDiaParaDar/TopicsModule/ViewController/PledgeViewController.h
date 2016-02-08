@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @protocol Routing;
+@class PositiveAction;
 
 @interface PledgeViewController : UIViewController
 
-- (instancetype)initWithRouting:(id<Routing>)routing;
+- (instancetype)initWithRouting:(id<Routing>)routing withPositiveAction:(PositiveAction*)positiveAction;
 
 @end
