@@ -11,6 +11,7 @@
 #import "BeautyCenter.h"
 #import "TyphoonInitializer.h"
 #import "FacebookInitializer.h"
+#import "ParseInitializer.h"
 #import "NetworkReachabilityController.h"
 
 #import "Routing.h"
@@ -33,6 +34,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
     
+    
+    [ParseInitializer setupWithLaunchOptions:launchOptions];
     BOOL fbSetup = [FacebookInitializer setup:application withOptions:launchOptions];
     [TyphoonInitializer setup];
     [BeautyCenter setup];

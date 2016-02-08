@@ -77,6 +77,18 @@
 		0DCC36FE1C67EE17007A0FAF /* PledgeDateAndTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCC36FD1C67EE17007A0FAF /* PledgeDateAndTimeViewController.m */; };
 		0DCC37021C67FDC9007A0FAF /* LocalNotificationHound.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCC37011C67FDC9007A0FAF /* LocalNotificationHound.m */; };
 		0DCC37051C680941007A0FAF /* LocalNotificationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCC37041C680941007A0FAF /* LocalNotificationsManager.m */; };
+		0DCC370B1C682577007A0FAF /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCC370A1C682577007A0FAF /* Accounts.framework */; };
+		0DCC370D1C68257D007A0FAF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCC370C1C68257D007A0FAF /* AudioToolbox.framework */; };
+		0DCC370F1C682585007A0FAF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCC370E1C682585007A0FAF /* CFNetwork.framework */; };
+		0DCC37111C68258A007A0FAF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCC37101C68258A007A0FAF /* CoreGraphics.framework */; };
+		0DCC37131C682598007A0FAF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCC37121C682598007A0FAF /* QuartzCore.framework */; };
+		0DCC37151C68259D007A0FAF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCC37141C68259D007A0FAF /* Security.framework */; };
+		0DCC37171C6825A2007A0FAF /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCC37161C6825A2007A0FAF /* Social.framework */; };
+		0DCC37191C6825A8007A0FAF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCC37181C6825A8007A0FAF /* StoreKit.framework */; };
+		0DCC371B1C6825AF007A0FAF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCC371A1C6825AF007A0FAF /* SystemConfiguration.framework */; };
+		0DCC371D1C6825B6007A0FAF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCC371C1C6825B6007A0FAF /* libz.tbd */; };
+		0DCC371F1C6825BC007A0FAF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCC371E1C6825BC007A0FAF /* libsqlite3.tbd */; };
+		0DCC37231C6825F2007A0FAF /* ParseInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCC37221C6825F2007A0FAF /* ParseInitializer.m */; };
 		0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */; };
 		0DD38FF11BBEFC4B0038C2E2 /* UIViewController+DisableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FF01BBEFC4B0038C2E2 /* UIViewController+DisableView.m */; };
 		0DEBE1CD1BC1D4F000906E52 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DEBE1CC1BC1D4F000906E52 /* CoreLocation.framework */; };
@@ -252,6 +264,19 @@
 		0DCC37011C67FDC9007A0FAF /* LocalNotificationHound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationHound.m; sourceTree = "<group>"; };
 		0DCC37031C680941007A0FAF /* LocalNotificationsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationsManager.h; sourceTree = "<group>"; };
 		0DCC37041C680941007A0FAF /* LocalNotificationsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationsManager.m; sourceTree = "<group>"; };
+		0DCC370A1C682577007A0FAF /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		0DCC370C1C68257D007A0FAF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		0DCC370E1C682585007A0FAF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		0DCC37101C68258A007A0FAF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0DCC37121C682598007A0FAF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0DCC37141C68259D007A0FAF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0DCC37161C6825A2007A0FAF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		0DCC37181C6825A8007A0FAF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		0DCC371A1C6825AF007A0FAF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0DCC371C1C6825B6007A0FAF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		0DCC371E1C6825BC007A0FAF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		0DCC37211C6825F2007A0FAF /* ParseInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseInitializer.h; sourceTree = "<group>"; };
+		0DCC37221C6825F2007A0FAF /* ParseInitializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseInitializer.m; sourceTree = "<group>"; };
 		0DCD99D31B8F7FD500FF738E /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		0DD38FEF1BBEFC4B0038C2E2 /* UIViewController+DisableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DisableView.h"; sourceTree = "<group>"; };
@@ -321,7 +346,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DCC371F1C6825BC007A0FAF /* libsqlite3.tbd in Frameworks */,
+				0DCC371D1C6825B6007A0FAF /* libz.tbd in Frameworks */,
+				0DCC371B1C6825AF007A0FAF /* SystemConfiguration.framework in Frameworks */,
+				0DCC37191C6825A8007A0FAF /* StoreKit.framework in Frameworks */,
+				0DCC37171C6825A2007A0FAF /* Social.framework in Frameworks */,
+				0DCC37151C68259D007A0FAF /* Security.framework in Frameworks */,
+				0DCC37131C682598007A0FAF /* QuartzCore.framework in Frameworks */,
 				0DEBE1CD1BC1D4F000906E52 /* CoreLocation.framework in Frameworks */,
+				0DCC37111C68258A007A0FAF /* CoreGraphics.framework in Frameworks */,
+				0DCC370F1C682585007A0FAF /* CFNetwork.framework in Frameworks */,
+				0DCC370D1C68257D007A0FAF /* AudioToolbox.framework in Frameworks */,
+				0DCC370B1C682577007A0FAF /* Accounts.framework in Frameworks */,
 				0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -783,6 +819,15 @@
 			path = LocalNotificationsModule;
 			sourceTree = "<group>";
 		};
+		0DCC37201C6825D8007A0FAF /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				0DCC37211C6825F2007A0FAF /* ParseInitializer.h */,
+				0DCC37221C6825F2007A0FAF /* ParseInitializer.m */,
+			);
+			path = Parse;
+			sourceTree = "<group>";
+		};
 		0DCD99D21B8F7FBE00FF738E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -944,6 +989,7 @@
 		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
 			isa = PBXGroup;
 			children = (
+				0DCC37201C6825D8007A0FAF /* Parse */,
 				0DCC36FF1C67FDA0007A0FAF /* LocalNotificationsModule */,
 				0D7BA7B61BF1753D00297A7F /* Facebook */,
 				0D7D1BAE1BEC3213006AADAB /* NetworkReachabilityModule */,
@@ -1086,6 +1132,17 @@
 		724CCA6615E58C6D4901AFC9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DCC371E1C6825BC007A0FAF /* libsqlite3.tbd */,
+				0DCC371C1C6825B6007A0FAF /* libz.tbd */,
+				0DCC371A1C6825AF007A0FAF /* SystemConfiguration.framework */,
+				0DCC37181C6825A8007A0FAF /* StoreKit.framework */,
+				0DCC37161C6825A2007A0FAF /* Social.framework */,
+				0DCC37141C68259D007A0FAF /* Security.framework */,
+				0DCC37121C682598007A0FAF /* QuartzCore.framework */,
+				0DCC37101C68258A007A0FAF /* CoreGraphics.framework */,
+				0DCC370E1C682585007A0FAF /* CFNetwork.framework */,
+				0DCC370C1C68257D007A0FAF /* AudioToolbox.framework */,
+				0DCC370A1C682577007A0FAF /* Accounts.framework */,
 				0DEBE1CC1BC1D4F000906E52 /* CoreLocation.framework */,
 				359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */,
 			);
@@ -1104,6 +1161,7 @@
 				11A094021B5D61B100E4FB06 /* Frameworks */,
 				11A094031B5D61B100E4FB06 /* Resources */,
 				BE64F84C8C3741C4AEF9C775 /* Copy Pods Resources */,
+				9090DEEF30747327F81CC9C6 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1208,6 +1266,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		9090DEEF30747327F81CC9C6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BE64F84C8C3741C4AEF9C775 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1251,6 +1324,7 @@
 				0D44DADA1B90E62600A274BD /* MenuOptionViewCell.m in Sources */,
 				0DAF2FDF1B7E9AEC0045CE08 /* TopicsModuleAssembly.m in Sources */,
 				0D7C57491BC1B04200A402CF /* LoadingView.m in Sources */,
+				0DCC37231C6825F2007A0FAF /* ParseInitializer.m in Sources */,
 				0D7D1BAA1BEC2FA9006AADAB /* NoConnectionPopupView.m in Sources */,
 				0DD38FF11BBEFC4B0038C2E2 /* UIViewController+DisableView.m in Sources */,
 				0DAF2FAD1B7E8EED0045CE08 /* TopicsCollectionViewController.m in Sources */,
@@ -1441,6 +1515,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = UnDiaParaDar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1457,6 +1535,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = UnDiaParaDar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -11,5 +11,8 @@ target 'UnDiaParaDar', :exclusive => true do
 # Facebook!!!
 	pod 'FBSDKLoginKit', '~> 4.1'
 	pod 'FBSDKShareKit', '~> 4.7.1'
+# Parse
+	pod 'Parse'
+	pod 'ParseFacebookUtilsV4'
 end
 

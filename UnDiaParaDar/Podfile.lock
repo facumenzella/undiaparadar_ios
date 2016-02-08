@@ -23,6 +23,13 @@ PODS:
   - GCNetworkReachability (1.3.2)
   - ISO8601DateFormatterValueTransformer (0.6.1):
     - RKValueTransformers (~> 1.1.0)
+  - Parse (1.9.1):
+    - Bolts/Tasks (>= 1.4.0)
+  - ParseFacebookUtilsV4 (1.9.0):
+    - Bolts/Tasks (>= 1.3.0)
+    - FBSDKCoreKit (~> 4.7)
+    - FBSDKLoginKit (~> 4.7)
+    - Parse (~> 1.9)
   - PureLayout (3.0.1)
   - REFormattedNumberField (1.1.5)
   - RestKit (0.24.1):
@@ -60,6 +67,8 @@ DEPENDENCIES:
   - FBSDKLoginKit (~> 4.1)
   - FBSDKShareKit (~> 4.7.1)
   - GCNetworkReachability (~> 1.3)
+  - Parse
+  - ParseFacebookUtilsV4
   - PureLayout
   - RestKit (= 0.24.1)
   - RETableViewManager (~> 1.5.12)
@@ -78,6 +87,8 @@ SPEC CHECKSUMS:
   FBSDKShareKit: 213adf63e073f41a346b0e7a689805880dc5150e
   GCNetworkReachability: 2a7dd53d362220326b3e38df68c91b3ef84418d1
   ISO8601DateFormatterValueTransformer: 52da467d6ec899d6aedda8e48280ac92e8ee97e6
+  Parse: 54a965c8c19a6dde90284ab654dbcc77ef8c001b
+  ParseFacebookUtilsV4: aadebfaaaf4a45bf0a0992863bf48c8fc49189e3
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
   REFormattedNumberField: be3d55dd709f65541fb26b7e1709da07903147f8
   RestKit: 1987b5efef289c6b27bd980714d6ca48d3871b78
@@ -88,4 +99,4 @@ SPEC CHECKSUMS:
   TransitionKit: 3a14b6acc7cf2d1dd3e454e24dbad1cfab9a1ef1
   Typhoon: f2f712f549867ba69e8f1bccf46b3fb67d595838
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0
