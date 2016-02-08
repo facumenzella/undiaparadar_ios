@@ -143,7 +143,7 @@
                                                   withOptionTitle:achievements];
     achievementsPresenter.selectionHandler = ^(MenuOptionPresenter* presenter) {
         [presenter deselectRowAnimated:NO];
-        NSLog(@"Not done");
+        [self.routing showAchievementsViewController];
     };
     [itemsSection addItem:achievementsPresenter];
     

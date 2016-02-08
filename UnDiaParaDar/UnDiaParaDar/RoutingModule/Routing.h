@@ -33,4 +33,6 @@
 - (void)showLoadingWithPresenter:(UIViewController*)presenter withLoadingBlock:(LoadingBlock)loadingBlock;
 - (void)showMapFiltersViewWithMapFilters:(MapFilters*)mapFilters withPresenter:(UIViewController*)presenters;
 
+- (void)showAchievementsViewController;
+
 @end

@@ -8,10 +8,18 @@
 
 #import "AchievementsViewController.h"
 #import "AchievementsView.h"
+#import "RETableViewManager+ReplaceItem.h"
+#import "AchievementConfirmedPresenter.h"
 
 @interface AchievementsViewController ()
 
 @property (nonatomic, strong) AchievementsView *achievementsView;
+@property (nonatomic, strong) RETableViewManager *manager;
+
+@property (nonatomic, strong) RETableViewSection *sectionAll;
+@property (nonatomic, strong) RETableViewSection *sectionConfirmed;
+@property (nonatomic, strong) RETableViewSection *sectionCommitment;
+@property (nonatomic, strong) RETableViewSection *sectionNotDone;
 
 @end
 
@@ -26,6 +34,25 @@
 - (void)viewDidLoad
 {
     self.title = NSLocalizedString(@"ACHIEVEMENTS_SECTION", @"Logros");
+    
+    self.manager = [[RETableViewManager alloc] initWithTableView:self.achievementsView.tableView];
+    
+    [self registerAndBuildSections];
+}
+
+- (void)registerAndBuildSections
+{
+    self.manager[@"AchievementConfirmedPresenter"] = @"AchievementCell";
+    [self buildAllSection];
+}
+
+- (void)buildAllSection
+{
+    self.sectionAll = [RETableViewSection section];
+    [self.manager addSection:self.sectionAll];
+    
+    [self.sectionAll addItem:[[AchievementConfirmedPresenter alloc] initWithTitle:@""]];
+    
 }
 
 @end

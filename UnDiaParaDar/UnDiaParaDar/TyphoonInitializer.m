@@ -21,6 +21,7 @@
 #import "QueEsModuleAssembly.h"
 #import "LoadingModuleAssembly.h"
 #import "NetworkReachabilityAssembly.h"
+#import "AchievementsAssembly.h"
 
 @implementation TyphoonInitializer
 
@@ -39,7 +40,8 @@
                                                              [ServiceModuleAssembly assembly],
                                                              [TermsAndConditionsAssembly assembly],
                                                              [QueEsModuleAssembly assembly],
-                                                             [LoadingModuleAssembly assembly]
+                                                             [LoadingModuleAssembly assembly],
+                                                             [AchievementsAssembly assembly]
                                                              ]];
     
     TyphoonConfigPostProcessor* configurer = [TyphoonConfigPostProcessor postProcessor];

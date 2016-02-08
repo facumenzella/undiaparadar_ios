@@ -42,6 +42,7 @@
 #import "NetworkReachabilityAssembly.h"
 #import "NetworkViewController.h"
 
+#import "AchievementsAssembly.h"
 
 @interface SWRevealRouting ()
 
@@ -57,6 +58,7 @@
 @property (nonatomic, strong) QueEsModuleAssembly *queEsModuleAssembly;
 @property (nonatomic, strong) LoadingModuleAssembly *loadingModuleAssembly;
 @property (nonatomic, strong) NetworkReachabilityAssembly *networkModuleAssembly;
+@property (nonatomic, strong) AchievementsAssembly *achievementsAssembly;
 
 @end
 
@@ -71,6 +73,7 @@
          withQueEsModuleAssembly:(QueEsModuleAssembly*)queEsModuleAssembly
        withLoadingModuleAssembly:(LoadingModuleAssembly*)loadingModuleAssembly
  withNetworkReachabilityAssembly:(NetworkReachabilityAssembly*)networkModuleAssembly
+         withAchievementAssembly:(AchievementsAssembly*)achievementAssembly
                    withArchitect:(id<Architect>)architect
                       withTailor:(id<Tailor>)tailor
 {
@@ -85,6 +88,7 @@
         self.queEsModuleAssembly = queEsModuleAssembly;
         self.loadingModuleAssembly = loadingModuleAssembly;
         self.networkModuleAssembly = networkModuleAssembly;
+        self.achievementsAssembly = achievementAssembly;
         self.architect = architect;
         self.tailor = tailor;
     }
@@ -203,5 +207,12 @@
     MapFiltersViewController *vc = [self.topicsModuleAssembly mapFiltersViewControllerWithMapFilters:mapFilters];
     [self.director presentModal:vc withPresenter:presenters animated:YES];
 }
+
+- (void)showAchievementsViewController
+{
+    AchievementsViewController *achievements = [self.achievementsAssembly achievementsViewController];
+    [self.director setRoot:[self.architect buildMainScreenWithRootViewController: achievements]];
+}
+
 
 @end

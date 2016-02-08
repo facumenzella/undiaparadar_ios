@@ -91,7 +91,7 @@
     self.tableView = [[UITableView alloc] initForAutoLayout];
     [self addSubview:self.tableView];
     [self.tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
-    [self.tableView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.filtersContainer withOffset:0];
+    [self.tableView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.filtersContainer withOffset:8];
 }
 
 - (void)styleSubviews

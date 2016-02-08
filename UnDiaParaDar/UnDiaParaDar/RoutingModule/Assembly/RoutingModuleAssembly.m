@@ -18,6 +18,7 @@
 #import "SWRevealArchitect.h"
 #import "SWRevealTailor.h"
 #import "SWRevealRouting.h"
+#import "AchievementsAssembly.h"
 
 // Ignore no selector in translation unit
 #pragma clang diagnostic ignored "-Wselector"
@@ -34,6 +35,7 @@
 @property (nonatomic, strong) QueEsModuleAssembly *queEsAssembly;
 @property (nonatomic, strong) LoadingModuleAssembly *loadingModuleAssembly;
 @property (nonatomic, strong) NetworkReachabilityAssembly *networkReachabilityAssembly;
+@property (nonatomic, strong) AchievementsAssembly *achievementsAssembly;
 
 @end
 
@@ -50,6 +52,7 @@
                              withQueEsModuleAssembly:
                              withLoadingModuleAssembly:
                              withNetworkReachabilityAssembly:
+                             withAchievementAssembly:
                              withArchitect:
                              withTailor:);
     return [TyphoonDefinition withClass:[SWRevealRouting class]
@@ -64,6 +67,7 @@
                                   [initializer injectParameterWith:self.queEsAssembly];
                                   [initializer injectParameterWith:self.loadingModuleAssembly];
                                   [initializer injectParameterWith:self.networkReachabilityAssembly];
+                                  [initializer injectParameterWith:self.achievementsAssembly];
                                   [initializer injectParameterWith:[self iphoneArchitect]];
                                   [initializer injectParameterWith:[self iphoneTailor]];
                               }];

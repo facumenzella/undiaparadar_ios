@@ -14,6 +14,9 @@
 		0D06465A1C690C2D00F1AEB7 /* AchievementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0646591C690C2D00F1AEB7 /* AchievementsViewController.m */; };
 		0D06465D1C690C7000F1AEB7 /* AchievementsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D06465C1C690C7000F1AEB7 /* AchievementsView.m */; };
 		0D0646601C690D2800F1AEB7 /* AchievementFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D06465F1C690D2800F1AEB7 /* AchievementFilterView.m */; };
+		0D0646631C69161C00F1AEB7 /* AchievementsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0646621C69161C00F1AEB7 /* AchievementsAssembly.m */; };
+		0D0646661C6919C000F1AEB7 /* AchievementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0646651C6919C000F1AEB7 /* AchievementCell.m */; };
+		0D06466D1C6920B700F1AEB7 /* AchievementConfirmedPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D06466C1C6920B700F1AEB7 /* AchievementConfirmedPresenter.m */; };
 		0D0DFF4C1BEADDA700279997 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DFF4B1BEADDA700279997 /* PopupView.m */; };
 		0D0DFF4F1BEAE39800279997 /* PledgePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DFF4E1BEAE39800279997 /* PledgePopupView.m */; };
 		0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F4871BB37D4300AFE46D /* TermsAndConditionsAssembly.m */; };
@@ -147,6 +150,13 @@
 		0D06465C1C690C7000F1AEB7 /* AchievementsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementsView.m; sourceTree = "<group>"; };
 		0D06465E1C690D2800F1AEB7 /* AchievementFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementFilterView.h; sourceTree = "<group>"; };
 		0D06465F1C690D2800F1AEB7 /* AchievementFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementFilterView.m; sourceTree = "<group>"; };
+		0D0646611C69161C00F1AEB7 /* AchievementsAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementsAssembly.h; sourceTree = "<group>"; };
+		0D0646621C69161C00F1AEB7 /* AchievementsAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementsAssembly.m; sourceTree = "<group>"; };
+		0D0646641C6919C000F1AEB7 /* AchievementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementCell.h; sourceTree = "<group>"; };
+		0D0646651C6919C000F1AEB7 /* AchievementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementCell.m; sourceTree = "<group>"; };
+		0D06466A1C69201800F1AEB7 /* AchievementBaseCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementBaseCellProtocol.h; sourceTree = "<group>"; };
+		0D06466B1C6920B700F1AEB7 /* AchievementConfirmedPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementConfirmedPresenter.h; sourceTree = "<group>"; };
+		0D06466C1C6920B700F1AEB7 /* AchievementConfirmedPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementConfirmedPresenter.m; sourceTree = "<group>"; };
 		0D0DFF4A1BEADDA700279997 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopupView.h; path = PopupsModule/PopupView.h; sourceTree = SOURCE_ROOT; };
 		0D0DFF4B1BEADDA700279997 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopupView.m; path = PopupsModule/PopupView.m; sourceTree = SOURCE_ROOT; };
 		0D0DFF4D1BEAE39800279997 /* PledgePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PledgePopupView.h; path = PopupsModule/PledgePopupView.h; sourceTree = SOURCE_ROOT; };
@@ -419,6 +429,8 @@
 		0D0646541C690C2000F1AEB7 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
+				0D0646611C69161C00F1AEB7 /* AchievementsAssembly.h */,
+				0D0646621C69161C00F1AEB7 /* AchievementsAssembly.m */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -426,6 +438,9 @@
 		0D0646551C690C2000F1AEB7 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				0D06466A1C69201800F1AEB7 /* AchievementBaseCellProtocol.h */,
+				0D06466B1C6920B700F1AEB7 /* AchievementConfirmedPresenter.h */,
+				0D06466C1C6920B700F1AEB7 /* AchievementConfirmedPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -437,6 +452,8 @@
 				0D06465C1C690C7000F1AEB7 /* AchievementsView.m */,
 				0D06465E1C690D2800F1AEB7 /* AchievementFilterView.h */,
 				0D06465F1C690D2800F1AEB7 /* AchievementFilterView.m */,
+				0D0646641C6919C000F1AEB7 /* AchievementCell.h */,
+				0D0646651C6919C000F1AEB7 /* AchievementCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1382,6 +1399,7 @@
 				0D06465D1C690C7000F1AEB7 /* AchievementsView.m in Sources */,
 				113E469E1B62C07E00ADF8AC /* ProfileViewController.m in Sources */,
 				0D9E1E0D1B7E5AA50049D08B /* SplashViewController.m in Sources */,
+				0D0646631C69161C00F1AEB7 /* AchievementsAssembly.m in Sources */,
 				0D3D72351BBB6510006EC1E9 /* RestkitService.m in Sources */,
 				0DCC36FE1C67EE17007A0FAF /* PledgeDateAndTimeViewController.m in Sources */,
 				0DCBD1401BBB870500A870FD /* FMActivityIndicatorView.m in Sources */,
@@ -1428,6 +1446,7 @@
 				0DBD21A61BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m in Sources */,
 				0DAF2FDC1B7E94C40045CE08 /* TopicService.m in Sources */,
 				0D3DB3C31B7546D90052F46B /* MenuViewController.m in Sources */,
+				0D0646661C6919C000F1AEB7 /* AchievementCell.m in Sources */,
 				113E46A21B62C74D00ADF8AC /* SWRevealTailor.m in Sources */,
 				0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */,
 				0D0646521C68EAFA00F1AEB7 /* ParsePositiveAction.m in Sources */,
@@ -1467,6 +1486,7 @@
 				11DEE6B31B5D818500DCDE3E /* LoginView.m in Sources */,
 				11DEE6941B5D6E7F00DCDE3E /* LoginModuleAssembly.m in Sources */,
 				0D1763851BB464C300C6E664 /* QueEsPresenter.m in Sources */,
+				0D06466D1C6920B700F1AEB7 /* AchievementConfirmedPresenter.m in Sources */,
 				0D0646601C690D2800F1AEB7 /* AchievementFilterView.m in Sources */,
 				0D06465A1C690C2D00F1AEB7 /* AchievementsViewController.m in Sources */,
 				0D8B6AFB1BCEE09D00D04A75 /* SelectedTopicsCollectionView.m in Sources */,

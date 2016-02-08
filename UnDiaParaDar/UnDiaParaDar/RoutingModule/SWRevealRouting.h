@@ -20,6 +20,7 @@
 @class QueEsModuleAssembly;
 @class LoadingModuleAssembly;
 @class NetworkReachabilityAssembly;
+@class AchievementsAssembly;
 
 @interface SWRevealRouting : NSObject<Routing>
 
@@ -32,6 +33,7 @@
          withQueEsModuleAssembly:(QueEsModuleAssembly*)queEsModuleAssembly
        withLoadingModuleAssembly:(LoadingModuleAssembly*)loadingModuleAssembly
  withNetworkReachabilityAssembly:(NetworkReachabilityAssembly*)networkModuleAssembly
+         withAchievementAssembly:(AchievementsAssembly*)achievementAssembly
                    withArchitect:(id<Architect>)architect
                       withTailor:(id<Tailor>)tailor;
 
