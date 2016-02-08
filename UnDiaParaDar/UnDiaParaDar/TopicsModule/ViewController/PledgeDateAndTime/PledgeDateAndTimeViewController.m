@@ -12,6 +12,8 @@
 #import "RETableViewManager+ReplaceItem.h"
 #import "LocalNotificationHound.h"
 
+static NSArray *reminders;
+
 @interface PledgeDateAndTimeViewController ()
 
 @property (nonatomic, strong) id<Routing> routing;
@@ -20,6 +22,7 @@
 
 @property (nonatomic, strong) REDateTimeItem *dateItem;
 @property (nonatomic, strong) REDateTimeItem *hourItem;
+@property (nonatomic, strong) REPickerItem *reminderItem;
 
 @end
 
@@ -30,6 +33,7 @@
     self = [super init];
     if (self) {
         self.routing = routing;
+        [self buildReminders];
     }
     return self;
 }
@@ -49,7 +53,26 @@
     [self registerAndBuildSections];
 }
 
+- (void)buildReminders
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        reminders = @[NSLocalizedString(@"REMINDER_HALF_HOUR", @"Media hora antes"),
+                      NSLocalizedString(@"REMINDER_ONE_HOUR", @"Una hora antes"),
+                      NSLocalizedString(@"REMINDER_TWELVE_HOUR", @"12 Horas antes"),
+                      NSLocalizedString(@"REMINDER_ONE_DAY", @"Un dia antes"),
+                      NSLocalizedString(@"REMINDER_NO", @"No gracias")];
+    });
+}
+
 - (void)registerAndBuildSections
+{
+    [self buildDateSection];
+    [self buildTimeSection];
+    [self buildReminderSection];
+}
+
+- (void)buildDateSection
 {
     RETableViewSection *dateSection = [RETableViewSection section];
     [self.manager addSection:dateSection];
@@ -60,7 +83,10 @@
                                            format:@"MM/dd/yyyy"
                                    datePickerMode:UIDatePickerModeDate];
     [dateSection addItem:self.dateItem];
-    
+}
+
+- (void)buildTimeSection
+{
     RETableViewSection *timeSection = [RETableViewSection section];
     [self.manager addSection:timeSection];
     
@@ -72,10 +98,22 @@
     [timeSection addItem:self.hourItem];
 }
 
+- (void)buildReminderSection
+{
+    RETableViewSection *reminderSection = [RETableViewSection section];
+    [self.manager addSection:reminderSection];
+    self.reminderItem = [REPickerItem itemWithTitle:@"Recordatorio"
+                                              value:@[reminders[reminders.count - 1]]
+                                        placeholder:nil
+                                            options:@[reminders]];
+    [reminderSection addItem:self.reminderItem];
+}
+
 #pragma mark - LeftCancelButtonProtocol
 
 - (void)cancel
 {
+    [self.manager.tableView reloadData];
     [self.routing dismissViewController:self withCompletion:^(UIViewController*vc) {
         [self.routing showPledgeViewControllerWithPresenter:vc];
     }];
@@ -85,19 +123,49 @@
 
 - (void)confirm
 {
-    NSDate *hour = self.hourItem.value;
-    NSDate *date = self.dateItem.value;
-    
-    unsigned dateUnits = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
-    unsigned hourUnits = NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSDate *finalDate = [self calculateReminderDate];
+    NSLog(@"date: %@", finalDate);
+    if (![self.reminderItem.value[0] isEqualToString:[reminders lastObject]]) {
+        [[[LocalNotificationHound alloc] initWithDate:finalDate withMessage:@"Remember to do this shit"] setup];
+    }
+}
 
+- (NSDate*)calculateReminderDate
+{
+    NSDate *date = self.dateItem.value;
+    unsigned dateUnits = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+
+    NSDate *hour = self.hourItem.value;
+    unsigned hourUnits = NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    
     NSDateComponents *comps = [[NSCalendar currentCalendar] components:dateUnits fromDate:date];
     
-    NSDate *finalDate = [[NSCalendar currentCalendar] dateFromComponents:comps];
+    NSDate *finalDateWithoutReminder = [[NSCalendar currentCalendar] dateFromComponents:comps];
     comps = [[NSCalendar currentCalendar] components:hourUnits fromDate:hour];
-    finalDate = [[NSCalendar currentCalendar] dateByAddingComponents:comps toDate:finalDate options:0];
+    finalDateWithoutReminder = [[NSCalendar currentCalendar] dateByAddingComponents:comps
+                                                                             toDate:finalDateWithoutReminder
+                                                                            options:0];
     
-    [[[LocalNotificationHound alloc] initWithDate:finalDate withMessage:@"Remember to do this shit"] setup];
+    
+    return [finalDateWithoutReminder dateByAddingTimeInterval:-[self reminder]];
+}
+
+- (NSTimeInterval)reminder
+{
+    static NSTimeInterval halfHour = 30 * 60;
+    static NSTimeInterval hour = 60 * 60;
+    static NSTimeInterval twelveHours = 60 * 60 * 12;
+    static NSTimeInterval oneDay = 60 * 60 * 24;
+    
+    if ([self.reminderItem.value[0] isEqualToString:reminders[0]]) {
+        return halfHour;
+    } else if ([self.reminderItem.value[0] isEqualToString:reminders[1]]) {
+        return hour;
+    } else if ([self.reminderItem.value[0] isEqualToString:reminders[2]]) {
+        return twelveHours;
+    } else {
+        return oneDay;
+    }
 }
 
 @end
