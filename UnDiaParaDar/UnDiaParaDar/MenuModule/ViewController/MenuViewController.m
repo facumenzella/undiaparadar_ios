@@ -135,6 +135,18 @@
     };
     [itemsSection addItem:mapPresenter];
     
+    //achievements
+    NSString *const achievements =
+    NSLocalizedString(@"ACHIEVEMENTS_SECTION", @"Logros");
+    MenuOptionPresenter *achievementsPresenter = [[MenuOptionPresenter alloc]
+                                                  initWithOptionImage:@"achievement_section"
+                                                  withOptionTitle:achievements];
+    achievementsPresenter.selectionHandler = ^(MenuOptionPresenter* presenter) {
+        [presenter deselectRowAnimated:NO];
+        NSLog(@"Not done");
+    };
+    [itemsSection addItem:achievementsPresenter];
+    
     //que es UDPD
     NSString *const queESTittle =
     NSLocalizedString(@"QUEES_SECTION", @"Qué es UDPD?");
