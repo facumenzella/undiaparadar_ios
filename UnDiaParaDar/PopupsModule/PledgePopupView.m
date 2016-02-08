@@ -212,7 +212,7 @@ static NSString *const kLooking = @"keepLooking";
 
 - (void)keepLooking
 {
-    [UIView animateWithDuration:.4 animations: ^{
+    [UIView animateWithDuration:.2 animations: ^{
         self.backgroundColor = [UIColor clearColor];
     } completion:^(BOOL completed) {
         [self.delegate keepLooking];
