@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */; };
+		0D05A28D1C693F2B009EF42D /* UILabel+EstimatedHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D05A28B1C693F2B009EF42D /* UILabel+EstimatedHeight.m */; };
 		0D0610691BD030AB00595A9A /* UIColor+Transformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0610681BD030AB00595A9A /* UIColor+Transformation.m */; };
 		0D06464E1C682AE900F1AEB7 /* ParseLoginHound.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D06464D1C682AE900F1AEB7 /* ParseLoginHound.m */; };
 		0D0646521C68EAFA00F1AEB7 /* ParsePositiveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0646511C68EAFA00F1AEB7 /* ParsePositiveAction.m */; };
@@ -19,6 +20,9 @@
 		0D06466D1C6920B700F1AEB7 /* AchievementConfirmedPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D06466C1C6920B700F1AEB7 /* AchievementConfirmedPresenter.m */; };
 		0D0646731C6929F000F1AEB7 /* AchievementPledgePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0646721C6929F000F1AEB7 /* AchievementPledgePresenter.m */; };
 		0D0646761C692A6600F1AEB7 /* AchievementNotDonePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0646751C692A6600F1AEB7 /* AchievementNotDonePresenter.m */; };
+		0D0646791C692E5500F1AEB7 /* AchievementService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0646781C692E5500F1AEB7 /* AchievementService.m */; };
+		0D06467D1C692FC100F1AEB7 /* Achievement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D06467C1C692FC100F1AEB7 /* Achievement.m */; };
+		0D0646801C69375000F1AEB7 /* ParseDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D06467F1C69375000F1AEB7 /* ParseDateFormatter.m */; };
 		0D0DFF4C1BEADDA700279997 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DFF4B1BEADDA700279997 /* PopupView.m */; };
 		0D0DFF4F1BEAE39800279997 /* PledgePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DFF4E1BEAE39800279997 /* PledgePopupView.m */; };
 		0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D11F4871BB37D4300AFE46D /* TermsAndConditionsAssembly.m */; };
@@ -140,6 +144,8 @@
 
 /* Begin PBXFileReference section */
 		06C0FA932F79B7DB4ECAB673 /* Pods-UnDiaParaDar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnDiaParaDar.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar.release.xcconfig"; sourceTree = "<group>"; };
+		0D05A28B1C693F2B009EF42D /* UILabel+EstimatedHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+EstimatedHeight.m"; sourceTree = "<group>"; };
+		0D05A28C1C693F2B009EF42D /* UILabel+EstimatedHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+EstimatedHeight.h"; sourceTree = "<group>"; };
 		0D0610671BD030AB00595A9A /* UIColor+Transformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Transformation.h"; sourceTree = "<group>"; };
 		0D0610681BD030AB00595A9A /* UIColor+Transformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Transformation.m"; sourceTree = "<group>"; };
 		0D06464C1C682AE900F1AEB7 /* ParseLoginHound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseLoginHound.h; sourceTree = "<group>"; };
@@ -163,6 +169,12 @@
 		0D0646721C6929F000F1AEB7 /* AchievementPledgePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementPledgePresenter.m; sourceTree = "<group>"; };
 		0D0646741C692A6600F1AEB7 /* AchievementNotDonePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementNotDonePresenter.h; sourceTree = "<group>"; };
 		0D0646751C692A6600F1AEB7 /* AchievementNotDonePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementNotDonePresenter.m; sourceTree = "<group>"; };
+		0D0646771C692E5500F1AEB7 /* AchievementService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementService.h; sourceTree = "<group>"; };
+		0D0646781C692E5500F1AEB7 /* AchievementService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementService.m; sourceTree = "<group>"; };
+		0D06467B1C692FC100F1AEB7 /* Achievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Achievement.h; sourceTree = "<group>"; };
+		0D06467C1C692FC100F1AEB7 /* Achievement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Achievement.m; sourceTree = "<group>"; };
+		0D06467E1C69375000F1AEB7 /* ParseDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseDateFormatter.h; sourceTree = "<group>"; };
+		0D06467F1C69375000F1AEB7 /* ParseDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseDateFormatter.m; sourceTree = "<group>"; };
 		0D0DFF4A1BEADDA700279997 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopupView.h; path = PopupsModule/PopupView.h; sourceTree = SOURCE_ROOT; };
 		0D0DFF4B1BEADDA700279997 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopupView.m; path = PopupsModule/PopupView.m; sourceTree = SOURCE_ROOT; };
 		0D0DFF4D1BEAE39800279997 /* PledgePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PledgePopupView.h; path = PopupsModule/PledgePopupView.h; sourceTree = SOURCE_ROOT; };
@@ -424,6 +436,7 @@
 		0D0646531C690BF400F1AEB7 /* AchievementsModule */ = {
 			isa = PBXGroup;
 			children = (
+				0D06467A1C692FB800F1AEB7 /* Model */,
 				0D0646541C690C2000F1AEB7 /* Assembly */,
 				0D0646551C690C2000F1AEB7 /* Presenter */,
 				0D0646561C690C2000F1AEB7 /* View */,
@@ -475,6 +488,15 @@
 				0D0646591C690C2D00F1AEB7 /* AchievementsViewController.m */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0D06467A1C692FB800F1AEB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0D06467B1C692FC100F1AEB7 /* Achievement.h */,
+				0D06467C1C692FC100F1AEB7 /* Achievement.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0D0DFF491BEADD9700279997 /* PopupsModule */ = {
@@ -873,6 +895,8 @@
 				0D3D72341BBB6510006EC1E9 /* RestkitService.m */,
 				0D8580ED1BBB6B17002CEB2B /* MappingProvider.h */,
 				0D8580EE1BBB6B17002CEB2B /* MappingProvider.m */,
+				0D0646771C692E5500F1AEB7 /* AchievementService.h */,
+				0D0646781C692E5500F1AEB7 /* AchievementService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -930,6 +954,8 @@
 		0DCD99D21B8F7FBE00FF738E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0D05A28B1C693F2B009EF42D /* UILabel+EstimatedHeight.m */,
+				0D05A28C1C693F2B009EF42D /* UILabel+EstimatedHeight.h */,
 				0D4B13B81BA4BB5D00961764 /* RemoteImageView.h */,
 				0D4B13B91BA4BB5D00961764 /* RemoteImageView.m */,
 				0DBD21A41BA37CCB002AC53C /* RETableViewManager+ReplaceItem.h */,
@@ -942,6 +968,8 @@
 				0DB1E7041BC5ED71004A86A9 /* UIImage+AverageColor.m */,
 				0D0610671BD030AB00595A9A /* UIColor+Transformation.h */,
 				0D0610681BD030AB00595A9A /* UIColor+Transformation.m */,
+				0D06467E1C69375000F1AEB7 /* ParseDateFormatter.h */,
+				0D06467F1C69375000F1AEB7 /* ParseDateFormatter.m */,
 			);
 			name = Extensions;
 			path = Extension;
@@ -1437,11 +1465,13 @@
 				11DEE6AA1B5D774900DCDE3E /* SWRevealRouting.m in Sources */,
 				1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */,
 				0D8974921BC4B5AC00ACD124 /* ProfileView.m in Sources */,
+				0D0646801C69375000F1AEB7 /* ParseDateFormatter.m in Sources */,
 				0DAF2FE51B7E9FF30045CE08 /* TopicsCollectionViewCell.m in Sources */,
 				110FE8AB1B66B8C0002A2273 /* SWRevealArchitect.m in Sources */,
 				0DB589201BE9899F0033D027 /* FiltersViewCollectionLayout.m in Sources */,
 				0D7C57481BC1B04200A402CF /* LoadingViewController.m in Sources */,
 				0DCC36F81C67ECA0007A0FAF /* PledgeDateAndTimeView.m in Sources */,
+				0D05A28D1C693F2B009EF42D /* UILabel+EstimatedHeight.m in Sources */,
 				0D7D1BBA1BEC37B6006AADAB /* NetworkViewController.m in Sources */,
 				11A0940E1B5D61B100E4FB06 /* AppDelegate.m in Sources */,
 				0DB589231BE98A5F0033D027 /* TopicsFilterViewCell.m in Sources */,
@@ -1449,6 +1479,7 @@
 				0D7D1BB31BEC326B006AADAB /* NetworkReachabilityAssembly.m in Sources */,
 				0D8B6AFC1BCEE09D00D04A75 /* TopicsCollectionView.m in Sources */,
 				0D94F83E1BA9FCE100945F81 /* PositiveActionsMapView.m in Sources */,
+				0D06467D1C692FC100F1AEB7 /* Achievement.m in Sources */,
 				0D11F48E1BB37EB200AFE46D /* TermsAndConditionsPresenter.m in Sources */,
 				0DF920EA1BC08C8F00BAA52C /* PositiveActionView.m in Sources */,
 				0DAF2FD81B7E94420045CE08 /* Topic.m in Sources */,
@@ -1456,6 +1487,7 @@
 				0DBD21A61BA37CCB002AC53C /* RETableViewManager+ReplaceItem.m in Sources */,
 				0DAF2FDC1B7E94C40045CE08 /* TopicService.m in Sources */,
 				0D3DB3C31B7546D90052F46B /* MenuViewController.m in Sources */,
+				0D0646791C692E5500F1AEB7 /* AchievementService.m in Sources */,
 				0D0646661C6919C000F1AEB7 /* AchievementCell.m in Sources */,
 				113E46A21B62C74D00ADF8AC /* SWRevealTailor.m in Sources */,
 				0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */,

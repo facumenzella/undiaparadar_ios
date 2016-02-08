@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class AchievementService;
+
 @interface AchievementsViewController : UIViewController
+
+- (instancetype)initWithAchievementService:(AchievementService*)service;
 
 @end

@@ -11,6 +11,7 @@
 #import "TopicService.h"
 #import "UserService.h"
 #import "RestkitService.h"
+#import "AchievementService.h"
 #import "MappingProvider.h"
 
 #import "TyphoonConfigPostProcessor.h"
@@ -46,6 +47,13 @@
         [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:baseURL];
         }];
+    }];
+}
+
+- (AchievementService*)achievementService
+{
+    return [TyphoonDefinition withClass:[AchievementService class] configuration:^(TyphoonDefinition* definition) {
+        definition.scope = TyphoonScopeSingleton;
     }];
 }
 

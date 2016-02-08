@@ -8,6 +8,7 @@
 
 #import "ParsePositiveAction.h"
 #import "PositiveAction.h"
+#import "ParseDateFormatter.h"
 #import <Parse/PFObject+Subclass.h>
 #import <Parse/PFSubclassing.h>
 #import <Parse/PFUser.h>
@@ -37,9 +38,7 @@
 
 + (NSString*)formatDate:(NSDate*)date
 {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd/MM/yyyy HH:mm"];
-    
+    ParseDateFormatter *formatter = [[NSDateFormatter alloc] init];
     return [formatter stringFromDate:date];
 }
 

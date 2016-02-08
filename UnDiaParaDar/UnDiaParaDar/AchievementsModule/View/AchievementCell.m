@@ -9,8 +9,18 @@
 #import "AchievementCell.h"
 #import "ButtonFactory.h"
 #import "BeautyCenter.h"
+#import "UILabel+EstimatedHeight.h"
 
 #import <PureLayout/PureLayout.h>
+
+static UILabel *bridgeLabel;
+static UIImageView *bridgeStateImageView;
+static UIImageView *bridgeCommitImageView;
+static UIFont *bridgeFont;
+
+static CGFloat const kLeftInset = 16;
+static CGFloat const kLabelLeftOffset = 8;
+static CGFloat const kConfirmLeftOffet = 4;
 
 static NSString *const kPledge = @"pledge";
 
@@ -35,7 +45,7 @@ static NSString *const kPledge = @"pledge";
 {
     [super cellWillAppear];
     
-    id <AchievementBaseCellProtocol> item = self.item;
+    id <AchievementBaseCellProtocol> item = (id <AchievementBaseCellProtocol>)self.item;
     self.stateImageView.image = [UIImage imageNamed:[item state]];
     self.confirmButton.hidden = ![item confirmEnabled];
 }
@@ -51,7 +61,7 @@ static NSString *const kPledge = @"pledge";
 {
     self.stateImageView = [[UIImageView alloc] initForAutoLayout];
     [self.contentView addSubview:self.stateImageView];
-    [self.stateImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:16];
+    [self.stateImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:kLeftInset];
     [self.stateImageView autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     [self.stateImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0 relation:NSLayoutRelationGreaterThanOrEqual];
     [self.stateImageView autoPinEdgeToSuperviewEdge:ALEdgeBottom
@@ -63,16 +73,15 @@ static NSString *const kPledge = @"pledge";
 
 - (void)buildPositiveActionTitle
 {
-    self.positiveActionTitle = [[UILabel alloc] initForAutoLayout];
     [self.contentView addSubview:self.positiveActionTitle];
-    [self.positiveActionTitle autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.stateImageView withOffset:8];
-    [self.positiveActionTitle autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
-    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeTop
-                                               withInset:0
-                                                relation:NSLayoutRelationGreaterThanOrEqual];
-    [self.positiveActionTitle autoPinEdgeToSuperviewEdge:ALEdgeBottom
-                                               withInset:0
-                                                relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.textLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.stateImageView withOffset:kLabelLeftOffset];
+    [self.textLabel autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    [self.textLabel autoPinEdgeToSuperviewEdge:ALEdgeTop
+                                     withInset:0
+                                      relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.textLabel autoPinEdgeToSuperviewEdge:ALEdgeBottom
+                                     withInset:0
+                                      relation:NSLayoutRelationGreaterThanOrEqual];
 }
 
 - (void)buildConfirmButton
@@ -80,7 +89,7 @@ static NSString *const kPledge = @"pledge";
     self.confirmButton = [ButtonFactory buttonWithImage:kPledge];
     [self.contentView addSubview:self.confirmButton];
     [self.confirmButton autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
-    [self.confirmButton autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.positiveActionTitle withOffset:4];
+    [self.confirmButton autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.textLabel withOffset:kConfirmLeftOffet];
     [self.confirmButton autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     [self.confirmButton autoPinEdgeToSuperviewEdge:ALEdgeTop
                                          withInset:0
@@ -93,15 +102,43 @@ static NSString *const kPledge = @"pledge";
 
 - (void)styleSubviews
 {
-    self.positiveActionTitle.textAlignment = NSTextAlignmentLeft;
-    self.positiveActionTitle.text = @"t;kasjdfklasdfkadf";
-    self.positiveActionTitle.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
-                                                                   withSize:BeautyCenterTypographySizeC];
+    self.textLabel.textAlignment = NSTextAlignmentLeft;
+    self.textLabel.numberOfLines = 0;
+    self.textLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
+                                                         withSize:BeautyCenterTypographySizeB];
 }
 
 + (CGFloat)heightWithItem:(RETableViewItem *)item tableViewManager:(RETableViewManager *)tableViewManager
 {
-    return 60;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        bridgeLabel = [[UILabel alloc] initForAutoLayout];
+        bridgeFont = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
+                                                    withSize:BeautyCenterTypographySizeB];
+        bridgeCommitImageView = [[UIImageView alloc] initForAutoLayout];
+        bridgeStateImageView = [[UIImageView alloc] initForAutoLayout];
+        [AchievementCell styleStateImageView:bridgeStateImageView];
+        [AchievementCell styleCommitImageView:bridgeCommitImageView];
+    });
+    
+    CGFloat width = CGRectGetWidth([UIScreen mainScreen].bounds)
+    - (CGRectGetWidth(bridgeCommitImageView.bounds) + CGRectGetWidth(bridgeStateImageView.bounds) + kLeftInset + kConfirmLeftOffet + kLabelLeftOffset);
+    
+    return 40 + [bridgeLabel heightForText:item.title withWidth:width usingFont:bridgeFont];
+}
+
++ (void)styleStateImageView:(UIImageView*)imageView
+{
+    imageView.image = [UIImage imageNamed:@"newPledge"];
+    [imageView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [imageView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+}
+
++ (void)styleCommitImageView:(UIImageView*)imageView
+{
+    imageView.image = [UIImage imageNamed:kPledge];
+    [imageView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [imageView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
 }
 
 @end

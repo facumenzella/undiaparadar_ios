@@ -11,6 +11,4 @@
 
 @interface AchievementCell : RETableViewCell
 
-@property (nonatomic, strong) id <AchievementBaseCellProtocol> item;
-
 @end
