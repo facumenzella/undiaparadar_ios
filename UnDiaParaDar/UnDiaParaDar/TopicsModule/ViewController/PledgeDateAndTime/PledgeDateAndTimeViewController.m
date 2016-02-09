@@ -156,6 +156,7 @@ static NSArray *reminders;
         [[[LocalNotificationHound alloc] initWithDate:finalDate withMessage:@"Remember to do this shit"] setup];
     }
     [self.topicService pledgePositiveAction:self.positiveAction forDate:pledgeDate];
+    [self.routing showAchievementsViewController];
 }
 
 - (NSDate*)pledgeDate
