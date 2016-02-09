@@ -20,5 +20,6 @@
 @property (nonatomic, weak) id<ConfirmPledgePopupViewDelegate> delegate;
 
 - (void)modalStyle;
+- (void)setError:(BOOL)error;
 
 @end

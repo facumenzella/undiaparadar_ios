@@ -130,6 +130,11 @@ static NSString *const kNotDone = @"faltas";
     [self.tableView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.filtersContainer withOffset:8];
 }
 
+- (void)styleSubviews
+{
+    self.backgroundColor = [UIColor whiteColor];
+}
+
 #pragma mark - TapGestures
 
 - (void)showAll

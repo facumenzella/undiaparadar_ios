@@ -64,7 +64,7 @@
         [self.routing dismissViewController:self withCompletion:nil];
     } else {
         NSLog(@"no match");
-        
+        [self.popupView setError:YES];
     }
 }
 

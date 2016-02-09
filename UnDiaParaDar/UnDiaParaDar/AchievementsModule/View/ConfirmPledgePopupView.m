@@ -8,6 +8,7 @@
 
 #import "ConfirmPledgePopupView.h"
 #import "BeautyCenter.h"
+#import "UDPDTextField.h"
 #import <PureLayout/PureLayout.h>
 
 static NSString *const kUnderline = @"underline";
@@ -18,7 +19,7 @@ static NSString *const kUnderline = @"underline";
 @property (nonatomic, strong) UIImageView *titleUnderline;
 @property (nonatomic, strong) UILabel *confirmationSubtitle;
 @property (nonatomic, strong) UILabel *confirmationAddtionalInfo;
-@property (nonatomic, strong) UITextField *codeTextfield;
+@property (nonatomic, strong) UDPDTextField *codeTextfield;
 @property (nonatomic, strong) UIView *confirmationButton;
 @property (nonatomic, strong) UILabel *confirmationLabel;
 
@@ -105,17 +106,18 @@ static NSString *const kUnderline = @"underline";
     [self.confirmationAddtionalInfo autoPinEdgeToSuperviewEdge:ALEdgeBottom
                                                      withInset:16
                                                       relation:NSLayoutRelationGreaterThanOrEqual];
+    self.confirmationAddtionalInfo.text = @"Código inválido";
+    self.confirmationAddtionalInfo.alpha = 0;
 }
 
 - (void)buildCodeTextfield
 {
-    self.codeTextfield = [[UITextField alloc] initForAutoLayout];
+    self.codeTextfield = [[UDPDTextField alloc] initForAutoLayout];
     [self addSubview:self.codeTextfield];
-    self.codeTextfield.placeholder = @"Codigo";
     [self.codeTextfield autoPinEdge:ALEdgeTop
                              toEdge:ALEdgeBottom
                              ofView:self.confirmationSubtitle
-                         withOffset:8];
+                         withOffset:16];
     [self.codeTextfield autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:48];
     [self.codeTextfield autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:48];
     [self.codeTextfield autoSetDimension:ALDimensionHeight toSize:48];
@@ -195,6 +197,19 @@ static NSString *const kUnderline = @"underline";
     [UIView animateWithDuration:.4 animations:^{
         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.4];
     }];
+}
+
+- (void)setError:(BOOL)error
+{
+    [self.codeTextfield setError:error];
+    if (error) {
+        self.confirmationAddtionalInfo.alpha = 1;
+        [UIView animateWithDuration:1 animations:^{
+            self.confirmationAddtionalInfo.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.codeTextfield setError:!error];
+        }];
+    }
 }
 
 @end

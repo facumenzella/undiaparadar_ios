@@ -107,6 +107,7 @@
 		0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */; };
 		0DD38FF11BBEFC4B0038C2E2 /* UIViewController+DisableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FF01BBEFC4B0038C2E2 /* UIViewController+DisableView.m */; };
 		0DE7DF461C6A659900A3EB93 /* ConfirmPledgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7DF451C6A659900A3EB93 /* ConfirmPledgeViewController.m */; };
+		0DE7DF4B1C6A9CA100A3EB93 /* UDPDTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7DF4A1C6A9CA100A3EB93 /* UDPDTextField.m */; };
 		0DEBE1CD1BC1D4F000906E52 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DEBE1CC1BC1D4F000906E52 /* CoreLocation.framework */; };
 		0DEBE1D11BC1D58E00906E52 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEBE1D01BC1D58E00906E52 /* LocationManager.m */; };
 		0DF920E71BC0851800BAA52C /* FakeModalAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF920E61BC0851800BAA52C /* FakeModalAnimator.m */; };
@@ -330,6 +331,8 @@
 		0DD38FF01BBEFC4B0038C2E2 /* UIViewController+DisableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DisableView.m"; sourceTree = "<group>"; };
 		0DE7DF441C6A659900A3EB93 /* ConfirmPledgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmPledgeViewController.h; sourceTree = "<group>"; };
 		0DE7DF451C6A659900A3EB93 /* ConfirmPledgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmPledgeViewController.m; sourceTree = "<group>"; };
+		0DE7DF491C6A9CA100A3EB93 /* UDPDTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPDTextField.h; sourceTree = "<group>"; };
+		0DE7DF4A1C6A9CA100A3EB93 /* UDPDTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPDTextField.m; sourceTree = "<group>"; };
 		0DEBE1CC1BC1D4F000906E52 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0DEBE1CF1BC1D58D00906E52 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationManager.h; path = UnDiaParaDar/LocationModule/LocationManager.h; sourceTree = SOURCE_ROOT; };
 		0DEBE1D01BC1D58E00906E52 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationManager.m; path = UnDiaParaDar/LocationModule/LocationManager.m; sourceTree = SOURCE_ROOT; };
@@ -477,6 +480,7 @@
 		0D0646561C690C2000F1AEB7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0DE7DF481C6A9C8B00A3EB93 /* UDPDTextField */,
 				0DE7DF471C6A78A200A3EB93 /* ConfirmPledgePopupView */,
 				0D06465B1C690C7000F1AEB7 /* AchievementsView.h */,
 				0D06465C1C690C7000F1AEB7 /* AchievementsView.m */,
@@ -1003,6 +1007,15 @@
 				0D05A2921C698296009EF42D /* ConfirmPledgePopupView.m */,
 			);
 			name = ConfirmPledgePopupView;
+			sourceTree = "<group>";
+		};
+		0DE7DF481C6A9C8B00A3EB93 /* UDPDTextField */ = {
+			isa = PBXGroup;
+			children = (
+				0DE7DF491C6A9CA100A3EB93 /* UDPDTextField.h */,
+				0DE7DF4A1C6A9CA100A3EB93 /* UDPDTextField.m */,
+			);
+			name = UDPDTextField;
 			sourceTree = "<group>";
 		};
 		0DEBE1CE1BC1D58600906E52 /* LocationModule */ = {
@@ -1547,6 +1560,7 @@
 				0DBD21A01BA3780B002AC53C /* User.m in Sources */,
 				0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */,
 				11DEE6B31B5D818500DCDE3E /* LoginView.m in Sources */,
+				0DE7DF4B1C6A9CA100A3EB93 /* UDPDTextField.m in Sources */,
 				0D0646761C692A6600F1AEB7 /* AchievementNotDonePresenter.m in Sources */,
 				11DEE6941B5D6E7F00DCDE3E /* LoginModuleAssembly.m in Sources */,
 				0D1763851BB464C300C6E664 /* QueEsPresenter.m in Sources */,
