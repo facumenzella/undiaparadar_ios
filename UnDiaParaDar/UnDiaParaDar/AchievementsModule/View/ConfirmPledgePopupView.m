@@ -44,9 +44,9 @@ static NSString *const kUnderline = @"underline";
     
     [self buildTitleLabel];
     [self buildSubtitleLabel];
-    [self buildConfirmationAddtionalInfo];
     [self buildCodeTextfield];
     [self buildConfirmationButton];
+    [self buildConfirmationAddtionalInfo];
 }
 
 - (void)buildTitleLabel
@@ -96,12 +96,15 @@ static NSString *const kUnderline = @"underline";
     [self addSubview:self.confirmationAddtionalInfo];
     [self.confirmationAddtionalInfo autoPinEdge:ALEdgeTop
                                          toEdge:ALEdgeBottom
-                                         ofView:self.confirmationSubtitle
+                                         ofView:self.confirmationButton
                                      withOffset:8];
     [self.confirmationAddtionalInfo autoPinEdgeToSuperviewEdge:ALEdgeLeft
                                                      withInset:16];
     [self.confirmationAddtionalInfo autoPinEdgeToSuperviewEdge:ALEdgeRight
                                                      withInset:16];
+    [self.confirmationAddtionalInfo autoPinEdgeToSuperviewEdge:ALEdgeBottom
+                                                     withInset:16
+                                                      relation:NSLayoutRelationGreaterThanOrEqual];
 }
 
 - (void)buildCodeTextfield
@@ -111,9 +114,8 @@ static NSString *const kUnderline = @"underline";
     self.codeTextfield.placeholder = @"Codigo";
     [self.codeTextfield autoPinEdge:ALEdgeTop
                              toEdge:ALEdgeBottom
-                             ofView:self.confirmationAddtionalInfo
-                         withOffset:8
-                           relation:NSLayoutRelationGreaterThanOrEqual];
+                             ofView:self.confirmationSubtitle
+                         withOffset:8];
     [self.codeTextfield autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:48];
     [self.codeTextfield autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:48];
     [self.codeTextfield autoSetDimension:ALDimensionHeight toSize:48];
@@ -122,6 +124,7 @@ static NSString *const kUnderline = @"underline";
 - (void)buildConfirmationButton
 {
     self.confirmationButton = [[UIView alloc] initForAutoLayout];
+    self.confirmationButton.userInteractionEnabled = YES;
     [self addSubview:self.confirmationButton];
     [self.confirmationButton autoPinEdge:ALEdgeTop
                                   toEdge:ALEdgeBottom
@@ -129,13 +132,15 @@ static NSString *const kUnderline = @"underline";
                               withOffset:8];
     [self.confirmationButton autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:48];
     [self.confirmationButton autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:48];
-    [self.confirmationButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:16];
     [self.confirmationButton autoSetDimension:ALDimensionHeight toSize:48];
     
     self.confirmationLabel = [[UILabel alloc] initForAutoLayout];
     [self.confirmationButton addSubview:self.confirmationLabel];
     [self.confirmationLabel autoPinEdgesToSuperviewEdges];
     self.confirmationLabel.text = @"Confirmar";
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(confirm)];
+    [self.confirmationButton addGestureRecognizer:tap];
 }
 
 - (void)styleSubviews
@@ -168,6 +173,12 @@ static NSString *const kUnderline = @"underline";
     self.confirmationLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
                                                                  withSize:BeautyCenterTypographySizeC];
     self.confirmationLabel.backgroundColor = [UIColor clearColor];
+}
+
+- (void)confirm
+{
+    [self.codeTextfield resignFirstResponder];
+    [self.delegate confirmWithCode:self.codeTextfield.text];
 }
 
 - (void)dismiss

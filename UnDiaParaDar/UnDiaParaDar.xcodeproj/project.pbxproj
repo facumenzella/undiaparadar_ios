@@ -477,14 +477,13 @@
 		0D0646561C690C2000F1AEB7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0DE7DF471C6A78A200A3EB93 /* ConfirmPledgePopupView */,
 				0D06465B1C690C7000F1AEB7 /* AchievementsView.h */,
 				0D06465C1C690C7000F1AEB7 /* AchievementsView.m */,
 				0D06465E1C690D2800F1AEB7 /* AchievementFilterView.h */,
 				0D06465F1C690D2800F1AEB7 /* AchievementFilterView.m */,
 				0D0646641C6919C000F1AEB7 /* AchievementCell.h */,
 				0D0646651C6919C000F1AEB7 /* AchievementCell.m */,
-				0D05A2911C698296009EF42D /* ConfirmPledgePopupView.h */,
-				0D05A2921C698296009EF42D /* ConfirmPledgePopupView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -995,6 +994,15 @@
 			);
 			name = Presenter;
 			path = View/Presenter;
+			sourceTree = "<group>";
+		};
+		0DE7DF471C6A78A200A3EB93 /* ConfirmPledgePopupView */ = {
+			isa = PBXGroup;
+			children = (
+				0D05A2911C698296009EF42D /* ConfirmPledgePopupView.h */,
+				0D05A2921C698296009EF42D /* ConfirmPledgePopupView.m */,
+			);
+			name = ConfirmPledgePopupView;
 			sourceTree = "<group>";
 		};
 		0DEBE1CE1BC1D58600906E52 /* LocationModule */ = {

@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class AchievementService;
+@class AchievementService, Achievement;
 @protocol Routing;
 
 @interface ConfirmPledgeViewController : UIViewController
 
-- (instancetype)initWithAchievementService:(AchievementService*)service withRouting:(id<Routing>)routing;
+- (instancetype)initWithAchievementService:(AchievementService*)service
+                               withRouting:(id<Routing>)routing
+                           withAchievement:(Achievement*)achieve;
 
 @end

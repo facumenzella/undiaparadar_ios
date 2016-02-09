@@ -11,6 +11,7 @@
 @protocol ConfirmPledgePopupViewDelegate <NSObject>
 
 - (void)dismiss;
+- (void)confirmWithCode:(NSString*)code;
 
 @end
 

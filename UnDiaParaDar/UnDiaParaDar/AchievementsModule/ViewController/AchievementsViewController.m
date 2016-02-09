@@ -63,6 +63,14 @@
     [self registerAndBuildSections];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (self.done && self.pledge && self.notdone) {
+        [self reloadData];
+    }
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -100,10 +108,10 @@
 {
     for (Achievement *a in self.pledge) {
         AchievementPledgePresenter *p = [[AchievementPledgePresenter alloc] initWithTitle:a.title];
-        p.positiveActionId = a.positiveActionId;
+        p.achieve = a;
         p.delegate = self;
         AchievementPledgePresenter *pa = [[AchievementPledgePresenter alloc] initWithTitle:a.title];
-        pa.positiveActionId = a.positiveActionId;
+        pa.achieve = a;
         pa.delegate = self;
         [self.sectionPledge addItem:p];
         [self.sectionAll addItem:pa];
@@ -111,18 +119,18 @@
     [self.achievementsView setPledged:self.pledge.count];
     for (Achievement *a in self.done) {
         AchievementConfirmedPresenter *p = [[AchievementConfirmedPresenter alloc] initWithTitle:a.title];
-        p.positiveActionId = a.positiveActionId;
+        p.achieve = a;
         AchievementConfirmedPresenter *pa = [[AchievementConfirmedPresenter alloc] initWithTitle:a.title];
-        pa.positiveActionId = a.positiveActionId;
+        pa.achieve = a;
         [self.sectionDone addItem:p];
         [self.sectionAll addItem:pa];
     }
     [self.achievementsView setDone:self.done.count];
     for (Achievement *a in self.notdone) {
         AchievementNotDonePresenter *p = [[AchievementNotDonePresenter alloc] initWithTitle:a.title];
-        p.positiveActionId = a.positiveActionId;
+        p.achieve = a;
         AchievementNotDonePresenter *pa = [[AchievementNotDonePresenter alloc] initWithTitle:a.title];
-        pa.positiveActionId = a.positiveActionId;
+        pa.achieve = a;
         [self.sectionNotDone addItem:p];
         [self.sectionAll addItem:pa];
     }
@@ -217,7 +225,7 @@
 
 - (void)pledgeWithItem:(id<AchievementBaseCellProtocol>)item
 {
-    [self.routing showPledgeConfirmationWithPresenter:self];
+    [self.routing showPledgeConfirmationWithAchievement:[item achieve] withPresenter:self];
 }
 
 @end

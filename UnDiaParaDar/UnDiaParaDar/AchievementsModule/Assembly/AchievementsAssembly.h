@@ -10,9 +10,11 @@
 #import "AchievementsViewController.h"
 #import "ConfirmPledgeViewController.h"
 
+@class Achievement;
+
 @interface AchievementsAssembly : TyphoonAssembly
 
 - (AchievementsViewController*)achievementsViewController;
-- (ConfirmPledgeViewController*)confirmPledgeViewController;
+- (ConfirmPledgeViewController*)confirmPledgeViewControllerWithAchievement:(Achievement*)achieve;
 
 @end

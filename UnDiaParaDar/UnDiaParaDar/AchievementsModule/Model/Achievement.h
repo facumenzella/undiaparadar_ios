@@ -21,5 +21,7 @@ typedef NS_ENUM(NSUInteger, AchievementState) {
 @property (nonatomic) AchievementState state;
 @property (nonatomic, strong) NSNumber *positiveActionId;
 @property (nonatomic, strong) NSNumber *done;
+@property (nonatomic, strong) NSString *objectId;
+@property (nonatomic, strong) NSString *code;
 
 @end

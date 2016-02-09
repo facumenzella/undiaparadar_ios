@@ -13,6 +13,14 @@
 
 @implementation AchievementService
 
+- (void)confirmAchievement:(Achievement*)achievement
+{
+    PFObject *pledge = [PFObject objectWithoutDataWithClassName:@"Pledge" objectId:achievement.objectId];
+    [pledge setObject:@(1) forKey:@"done"];
+    [pledge save];
+}
+
+
 - (void)pledgesWithCallback:(void (^)(NSArray *confirmed,
                                       NSArray *done,
                                       NSArray *notdone,
@@ -32,12 +40,15 @@
                 achieve.positiveActionId = [object objectForKey:@"positiveActionId"];
                 achieve.title = [object objectForKey:@"positiveActionTitle"];
                 achieve.done = [object objectForKey:@"done"];
+                achieve.code = [object objectForKey:@"code"];
+                achieve.objectId = [object objectId];
                 [self classifyAchievement:achieve withTargetDate:[object objectForKey:@"targetDate"]];
                 switch (achieve.state) {
                     case AchievementStateDone:
                         [d addObject:achieve];
                         break;
                     case AchievementStateNotDone:
+                        [object setObject:@(2) forKey:@"done"];
                         [object saveInBackground];
                         [nd addObject:achieve];
                         break;
@@ -60,8 +71,10 @@
 {
     if ([achievement.done isEqualToNumber:@(2)]) {
         achievement.state = AchievementStateNotDone;
+        return;
     } else if ([achievement.done isEqualToNumber:@(1)]) {
         achievement.state = AchievementStateDone;
+        return;
     }
     
     ParseDateFormatter *formatter = [[ParseDateFormatter alloc] init];

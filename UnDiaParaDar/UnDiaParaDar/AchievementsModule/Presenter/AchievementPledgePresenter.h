@@ -14,7 +14,7 @@
 
 @property (nonatomic, readonly) BOOL confirmEnabled;
 @property (nonatomic, strong, readonly) NSString *state;
-@property (nonatomic, strong) NSNumber *positiveActionId;
+@property (nonatomic, strong) Achievement *achieve;
 
 @property (nonatomic, weak) id<AchievementCellDelegate> delegate;
 

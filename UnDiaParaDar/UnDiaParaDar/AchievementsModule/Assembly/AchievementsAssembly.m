@@ -32,14 +32,15 @@
     }];
 }
 
-- (ConfirmPledgeViewController*)confirmPledgeViewController
+- (ConfirmPledgeViewController*)confirmPledgeViewControllerWithAchievement:(Achievement*)achieve
 {
-    SEL selector = @selector(initWithAchievementService:withRouting:);
+    SEL selector = @selector(initWithAchievementService:withRouting:withAchievement:);
     return [TyphoonDefinition withClass:[ConfirmPledgeViewController class]
                           configuration:^(TyphoonDefinition* definition) {
                               [definition useInitializer:selector parameters:^(TyphoonMethod *initializer) {
                                   [initializer injectParameterWith:[self.serviceAssembly achievementService]];
                                   [initializer injectParameterWith:[self.routingAssembly routing]];
+                                  [initializer injectParameterWith:achieve];
                               }];
                           }];
 }

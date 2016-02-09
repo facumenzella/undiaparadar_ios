@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LoadingViewController.h"
 
-@class PositiveAction, MapFilters;
+@class PositiveAction, MapFilters, Achievement;
 
 @protocol Routing <NSObject>
 
@@ -26,7 +26,7 @@
 - (void)showPledgeViewControllerForPositiveAction:(PositiveAction*)positiveAction withPresenter:(UIViewController*)vc;
 - (void)showPledgeDateAndTimeOptionsForPositiveAction:(PositiveAction*)positiveAction
                                         withPresenter:(UIViewController*)vc;
-- (void)showPledgeConfirmationWithPresenter:(UIViewController*)vc;
+- (void)showPledgeConfirmationWithAchievement:(Achievement*)achieve withPresenter:(UIViewController*)vc;
 
 - (void)showTermsAndConditions;
 - (void)showQueEsUDPD;

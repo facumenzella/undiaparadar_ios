@@ -43,6 +43,7 @@
 #import "NetworkViewController.h"
 
 #import "AchievementsAssembly.h"
+#import "Achievement.h"
 
 @interface SWRevealRouting ()
 
@@ -178,9 +179,10 @@
     [self.director presentModal:nav withPresenter:vc animated:YES];
 }
 
-- (void)showPledgeConfirmationWithPresenter:(UIViewController*)vc
+- (void)showPledgeConfirmationWithAchievement:(Achievement*)achieve withPresenter:(UIViewController*)vc
 {
-    ConfirmPledgeViewController *confirm = [self.achievementsAssembly confirmPledgeViewController];
+    ConfirmPledgeViewController *confirm = [self.achievementsAssembly
+                                            confirmPledgeViewControllerWithAchievement:achieve];
     [self.director presentModal:confirm withPresenter:vc animated:YES];
 }
 

@@ -8,15 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+@class Achievement;
+
 typedef NS_ENUM(NSUInteger, AchievementServiceState) {
     AchievementServiceStateError,
-    AchievementServiceStateSuccess,
+    AchievementServiceStateNoAnswer,
+    AchievementServiceStateSuccess
 };
+
 @interface AchievementService : NSObject
 
 - (void)pledgesWithCallback:(void (^)(NSArray *confirmed,
                                       NSArray *done,
                                       NSArray *notdone,
                                       AchievementServiceState))callback;
+
+- (void)confirmAchievement:(Achievement*)achievement;
 
 @end
