@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */; };
 		0D05A28D1C693F2B009EF42D /* UILabel+EstimatedHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D05A28B1C693F2B009EF42D /* UILabel+EstimatedHeight.m */; };
+		0D05A2931C698296009EF42D /* ConfirmPledgePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D05A2921C698296009EF42D /* ConfirmPledgePopupView.m */; };
 		0D0610691BD030AB00595A9A /* UIColor+Transformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0610681BD030AB00595A9A /* UIColor+Transformation.m */; };
 		0D06464E1C682AE900F1AEB7 /* ParseLoginHound.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D06464D1C682AE900F1AEB7 /* ParseLoginHound.m */; };
 		0D0646521C68EAFA00F1AEB7 /* ParsePositiveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0646511C68EAFA00F1AEB7 /* ParsePositiveAction.m */; };
@@ -146,6 +147,8 @@
 		06C0FA932F79B7DB4ECAB673 /* Pods-UnDiaParaDar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnDiaParaDar.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar.release.xcconfig"; sourceTree = "<group>"; };
 		0D05A28B1C693F2B009EF42D /* UILabel+EstimatedHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+EstimatedHeight.m"; sourceTree = "<group>"; };
 		0D05A28C1C693F2B009EF42D /* UILabel+EstimatedHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+EstimatedHeight.h"; sourceTree = "<group>"; };
+		0D05A2911C698296009EF42D /* ConfirmPledgePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmPledgePopupView.h; sourceTree = "<group>"; };
+		0D05A2921C698296009EF42D /* ConfirmPledgePopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmPledgePopupView.m; sourceTree = "<group>"; };
 		0D0610671BD030AB00595A9A /* UIColor+Transformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Transformation.h"; sourceTree = "<group>"; };
 		0D0610681BD030AB00595A9A /* UIColor+Transformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Transformation.m"; sourceTree = "<group>"; };
 		0D06464C1C682AE900F1AEB7 /* ParseLoginHound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseLoginHound.h; sourceTree = "<group>"; };
@@ -477,6 +480,8 @@
 				0D06465F1C690D2800F1AEB7 /* AchievementFilterView.m */,
 				0D0646641C6919C000F1AEB7 /* AchievementCell.h */,
 				0D0646651C6919C000F1AEB7 /* AchievementCell.m */,
+				0D05A2911C698296009EF42D /* ConfirmPledgePopupView.h */,
+				0D05A2921C698296009EF42D /* ConfirmPledgePopupView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1505,6 +1510,7 @@
 				0DB25A051B9A9688002F6E30 /* TopicCellPresenter.m in Sources */,
 				0D7D1BB61BEC3280006AADAB /* NetworkReachabilityController.m in Sources */,
 				0D9E12F11BE6EC1E00506BBB /* MapFiltersViewController.m in Sources */,
+				0D05A2931C698296009EF42D /* ConfirmPledgePopupView.m in Sources */,
 				0D8580EF1BBB6B17002CEB2B /* MappingProvider.m in Sources */,
 				113E46A61B62CD4B00ADF8AC /* ProfileModuleAssembly.m in Sources */,
 				0D11F48B1BB37DCD00AFE46D /* TermsAndConditionsViewController.m in Sources */,
