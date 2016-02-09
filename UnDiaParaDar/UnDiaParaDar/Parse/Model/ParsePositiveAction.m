@@ -38,7 +38,7 @@
 
 + (NSString*)formatDate:(NSDate*)date
 {
-    ParseDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    ParseDateFormatter *formatter = [[ParseDateFormatter alloc] init];
     return [formatter stringFromDate:date];
 }
 
