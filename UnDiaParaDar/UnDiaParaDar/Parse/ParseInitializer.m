@@ -15,6 +15,7 @@
 
 + (void)setupWithLaunchOptions:(NSDictionary*)launchOptions
 {
+    [PFUser enableRevocableSessionInBackground];
     [ParsePositiveAction registerSubclass];
     [Parse setApplicationId:@"EQYn0fafGF0NFi7IyZDBzBUKWcewFKI6SsiMUIe8"
                   clientKey:@"9nii0zRFoSxyzyspa1bqihXzdbaYAF561twEbB2j"];
