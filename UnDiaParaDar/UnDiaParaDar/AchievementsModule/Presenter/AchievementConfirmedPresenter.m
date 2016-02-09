@@ -22,7 +22,7 @@
     self = [super initWithTitle:title];
     if (self) {
         self.state = kconfirmedPledge;
-        self.confirmEnabled = YES;
+        self.confirmEnabled = NO;
     }
     return self;
 }
