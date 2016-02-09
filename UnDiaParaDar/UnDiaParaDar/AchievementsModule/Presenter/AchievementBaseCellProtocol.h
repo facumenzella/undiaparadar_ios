@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol AchievementCellDelegate;
+
 static NSString *const kNewPledge = @"newPledge";
 static NSString *const kconfirmedPledge = @"confirmedPledge";
 static NSString *const kNotDonePledge = @"notDonePledge";
@@ -17,5 +19,8 @@ static NSString *const kNotDonePledge = @"notDonePledge";
 - (BOOL)confirmEnabled;
 - (NSString*)title;
 - (NSString*)state;
+- (NSNumber*)positiveActionId;
+
+@property (nonatomic, weak) id<AchievementCellDelegate> delegate;
 
 @end

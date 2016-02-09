@@ -26,6 +26,8 @@
 - (void)showPledgeViewControllerForPositiveAction:(PositiveAction*)positiveAction withPresenter:(UIViewController*)vc;
 - (void)showPledgeDateAndTimeOptionsForPositiveAction:(PositiveAction*)positiveAction
                                         withPresenter:(UIViewController*)vc;
+- (void)showPledgeConfirmationWithPresenter:(UIViewController*)vc;
+
 - (void)showTermsAndConditions;
 - (void)showQueEsUDPD;
 

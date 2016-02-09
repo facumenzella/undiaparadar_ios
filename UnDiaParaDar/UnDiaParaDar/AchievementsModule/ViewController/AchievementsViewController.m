@@ -14,12 +14,14 @@
 #import "AchievementNotDonePresenter.h"
 #import "AchievementPledgePresenter.h"
 #import "AchievementService.h"
+#import "Routing.h"
 
-@interface AchievementsViewController () <AchievementViewDelegate>
+@interface AchievementsViewController () <AchievementViewDelegate, AchievementCellDelegate>
 
 @property (nonatomic, strong) AchievementsView *achievementsView;
 @property (nonatomic, strong) RETableViewManager *manager;
 @property (nonatomic, strong) AchievementService *service;
+@property (nonatomic, strong) id<Routing> routing;
 
 @property (nonatomic, strong) RETableViewSection *sectionAll;
 @property (nonatomic, strong) RETableViewSection *sectionDone;
@@ -35,11 +37,12 @@
 
 @implementation AchievementsViewController
 
-- (instancetype)initWithAchievementService:(AchievementService*)service
+- (instancetype)initWithAchievementService:(AchievementService*)service withRouting:(id<Routing>)routing
 {
     self = [super init];
     if (self) {
         self.service = service;
+        self.routing = routing;
     }
     return self;
 }
@@ -58,23 +61,31 @@
     self.manager = [[RETableViewManager alloc] initWithTableView:self.achievementsView.tableView];
     
     [self registerAndBuildSections];
-    [self.service pledgesWithCallback:^(NSArray *pledge,
-                                        NSArray *done,
-                                        NSArray *notdone,
-                                        AchievementServiceState state) {
-        switch (state) {
-            case AchievementServiceStateError:
-                [self showError];
-                break;
-            case  AchievementServiceStateSuccess:
-                self.done = done;
-                self.notdone = notdone;
-                self.pledge = pledge;
-                [self populateSections];
-                break;
-            default:
-                break;
-        }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.routing showLoadingWithPresenter:self withLoadingBlock:^(UIViewController*loading) {
+        [self.service pledgesWithCallback:^(NSArray *pledge,
+                                            NSArray *done,
+                                            NSArray *notdone,
+                                            AchievementServiceState state) {
+            [self.routing dismissViewController:loading withCompletion:nil];
+            switch (state) {
+                case AchievementServiceStateError:
+                    [self showError];
+                    break;
+                case  AchievementServiceStateSuccess:
+                    self.done = done;
+                    self.notdone = notdone;
+                    self.pledge = pledge;
+                    [self populateSections];
+                    break;
+                default:
+                    break;
+            }
+        }];
     }];
 }
 
@@ -89,21 +100,29 @@
 {
     for (Achievement *a in self.pledge) {
         AchievementPledgePresenter *p = [[AchievementPledgePresenter alloc] initWithTitle:a.title];
+        p.positiveActionId = a.positiveActionId;
+        p.delegate = self;
         AchievementPledgePresenter *pa = [[AchievementPledgePresenter alloc] initWithTitle:a.title];
+        pa.positiveActionId = a.positiveActionId;
+        pa.delegate = self;
         [self.sectionPledge addItem:p];
         [self.sectionAll addItem:pa];
     }
     [self.achievementsView setPledged:self.pledge.count];
     for (Achievement *a in self.done) {
         AchievementConfirmedPresenter *p = [[AchievementConfirmedPresenter alloc] initWithTitle:a.title];
+        p.positiveActionId = a.positiveActionId;
         AchievementConfirmedPresenter *pa = [[AchievementConfirmedPresenter alloc] initWithTitle:a.title];
+        pa.positiveActionId = a.positiveActionId;
         [self.sectionDone addItem:p];
         [self.sectionAll addItem:pa];
     }
     [self.achievementsView setDone:self.done.count];
     for (Achievement *a in self.notdone) {
         AchievementNotDonePresenter *p = [[AchievementNotDonePresenter alloc] initWithTitle:a.title];
+        p.positiveActionId = a.positiveActionId;
         AchievementNotDonePresenter *pa = [[AchievementNotDonePresenter alloc] initWithTitle:a.title];
+        pa.positiveActionId = a.positiveActionId;
         [self.sectionNotDone addItem:p];
         [self.sectionAll addItem:pa];
     }
@@ -126,7 +145,7 @@
     self.manager[@"AchievementPledgePresenter"] = @"AchievementCell";
     self.manager[@"AchievementConfirmedPresenter"] = @"AchievementCell";
     self.manager[@"AchievementNotDonePresenter"] = @"AchievementCell";
-
+    
     [self buildSections];
 }
 
@@ -163,7 +182,7 @@
                                               self.sectionAll]];
         self.active = self.sectionDone;
         [self.achievementsView setActive:AchievementFiltersDone];
-
+        
         [self reloadData];
     }
 }
@@ -177,7 +196,7 @@
                                               self.sectionAll]];
         self.active = self.sectionNotDone;
         [self.achievementsView setActive:AchievementFiltersNotDone];
-
+        
         [self reloadData];
     }
 }
@@ -191,9 +210,14 @@
                                               self.sectionAll]];
         self.active = self.sectionPledge;
         [self.achievementsView setActive:AchievementFiltersPledge];
-
+        
         [self reloadData];
     }
+}
+
+- (void)pledgeWithItem:(id<AchievementBaseCellProtocol>)item
+{
+    [self.routing showPledgeConfirmationWithPresenter:self];
 }
 
 @end

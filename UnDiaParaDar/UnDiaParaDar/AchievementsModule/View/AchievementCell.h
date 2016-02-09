@@ -9,6 +9,12 @@
 #import <RETableViewManager/RETableViewManager.h>
 #import "AchievementBaseCellProtocol.h"
 
+@protocol AchievementCellDelegate <NSObject>
+
+- (void)pledgeWithItem:(id<AchievementBaseCellProtocol>)item;
+
+@end
+
 @interface AchievementCell : RETableViewCell
 
 @end

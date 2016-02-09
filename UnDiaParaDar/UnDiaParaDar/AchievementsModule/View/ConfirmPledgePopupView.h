@@ -8,6 +8,16 @@
 
 #import "PopupView.h"
 
+@protocol ConfirmPledgePopupViewDelegate <NSObject>
+
+- (void)dismiss;
+
+@end
+
 @interface ConfirmPledgePopupView : PopupView
+
+@property (nonatomic, weak) id<ConfirmPledgePopupViewDelegate> delegate;
+
+- (void)modalStyle;
 
 @end

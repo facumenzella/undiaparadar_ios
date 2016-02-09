@@ -8,10 +8,14 @@
 
 #import <RETableViewManager/RETableViewManager.h>
 #import "AchievementBaseCellProtocol.h"
+#import "AchievementCell.h"
 
 @interface AchievementNotDonePresenter : RETableViewItem <AchievementBaseCellProtocol>
 
 @property (nonatomic, readonly) BOOL confirmEnabled;
 @property (nonatomic, strong, readonly) NSString *state;
+@property (nonatomic, strong) NSNumber *positiveActionId;
+
+@property (nonatomic, weak) id<AchievementCellDelegate> delegate;
 
 @end

@@ -178,6 +178,12 @@
     [self.director presentModal:nav withPresenter:vc animated:YES];
 }
 
+- (void)showPledgeConfirmationWithPresenter:(UIViewController*)vc
+{
+    ConfirmPledgeViewController *confirm = [self.achievementsAssembly confirmPledgeViewController];
+    [self.director presentModal:confirm withPresenter:vc animated:YES];
+}
+
 - (void)showTermsAndConditions
 {
     TermsAndConditionsViewController *tyc = [self.termsAndConditionsAssembly termsAndConditionsViewController];

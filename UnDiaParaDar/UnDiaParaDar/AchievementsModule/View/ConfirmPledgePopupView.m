@@ -19,7 +19,8 @@ static NSString *const kUnderline = @"underline";
 @property (nonatomic, strong) UILabel *confirmationSubtitle;
 @property (nonatomic, strong) UILabel *confirmationAddtionalInfo;
 @property (nonatomic, strong) UITextField *codeTextfield;
-@property (nonatomic, strong) UILabel *confirmationButton;
+@property (nonatomic, strong) UIView *confirmationButton;
+@property (nonatomic, strong) UILabel *confirmationLabel;
 
 @end
 
@@ -37,6 +38,10 @@ static NSString *const kUnderline = @"underline";
 
 - (void)buildSubviews
 {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
+    [self addGestureRecognizer:tap];
+    self.userInteractionEnabled = YES;
+    
     [self buildTitleLabel];
     [self buildSubtitleLabel];
     [self buildConfirmationAddtionalInfo];
@@ -105,18 +110,18 @@ static NSString *const kUnderline = @"underline";
     [self addSubview:self.codeTextfield];
     self.codeTextfield.placeholder = @"Codigo";
     [self.codeTextfield autoPinEdge:ALEdgeTop
-                                  toEdge:ALEdgeBottom
-                                  ofView:self.confirmationAddtionalInfo
-                              withOffset:8];
+                             toEdge:ALEdgeBottom
+                             ofView:self.confirmationAddtionalInfo
+                         withOffset:8
+                           relation:NSLayoutRelationGreaterThanOrEqual];
     [self.codeTextfield autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:48];
     [self.codeTextfield autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:48];
-
+    [self.codeTextfield autoSetDimension:ALDimensionHeight toSize:48];
 }
 
 - (void)buildConfirmationButton
 {
-    self.confirmationButton = [[UILabel alloc] initForAutoLayout];
-    self.confirmationButton.text = @"Confirmar";
+    self.confirmationButton = [[UIView alloc] initForAutoLayout];
     [self addSubview:self.confirmationButton];
     [self.confirmationButton autoPinEdge:ALEdgeTop
                                   toEdge:ALEdgeBottom
@@ -124,9 +129,14 @@ static NSString *const kUnderline = @"underline";
                               withOffset:8];
     [self.confirmationButton autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:48];
     [self.confirmationButton autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:48];
-    [self.confirmationButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:8 relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.confirmationButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:16];
+    [self.confirmationButton autoSetDimension:ALDimensionHeight toSize:48];
+    
+    self.confirmationLabel = [[UILabel alloc] initForAutoLayout];
+    [self.confirmationButton addSubview:self.confirmationLabel];
+    [self.confirmationLabel autoPinEdgesToSuperviewEdges];
+    self.confirmationLabel.text = @"Confirmar";
 }
-
 
 - (void)styleSubviews
 {
@@ -153,10 +163,27 @@ static NSString *const kUnderline = @"underline";
     self.codeTextfield.layer.borderColor = [BeautyCenter beautyCenterColor:BeautyCenterColorGrey].CGColor;
     
     self.confirmationButton.backgroundColor = [BeautyCenter beautyCenterColor:BeautyCenterColorTurquese];
-    self.confirmationButton.textColor = [UIColor whiteColor];
-    self.confirmationButton.textAlignment = NSTextAlignmentCenter;
-    self.confirmationButton.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
-                                                                  withSize:BeautyCenterTypographySizeC];
+    self.confirmationLabel.textColor = [UIColor whiteColor];
+    self.confirmationLabel.textAlignment = NSTextAlignmentCenter;
+    self.confirmationLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
+                                                                 withSize:BeautyCenterTypographySizeC];
+    self.confirmationLabel.backgroundColor = [UIColor clearColor];
+}
+
+- (void)dismiss
+{
+    [UIView animateWithDuration:.4 animations:^{
+        self.backgroundColor = [UIColor clearColor];
+    } completion:^(BOOL finished) {
+        [self.delegate dismiss];
+    }];
+}
+
+- (void)modalStyle
+{
+    [UIView animateWithDuration:.4 animations:^{
+        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.4];
+    }];
 }
 
 @end

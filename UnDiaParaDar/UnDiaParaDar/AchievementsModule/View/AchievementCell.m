@@ -98,6 +98,7 @@ static NSString *const kPledge = @"pledge";
                                          withInset:0
                                           relation:NSLayoutRelationGreaterThanOrEqual];
     [self.confirmButton setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [self.confirmButton addTarget:self action:@selector(pledge) forControlEvents:UIControlEventTouchDown];
 }
 
 - (void)styleSubviews
@@ -139,6 +140,12 @@ static NSString *const kPledge = @"pledge";
     imageView.image = [UIImage imageNamed:kPledge];
     [imageView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     [imageView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+}
+
+- (void)pledge
+{
+    id<AchievementBaseCellProtocol> it = ((id<AchievementBaseCellProtocol>)self.item);
+    [it.delegate pledgeWithItem:it];
 }
 
 @end

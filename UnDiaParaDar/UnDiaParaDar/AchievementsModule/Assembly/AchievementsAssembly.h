@@ -8,9 +8,11 @@
 
 #import <Typhoon/Typhoon.h>
 #import "AchievementsViewController.h"
+#import "ConfirmPledgeViewController.h"
 
 @interface AchievementsAssembly : TyphoonAssembly
 
 - (AchievementsViewController*)achievementsViewController;
+- (ConfirmPledgeViewController*)confirmPledgeViewController;
 
 @end

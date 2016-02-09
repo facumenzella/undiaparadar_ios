@@ -1,8 +1,8 @@
 //
-//  AchievementsViewController.h
+//  ConfirmPledgeViewController.h
 //  UnDiaParaDar
 //
-//  Created by Facundo Menzella on 2/8/16.
+//  Created by Facundo Menzella on 2/9/16.
 //  Copyright © 2016 ITBA. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 @class AchievementService;
 @protocol Routing;
 
-@interface AchievementsViewController : UIViewController
+@interface ConfirmPledgeViewController : UIViewController
 
 - (instancetype)initWithAchievementService:(AchievementService*)service withRouting:(id<Routing>)routing;
 

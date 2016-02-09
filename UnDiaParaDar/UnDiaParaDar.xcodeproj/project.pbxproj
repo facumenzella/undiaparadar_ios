@@ -106,6 +106,7 @@
 		0DCC37231C6825F2007A0FAF /* ParseInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCC37221C6825F2007A0FAF /* ParseInitializer.m */; };
 		0DCD99D51B8F7FD500FF738E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */; };
 		0DD38FF11BBEFC4B0038C2E2 /* UIViewController+DisableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD38FF01BBEFC4B0038C2E2 /* UIViewController+DisableView.m */; };
+		0DE7DF461C6A659900A3EB93 /* ConfirmPledgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7DF451C6A659900A3EB93 /* ConfirmPledgeViewController.m */; };
 		0DEBE1CD1BC1D4F000906E52 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DEBE1CC1BC1D4F000906E52 /* CoreLocation.framework */; };
 		0DEBE1D11BC1D58E00906E52 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEBE1D01BC1D58E00906E52 /* LocationManager.m */; };
 		0DF920E71BC0851800BAA52C /* FakeModalAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF920E61BC0851800BAA52C /* FakeModalAnimator.m */; };
@@ -327,6 +328,8 @@
 		0DCD99D41B8F7FD500FF738E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		0DD38FEF1BBEFC4B0038C2E2 /* UIViewController+DisableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DisableView.h"; sourceTree = "<group>"; };
 		0DD38FF01BBEFC4B0038C2E2 /* UIViewController+DisableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DisableView.m"; sourceTree = "<group>"; };
+		0DE7DF441C6A659900A3EB93 /* ConfirmPledgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmPledgeViewController.h; sourceTree = "<group>"; };
+		0DE7DF451C6A659900A3EB93 /* ConfirmPledgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmPledgeViewController.m; sourceTree = "<group>"; };
 		0DEBE1CC1BC1D4F000906E52 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0DEBE1CF1BC1D58D00906E52 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationManager.h; path = UnDiaParaDar/LocationModule/LocationManager.h; sourceTree = SOURCE_ROOT; };
 		0DEBE1D01BC1D58E00906E52 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationManager.m; path = UnDiaParaDar/LocationModule/LocationManager.m; sourceTree = SOURCE_ROOT; };
@@ -491,6 +494,8 @@
 			children = (
 				0D0646581C690C2D00F1AEB7 /* AchievementsViewController.h */,
 				0D0646591C690C2D00F1AEB7 /* AchievementsViewController.m */,
+				0DE7DF441C6A659900A3EB93 /* ConfirmPledgeViewController.h */,
+				0DE7DF451C6A659900A3EB93 /* ConfirmPledgeViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1504,6 +1509,7 @@
 				0D1763821BB4647F00C6E664 /* QueEsViewController.m in Sources */,
 				0D9059301BA641650008BF75 /* PositiveActionsFilteredWithMapViewController.m in Sources */,
 				1113AA191B5F04B80066E7BB /* MenuOptionPresenter.m in Sources */,
+				0DE7DF461C6A659900A3EB93 /* ConfirmPledgeViewController.m in Sources */,
 				11DEE6B01B5D7D9300DCDE3E /* AppDelegateAssembly.m in Sources */,
 				0D1763881BB464CE00C6E664 /* QueEsView.m in Sources */,
 				0DAF2FE21B7E9D290045CE08 /* ServiceModuleAssembly.m in Sources */,
