@@ -43,6 +43,10 @@ static NSString *const kLooking = @"keepLooking";
 
 - (void)buildSubviews
 {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keepLooking)];
+    [self addGestureRecognizer:tap];
+    self.userInteractionEnabled = YES;
+    
     [self buildTitleLabel];
     [self buildSubtitleLabel];
     [self buildNotificationsLabel];
@@ -212,7 +216,7 @@ static NSString *const kLooking = @"keepLooking";
 
 - (void)keepLooking
 {
-    [UIView animateWithDuration:.2 animations: ^{
+    [UIView animateWithDuration:.4 animations: ^{
         self.backgroundColor = [UIColor clearColor];
     } completion:^(BOOL completed) {
         [self.delegate keepLooking];
