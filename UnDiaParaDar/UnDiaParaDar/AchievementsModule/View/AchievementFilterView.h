@@ -12,4 +12,6 @@
 
 - (void)populateWithQuantity:(NSUInteger)quantity withCategory:(NSString*)category;
 
+- (void)setActive:(BOOL)active;
+
 @end

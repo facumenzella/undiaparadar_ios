@@ -68,4 +68,21 @@
                                                              withSize:BeautyCenterTypographySizeA];
 }
 
+- (void)setActive:(BOOL)active
+{
+    [self styleActive:active];
+}
+
+- (void)styleActive:(BOOL)active
+{
+    if (active) {
+        self.quantityLabel.textColor = [BeautyCenter beautyCenterColor:BeautyCenterColorTurquese];
+        self.categoryLabel.textColor = [BeautyCenter beautyCenterColor:BeautyCenterColorTurquese];
+        return;
+    }
+    self.quantityLabel.textColor = [UIColor blackColor];
+    self.categoryLabel.textColor = [UIColor blackColor];
+}
+
+
 @end

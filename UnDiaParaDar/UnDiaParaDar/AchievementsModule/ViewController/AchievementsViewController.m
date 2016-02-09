@@ -15,7 +15,7 @@
 #import "AchievementPledgePresenter.h"
 #import "AchievementService.h"
 
-@interface AchievementsViewController ()
+@interface AchievementsViewController () <AchievementViewDelegate>
 
 @property (nonatomic, strong) AchievementsView *achievementsView;
 @property (nonatomic, strong) RETableViewManager *manager;
@@ -25,11 +25,11 @@
 @property (nonatomic, strong) RETableViewSection *sectionDone;
 @property (nonatomic, strong) RETableViewSection *sectionPledge;
 @property (nonatomic, strong) RETableViewSection *sectionNotDone;
+@property (nonatomic, strong) RETableViewSection *active;
 
 @property (nonatomic, strong) NSArray *done;
 @property (nonatomic, strong) NSArray *pledge;
 @property (nonatomic, strong) NSArray *notdone;
-
 
 @end
 
@@ -47,6 +47,7 @@
 - (void)loadView
 {
     self.achievementsView = [[AchievementsView alloc] init];
+    self.achievementsView.delegate = self;
     self.view = self.achievementsView;
 }
 
@@ -88,22 +89,35 @@
 {
     for (Achievement *a in self.pledge) {
         AchievementPledgePresenter *p = [[AchievementPledgePresenter alloc] initWithTitle:a.title];
+        AchievementPledgePresenter *pa = [[AchievementPledgePresenter alloc] initWithTitle:a.title];
         [self.sectionPledge addItem:p];
+        [self.sectionAll addItem:pa];
     }
     [self.achievementsView setPledged:self.pledge.count];
     for (Achievement *a in self.done) {
         AchievementConfirmedPresenter *p = [[AchievementConfirmedPresenter alloc] initWithTitle:a.title];
+        AchievementConfirmedPresenter *pa = [[AchievementConfirmedPresenter alloc] initWithTitle:a.title];
         [self.sectionDone addItem:p];
+        [self.sectionAll addItem:pa];
     }
     [self.achievementsView setDone:self.done.count];
     for (Achievement *a in self.notdone) {
         AchievementNotDonePresenter *p = [[AchievementNotDonePresenter alloc] initWithTitle:a.title];
+        AchievementNotDonePresenter *pa = [[AchievementNotDonePresenter alloc] initWithTitle:a.title];
         [self.sectionNotDone addItem:p];
+        [self.sectionAll addItem:pa];
     }
     [self.achievementsView setNotDone:self.notdone.count];
     [self.achievementsView setAll: (self.notdone.count + self.done.count + self.pledge.count)];
     
-    [self.manager addSection:self.sectionPledge];
+    self.active = self.sectionPledge;
+    [self.achievementsView setActive:AchievementFiltersPledge];
+    [self reloadData];
+}
+
+- (void)reloadData
+{
+    [self.manager addSection:self.active];
     [self.manager.tableView reloadData];
 }
 
@@ -122,6 +136,64 @@
     self.sectionDone = [RETableViewSection section];
     self.sectionPledge = [RETableViewSection section];
     self.sectionNotDone = [RETableViewSection section];
+}
+
+#pragma mark - AchievementViewDelegate
+
+- (void)didTapAll
+{
+    if (![self.active isEqual:self.sectionAll]) {
+        [self.manager removeSectionsInArray:@[self.sectionPledge,
+                                              self.sectionNotDone,
+                                              self.sectionDone,
+                                              self.sectionAll]];
+        
+        self.active = self.sectionAll;
+        [self.achievementsView setActive:AchievementFiltersAll];
+        [self reloadData];
+    }
+}
+
+- (void)didTapDone
+{
+    if (![self.active isEqual:self.sectionDone]) {
+        [self.manager removeSectionsInArray:@[self.sectionPledge,
+                                              self.sectionNotDone,
+                                              self.sectionDone,
+                                              self.sectionAll]];
+        self.active = self.sectionDone;
+        [self.achievementsView setActive:AchievementFiltersDone];
+
+        [self reloadData];
+    }
+}
+
+- (void)didTapNotDone
+{
+    if (![self.active isEqual:self.sectionNotDone]) {
+        [self.manager removeSectionsInArray:@[self.sectionPledge,
+                                              self.sectionNotDone,
+                                              self.sectionDone,
+                                              self.sectionAll]];
+        self.active = self.sectionNotDone;
+        [self.achievementsView setActive:AchievementFiltersNotDone];
+
+        [self reloadData];
+    }
+}
+
+- (void)didTapPledged
+{
+    if (![self.active isEqual:self.sectionPledge]) {
+        [self.manager removeSectionsInArray:@[self.sectionPledge,
+                                              self.sectionNotDone,
+                                              self.sectionDone,
+                                              self.sectionAll]];
+        self.active = self.sectionPledge;
+        [self.achievementsView setActive:AchievementFiltersPledge];
+
+        [self reloadData];
+    }
 }
 
 @end
