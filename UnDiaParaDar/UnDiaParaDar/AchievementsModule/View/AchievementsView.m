@@ -133,6 +133,7 @@ static NSString *const kNotDone = @"faltas";
 - (void)styleSubviews
 {
     self.backgroundColor = [UIColor whiteColor];
+    self.filtersContainer.backgroundColor = [UIColor whiteColor];
 }
 
 #pragma mark - TapGestures

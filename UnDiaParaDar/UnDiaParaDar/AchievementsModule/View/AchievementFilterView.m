@@ -59,6 +59,7 @@
 
 - (void)styleSubviews
 {
+    self.backgroundColor = [UIColor whiteColor];
     self.quantityLabel.textAlignment = NSTextAlignmentCenter;
     self.quantityLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleBold
                                                              withSize:BeautyCenterTypographySizeB];
