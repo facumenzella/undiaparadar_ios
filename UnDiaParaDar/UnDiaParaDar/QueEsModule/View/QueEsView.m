@@ -22,6 +22,7 @@
     self = [super init];
     if (self) {
         self.presenter = queEs;
+        self.delegate = self;
         [self buildSubviews];
     }
     return self;
@@ -31,6 +32,5 @@
 {
     [self loadHTMLString:self.presenter.htmlTermsAndConditions baseURL:nil];
 }
-
 
 @end

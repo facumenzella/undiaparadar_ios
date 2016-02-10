@@ -37,6 +37,7 @@
 		0D1763821BB4647F00C6E664 /* QueEsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1763811BB4647F00C6E664 /* QueEsViewController.m */; };
 		0D1763851BB464C300C6E664 /* QueEsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1763841BB464C300C6E664 /* QueEsPresenter.m */; };
 		0D1763881BB464CE00C6E664 /* QueEsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1763871BB464CE00C6E664 /* QueEsView.m */; };
+		0D202CAE1C6B625C00CA048B /* UDPDWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D202CAD1C6B625C00CA048B /* UDPDWebView.m */; };
 		0D3D72351BBB6510006EC1E9 /* RestkitService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D72341BBB6510006EC1E9 /* RestkitService.m */; };
 		0D3DB3C31B7546D90052F46B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3DB3C21B7546D90052F46B /* MenuViewController.m */; };
 		0D44DADA1B90E62600A274BD /* MenuOptionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D44DAD91B90E62600A274BD /* MenuOptionViewCell.m */; };
@@ -203,6 +204,8 @@
 		0D1763841BB464C300C6E664 /* QueEsPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueEsPresenter.m; sourceTree = "<group>"; };
 		0D1763861BB464CE00C6E664 /* QueEsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueEsView.h; sourceTree = "<group>"; };
 		0D1763871BB464CE00C6E664 /* QueEsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueEsView.m; sourceTree = "<group>"; };
+		0D202CAC1C6B625C00CA048B /* UDPDWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPDWebView.h; sourceTree = "<group>"; };
+		0D202CAD1C6B625C00CA048B /* UDPDWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPDWebView.m; sourceTree = "<group>"; };
 		0D2574C81BC5BD7200C9926E /* PositiveActionPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PositiveActionPresenter.h; path = UnDiaParaDar/TopicsModule/Presenter/PositiveActionPresenter.h; sourceTree = SOURCE_ROOT; };
 		0D3D72331BBB6510006EC1E9 /* RestkitService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestkitService.h; sourceTree = "<group>"; };
 		0D3D72341BBB6510006EC1E9 /* RestkitService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestkitService.m; sourceTree = "<group>"; };
@@ -619,6 +622,26 @@
 				0D1763811BB4647F00C6E664 /* QueEsViewController.m */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0D202CAA1C6B623500CA048B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0D202CAB1C6B624C00CA048B /* UDPDWebView */,
+				0DCD99D21B8F7FBE00FF738E /* Extensions */,
+				0DF920E41BC0851800BAA52C /* Animator */,
+				0DCBD13D1BBB870500A870FD /* FMActivityIndicator */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		0D202CAB1C6B624C00CA048B /* UDPDWebView */ = {
+			isa = PBXGroup;
+			children = (
+				0D202CAC1C6B625C00CA048B /* UDPDWebView.h */,
+				0D202CAD1C6B625C00CA048B /* UDPDWebView.m */,
+			);
+			name = UDPDWebView;
 			sourceTree = "<group>";
 		};
 		0D3DB3C01B7546D90052F46B /* ViewController */ = {
@@ -1147,6 +1170,7 @@
 		11A094071B5D61B100E4FB06 /* UnDiaParaDar */ = {
 			isa = PBXGroup;
 			children = (
+				0D202CAA1C6B623500CA048B /* Components */,
 				0D0646531C690BF400F1AEB7 /* AchievementsModule */,
 				0DCC37201C6825D8007A0FAF /* Parse */,
 				0DCC36FF1C67FDA0007A0FAF /* LocalNotificationsModule */,
@@ -1155,11 +1179,8 @@
 				0D0DFF491BEADD9700279997 /* PopupsModule */,
 				0DEBE1CE1BC1D58600906E52 /* LocationModule */,
 				0D7C573C1BC1B04200A402CF /* LoadingModule */,
-				0DF920E41BC0851800BAA52C /* Animator */,
-				0DCBD13D1BBB870500A870FD /* FMActivityIndicator */,
 				0DAF2FD51B7E94360045CE08 /* Model */,
 				0DAF2FD91B7E947B0045CE08 /* Services */,
-				0DCD99D21B8F7FBE00FF738E /* Extensions */,
 				0D6612C61B98C686006C272F /* Factories */,
 				0D1763781BB4644700C6E664 /* QueEsModule */,
 				0D11F4811BB37D0D00AFE46D /* T&CModule */,
@@ -1492,6 +1513,7 @@
 				0D6612C91B98C69C006C272F /* ButtonFactory.m in Sources */,
 				0D0DFF4F1BEAE39800279997 /* PledgePopupView.m in Sources */,
 				0DFE5A201BCEAD76004EFBC1 /* PositiveActionsFilteredWithMapView.m in Sources */,
+				0D202CAE1C6B625C00CA048B /* UDPDWebView.m in Sources */,
 				0D06464E1C682AE900F1AEB7 /* ParseLoginHound.m in Sources */,
 				11DEE6AA1B5D774900DCDE3E /* SWRevealRouting.m in Sources */,
 				1113AA1C1B5F05020066E7BB /* MenuProfileViewCell.m in Sources */,

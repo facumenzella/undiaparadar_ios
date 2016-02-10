@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UDPDWebView.h"
 
 @class QueEsPresenter;
 
-@interface QueEsView : UIWebView
+@interface QueEsView : UDPDWebView
 
 - (instancetype)initWithQueEs:(QueEsPresenter*)queEs;
 

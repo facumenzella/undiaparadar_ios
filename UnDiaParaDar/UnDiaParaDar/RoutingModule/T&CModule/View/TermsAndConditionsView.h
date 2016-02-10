@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UDPDWebView.h"
+
 @class TermsAndConditionsPresenter;
 
-@interface TermsAndConditionsView : UIWebView
+@interface TermsAndConditionsView : UDPDWebView
 
 - (instancetype)initWithTermsAndConditions:(TermsAndConditionsPresenter*)termsAndConditions;
 
