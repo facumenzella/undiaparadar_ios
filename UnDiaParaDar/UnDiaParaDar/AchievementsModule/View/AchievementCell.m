@@ -68,6 +68,9 @@ static NSString *const kPledge = @"pledge";
                                           withInset:0
                                            relation:NSLayoutRelationGreaterThanOrEqual];
     [self.stateImageView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [self.stateImageView setContentCompressionResistancePriority:UILayoutPriorityRequired
+                                                         forAxis:UILayoutConstraintAxisHorizontal];
+    
     [self.stateImageView setImage:[UIImage imageNamed:kPledge]];
 }
 
