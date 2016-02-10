@@ -57,6 +57,7 @@ static UIEdgeInsets kDefaultInsets = {64, 32, 64, 32};
     [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeBottom
                                          withInset:16
                                           relation:NSLayoutRelationGreaterThanOrEqual].priority = UILayoutPriorityRequired;
+    [self.containerView autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
 }
 
 - (void)pStyleSubviews
