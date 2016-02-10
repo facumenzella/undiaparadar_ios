@@ -3,6 +3,7 @@
 "MAP_SECTION" = "Mapa";
 "TERMSANDCONDITIONS_SECTION" = "Términos y condiciones";
 "QUEES_SECTION" = "Qué es UDPD?";
+"ACHIEVEMENTS_SECTION" = "Logros";
 
 // TOPICS MODULE
 "TOPICS_VC_TITLE" = "Encuentra qué hacer";
@@ -43,3 +44,24 @@
 // CONNECTION
 "NO_CONNECTION" = "No posee conexión a internet";
 "TAP_TO_RETRY" = "Aprete para recargar la página";
+
+// CANCEL
+"CANCEL" = "Cancelar";
+
+// CONFIRM
+"CONFIRM" = "Confirmar";
+
+// PLEDGE
+"I_PLEDGE" = "Me comprometo";
+"TIME" = "Horario";
+"DATE" = "Fecha";
+
+// REMINDER
+"REMINDER" = "Recordatorio";
+"REMINDER_HALF_HOUR" = "30 minutos antes";
+"REMINDER_ONE_HOUR" = "1 hora antes";
+"REMINDER_TWELVE_HOUR" = "12 horas antes";
+"REMINDER_ONE_DAY" = "1 día antes";
+"REMINDER_NO" = "No gracias";
+
+// ACHIEVEMENTS
