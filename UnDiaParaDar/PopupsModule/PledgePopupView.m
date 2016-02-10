@@ -131,7 +131,7 @@ static NSString *const kLooking = @"keepLooking";
     [pledge setBackgroundImage:[UIImage imageNamed:kPledge] forState:UIControlStateNormal];
     [self.pledgeButtonView addSubview:pledge];
     [pledge autoPinEdgeToSuperviewEdge:ALEdgeTop];
-    [pledge autoAlignAxisToSuperviewMarginAxis:ALAxisVertical];
+    [pledge autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [pledge autoSetDimension:ALDimensionWidth toSize:69];
     [pledge autoSetDimension:ALDimensionHeight toSize:70];
     [pledge addTarget:self action:@selector(pledge) forControlEvents:UIControlEventTouchUpInside];
@@ -158,7 +158,7 @@ static NSString *const kLooking = @"keepLooking";
     [keepLooking autoSetDimension:ALDimensionWidth toSize:69];
     [keepLooking autoSetDimension:ALDimensionHeight toSize:70];
     [keepLooking autoPinEdgeToSuperviewEdge:ALEdgeTop];
-    [keepLooking autoAlignAxisToSuperviewMarginAxis:ALAxisVertical];
+    [keepLooking autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [keepLooking addTarget:self action:@selector(keepLooking) forControlEvents:UIControlEventTouchUpInside];
     
     self.keepLookingButtonLabel = [[UILabel alloc] initForAutoLayout];
