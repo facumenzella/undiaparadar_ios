@@ -153,7 +153,7 @@ static NSArray *reminders;
     NSDate *finalDate = [self calculateReminderDateFromPledgeDate:pledgeDate];
     NSLog(@"date: %@", finalDate);
     if (![self.reminderItem.value[0] isEqualToString:[reminders lastObject]]) {
-        [[[LocalNotificationHound alloc] initWithDate:finalDate withMessage:@"Remember to do this shit"] setup];
+        [[[LocalNotificationHound alloc] initWithDate:finalDate withMessage:self.positiveAction.title] setup];
     }
     [self.topicService pledgePositiveAction:self.positiveAction forDate:pledgeDate];
     [self.routing showAchievementsViewController];
