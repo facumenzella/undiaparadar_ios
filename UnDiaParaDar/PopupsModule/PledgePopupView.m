@@ -114,7 +114,8 @@ static NSString *const kLooking = @"keepLooking";
                                 ofView:self.pledgeNotificationsLabel
                             withOffset:16];
     [self.buttonsContainer autoPinEdgeToSuperviewEdge:ALEdgeBottom
-                                            withInset:32];
+                                            withInset:32
+                                             relation:NSLayoutRelationGreaterThanOrEqual];
     [self.buttonsContainer autoAlignAxisToSuperviewAxis:ALAxisVertical];
     
     [self buildPledgeButton];

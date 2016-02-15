@@ -53,7 +53,7 @@ static UIEdgeInsets kDefaultInsets = {64, 32, 64, 32};
     [self.containerView autoPinEdgesToSuperviewEdgesWithInsets:self.insets excludingEdge:ALEdgeBottom];
     [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeBottom
                                          withInset:self.insets.bottom
-                                          relation:NSLayoutRelationLessThanOrEqual];
+                                          relation:NSLayoutRelationGreaterThanOrEqual];
     [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeBottom
                                          withInset:16
                                           relation:NSLayoutRelationGreaterThanOrEqual].priority = UILayoutPriorityRequired;
