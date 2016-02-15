@@ -131,7 +131,7 @@
                                                         withOptionTitle:mapTittle];
     mapPresenter.selectionHandler = ^(MenuOptionPresenter* presenter) {
         [presenter deselectRowAnimated:NO];
-        [self.routing showPositiveActionsMapViewControllerWithPresenter:nil withSelectedTopics:nil];
+        [self.routing showPositiveActionsMapViewControllerWithPresenter:nil withSelectedTopics:@[]];
     };
     [itemsSection addItem:mapPresenter];
     
