@@ -10,6 +10,12 @@
 
 @class RestkitService, MappingProvider, Topic, MapFilters, PositiveAction;
 
+typedef NS_ENUM(NSUInteger, TopicsServiceRequest) {
+    TopicsServiceRequestSuccess,
+    TopicsServiceRequestConnectionError,
+    TopicsServiceRequestUnknownError
+};
+
 @interface TopicService : NSObject
 
 -(instancetype)initWithRestkitService:(RestkitService*)restkitService
