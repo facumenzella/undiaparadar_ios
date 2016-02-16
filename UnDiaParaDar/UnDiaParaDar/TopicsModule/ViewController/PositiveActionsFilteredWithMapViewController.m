@@ -10,6 +10,8 @@
 #import "PositiveActionsMapView.h"
 #import "PositiveActionsFilteredWithMapView.h"
 #import "TapToRetryView.h"
+#import "NoConnectionTapToRetryPresenter.h"
+#import "UnknownErrorTapToRetryPresenter.h"
 
 #import "PositiveActionAnnotation.h"
 #import "LocationManager.h"
@@ -26,6 +28,9 @@
 @property (nonatomic, strong) TopicService *topicService;
 
 @property (nonatomic, strong) TapToRetryView *tapToRetryView;
+@property (nonatomic, strong) NoConnectionTapToRetryPresenter *noConnectionRetry;
+@property (nonatomic, strong) UnknownErrorTapToRetryPresenter *unknownRetry;
+
 @property (nonatomic, strong) PositiveActionsFilteredWithMapView *positiveFilteredView;
 
 @property (nonatomic, strong) SelectedTopicsViewController *selectedTopicsViewController;
@@ -66,6 +71,9 @@
         self.selectedTopicsViewController = [[SelectedTopicsViewController alloc]
                                              initWithTopicService:self.topicService
                                              withSelectedTopicsCallback:self.selectedCallback];
+        
+        self.noConnectionRetry = [[NoConnectionTapToRetryPresenter alloc] init];
+        self.unknownRetry = [[UnknownErrorTapToRetryPresenter alloc] init];
     }
     return self;
 }
@@ -103,21 +111,32 @@
     [self.selectedTopicsViewController setSelectedTopics:[NSMutableArray arrayWithArray:selectedTopics]];
     [self.routing showLoadingWithPresenter:self withLoadingBlock:^(UIViewController *loadingVC) {
         [welf.topicService positiveActionsFilteredWith:self.mapFilters
-                                          withCallback:^(NSError *error, NSArray *positiveActions) {
+                                          withCallback:^(TopicsServiceRequest error, NSArray *positiveActions) {
                                               [welf rangeDidChange:self.mapFilters.radio*1000];
-                                              if (error) {
-                                                  welf.view = self.tapToRetryView;
-                                                  [welf.routing dismissViewController:loadingVC withCompletion:nil];
-                                              } else {
-                                                  welf.positiveActions = positiveActions;
-                                                  NSMutableArray *annotations = [[NSMutableArray alloc] init];
-                                                  for (PositiveAction *p in welf.positiveActions) {
-                                                      id<MKAnnotation> annotation = [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
-                                                      [annotations addObject:annotation];
-                                                  }
-                                                  [welf.positiveFilteredView.positiveActionsMapView addPositiveActions:annotations];
-                                                  // radio must be in meters
-                                                  [welf.routing dismissViewController:loadingVC withCompletion:nil];
+                                              
+                                              switch (error) {
+                                                  case TopicsServiceRequestConnectionError:
+                                                      welf.view = self.tapToRetryView;
+                                                      [self.tapToRetryView setPresenter:self.noConnectionRetry];
+                                                      [welf.routing dismissViewController:loadingVC withCompletion:nil];
+                                                      break;
+                                                  case TopicsServiceRequestUnknownError:
+                                                      welf.view = self.tapToRetryView;
+                                                      [self.tapToRetryView setPresenter:self.unknownRetry];
+                                                      [welf.routing dismissViewController:loadingVC withCompletion:nil];
+                                                      break;
+                                                  case TopicsServiceRequestSuccess:
+                                                      welf.positiveActions = positiveActions;
+                                                      NSMutableArray *annotations = [[NSMutableArray alloc] init];
+                                                      for (PositiveAction *p in welf.positiveActions) {
+                                                          id<MKAnnotation> annotation =
+                                                          [[PositiveActionAnnotation alloc] initWithPositiveAction:p];
+                                                          [annotations addObject:annotation];
+                                                      }
+                                                      [welf.positiveFilteredView.positiveActionsMapView addPositiveActions:annotations];
+                                                      // radio must be in meters
+                                                      [welf.routing dismissViewController:loadingVC withCompletion:nil];
+                                                      break;
                                               }
                                           }];
     }];

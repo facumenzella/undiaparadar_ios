@@ -79,7 +79,6 @@ static NSString *const kBackground = @"Splash";
     [self.tapToRetryLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.separator];
     [self.tapToRetryLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:24];
     [self.tapToRetryLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:24];
-    self.tapToRetryLabel.text = NSLocalizedString(@"NO_CONNECTION", @"No posee conexion a internet");
 }
 
 - (void)buildNoConnectionLabel
@@ -119,6 +118,13 @@ static NSString *const kBackground = @"Splash";
 - (void)retry
 {
     [self.delegate retry];
+}
+
+#pragma mark - TapToRetryPresenter
+
+- (void)setPresenter:(id<TapToRetryViewPresenter>)presenter
+{
+    self.tapToRetryLabel.text = [presenter tapTitle];
 }
 
 @end

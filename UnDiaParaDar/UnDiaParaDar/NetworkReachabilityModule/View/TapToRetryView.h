@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TapToRetryViewPresenter
+
+@property (nonatomic, strong, readonly) NSString *tapTitle;
+
+@end
+
 @protocol TapToRetryViewDelegate
 
 - (void)retry;
@@ -17,5 +23,7 @@
 @interface TapToRetryView : UIView
 
 @property (nonatomic, assign) id<TapToRetryViewDelegate> delegate;
+
+- (void)setPresenter:(id<TapToRetryViewPresenter>)presenter;
 
 @end

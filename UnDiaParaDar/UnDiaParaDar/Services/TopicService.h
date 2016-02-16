@@ -27,7 +27,8 @@ typedef NS_ENUM(NSUInteger, TopicsServiceRequest) {
 - (NSMutableArray*)topics;
 - (Topic*)topicById:(NSString*)topicId;
 
-- (void)positiveActionsFilteredWith:(MapFilters*)mapFilters withCallback:(void (^)(NSError *, NSArray *))callback;
+- (void)positiveActionsFilteredWith:(MapFilters*)mapFilters
+                       withCallback:(void (^)(TopicsServiceRequest , NSArray*))callback;
 - (void)pledgePositiveAction:(PositiveAction*)positiveAction forDate:(NSDate*)date;
 
 @end

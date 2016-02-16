@@ -43,6 +43,8 @@
 
 // CONNECTION
 "NO_CONNECTION" = "No posee conexión a internet";
+"UNKNOWN_ERROR" = "Ha ocurrido un error inesperado";
+
 "TAP_TO_RETRY" = "Aprete para recargar la página";
 
 // CANCEL

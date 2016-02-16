@@ -60,6 +60,8 @@
 		0D8580EF1BBB6B17002CEB2B /* MappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8580EE1BBB6B17002CEB2B /* MappingProvider.m */; };
 		0D8580F21BBB6BAB002CEB2B /* PositiveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8580F11BBB6BAB002CEB2B /* PositiveAction.m */; };
 		0D8974921BC4B5AC00ACD124 /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8974911BC4B5AC00ACD124 /* ProfileView.m */; };
+		0D8AF1CA1C72B55700CA70FE /* NoConnectionTapToRetryPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8AF1C91C72B55700CA70FE /* NoConnectionTapToRetryPresenter.m */; };
+		0D8AF1CD1C72B5F200CA70FE /* UnknownErrorTapToRetryPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8AF1CC1C72B5F200CA70FE /* UnknownErrorTapToRetryPresenter.m */; };
 		0D8B6AFB1BCEE09D00D04A75 /* SelectedTopicsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B6AF81BCEE09D00D04A75 /* SelectedTopicsCollectionView.m */; };
 		0D8B6AFC1BCEE09D00D04A75 /* TopicsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B6AFA1BCEE09D00D04A75 /* TopicsCollectionView.m */; };
 		0D9059301BA641650008BF75 /* PositiveActionsFilteredWithMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D90592F1BA641650008BF75 /* PositiveActionsFilteredWithMapViewController.m */; };
@@ -250,6 +252,10 @@
 		0D8580F11BBB6BAB002CEB2B /* PositiveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositiveAction.m; sourceTree = "<group>"; };
 		0D8974901BC4B5AC00ACD124 /* ProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileView.h; sourceTree = "<group>"; };
 		0D8974911BC4B5AC00ACD124 /* ProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileView.m; sourceTree = "<group>"; };
+		0D8AF1C81C72B55700CA70FE /* NoConnectionTapToRetryPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoConnectionTapToRetryPresenter.h; sourceTree = "<group>"; };
+		0D8AF1C91C72B55700CA70FE /* NoConnectionTapToRetryPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoConnectionTapToRetryPresenter.m; sourceTree = "<group>"; };
+		0D8AF1CB1C72B5F200CA70FE /* UnknownErrorTapToRetryPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnknownErrorTapToRetryPresenter.h; sourceTree = "<group>"; };
+		0D8AF1CC1C72B5F200CA70FE /* UnknownErrorTapToRetryPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnknownErrorTapToRetryPresenter.m; sourceTree = "<group>"; };
 		0D8B6AF71BCEE09D00D04A75 /* SelectedTopicsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedTopicsCollectionView.h; sourceTree = "<group>"; };
 		0D8B6AF81BCEE09D00D04A75 /* SelectedTopicsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedTopicsCollectionView.m; sourceTree = "<group>"; };
 		0D8B6AF91BCEE09D00D04A75 /* TopicsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicsCollectionView.h; sourceTree = "<group>"; };
@@ -734,6 +740,7 @@
 		0D7D1BAE1BEC3213006AADAB /* NetworkReachabilityModule */ = {
 			isa = PBXGroup;
 			children = (
+				0D8AF1C71C72B4CE00CA70FE /* Presenter */,
 				0D7BA7B21BF1607200297A7F /* View */,
 				0D7D1BB71BEC37AD006AADAB /* ViewController */,
 				0D7D1BAF1BEC3228006AADAB /* Assembly */,
@@ -769,6 +776,18 @@
 			);
 			path = ViewController;
 			sourceTree = "<group>";
+		};
+		0D8AF1C71C72B4CE00CA70FE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0D8AF1C81C72B55700CA70FE /* NoConnectionTapToRetryPresenter.h */,
+				0D8AF1C91C72B55700CA70FE /* NoConnectionTapToRetryPresenter.m */,
+				0D8AF1CB1C72B5F200CA70FE /* UnknownErrorTapToRetryPresenter.h */,
+				0D8AF1CC1C72B5F200CA70FE /* UnknownErrorTapToRetryPresenter.m */,
+			);
+			name = Presenter;
+			path = UnDiaParaDar/NetworkReachabilityModule/Presenter;
+			sourceTree = SOURCE_ROOT;
 		};
 		0D8B6AF61BCEE09D00D04A75 /* CollectionViews */ = {
 			isa = PBXGroup;
@@ -1532,6 +1551,7 @@
 				0D7D1BB31BEC326B006AADAB /* NetworkReachabilityAssembly.m in Sources */,
 				0D8B6AFC1BCEE09D00D04A75 /* TopicsCollectionView.m in Sources */,
 				0D94F83E1BA9FCE100945F81 /* PositiveActionsMapView.m in Sources */,
+				0D8AF1CA1C72B55700CA70FE /* NoConnectionTapToRetryPresenter.m in Sources */,
 				0D06467D1C692FC100F1AEB7 /* Achievement.m in Sources */,
 				0D11F48E1BB37EB200AFE46D /* TermsAndConditionsPresenter.m in Sources */,
 				0DF920EA1BC08C8F00BAA52C /* PositiveActionView.m in Sources */,
@@ -1545,6 +1565,7 @@
 				113E46A21B62C74D00ADF8AC /* SWRevealTailor.m in Sources */,
 				0D11F4881BB37D4300AFE46D /* TermsAndConditionsAssembly.m in Sources */,
 				0D0646521C68EAFA00F1AEB7 /* ParsePositiveAction.m in Sources */,
+				0D8AF1CD1C72B5F200CA70FE /* UnknownErrorTapToRetryPresenter.m in Sources */,
 				0D0610691BD030AB00595A9A /* UIColor+Transformation.m in Sources */,
 				11A0940B1B5D61B100E4FB06 /* main.m in Sources */,
 				0D9E1E101B7E5B8F0049D08B /* SplashView.m in Sources */,

@@ -51,7 +51,8 @@ static NSString *ALL;
 
 #pragma mark - TopicService
 
-- (void)positiveActionsFilteredWith:(MapFilters*)mapFilters withCallback:(void (^)(NSError *, NSArray *))callback
+- (void)positiveActionsFilteredWith:(MapFilters*)mapFilters
+                       withCallback:(void (^)(TopicsServiceRequest , NSArray*))callback
 {
     NSArray *filter = mapFilters.selectedTopics;
     if (!filter || filter.count == 0) {
@@ -73,10 +74,17 @@ static NSString *ALL;
     [self getPositiveActionsWithURL:encodedURL withCallback:callback];
 }
 
-- (void)getPositiveActionsWithURL:(NSString*)url withCallback:(void (^)(NSError* , NSArray*))callback
+- (void)getPositiveActionsWithURL:(NSString*)url withCallback:(void (^)(TopicsServiceRequest , NSArray*))callback
 {
     void (^cb)(RKMappingResult*, NSError*) = ^(RKMappingResult* result, NSError* error) {
-        callback(error, result.array);
+        if ([error.domain isEqualToString:NSURLErrorDomain]) { \
+            callback(TopicsServiceRequestConnectionError, nil);
+        } else if (error) {
+            callback(TopicsServiceRequestUnknownError, nil);
+        } else {
+            callback(TopicsServiceRequestSuccess, result.array);
+        }
+        
     };
     
     static NSString *const keyPath = @"response.docs";
