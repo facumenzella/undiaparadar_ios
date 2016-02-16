@@ -29,7 +29,7 @@ static NSString *const kUnderline = @"underline";
 
 - (instancetype)init
 {
-    self = [super initWithInsets:UIEdgeInsetsMake(80, 32, 160, 32)];
+    self = [super initWithInsets:UIEdgeInsetsMake(80, 32, 120, 32)];
     if (self) {
         [self buildSubviews];
         [self styleSubviews];
