@@ -60,9 +60,10 @@
                 }
             }
             callback(c, d, nd, AchievementServiceStateSuccess);
-        } else {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-            callback(nil, nil, nil, AchievementServiceStateError);
+        } else if ([error.domain isEqualToString:NSURLErrorDomain]) {
+            callback(nil, nil, nil, AchievementServiceStateNetworkError);
+        } else  {
+            callback(nil, nil, nil, AchievementServiceStateUnknownError);
         }
     }];
 }

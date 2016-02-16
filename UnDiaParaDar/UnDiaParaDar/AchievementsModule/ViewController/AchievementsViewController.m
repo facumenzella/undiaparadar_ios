@@ -16,12 +16,20 @@
 #import "AchievementService.h"
 #import "Routing.h"
 
-@interface AchievementsViewController () <AchievementViewDelegate, AchievementCellDelegate>
+#import "TapToRetryView.h"
+#import "UnknownErrorTapToRetryPresenter.h"
+#import "NoConnectionTapToRetryPresenter.h"
+
+@interface AchievementsViewController () <AchievementViewDelegate, AchievementCellDelegate, TapToRetryViewDelegate>
 
 @property (nonatomic, strong) AchievementsView *achievementsView;
 @property (nonatomic, strong) RETableViewManager *manager;
 @property (nonatomic, strong) AchievementService *service;
 @property (nonatomic, strong) id<Routing> routing;
+
+@property (nonatomic, strong) TapToRetryView *tapToRetry;
+@property (nonatomic, strong) UnknownErrorTapToRetryPresenter *unknownTapToRetry;
+@property (nonatomic, strong) NoConnectionTapToRetryPresenter *noConnectionTapToRetry;
 
 @property (nonatomic, strong) RETableViewSection *sectionAll;
 @property (nonatomic, strong) RETableViewSection *sectionDone;
@@ -43,6 +51,11 @@
     if (self) {
         self.service = service;
         self.routing = routing;
+        
+        self.tapToRetry = [[TapToRetryView alloc] init];
+        self.tapToRetry.delegate = self;
+        self.noConnectionTapToRetry = [[NoConnectionTapToRetryPresenter alloc] init];
+        self.unknownTapToRetry = [[UnknownErrorTapToRetryPresenter alloc] init];
     }
     return self;
 }
@@ -74,6 +87,11 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self reload];
+}
+
+- (void)reload
+{
     [self.routing showLoadingWithPresenter:self withLoadingBlock:^(UIViewController*loading) {
         [self.service pledgesWithCallback:^(NSArray *pledge,
                                             NSArray *done,
@@ -81,13 +99,17 @@
                                             AchievementServiceState state) {
             [self.routing dismissViewController:loading withCompletion:nil];
             switch (state) {
-                case AchievementServiceStateError:
-                    [self showError];
+                case AchievementServiceStateNetworkError:
+                    [self showError:self.noConnectionTapToRetry];
+                    break;
+                case AchievementServiceStateUnknownError:
+                    [self showError:self.unknownTapToRetry];
                     break;
                 case  AchievementServiceStateSuccess:
                     self.done = done;
                     self.notdone = notdone;
                     self.pledge = pledge;
+                    
                     [self populateSections];
                     break;
                 default:
@@ -97,15 +119,19 @@
     }];
 }
 
-- (void)showError
+- (void)showError:(id<TapToRetryViewPresenter>)presenter
 {
     self.pledge = nil;
     self.done = nil;
     self.notdone = nil;
+    
+    self.view =  self.tapToRetry;
+    [self.tapToRetry setPresenter:presenter];
 }
 
 - (void)populateSections
 {
+    self.view = self.achievementsView;
     for (Achievement *a in self.pledge) {
         AchievementPledgePresenter *p = [[AchievementPledgePresenter alloc] initWithTitle:a.title];
         p.achieve = a;
@@ -226,6 +252,14 @@
 - (void)pledgeWithItem:(id<AchievementBaseCellProtocol>)item
 {
     [self.routing showPledgeConfirmationWithAchievement:[item achieve] withPresenter:self];
+}
+
+#pragma mark - TapToRetryViewDelegate
+
+- (void)retry
+{
+    self.view = self.achievementsView;
+    [self reload];
 }
 
 @end

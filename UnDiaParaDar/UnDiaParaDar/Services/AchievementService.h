@@ -11,8 +11,8 @@
 @class Achievement;
 
 typedef NS_ENUM(NSUInteger, AchievementServiceState) {
-    AchievementServiceStateError,
-    AchievementServiceStateNoAnswer,
+    AchievementServiceStateNetworkError,
+    AchievementServiceStateUnknownError,
     AchievementServiceStateSuccess
 };
 
