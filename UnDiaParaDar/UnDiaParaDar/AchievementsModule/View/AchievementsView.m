@@ -134,6 +134,10 @@ static NSString *const kNotDone = @"faltas";
 {
     self.backgroundColor = [UIColor whiteColor];
     self.filtersContainer.backgroundColor = [UIColor whiteColor];
+    self.allFilter.backgroundColor = [UIColor whiteColor];
+    self.doneFilter.backgroundColor = [UIColor whiteColor];
+    self.pledgeFilter.backgroundColor = [UIColor whiteColor];
+    self.notDoneFilter.backgroundColor = [UIColor whiteColor];
 }
 
 #pragma mark - TapGestures
