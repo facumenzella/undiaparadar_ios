@@ -25,7 +25,7 @@ static NSString *const kUnderline = @"underline";
 
 - (instancetype)init
 {
-    self = [super initWithInsets:UIEdgeInsetsMake(80, 32, 160, 32)];
+    self = [super initWithInsets:UIEdgeInsetsMake(80, 32, 80, 32)];
     if (self) {
         [self buildSubviews];
         [self styleSubviews];
@@ -35,6 +35,10 @@ static NSString *const kUnderline = @"underline";
 
 - (void)buildSubviews
 {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(understood)];
+    [self addGestureRecognizer:tap];
+    self.userInteractionEnabled = YES;
+    
     [self buildTitleLabel];
     [self buildSubtitleLabel];
     [self buildUnderstood];
@@ -46,6 +50,8 @@ static NSString *const kUnderline = @"underline";
     self.noConnectionTitleLabel.text = @"Lo sentimos";
     [self addSubview:self.noConnectionTitleLabel];
     
+    [self.noConnectionTitleLabel setContentHuggingPriority:UILayoutPriorityRequired
+                                                   forAxis:UILayoutConstraintAxisVertical];
     [self.noConnectionTitleLabel autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(16, 0, 0, 0)
                                                           excludingEdge:ALEdgeBottom];
     [self buildUnderline];
@@ -64,6 +70,8 @@ static NSString *const kUnderline = @"underline";
                                                       withInset:16];
     [self.noConnectionTitleUnderline autoPinEdgeToSuperviewEdge:ALEdgeRight
                                                       withInset:16];
+    [self.noConnectionTitleUnderline setContentHuggingPriority:UILayoutPriorityRequired
+                                                       forAxis:UILayoutConstraintAxisVertical];
 }
 
 - (void)buildSubtitleLabel
@@ -79,6 +87,8 @@ static NSString *const kUnderline = @"underline";
                                                      withInset:16];
     [self.noConnectionSubtitleLabel autoPinEdgeToSuperviewEdge:ALEdgeRight
                                                      withInset:16];
+    [self.noConnectionSubtitleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired
+                                                                    forAxis:UILayoutConstraintAxisVertical];
 }
 
 - (void)buildUnderstood
@@ -90,12 +100,14 @@ static NSString *const kUnderline = @"underline";
     [self.noConnectionUnderstood autoPinEdge:ALEdgeTop
                                       toEdge:ALEdgeBottom
                                       ofView:self.noConnectionSubtitleLabel
-                                  withOffset:16
-                                    relation:NSLayoutRelationGreaterThanOrEqual];
+                                  withOffset:16];
     [self.noConnectionUnderstood autoPinEdgeToSuperviewEdge:ALEdgeLeft];
     [self.noConnectionUnderstood autoPinEdgeToSuperviewEdge:ALEdgeRight];
     [self.noConnectionUnderstood autoPinEdgeToSuperviewEdge:ALEdgeBottom
                                                   withInset:16];
+    [self.noConnectionUnderstood setContentCompressionResistancePriority:UILayoutPriorityRequired
+                                                                 forAxis:UILayoutConstraintAxisVertical];
+    
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(understood)];
     [self.noConnectionUnderstood addGestureRecognizer:tap];
@@ -112,7 +124,7 @@ static NSString *const kUnderline = @"underline";
     self.noConnectionTitleLabel.textAlignment = NSTextAlignmentCenter;
     
     self.noConnectionSubtitleLabel.backgroundColor = [UIColor clearColor];
-    self.noConnectionSubtitleLabel.numberOfLines = 10;
+    self.noConnectionSubtitleLabel.numberOfLines = 0;
     self.noConnectionSubtitleLabel.font = [BeautyCenter beautyCenterFontWithStyle:BeautyCenterTypographyStyleLight
                                                                          withSize:BeautyCenterTypographySizeC];
     self.noConnectionSubtitleLabel.textAlignment = NSTextAlignmentCenter;
@@ -123,8 +135,19 @@ static NSString *const kUnderline = @"underline";
     self.noConnectionUnderstood.textColor = [BeautyCenter beautyCenterColor:BeautyCenterColorDarkRed];
 }
 
+- (void)modalStyle
+{
+    [UIView animateWithDuration:.4 animations:^{
+        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.4];
+    }];
+}
+
 - (void)understood
 {
-    [self.delegate understood];
+    [UIView animateWithDuration:.4 animations: ^{
+        self.backgroundColor = [UIColor clearColor];
+    } completion:^(BOOL completed) {
+        [self.delegate understood];
+    }];
 }
 @end

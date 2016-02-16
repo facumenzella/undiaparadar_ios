@@ -33,7 +33,7 @@ static NSString *const kLooking = @"keepLooking";
 
 - (instancetype)init
 {
-    self = [super initWithInsets:UIEdgeInsetsMake(80, 32, 160, 32)];
+    self = [super initWithInsets:UIEdgeInsetsMake(80, 32, 80, 32)];
     if (self) {
         [self buildSubviews];
         [self styleSubviews];
@@ -61,6 +61,7 @@ static NSString *const kLooking = @"keepLooking";
     
     [self.pledgeTitleLabel autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(16, 0, 0, 0)
                                                     excludingEdge:ALEdgeBottom];
+    [self.pledgeTitleLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     [self buildUnderline];
 }
 
@@ -75,6 +76,9 @@ static NSString *const kLooking = @"keepLooking";
                                                 withInset:16];
     [self.pledgeTitleUnderline autoPinEdgeToSuperviewEdge:ALEdgeRight
                                                 withInset:16];
+    [self.pledgeTitleUnderline setContentHuggingPriority:UILayoutPriorityRequired
+                                                 forAxis:UILayoutConstraintAxisVertical];
+    
 }
 
 - (void)buildSubtitleLabel
@@ -83,11 +87,16 @@ static NSString *const kLooking = @"keepLooking";
     self.pledgeSubtitleLabel.text = @"Quieren comprometerte con esta accion?";
     [self addSubview:self.pledgeSubtitleLabel];
     
-    [self.pledgeSubtitleLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.pledgeTitleUnderline withOffset:16];
+    [self.pledgeSubtitleLabel autoPinEdge:ALEdgeTop
+                                   toEdge:ALEdgeBottom
+                                   ofView:self.pledgeTitleUnderline
+                               withOffset:16];
     [self.pledgeSubtitleLabel autoPinEdgeToSuperviewEdge:ALEdgeLeft
                                                withInset:16];
     [self.pledgeSubtitleLabel autoPinEdgeToSuperviewEdge:ALEdgeRight
                                                withInset:16];
+    [self.pledgeSubtitleLabel setContentHuggingPriority:UILayoutPriorityRequired
+                                                forAxis:UILayoutConstraintAxisVertical];
 }
 
 - (void)buildNotificationsLabel
@@ -103,6 +112,8 @@ static NSString *const kLooking = @"keepLooking";
                                                     withInset:16];
     [self.pledgeNotificationsLabel autoPinEdgeToSuperviewEdge:ALEdgeRight
                                                     withInset:16];
+    [self.pledgeNotificationsLabel setContentHuggingPriority:UILayoutPriorityRequired
+                                                     forAxis:UILayoutConstraintAxisVertical];
 }
 
 - (void)buildButtons
@@ -114,10 +125,10 @@ static NSString *const kLooking = @"keepLooking";
                                 ofView:self.pledgeNotificationsLabel
                             withOffset:16];
     [self.buttonsContainer autoPinEdgeToSuperviewEdge:ALEdgeBottom
-                                            withInset:32
-                                             relation:NSLayoutRelationGreaterThanOrEqual];
+                                            withInset:16];
     [self.buttonsContainer autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    
+    [self.buttonsContainer setContentHuggingPriority:UILayoutPriorityRequired
+                                             forAxis:UILayoutConstraintAxisVertical];
     [self buildPledgeButton];
     [self buildKeepLookingButton];
 }
@@ -139,6 +150,8 @@ static NSString *const kLooking = @"keepLooking";
     
     self.pledgeButtonLabel = [[UILabel alloc] initForAutoLayout];
     [self.pledgeButtonView addSubview:self.pledgeButtonLabel];
+    [self.pledgeButtonLabel setContentHuggingPriority:UILayoutPriorityRequired
+                                              forAxis:UILayoutConstraintAxisVertical];
     self.pledgeButtonLabel.text = NSLocalizedString(@"I_COMMIT", @"Me Comprometo");
     [self.pledgeButtonLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:pledge];
     [self.pledgeButtonLabel autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
@@ -164,6 +177,8 @@ static NSString *const kLooking = @"keepLooking";
     
     self.keepLookingButtonLabel = [[UILabel alloc] initForAutoLayout];
     [self.keepLookingButtonView addSubview:self.keepLookingButtonLabel];
+    [self.keepLookingButtonLabel setContentHuggingPriority:UILayoutPriorityRequired
+                                                   forAxis:UILayoutConstraintAxisVertical];
     self.keepLookingButtonLabel.text = NSLocalizedString(@"KEEP_LOOKING", @"Seguir buscando");
     [self.keepLookingButtonLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:keepLooking];
     [self.keepLookingButtonLabel autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];

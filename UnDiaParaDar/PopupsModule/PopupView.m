@@ -50,13 +50,17 @@ static UIEdgeInsets kDefaultInsets = {64, 32, 64, 32};
     self.containerView.userInteractionEnabled = YES;
     [super addSubview:self.containerView];
     
-    [self.containerView autoPinEdgesToSuperviewEdgesWithInsets:self.insets excludingEdge:ALEdgeBottom];
+    [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeTop
+                                         withInset:self.insets.top
+                                          relation:NSLayoutRelationGreaterThanOrEqual];
+    
+    [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:self.insets.left];
+    [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:self.insets.right];
+
     [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeBottom
                                          withInset:self.insets.bottom
                                           relation:NSLayoutRelationGreaterThanOrEqual];
-    [self.containerView autoPinEdgeToSuperviewEdge:ALEdgeBottom
-                                         withInset:16
-                                          relation:NSLayoutRelationGreaterThanOrEqual].priority = UILayoutPriorityRequired;
+
     [self.containerView autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
 }
 

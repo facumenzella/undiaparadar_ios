@@ -36,6 +36,12 @@
     self.view = self.popup;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.popup modalStyle];
+}
+
 #pragma mark - NoConnectionPopupViewDelegate
 
 - (void)understood

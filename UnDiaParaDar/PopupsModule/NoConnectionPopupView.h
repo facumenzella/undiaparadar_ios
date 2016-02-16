@@ -18,4 +18,6 @@
 
 @property (nonatomic, assign) id<NoConnectionPopupViewDelegate> delegate;
 
+- (void)modalStyle;
+
 @end
