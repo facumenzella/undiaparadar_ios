@@ -103,7 +103,10 @@
 {
     [super viewDidAppear:animated];
     [self handleFilters:self.mapFilters];
+    
+    
 }
+
 
 - (void)refreshMapWithSelectedTopics:(NSArray*)selectedTopics
 {

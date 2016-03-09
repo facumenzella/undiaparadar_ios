@@ -30,6 +30,7 @@
 {
     self = [super init];
     if (self){
+        UNUSED(routing);
         self.routing = routing;
         self.service = service;
         self.achieve = achieve;
