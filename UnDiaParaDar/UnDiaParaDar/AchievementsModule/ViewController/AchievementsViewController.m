@@ -93,29 +93,11 @@
 - (void)reload
 {
     [self.routing showLoadingWithPresenter:self withLoadingBlock:^(UIViewController*loading) {
-        [self.service pledgesWithCallback:^(NSArray *pledge,
-                                            NSArray *done,
-                                            NSArray *notdone,
-                                            AchievementServiceState state) {
-            [self.routing dismissViewController:loading withCompletion:nil];
-            switch (state) {
-                case AchievementServiceStateNetworkError:
-                    [self showError:self.noConnectionTapToRetry];
-                    break;
-                case AchievementServiceStateUnknownError:
-                    [self showError:self.unknownTapToRetry];
-                    break;
-                case  AchievementServiceStateSuccess:
-                    self.done = done;
-                    self.notdone = notdone;
-                    self.pledge = pledge;
-                    
-                    [self populateSections];
-                    break;
-                default:
-                    break;
-            }
-        }];
+        [self.routing dismissViewController:loading withCompletion:nil];
+        self.done = @[];
+        self.notdone = @[];
+        self.pledge = @[];
+        [self populateSections];
     }];
 }
 
