@@ -1,6 +1,6 @@
-platform :ios, '7.1'
+platform :ios, '9.0'
 
-target 'UnDiaParaDar', :exclusive => true do
+target 'UnDiaParaDar' do
 	pod 'Typhoon', '~> 2.3.1'
 	pod 'PureLayout'	
 	pod 'RestKit', '0.26.0'

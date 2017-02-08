@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */; };
 		0D05A28D1C693F2B009EF42D /* UILabel+EstimatedHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D05A28B1C693F2B009EF42D /* UILabel+EstimatedHeight.m */; };
 		0D05A2931C698296009EF42D /* ConfirmPledgePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D05A2921C698296009EF42D /* ConfirmPledgePopupView.m */; };
 		0D0610691BD030AB00595A9A /* UIColor+Transformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0610681BD030AB00595A9A /* UIColor+Transformation.m */; };
@@ -136,6 +135,7 @@
 		11DEE6AD1B5D778F00DCDE3E /* RoutingModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6AC1B5D778F00DCDE3E /* RoutingModuleAssembly.m */; };
 		11DEE6B01B5D7D9300DCDE3E /* AppDelegateAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6AF1B5D7D9300DCDE3E /* AppDelegateAssembly.m */; };
 		11DEE6B31B5D818500DCDE3E /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DEE6B21B5D818500DCDE3E /* LoginView.m */; };
+		68000DFE5D6CC2BBD18BF578 /* libPods-UnDiaParaDar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E31B55C3CFE25815BA6C923C /* libPods-UnDiaParaDar.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,7 +149,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06C0FA932F79B7DB4ECAB673 /* Pods-UnDiaParaDar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnDiaParaDar.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar.release.xcconfig"; sourceTree = "<group>"; };
 		0D05A28B1C693F2B009EF42D /* UILabel+EstimatedHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+EstimatedHeight.m"; sourceTree = "<group>"; };
 		0D05A28C1C693F2B009EF42D /* UILabel+EstimatedHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+EstimatedHeight.h"; sourceTree = "<group>"; };
 		0D05A2911C698296009EF42D /* ConfirmPledgePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmPledgePopupView.h; sourceTree = "<group>"; };
@@ -398,8 +397,9 @@
 		11DEE6B21B5D818500DCDE3E /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		11DEE6B41B5D937F00DCDE3E /* FacebookLoginFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookLoginFlow.h; sourceTree = "<group>"; };
 		11DEE6B51B5D937F00DCDE3E /* FacebookLoginFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookLoginFlow.m; sourceTree = "<group>"; };
-		359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnDiaParaDar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A108957507AEF20E1CD92D55 /* Pods-UnDiaParaDar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnDiaParaDar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar.debug.xcconfig"; sourceTree = "<group>"; };
+		566A12B6A615B1591A676E4E /* Pods-UnDiaParaDar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnDiaParaDar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar.debug.xcconfig"; sourceTree = "<group>"; };
+		9EB7F251641C20742DFA5562 /* Pods-UnDiaParaDar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnDiaParaDar.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar.release.xcconfig"; sourceTree = "<group>"; };
+		E31B55C3CFE25815BA6C923C /* libPods-UnDiaParaDar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnDiaParaDar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,7 +419,7 @@
 				0DCC370F1C682585007A0FAF /* CFNetwork.framework in Frameworks */,
 				0DCC370D1C68257D007A0FAF /* AudioToolbox.framework in Frameworks */,
 				0DCC370B1C682577007A0FAF /* Accounts.framework in Frameworks */,
-				0C195E56EB02D391BFC2E74A /* libPods-UnDiaParaDar.a in Frameworks */,
+				68000DFE5D6CC2BBD18BF578 /* libPods-UnDiaParaDar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,15 +433,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C6B40A51306E9616DBE714A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A108957507AEF20E1CD92D55 /* Pods-UnDiaParaDar.debug.xcconfig */,
-				06C0FA932F79B7DB4ECAB673 /* Pods-UnDiaParaDar.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		0D06464F1C68EAE800F1AEB7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1172,8 +1163,8 @@
 				11A094071B5D61B100E4FB06 /* UnDiaParaDar */,
 				11A094211B5D61B100E4FB06 /* UnDiaParaDarTests */,
 				11A094061B5D61B100E4FB06 /* Products */,
-				0C6B40A51306E9616DBE714A /* Pods */,
 				724CCA6615E58C6D4901AFC9 /* Frameworks */,
+				9282BDAAD279FB61A4AE55FA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1343,9 +1334,18 @@
 				0DCC370C1C68257D007A0FAF /* AudioToolbox.framework */,
 				0DCC370A1C682577007A0FAF /* Accounts.framework */,
 				0DEBE1CC1BC1D4F000906E52 /* CoreLocation.framework */,
-				359A3C02F8A8EA8BBC360584 /* libPods-UnDiaParaDar.a */,
+				E31B55C3CFE25815BA6C923C /* libPods-UnDiaParaDar.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9282BDAAD279FB61A4AE55FA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				566A12B6A615B1591A676E4E /* Pods-UnDiaParaDar.debug.xcconfig */,
+				9EB7F251641C20742DFA5562 /* Pods-UnDiaParaDar.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1355,12 +1355,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11A094281B5D61B100E4FB06 /* Build configuration list for PBXNativeTarget "UnDiaParaDar" */;
 			buildPhases = (
-				2B98827787DD491EF11763FD /* Check Pods Manifest.lock */,
+				8ECD555865F35C956314DFDD /* [CP] Check Pods Manifest.lock */,
 				11A094011B5D61B100E4FB06 /* Sources */,
 				11A094021B5D61B100E4FB06 /* Frameworks */,
 				11A094031B5D61B100E4FB06 /* Resources */,
-				BE64F84C8C3741C4AEF9C775 /* Copy Pods Resources */,
-				9090DEEF30747327F81CC9C6 /* Embed Pods Frameworks */,
+				256A74E7E2A53F92CA058233 /* [CP] Embed Pods Frameworks */,
+				570E3044B76C76D60C54F320 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1450,29 +1450,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2B98827787DD491EF11763FD /* Check Pods Manifest.lock */ = {
+		256A74E7E2A53F92CA058233 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		9090DEEF30747327F81CC9C6 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1480,19 +1465,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BE64F84C8C3741C4AEF9C775 /* Copy Pods Resources */ = {
+		570E3044B76C76D60C54F320 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UnDiaParaDar/Pods-UnDiaParaDar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8ECD555865F35C956314DFDD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1730,7 +1730,7 @@
 		};
 		11A094291B5D61B100E4FB06 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A108957507AEF20E1CD92D55 /* Pods-UnDiaParaDar.debug.xcconfig */;
+			baseConfigurationReference = 566A12B6A615B1591A676E4E /* Pods-UnDiaParaDar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1756,7 +1756,7 @@
 		};
 		11A0942A1B5D61B100E4FB06 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06C0FA932F79B7DB4ECAB673 /* Pods-UnDiaParaDar.release.xcconfig */;
+			baseConfigurationReference = 9EB7F251641C20742DFA5562 /* Pods-UnDiaParaDar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

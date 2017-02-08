@@ -4,12 +4,14 @@ Pod::Spec.new do |s|
   s.name             = "ExternalLibraries"
   s.version          = "0.1.0"
   s.summary          = "All the libraries that aren't in a Pod already"
-  s.description      = <<-DESC
-                       DESC
+  s.description      = "All the libraries that aren't in a Pod already longer than summary"
+
+  s.source           = {:path => "."}
+  s.homepage         = "www.google.com"
+
   s.license          = 'MIT'
   s.author           = { "Facundo Menzella" => "facumenzella@gmail.com" }
-
-  s.platform     = :ios, '7.1'
+  s.platform     = :ios, '9.0'
   s.requires_arc = true
 
   s.source_files = '**/*.{m,h}'
